@@ -216,12 +216,12 @@ class LinkPager extends Widget
         if ($disabled) {
             Html::addCssClass($options, $this->disabledPageCssClass);
 
-            return Html::tag('li', Html::tag('span', $label), $options);
+            return Html::tag('span', Html::tag('span', $label), $options);
         }
         $linkOptions = $this->linkOptions;
         $linkOptions['data-page'] = $page;
 
-        return Html::tag('li', Html::a($label, $this->pagination->createUrl($page), $linkOptions), $options);
+        return Html::tag('span', Html::a($label, $this->pagination->createUrl($page), $linkOptions), $options);
     }
 
     /**
