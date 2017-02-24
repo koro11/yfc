@@ -1,14 +1,14 @@
 <!--Start content-->
 <section class="Psection MT20">
 <nav class="U-nav Font14 FontW">
-  <ul>
-   <li><i></i><a href="user_center.html">用户中心首页</a></li>
-   <li><i></i><a href="user_orderlist.html">我的订单</a></li>
-   <li><i></i><a href="user_address.html">收货地址</a></li>
-   <li><i></i><a href="user_message.html">我的留言</a></li>
-   <li><i></i><a href="user_coupon.html">我的优惠券</a></li>
-   <li><i></i><a href="user_favorites.html">我的收藏</a></li>
-   <li><i></i><a href="user_account.html">账户管理</a></li>
+   <ul>
+   <li><i></i><a href="?r=user/user_index">用户中心首页</a></li>
+   <li><i></i><a href="?r=user/user_orderlist">我的订单</a></li>
+   <li><i></i><a href="?r=user/user_address">收货地址</a></li>
+   <li><i></i><a href="?r=user/user_message">我的留言</a></li>
+   <li><i></i><a href="?r=user/user_coupon">我的优惠券</a></li>
+   <li><i></i><a href="?r=user/user_collect">我的收藏</a></li>
+   <li><i></i><a href="?r=user/user_account">账户管理</a></li>
    <li><i></i><a href="#">安全退出</a></li>
   </ul>
  </nav>
@@ -24,14 +24,14 @@
     <th>共计金额</th>
     <th>付款方式</th>
     <tr>
-     <td>201409243195</td>
-     <td><a href="detailsp.html" target="_blank" title="酸辣土豆丝">酸辣土豆丝</a></td>
-     <td>1</td>
-     <td>￥8.00</td>
-     <td>￥8.00</td>
+     <td><?php echo $arr['order_sn']?></td>
+     <td><a href="" target="_blank" title=""><?php echo $arr['date']['food_name']?></a></td>
+     <td><?php echo $arr['date']['food_num']?></td>
+     <td>￥<?php echo $arr['food']['food_price']?></td>
+     <td>￥<?php echo $arr['food_amount']?></td>
      <td>￥2.00</td>
-     <td>￥10.00</td>
-     <td>支付宝</td>
+     <td><?php echo $arr['order_amount']?></td>
+     <td><?php echo $arr['pay_way']?></td>
      <!--如果未付款，则显示立即付款按钮-->
      <td style="display:none;"><a href="#" target="_blank">立即付款</a></td>
     </tr>
@@ -43,16 +43,17 @@
      <td width="30%" align="right" class="FontW">收件地址：</td>
      <td>
      <select name="" class="select_ssq">
-      <option>陕西省</option>
+      <option><?php echo $arr['adress']['cons_province']?>省</option>
      </select>
      <select name="" class="select_ssq">
-      <option>西安市</option>
+      <option><?php echo $arr['adress']['cons_city']?>市</option>
      </select>
      <select name="" class="select_ssq">
-      <option>雁塔区</option>
+      <option><?php echo $arr['adress']['cons_district']?></option>
      </select>
      </td>
     </tr>
+    <?php if ($arr['']) {?>
     <tr>
      <td width="30%" align="right" class="FontW">邮政编码：</td>
      <td><input type="text" name="" class="input_zipcode"  value="710077" required pattern="[0-9]{6}"></td>
