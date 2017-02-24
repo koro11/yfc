@@ -53,7 +53,28 @@
      </select>
      </td>
     </tr>
-    <?php if ($arr['']) {?>
+    <?php if ($arr['pay_status']==1) {?>
+    <tr>
+     <td width="30%" align="right" class="FontW">邮政编码：</td>
+     <td><input type="text" name="" class="input_zipcode"  value="710077" required pattern="[0-9]{6}"></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">街道地址：</td>
+     <td><input type="text" name="" class="input_addr" value="丈八北路2000集" required></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">收件人姓名：</td>
+     <td><input type="text" name="" class="input_name" value="deathghost" required></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">手机号码：</td>
+     <td><input type="text" name="" class="input_tel" value="1582551819" required pattern="[0-9]{11}"></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">订单备注：</td>
+     <td><input type="text" name="" class="input_mark" value="...速度送货哦...谢谢~"></td>
+    </tr>
+    <?php }else{?>
     <tr>
      <td width="30%" align="right" class="FontW">邮政编码：</td>
      <td><input type="text" name="" class="input_zipcode"  value="710077" required pattern="[0-9]{6}"></td>
@@ -79,6 +100,7 @@
      <!--未付款订单，可以修改地址！-->
      <td><input type="submit" name="" value="确认修改地址" class="Submit">（未付款订单，可以修改地址！）</td>
     </tr>
+    <?php } ?>
    </table>
    </form>
  </article>
