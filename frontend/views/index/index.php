@@ -52,7 +52,7 @@
         ml = 0;
         lis[0].parentNode.appendChild(lis[0]);
     }
-    },10); 
+    },10);
     },5000);
   </script>
  </aside>

@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use Yii\db\query;
+
 /**
  * This is the model class for table "yfc_merchant".
  *
@@ -75,4 +76,34 @@ class Merchant extends \yii\db\ActiveRecord
         if(empty($res))return false;
         return $res;
     }
+
+//    public static function tableName()
+//    {
+//        return 'merchant';
+//    }
+
+//    /**
+//     * @inheritdoc
+//     */
+//    public function rules()
+//    {
+//        return [
+//            [['category_name'], 'string', 'max' => 30],
+//        ];
+//    }
+
+
+//    public function getCategorys()
+//    {
+//        // 第一个参数为要关联的子表模型类名，
+//        // 第二个参数指定 通过子表的category_id，关联主表的employ_id字段
+//        return $this->hasMany(EmployerForm::className(), ['category_id' => 'category_id']);
+//    }
+
+
+    public function getMerInfo()
+    {
+        return $this->hasOne(MerchantInfo::className(), ['info_mer' => 'mer_id']);
+    }
+
 }
