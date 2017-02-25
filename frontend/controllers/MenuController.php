@@ -21,4 +21,5 @@ class MenuController extends Controller
     {
         return $this->render('details');
     }
+
 }

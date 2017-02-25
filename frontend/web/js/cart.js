@@ -56,57 +56,150 @@ function GetCount() {
 			}
 		}
 	});
+
 	$("#shuliang").text(aa);
 	$("#zong1").html((conts).toFixed(2));
-	$("#jz1").css("display", "none");
-	$("#jz2").css("display", "block");
+	if(conts!=0){
+		$("#jz1").css("display", "none");
+		$("#jz2").css("display", "block");
+	}else{
+		$("#jz1").css("display", "block");
+		$("#jz2").css("display", "none");
+	}
+
 }
 //ADD:对删除链接进行处理2014-9-20DeathGhost
-    $(document).ready(function(){
-		$("#delcart1").click(function(){
-			$("#table1").remove();
-			});
-		$("#delcart2").click(function(){
-			$("#table2").remove();
-			});
+    $(function(){
+		$(".tb1_td7").click(function(){
+			var _this = $(this);
+			var cartId = _this.find('a').attr('cartid');
+			$.get('?r=cart/delcart',{cartId:cartId},function(data){
+				if(data.status==1){
+					_this.parent().parent().remove();
+				}else{
+					alert(data.msg);
+				}
+			},'json')
 		});
-<!---商品加减算总数---->
-	$(function () {
-		var t = $("#text_box2");
-		$("#add2").click(function () {
-			t.val(parseInt(t.val()) + 1)
-			setTotal(); GetCount();
-		})
-		$("#min2").click(function () {
-			t.val(parseInt(t.val(1)) - 1)
-			t.val(1)//初始值防止为负数ADD deathghost
-			setTotal(); GetCount();
-		})
-		function setTotal() {
-			$("#total2").html((parseInt(t.val()) * 59).toFixed(2));
-			$("#newslist-2").val(parseInt(t.val()) * 59);
-		}
-		setTotal();
-	})
-	$(function () {
-		var t = $("#text_box1");
-		$("#add1").click(function () {
-			t.val(parseInt(t.val()) + 1)
-			setTotal(); GetCount();
-		})
-		$("#min1").click(function () {
-			t.val(parseInt(t.val()) - 1)
-			t.val(1)//初始值防止为负数ADD deathghost
-			setTotal(); GetCount();
-		})
-		function setTotal() {
 
-			$("#total1").html((parseInt(t.val()) * 59).toFixed(2));
-			$("#newslist-1").val(parseInt(t.val()) * 59);
+	});
+//<!---商品加减算总数---->
+
+	$(function () {
+		$(".add1").click(function () {
+			var _this = $(this);
+			var t = _this.siblings("input[name='text_box1']");
+			var price = _this.parent().siblings('.tb1_td6').find('.tot').text();
+			var num = parseInt(t.val()) + 1;
+			t.val(num).attr('status',1);
+
+			setTotal($(this),num,price);GetCount();
+		})
+		$(".min1").click(function () {
+			var t = $(this).siblings("input[name='text_box1']");
+			var price = $(this).parent().siblings('.tb1_td6').find('.tot').text();
+			var num = parseInt(t.val()) - 1;
+			if(num<1){
+				return false;
+			}else{
+				t.val(num).attr('status',1);
+			}
+
+			setTotal($(this),num,price);GetCount();
+		})
+		function setTotal(thiss,num,price) {
+
+			//$("#total1").html((parseInt(t.val()) * price).toFixed(2));
+			var sum = num*price;
+
+			thiss.parent().siblings('.tb2_td1').find(".newslist-1").val(sum);
 		}
-		setTotal();
+
 	})
-<!---总数---->
+//结算
+$(function(){
+	var status = '1';
+	$('#jz2').click(function(){
+		var box = $('input:checked');
+		if(box.size()==0){
+			alert('请选择商品');
+			return false;
+		}
+		var cart = [];
+
+		var sum = box.size();
+
+		for (var i = 0; i < sum; i++) {
+			if (box.eq(i).attr("checked")) {
+				var num = box.eq(i).parent().siblings('.tb1_td5').find('input[name="text_box1"]');
+				var cartId = box.eq(i).attr('cartid');
+				//数量做了修改就进行购物
+				if(num.attr('status')==1){
+					savenum(num.val(),cartId);
+				}
+				var arr={
+					'cartId':cartId,
+					'sellerId' : box.eq(i).attr('sellerId'),
+				}
+			}
+			cart[i]=arr;
+		}
+		if(status!=1){
+			alert('网络状态异常,请重试');
+			return false;
+		}
+		$.get('?r=cart/settlement',{order:cart},function(data){
+			if(data.status == '0'){
+				alert(data.msg);
+				return false;
+			}else{
+				document.location = 'http://127.0.0.1/dongxin/yfc/frontend/web/?r=order/order&buycart='+data.content;
+			}
+		},'json')
+
+	})
+
+	function savenum(num,id)
+	{
+		$.ajax({
+			type: "get",
+			url: "?r=cart/savenum",
+			data: {num:num,id:id},
+			asynv:false,
+			dataType: 'json',
+			success: function(data){
+				if(data.status==0){
+					alert(data.msg);
+					status=0;
+				}
+			}
+		});
+	}
+})
+//var ue = UE.getEditor('editor');
+//function post(URL, PARAMS) {
+//	var form = document.createElement("form");
+//	form.action = URL;
+//	form.method = "post";
+//	form.style.display = "none";
+//	for(var x in PARAMS){
+//		var text = document.createElement("textarea");
+//		text.name = x;
+//		text.value = PARAMS[x];
+//		form.appendChild(text);
+//	}
+//	document.body.appendChild(form);
+//	form.submit();
+//	return form;
+//}
+//function getContent() {
+//	var article_content = [];
+//	var article_title = document.getElementById("article_title").value;
+//	article_content.push(ue.getContent());
+//	article_content.join("\n");
+//	post("do_add_article.php", {article_title:article_title, article_content:article_content});
+//}
+//<!---总数---->
 	$(function () {
 		$(".quanxun").click(function () {
 			setTotal();

@@ -36,6 +36,9 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        'class'=>[
+            'class'=>'/frontend/functions/Function.php',
+        ]
         /*
         'urlManager' => [
             'enablePrettyUrl' => true,

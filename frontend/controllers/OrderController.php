@@ -7,6 +7,8 @@ class OrderController extends Controller
     //提交订单 准备支付
     public function actionOrder()
     {
+        $param = urldecode(\Yii::$app->request->get('buycart'));
+        var_dump($param);die;
         return $this->render('order');
     }
  
