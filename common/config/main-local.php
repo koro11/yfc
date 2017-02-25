@@ -8,6 +8,7 @@ return [
             'password' => 'admin',
             'charset' => 'utf8',
             'tablePrefix' => 'yfc_',
+
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

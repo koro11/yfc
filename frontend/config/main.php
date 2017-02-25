@@ -12,6 +12,15 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'assetManager'=>[
+            'bundles'=>[
+                'yii\web\JqueryAsset'=>[
+                    'jsOptions'=>[
+                        'position'=>\yii\web\View::POS_HEAD,
+                    ]
+                ]
+            ]
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
