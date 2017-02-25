@@ -5,81 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5e7a51d-8e50-4b12-9fdd-793b206af9eb" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/views/search/shop.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/models/ContactForm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/models/PasswordResetRequestForm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/models/ResetPasswordForm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/models/SignupForm.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace84108e0a.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace8431331b.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace8443eae1.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace84db2252.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace84ee7888.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace8c282f70.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace8d067495.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace8f7bf16e.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ace8f7db66b.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acead00f540.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58aceaf0c0d16.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58aceb85726d5.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58aceba1a51e1.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58aced13d1d83.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58aced1d4e642.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58aced57b7466.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58aced5ec60dc.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acee5e67d30.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acef175143e.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acefb0a6579.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acefb42a43a.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf0b2d309f.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf1965307b.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf29eed9f7.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf4933f05e.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf4c4eb6b4.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf4f404bf6.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf662da645.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acf71a9c203.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acfa4534bdc.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acfddfd361b.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acfde5989ac.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acffa0b3526.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58acffed81746.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad001ebb54e.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad00283f886.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad00284fe15.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad00606ada4.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad00a4cd39c.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad01fdcf284.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad0240c70f3.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad02748253e.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad04ff3c30e.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad05b0dd91c.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad05f74bd1f.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad060f5443d.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad0665b6640.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad06ea021c7.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad0714dc840.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad07381fe97.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad0767e0461.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad076806e7c.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad1dfd27ef1.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad1f329569a.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad1f32b2495.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad208875c2a.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58ad2098ac5aa.data" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/views/menu/list.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/config/main-local.php" afterPath="$PROJECT_DIR$/common/config/main-local.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/controllers/MenuController.php" afterPath="$PROJECT_DIR$/frontend/controllers/MenuController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/runtime/debug/index.data" afterPath="$PROJECT_DIR$/frontend/runtime/debug/index.data" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/runtime/logs/app.log" afterPath="$PROJECT_DIR$/frontend/runtime/logs/app.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/index/index.php" afterPath="$PROJECT_DIR$/frontend/views/index/index.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/runtime/debug/58ace3a64a855.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/runtime/debug/58ace3a66d7a6.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/runtime/debug/58ace3af6ac1b.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/runtime/debug/58ace3af834a3.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/runtime/debug/58ace3c9d8192.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/runtime/debug/58ace3ca075a5.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/backend/runtime/debug/index.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afad3b5388a.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afad77f2859.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afad7f71327.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afada253e5d.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afadb345ad0.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afadb878b66.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcbba58ce5.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcbc124fbf.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcc0f4b130.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcc2d34093.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcc5d46eb6.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcc79ae644.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afccdad957c.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afccf4023aa.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcd07181e4.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcd0dcbde7.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcd1354953.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcd181708d.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcd54871a8.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcdcb097c9.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afcde3e9e23.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afce691ac87.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afce8c19f19.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd0aad9245.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd0e73458c.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd0f871a33.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd11567960.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd12414087.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd1ac59732.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd1bb9b36e.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd1caa77f9.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd1db03456.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd1e39dc4e.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd1e81d07c.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd1ffb48cd.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd2062aa28.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd51b9ffe4.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd528298a2.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd70e95d78.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd7867286d.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd83f9408d.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd84696e5b.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afd85f12715.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afda3413386.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afda3b8cd94.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afda46c4ca1.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afda823b65d.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afda850be42.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afde53753b1.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afde794eb19.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afde87a9950.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/58afdf7096544.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/debug/index.data" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/gii-2.0.9/yii-gii-generators-model-Generator.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/runtime/logs/app.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/views/search/cate.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frontend/views/search/search_shop.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/controllers/SearchController.php" afterPath="$PROJECT_DIR$/frontend/controllers/SearchController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/layouts/main.php" afterPath="$PROJECT_DIR$/frontend/views/layouts/main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/web/index.php" afterPath="$PROJECT_DIR$/frontend/web/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/web/js/public.js" afterPath="$PROJECT_DIR$/frontend/web/js/public.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/search/food.php" afterPath="$PROJECT_DIR$/frontend/views/search/food.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/views/search/shop.php" afterPath="$PROJECT_DIR$/frontend/views/search/shop.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/yiisoft/yii2/widgets/LinkPager.php" afterPath="$PROJECT_DIR$/vendor/yiisoft/yii2/widgets/LinkPager.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/views/index/search_food.php" afterPath="$PROJECT_DIR$/frontend/views/search/food.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/views/index/search_shop.php" afterPath="$PROJECT_DIR$/frontend/views/search/search_shop.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frontend/views/menu/cate.php" afterPath="$PROJECT_DIR$/frontend/views/search/cate.php" />
     </list>
     <ignored path="yfc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,8 +99,8 @@
       <file leaf-file-name="SearchController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/controllers/SearchController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.44093177">
-              <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.47254574">
+              <caret line="75" column="85" selection-start-line="75" selection-start-column="85" selection-end-line="75" selection-end-column="85" />
               <folding>
                 <element signature="e#39#68#0#PHP" expanded="true" />
               </folding>
@@ -113,35 +108,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Food.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/models/Food.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.066667">
+              <caret line="17" column="78" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="shop.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/views/search/shop.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.6">
-              <caret line="42" column="79" selection-start-line="42" selection-start-column="79" selection-end-line="42" selection-end-column="79" />
-              <folding>
-                <marker date="1487920758878" expanded="true" signature="518:551" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="518:574" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="761:1286" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="795:1268" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="1327:1578" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="1361:1560" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="1618:2717" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="1652:2699" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="2756:2869" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="2777:2851" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="2911:3270" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="2933:2959" placeholder="{...}" />
-                <marker date="1487920758878" expanded="true" signature="2933:3270" placeholder="{...}" />
-                <marker date="1487920758878" expanded="true" signature="5287:5318" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="5561:6096" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="5604:5965" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="6173:6947" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="6249:6929" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="6437:6910" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="6515:6527" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="6528:6889" placeholder="..." />
-                <marker date="1487920758878" expanded="true" signature="6979:7064" placeholder="..." />
-              </folding>
+            <state vertical-scroll-proportion="-94.9">
+              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="food.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/views/search/food.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.433333">
+              <caret line="37" column="128" selection-start-line="37" selection-start-column="128" selection-end-line="37" selection-end-column="128" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,8 +141,8 @@
       <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.133333">
-              <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
+            <state vertical-scroll-proportion="-6.9333334">
+              <caret line="43" column="163" selection-start-line="43" selection-start-column="163" selection-end-line="43" selection-end-column="163" />
               <folding />
             </state>
           </provider>
@@ -186,10 +178,13 @@
         <option value="$PROJECT_DIR$/frontend/views/search/list.php" />
         <option value="$PROJECT_DIR$/frontend/models/Merchant.php" />
         <option value="$PROJECT_DIR$/frontend/web/index.php" />
-        <option value="$PROJECT_DIR$/vendor/yiisoft/yii2/widgets/LinkPager.php" />
-        <option value="$PROJECT_DIR$/frontend/views/layouts/main.php" />
         <option value="$PROJECT_DIR$/frontend/models/District.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/vendor/yiisoft/yii2/widgets/LinkPager.php" />
         <option value="$PROJECT_DIR$/frontend/views/search/shop.php" />
+        <option value="$PROJECT_DIR$/frontend/views/search/food.php" />
+        <option value="$PROJECT_DIR$/frontend/views/layouts/main.php" />
+        <option value="$PROJECT_DIR$/frontend/models/Food.php" />
         <option value="$PROJECT_DIR$/frontend/controllers/SearchController.php" />
       </list>
     </option>
@@ -256,6 +251,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -432,32 +429,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yfc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yfc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
+              <option name="myItemId" value="backend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -467,12 +444,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\phpStudy2014\WWW\month11\yfc\frontend\views\search" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\phpStudy2014\WWW\month11\yfc\frontend\models" />
       <recent name="D:\phpStudy2014\WWW\month11\yfc\frontend\controllers" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\phpStudy2014\WWW\month11\yfc\frontend\views\search" />
     </key>
   </component>
   <component name="RunManager">
@@ -559,31 +536,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/controllers/MenuController.php">
+    <entry file="file://$PROJECT_DIR$/frontend/controllers/SearchController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13311148">
-          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-          <folding />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="89" selection-start-line="40" selection-start-column="89" selection-end-line="40" selection-end-column="89" />
+          <folding>
+            <element signature="e#39#68#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/models/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.1148086">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/controllers/OrderController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.514143">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/controllers/SiteController.php">
+    <entry file="file://$PROJECT_DIR$/frontend/views/search/shop.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -591,10 +554,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/models/NewForm.php">
+    <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85191345">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/web/js/public.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -603,7 +574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -611,7 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -619,7 +588,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -627,7 +595,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5324459">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -635,159 +602,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.8">
           <caret line="9" column="24" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/models/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5590682">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.41430947">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/models/PasswordResetRequestForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5324459">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/models/Art.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6123128">
-          <caret line="51" column="18" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/models/EmployerForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7986689">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/models/CategoryForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26622295">
-          <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/controllers/EmployController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6123128">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding>
-            <element signature="e#38#46#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/backend/controllers/NewController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6655574">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding>
-            <element signature="e#38#46#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/ArtresumeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5324459">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/ArtworksController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5324459">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/DesignerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5324459">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/CoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.73044926">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/EmployerController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5324459">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/HelpController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47920132">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/NewsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5058236">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.42595673">
-          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.73044926">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding>
-            <marker date="1484727732000" expanded="true" signature="1125:1189" placeholder="SELECT * FRO... ${{$DT_PRE}}member" />
-            <marker date="1484727732000" expanded="true" signature="2440:2604" placeholder="INSERT INTO `${{$DT_PRE}}member`... " />
-            <marker date="1484727732000" expanded="true" signature="2767:2831" placeholder="SELECT * FRO... ${{$DT_PRE}}member" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/order3/frontend/controllers/SiteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5856905">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -795,14 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2795341">
           <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/db/ActiveQueryTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34941763">
-          <caret line="81" column="20" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -819,14 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37271214">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/search/food.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.026622295">
-          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -865,7 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.614897">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -873,23 +670,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.026622295">
           <caret line="1" column="47" selection-start-line="1" selection-start-column="47" selection-end-line="1" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/models/Merchant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.033334">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/base/Widget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="89.833336">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -901,19 +681,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/widgets/LinkPager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0998337">
-          <caret line="99" column="25" selection-start-line="99" selection-start-column="12" selection-end-line="99" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -925,57 +696,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.133333">
-          <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.07606973">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/360Downloads/轻松一点在线订餐模板/respond.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31946754">
+          <caret line="60" column="10" selection-start-line="60" selection-start-column="10" selection-end-line="60" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vagrantfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/models/District.php">
+    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/base/Widget.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4666667">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.34941763">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/LinkPager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.2712145">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/data/Pagination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.3333335">
+          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/widgets/LinkPager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.53333336">
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/yiisoft/yii2/db/ActiveQueryTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34941763">
+          <caret line="81" column="20" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/views/search/shop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.6">
-          <caret line="42" column="79" selection-start-line="42" selection-start-column="79" selection-end-line="42" selection-end-column="79" />
-          <folding>
-            <marker date="1487920758878" expanded="true" signature="518:551" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="518:574" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="761:1286" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="795:1268" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="1327:1578" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="1361:1560" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="1618:2717" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="1652:2699" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="2756:2869" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="2777:2851" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="2911:3270" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="2933:2959" placeholder="{...}" />
-            <marker date="1487920758878" expanded="true" signature="2933:3270" placeholder="{...}" />
-            <marker date="1487920758878" expanded="true" signature="5287:5318" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="5561:6096" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="5604:5965" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="6173:6947" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="6249:6929" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="6437:6910" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="6515:6527" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="6528:6889" placeholder="..." />
-            <marker date="1487920758878" expanded="true" signature="6979:7064" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-94.9">
+          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/layouts/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.9333334">
+          <caret line="43" column="163" selection-start-line="43" selection-start-column="163" selection-end-line="43" selection-end-column="163" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/views/search/food.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.433333">
+          <caret line="37" column="128" selection-start-line="37" selection-start-column="128" selection-end-line="37" selection-end-column="128" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/District.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42595673">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/Merchant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73377705">
+          <caret line="45" column="0" selection-start-line="41" selection-start-column="4" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/models/Food.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.066667">
+          <caret line="17" column="78" selection-start-line="17" selection-start-column="78" selection-end-line="17" selection-end-column="78" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/controllers/SearchController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44093177">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.47254574">
+          <caret line="75" column="85" selection-start-line="75" selection-start-column="85" selection-end-line="75" selection-end-column="85" />
           <folding>
             <element signature="e#39#68#0#PHP" expanded="true" />
           </folding>
