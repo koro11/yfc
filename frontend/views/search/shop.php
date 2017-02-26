@@ -60,6 +60,7 @@
                 }
             }
 
+            //点击条件搜索
             $('.select-list a').click(function(){
                 var arr = getUrl();
                 var _this = $(this).attr('url');
@@ -76,21 +77,7 @@
                 return false;
             });
 
-            function getUrl(){
-                var href = top.location.href;
-                var _index = href.indexOf('?');
-                var str = href.substr(_index+1);
-                str = str.split('&');
-                var arr = new Object();
-                for(var i=0;i<str.length;i++){
-                    var a = str[i];
-                    a = a.split('=');
-                    var b = a[0];
-                    arr[b] = a[1] ? a[1] : '';
-                }
-                return arr;
-            }
-
+            //排序
             $('.Fslmenu a').click(function(){
                 var arr = getUrl();
                 var _this = $(this);

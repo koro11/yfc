@@ -2,36 +2,82 @@
 <section class="Psection MT20">
     <article class="Searchlist Overflow">
         <section class="Fslmenu slt" style="margin-bottom:5px">
-            <a href="#" title="默认排序">
-   <span>
-   <span>默认排序</span>
-   </span>
+            <a href="javascript:;" order="" title="默认排序">
+                <span>
+                    <span>默认排序</span>
+                </span>
             </a>
-            <a href="#" title="评价">
-   <span>
-   <span>评价</span>
-   <span class="s-up"></span>
-   </span>
+            <a href="javascript:;" order="grade"  title="评价">
+                <span>
+                    <span>评价</span>
+                    <span class="s-up"></span>
+                </span>
             </a>
-            <a href="#" title="销量">
-   <span>
-   <span>销量</span>
-   <span class="s-up"></span>
-   </span>
+            <a href="javascript:;" order="food_saled" title="销量">
+                <span>
+                    <span>销量</span>
+                    <span class="s-up"></span>
+                </span>
             </a>
-            <a href="#" title="价格排序">
-   <span>
-   <span>价格</span>
-   <span class="s-down"></span>
-   </span>
+            <a href="javascript:;" order="food_price" title="价格排序">
+                <span>
+                    <span>价格</span>
+                    <span class="s-up"></span>
+                </span>
             </a>
-            <a href="#" title="发布时间排序">
-   <span>
-   <span>发布时间</span>
-   <span class="s-up"></span>
-   </span>
+            <a href="javascript:;" order="food_addtime" title="发布时间排序">
+                <span>
+                    <span>发布时间</span>
+                    <span class="s-up"></span>
+                </span>
             </a>
         </section>
+        <script>
+            //排序
+            $('.Fslmenu a').click(function(){
+                var arr = getUrl();
+                var _this = $(this);
+                var _order = _this.attr('order');
+                var _span = _this.children().children().last();
+                var _class = _span.attr('class');
+//                _this.children().children().last().removeClass('s-up').addClass('s-down');
+                if(_order != ''){
+                    if(arr.order != undefined){
+                        if(arr.order.indexOf(_order) != -1){
+                            if(_class == 's-up'){
+                                _span.removeClass('s-up').addClass('s-down');
+                                _class = 's-down';
+                            }else{
+                                _span.removeClass('s-down').addClass('s-up');
+                                _class = 's-up';
+                            }
+                        }
+                    }
+                    arr.order = _order + '-' + ((_class == 's-up') ? 'asc' : 'desc');
+                }else{
+                    delete arr.order;
+                }
+                var str = '';
+                $.each(arr,function(k,v){
+                    str += '&'+k+'='+v;
+                });
+                str = '?'+str.substr(1);
+                location.href = str;
+                return false;
+            });
+
+            ar = getUrl();
+            if(ar.order != undefined){
+                _spans = $('.s-up');
+                for(var i=0;i<_spans.size();i++){
+                    if(ar.order.indexOf(_spans.eq(i).parents('a').attr('order')) != -1){
+                        if(ar.order.indexOf('desc') != -1){
+                            _spans.eq(i).removeClass('s-up').addClass('s-down');
+                        }
+                    }
+                }
+            }
+        </script>
         <ul class="Overflow">
             <?php foreach($food as $v):?>
             <li>
