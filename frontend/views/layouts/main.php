@@ -7,8 +7,8 @@
     <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!"/>
     <meta name="author" content="DeathGhost"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/public.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/public.js"></script>
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
@@ -38,7 +38,7 @@
             <form method="get" action="">
                 <input type="hidden" name="r" value="search/search">
                 <div class="Search_nav" id="selectsearch">
-                    <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='shop'){echo 'class="choose"';}?>>餐厅</a>
+                    <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'class="choose"';}?>>餐厅</a>
                     <a href="javascript:;" onClick="selectsearch(this,'food_name')" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'class="choose"';}?>>食物名</a>
                 </div>
                 <input type="hidden" name="search_type" value="<?php if(isset($_GET['search_type']) && $_GET['search_type']=='shop'){echo 'shop';}else{echo 'food';}?>">
