@@ -16,16 +16,16 @@
 					
 					<div class="login_form">
 						<div class="login_title">
-							登录
+							商家登录
 						</div>
-						<form action="?r=login/login_do" method="post">
+						<form action="?r=login/mer_login_do" method="post">
 							
 							<div class="form_text_ipt">
-								<input name="user_phone" type="text" placeholder="手机号" class="phone">
+								<input name="mer_phone" type="text" placeholder="手机号" class="phone">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
-								<input name="user_password" type="password" placeholder="密码" class="password">
+								<input name="mer_pass" type="password" placeholder="密码" class="password">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_check_ipt">
