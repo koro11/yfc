@@ -26,34 +26,44 @@
    </div>
   </div>
  </section>
- <div class="Logo_search">
-  <div class="Logo">
-   <img src="images/logo.jpg" title="DeathGhost" alt="模板">
-   <i></i>
-   <span>西安市 [ <a href="#">莲湖区</a> ]</span>
-  </div>
-  <div class="Search"> 
-   <form method="get" id="main_a_serach" onsubmit="return check_search(this)">
-   <div class="Search_nav" id="selectsearch">
-    <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" class="choose">餐厅</a>
-    <a href="javascript:;" onClick="selectsearch(this,'food_name')">食物名</a>
-   </div>
-   <div class="Search_area"> 
-   <input type="search" id="fkeyword" name="keyword" placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox" />
-   <input type="submit" class="searchbutton" value="搜 索" />
-   </div>
-   </form>
-   <p class="hotkeywords"><a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a></p>
-  </div>
- </div>
- <nav class="menu_bg">
-  <ul class="menu">
-   <li><a href="index.html">首页</a></li>
-   <li><a href="list.html">订餐</a></li>
-   <li><a href="category.html">积分商城</a></li>
-   <li><a href="article_read.html">关于我们</a></li>
-  </ul>
- </nav>
+    <div class="Logo_search">
+        <div class="Logo">
+            <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+            <i></i>
+            <span>西安市 [ <a href="#">莲湖区</a> ]</span>
+        </div>
+        <div class="Search">
+            <form method="get" action="">
+                <input type="hidden" name="r" value="search/search">
+                <div class="Search_nav" id="selectsearch">
+                    <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'class="choose"';}?>>餐厅</a>
+                    <a href="javascript:;" onClick="selectsearch(this,'food_name')" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'class="choose"';}?>>食物名</a>
+                </div>
+                <input type="hidden" name="search_type" value="<?php if(isset($_GET['search_type']) && !
+                    empty($_GET['search_type'])){echo $_GET['search_type'];}else{echo 'shop';}?>">
+                <div class="Search_area">
+                    <input type="search" id="fkeyword" name="keyword" <?php if(isset($_GET['keyword']) && !empty($_GET['keyword'])){echo 'value="'.$_GET['keyword'].'"';}?> placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox"/>
+                    <input type="submit" class="searchbutton" value="搜 索"/>
+                </div>
+            </form>
+            <p class="hotkeywords">
+                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>
+            </p>
+        </div>
+        <script>
+            $(function(){
+
+            });
+        </script>
+    </div>
+    <nav class="menu_bg">
+        <ul class="menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="list.html">订餐</a></li>
+            <li><a href="category.html">积分商城</a></li>
+            <li><a href="article_read.html">关于我们</a></li>
+        </ul>
+    </nav>
 </header>
 
 <?= $content ?>

@@ -81,6 +81,11 @@ use yii\captcha\Captcha;
 	    var phone = $('.phone').val();
 	  	var password = $('.password').val();
 	  	var rpassword = $('.rpassword').val();
+	  	var phone_st = $('#phone').text();
+	  	if(phone_st!="")
+	  	{
+	  		return false;
+	  	}
 	  	if(password!=rpassword)
 	  	{
 	  		return false;

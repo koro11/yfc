@@ -158,7 +158,7 @@
             <?php } ?>
             <? foreach($shop as $v): ?>
             <li>
-                <a href="shop.html" target="_blank" title="调用产品名/店铺名"><img src="<?=$v['info_image']?>"></a>
+                <a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank" title="调用产品名/店铺名"><img src="<?=$v['info_image']?>"></a>
                 <hgroup>
                     <h3><?=$v['mer_name'];?></h3>
                     <h4></h4>
@@ -175,7 +175,7 @@
                         <img src="images/star-off.png">
                         <span class="Score-v">4.8</span>
                     </span>
-                    <span class="DSBUTTON"><a href="shop.html" target="_blank" class="Fontfff">点外卖</a></span>
+                    <span class="DSBUTTON"><a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank" class="Fontfff">点外卖</a></span>
                 </p>
             </li>
             <? endforeach;?>
