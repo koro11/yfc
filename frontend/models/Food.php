@@ -6,6 +6,7 @@ use Yii;
 
 use frontend\models\Carts;
 use frontend\models\Merchant;
+
 /**
  * This is the model class for table "yfc_food".
  *
@@ -38,7 +39,7 @@ class Food extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'yfc_food';
+        return '{{%food}}';
     }
 
     /**
@@ -84,5 +85,48 @@ class Food extends \yii\db\ActiveRecord
             'food_score' => 'Food Score',
             'food_desc' => 'Food Desc',
         ];
+    }
+    /**
+     * 餐饮详情
+     * @author Dx
+     * @param  intval $id
+     * @return array
+     */
+    public function getFooddetails($id)
+    {
+        if(empty($id))return false;
+        $res = $this->find()->where(['food_id'=>$id])->asArray()->one();
+        if(!$res)return false;
+        $seller = ( new Yii\db\query)->select('mer_address,mer_status')->from('yfc_merchant')->where('mer_id=:id',[':id'=>$res['food_mer']])->one();
+        $res = array_merge($res,$seller);
+        return $res;
+    }
+    /*
+     * 多条餐饮信息
+     * @author Dx
+     * @param
+     * @return
+     */
+     public function getFoods($str)
+     {
+
+        if(empty($str))return false;
+        $sql = "select * from yfc_food where food_id in ($str)";
+        $res =  $this->findBySql($sql)->all();
+         if(!$res)return false;
+        return $res;
+     }
+    /**
+     * 餐饮入购物车
+     * @author Dx
+     * @param  array $param
+     * @return
+     */
+    public function setCart($param)
+    {
+        if(empty($param))return false;
+        $res = $this->insert($param);
+        if(!$res)return false;
+        return true;
     }
 }
