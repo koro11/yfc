@@ -24,10 +24,10 @@
    </div>
     <ul class="s-States Overflow FontW" id="Lbn">
      <li class="Font14 FontW">幸福业务在线提醒：</li>
-     <li><a href="?r=user/user_orderlist&ing=pay_status asc">待付款( <?php echo $order['pay']?> )</a></li>
-     <li><a href="?r=user/user_orderlist&ing=shipping_status asc">待发货( <?php echo $order['ship']?> )</a></li>
-     <li><a href="?r=user/user_orderlist&ing=shipping_status asc">待收货( <?php echo $order['shipping']?> )</a></li>
-     <li><a href="?r=user/user_orderlist&ing=order_speak asc">待评价( <?php echo $order['speak']?> )</a></li>
+     <li><a href="?r=user/user_orderlist&key=pay_status&value=0&k=shipping_status&v=0">待付款( <?php echo $order['pay']?> )</a></li>
+     <li><a href="?r=user/user_orderlist&key=pay_status&value=1&k=shipping_status&v=0">待发货( <?php echo $order['ship']?> )</a></li>
+     <li><a href="?r=user/user_orderlist&key=pay_status&value=1&k=shipping_status&v=1">待收货( <?php echo $order['shipping']?> )</a></li>
+     <li><a href="?r=user/user_orderlist&key=shipping&value=2&k=order_speak&v=0">待评价( <?php echo $order['speak']?> )</a></li>
     </ul>
   </section>
  </article>
