@@ -7,6 +7,7 @@ class Functions
      {
         echo 'asd';
      }
+
     /**
      * 批量插入
      */

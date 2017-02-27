@@ -1,4 +1,5 @@
 /*public js xianhuachneg.com*/
+getHotWords(0);
 /*Tab Search style*/
 function selectsearch(theA,word){
  obj=document.getElementById("selectsearch").getElementsByTagName("a");
@@ -8,9 +9,11 @@ function selectsearch(theA,word){
  theA.className='choose';
   if(word=='restaurant_name'){
 	  $("input[name='search_type']").val('shop');
+	  getHotWords(0);
    //document.getElementById('main_a_serach').action="search_s.html";
   }else if(word=='food_name'){
 	  $("input[name='search_type']").val('food');
+	  getHotWords(1);
    //document.getElementById('main_a_serach').action="search_p.html";
   }
 }
@@ -60,3 +63,24 @@ function getUrl(){
 	}
 	return arr;
 }
+
+function getHotWords(type) {
+	$.ajax({
+		type: "POST",
+		url: "?r=index/hot_word",
+		data: {type:type},
+		dataType:'json',
+		success: function(msg){
+			var str='';
+			$.each(msg,function (k,v) {
+				str+='<a href="#" class="hotSearch" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+			})
+			$(".hotkeywords").html(str);
+		}
+	});
+}
+
+$(document).on('click',".hotSearch",function(){
+	$("#fkeyword").val($(this).html());
+	$(".searchbutton").click();
+})

@@ -5,14 +5,14 @@
   <div class="C-time">
    <img src="upload/dc.jpg"/>
   </div>
-  <a href="list.html" target="_blank"><img src="images/by_button.png"></a>
-  <a href="list.html" target="_blank"><img src="images/dc_button.png"></a>
+  <a href="?r=search/search" target="_blank"><img src="images/by_button.png"></a>
+  <a href="?r=search/search" target="_blank"><img src="images/dc_button.png"></a>
  </aside>
  <div class="F-middle">
  <ul class="rslides f426x240">
-        <li><a href="javascript:"><img src="upload/01.jpg"/></a></li>
-        <li><a href="javascript:"><img src="upload/02.jpg" /></a></li>
-        <li><a href="javascript:"><img src="upload/03.jpg"/></a></li>
+        <?php foreach ($shuffing as $key => $val): ?>
+         <li><a href="javascript:"><img src="<?=$val['path'];?>" /></a></li>
+        <?php endforeach ?>
     </ul>
  </div>
  <aside class="N-right">
