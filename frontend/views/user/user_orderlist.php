@@ -51,15 +51,18 @@ use yii\widgets\LinkPager;
       <?php if ($value['shipping_status']==2 && $value['pay_status']==1 && $value['order_speak']!=0) {?>
       <td><a href="?r=user/user_order&order_id=<?php echo $value['order_id']?>">查看订单</a></td>
       <?php }elseif($value['shipping_status']==2 && $value['pay_status']==1 && $value['order_speak']==0){?>
-      <td><a href="#">查看订单</a> | <a>评价订单</a></td>
+      <td><a href="?r=user/user_order&order_id=<?php echo $value['order_id']?>">查看订单</a> | 
+        <a href="?r=user/order_speak&order_id=<?php echo $value['order_id']?>">评价订单</a></td>
       <?php }elseif($value['pay_status']==0){?>
-      <td> <a href="#">付款</a></td>
+      <td> <a href="?r=order/order&order_id=<?php echo $value['order_id']?>">付款</a>
+        |<a href="?r=user/user_order&order_id=<?php echo $value['order_id']?>">修改地址</a></td>
       <?php }else{?>
-      <td><a href="#">取消订单</a>
+      <td><a href="?r=user/del_order&order_id=<?php echo $value['order_id']?>">取消订单</a>
       <?php }?>
      </tr>
      <?php }?>
     </table>
+    <input type="button" id="ha">
     <div >
                 <?php
           echo LinkPager::widget([
