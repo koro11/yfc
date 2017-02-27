@@ -5470,3 +5470,2842 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1487920467.4805
     'REQUEST_TIME' => 1487920467
 ]
+2017-02-24 16:17:06 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: cons_zipcode' in F:\web\www\yfc\frontend\views\user\user_order.php:59
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_order.php(59): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 59, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_order', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(142): yii\base\Controller->render('user_order', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_order()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-24 16:17:06 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '5'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1820'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_order&order_id=5'
+    'QUERY_STRING' => 'r=user/user_order&order_id=5'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '63650'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487924226.4235
+    'REQUEST_TIME' => 1487924226
+]
+2017-02-24 16:41:11 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "orde/order".' in F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php:460
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('orde/order', Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-24 16:41:11 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'orde/order'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1816'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=orde/order'
+    'QUERY_STRING' => 'r=orde/order'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '64264'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487925671.7752
+    'REQUEST_TIME' => 1487925671
+]
+2017-02-24 16:41:41 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "orde/sub_order".' in F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php:460
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('orde/sub_order', Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-24 16:41:41 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'orde/sub_order'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1816'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=orde/sub_order'
+    'QUERY_STRING' => 'r=orde/sub_order'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '64265'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487925701.1379
+    'REQUEST_TIME' => 1487925701
+]
+2017-02-24 16:55:47 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: user/del_order' in F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('del_order', Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/del_order', Array)
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-24 16:55:47 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/del_order'
+    'order_id' => '1'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1820'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/del_order&order_id=1'
+    'QUERY_STRING' => 'r=user/del_order&order_id=1'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '64687'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487926547.0833
+    'REQUEST_TIME' => 1487926547
+]
+2017-02-24 18:47:01 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'yfc.yfc_orders.order_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:900
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(900): PDOStatement->execute()
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\frontend\controllers\UserController.php(30): yii\db\Command->queryAll()
+#3 [internal function]: frontend\controllers\UserController->actionUser_index()
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#10 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'yfc.yfc_orders.order_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+The SQL being executed was: select * from yfc_orders where user_id=1 and order_status=0 group by pay_status,order_speak,shipping_status ' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'select * from y...')
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\frontend\controllers\UserController.php(30): yii\db\Command->queryAll()
+#3 [internal function]: frontend\controllers\UserController->actionUser_index()
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#10 {main}
+Additional Information:
+Array
+(
+    [0] => 42000
+    [1] => 1055
+    [2] => Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'yfc.yfc_orders.order_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+)
+
+2017-02-24 18:47:00 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1964'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '50922'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487933220.76
+    'REQUEST_TIME' => 1487933220
+]
+2017-02-24 19:25:20 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected 'return' (T_RETURN)' in F:\web\www\yfc\frontend\controllers\UserController.php:39
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 19:25:19 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51806'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487935519.9525
+    'REQUEST_TIME' => 1487935519
+]
+2017-02-24 19:25:38 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: ship' in F:\web\www\yfc\frontend\views\user\user_index.php:28
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_index.php(28): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 28, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_index', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(39): yii\base\Controller->render('user_index', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_index()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_index', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_index', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-24 19:25:37 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51807'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487935537.0005
+    'REQUEST_TIME' => 1487935537
+]
+2017-02-24 19:26:33 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '$order' (T_VARIABLE)' in F:\web\www\yfc\frontend\controllers\UserController.php:35
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 19:26:33 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51881'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487935593.9357
+    'REQUEST_TIME' => 1487935593
+]
+2017-02-24 19:27:02 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '$ship' (T_VARIABLE)' in F:\web\www\yfc\frontend\controllers\UserController.php:35
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 19:27:02 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51882'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487935622.6254
+    'REQUEST_TIME' => 1487935622
+]
+2017-02-24 19:27:25 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected 'var_dump' (T_STRING)' in F:\web\www\yfc\frontend\controllers\UserController.php:35
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 19:27:25 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51883'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487935645.6817
+    'REQUEST_TIME' => 1487935645
+]
+2017-02-24 19:27:43 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected 'var_dump' (T_STRING)' in F:\web\www\yfc\frontend\controllers\UserController.php:35
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 19:27:43 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51891'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487935663.1027
+    'REQUEST_TIME' => 1487935663
+]
+2017-02-24 19:54:23 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:900
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(900): PDOStatement->execute()
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(182): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column '' in 'where clause'
+The SQL being executed was: SELECT * FROM `yfc_orders` WHERE (`order_status`=0) AND (`user_id`=1) AND (`` IS NULL) ORDER BY `pay_status` LIMIT 10' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(182): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column '' in 'where clause'
+)
+
+2017-02-24 19:54:22 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'ing' => 'pay_status asc'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1864'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_orderlist&ing=pay_status%20asc'
+    'QUERY_STRING' => 'r=user/user_orderlist&ing=pay_status%20asc'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '52579'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487937262.9652
+    'REQUEST_TIME' => 1487937262
+]
+2017-02-24 20:02:15 [127.0.0.1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Cannot use object of type yii\db\ActiveQuery as array' in F:\web\www\yfc\frontend\controllers\UserController.php:177
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 20:02:15 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'page' => '2'
+    'per-page' => '10'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1964'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user%2Fuser_orderlist&page=2&per-page=10'
+    'QUERY_STRING' => 'r=user%2Fuser_orderlist&page=2&per-page=10'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '52739'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487937735.1662
+    'REQUEST_TIME' => 1487937735
+]
+2017-02-24 20:02:31 [127.0.0.1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Cannot use object of type yii\db\ActiveQuery as array' in F:\web\www\yfc\frontend\controllers\UserController.php:169
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 20:02:30 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'page' => '2'
+    'per-page' => '10'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1964'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user%2Fuser_orderlist&page=2&per-page=10'
+    'QUERY_STRING' => 'r=user%2Fuser_orderlist&page=2&per-page=10'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '52742'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487937750.8391
+    'REQUEST_TIME' => 1487937750
+]
+2017-02-24 20:03:20 [127.0.0.1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Cannot use object of type yii\db\ActiveQuery as array' in F:\web\www\yfc\frontend\controllers\UserController.php:170
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 20:03:19 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'page' => '2'
+    'per-page' => '10'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1964'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user%2Fuser_orderlist&page=2&per-page=10'
+    'QUERY_STRING' => 'r=user%2Fuser_orderlist&page=2&per-page=10'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '52818'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487937799.9619
+    'REQUEST_TIME' => 1487937799
+]
+2017-02-24 20:08:07 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ')', expecting ']'' in F:\web\www\yfc\frontend\controllers\UserController.php:178
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 20:08:07 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'key' => 'pay_status'
+    'value' => '0'
+    'k' => 'shipping_status'
+    'v' => '0'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1968'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_orderlist&key=pay_status&value=0&k=shipping_status&v=0'
+    'QUERY_STRING' => 'r=user/user_orderlist&key=pay_status&value=0&k=shipping_status&v=0'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '52950'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487938087.5583
+    'REQUEST_TIME' => 1487938087
+]
+2017-02-24 20:08:09 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ')', expecting ']'' in F:\web\www\yfc\frontend\controllers\UserController.php:178
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-24 20:08:09 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'key' => 'pay_status'
+    'value' => '0'
+    'k' => 'shipping_status'
+    'v' => '0'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1968'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_orderlist&key=pay_status&value=0&k=shipping_status&v=0'
+    'QUERY_STRING' => 'r=user/user_orderlist&key=pay_status&value=0&k=shipping_status&v=0'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '52957'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487938089.8225
+    'REQUEST_TIME' => 1487938089
+]
+2017-02-24 20:11:40 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:900
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(900): PDOStatement->execute()
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(181): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'
+The SQL being executed was: SELECT * FROM `yfc_orders` WHERE (`order_status`=0) AND (`user_id`=1) AND (`shipping`='1') AND (`shipping_status`='1') LIMIT 10' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(181): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'shipping' in 'where clause'
+)
+
+2017-02-24 20:11:40 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'key' => 'shipping'
+    'value' => '1'
+    'k' => 'shipping_status'
+    'v' => '1'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1968'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_orderlist&key=shipping&value=1&k=shipping_status&v=1'
+    'QUERY_STRING' => 'r=user/user_orderlist&key=shipping&value=1&k=shipping_status&v=1'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53083'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487938300.4235
+    'REQUEST_TIME' => 1487938300
+]
+2017-02-24 20:12:30 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:900
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(900): PDOStatement->execute()
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(181): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'
+The SQL being executed was: SELECT * FROM `yfc_orders` WHERE (`order_status`=0) AND (`user_id`=1) AND (`shipping`='1') AND (`shipping_status`='1') LIMIT 10' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(181): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'shipping' in 'where clause'
+)
+
+2017-02-24 20:12:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'key' => 'shipping'
+    'value' => '1'
+    'k' => 'shipping_status'
+    'v' => '1'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1968'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_orderlist&key=shipping&value=1&k=shipping_status&v=1'
+    'QUERY_STRING' => 'r=user/user_orderlist&key=shipping&value=1&k=shipping_status&v=1'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53096'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487938349.4993
+    'REQUEST_TIME' => 1487938349
+]
+2017-02-24 20:22:50 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: address_id' in F:\web\www\yfc\frontend\controllers\UserController.php:143
+Stack trace:
+#0 F:\web\www\yfc\frontend\controllers\UserController.php(143): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 143, Array)
+#1 [internal function]: frontend\controllers\UserController->actionUser_order()
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#8 {main}
+2017-02-24 20:22:49 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '41'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1908'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_order&order_id=41'
+    'QUERY_STRING' => 'r=user/user_order&order_id=41'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53285'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487938969.7828
+    'REQUEST_TIME' => 1487938969
+]
+2017-02-24 20:24:54 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: address' in F:\web\www\yfc\frontend\controllers\UserController.php:143
+Stack trace:
+#0 F:\web\www\yfc\frontend\controllers\UserController.php(143): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 143, Array)
+#1 [internal function]: frontend\controllers\UserController->actionUser_order()
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#8 {main}
+2017-02-24 20:24:54 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '41'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1908'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_order&order_id=41'
+    'QUERY_STRING' => 'r=user/user_order&order_id=41'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53291'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487939094.0029
+    'REQUEST_TIME' => 1487939094
+]
+2017-02-24 20:33:35 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: food' in F:\web\www\yfc\frontend\views\user\order_speak.php:30
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\order_speak.php(30): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 30, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('order_speak', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(160): yii\base\Controller->render('order_speak', Array)
+#6 [internal function]: frontend\controllers\UserController->actionOrder_speak()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('order_speak', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/order_spea...', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-24 20:33:34 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/order_speak'
+    'order_id' => '41'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1960'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/order_speak&order_id=41'
+    'QUERY_STRING' => 'r=user/order_speak&order_id=41'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53548'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487939614.0667
+    'REQUEST_TIME' => 1487939614
+]
+2017-02-24 20:34:07 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: adress' in F:\web\www\yfc\frontend\views\user\order_speak.php:46
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\order_speak.php(46): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 46, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('order_speak', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(161): yii\base\Controller->render('order_speak', Array)
+#6 [internal function]: frontend\controllers\UserController->actionOrder_speak()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('order_speak', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/order_spea...', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-24 20:34:07 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/order_speak'
+    'order_id' => '41'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1960'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/order_speak&order_id=41'
+    'QUERY_STRING' => 'r=user/order_speak&order_id=41'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53561'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487939647.0725
+    'REQUEST_TIME' => 1487939647
+]
+2017-02-25 09:14:30 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '}'' in F:\web\www\yfc\frontend\controllers\UserController.php:171
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-25 09:14:30 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1960'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_orderlist'
+    'QUERY_STRING' => 'r=user/user_orderlist'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '56815'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/order_speak&order_id=41'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487985270.4131
+    'REQUEST_TIME' => 1487985270
+]
+2017-02-25 09:14:46 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: key' in F:\web\www\yfc\frontend\controllers\UserController.php:196
+Stack trace:
+#0 F:\web\www\yfc\frontend\controllers\UserController.php(196): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 196, Array)
+#1 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_orderlist', Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order...', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#8 {main}
+2017-02-25 09:14:45 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'page' => '2'
+    'per-page' => '10'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1960'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user%2Fuser_orderlist&page=2&per-page=10'
+    'QUERY_STRING' => 'r=user%2Fuser_orderlist&page=2&per-page=10'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '56818'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487985285.2289
+    'REQUEST_TIME' => 1487985285
+]
+2017-02-25 09:16:01 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: key' in F:\web\www\yfc\frontend\controllers\UserController.php:197
+Stack trace:
+#0 F:\web\www\yfc\frontend\controllers\UserController.php(197): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 197, Array)
+#1 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_orderlist', Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order...', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#8 {main}
+2017-02-25 09:16:01 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'page' => '2'
+    'per-page' => '10'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1848'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user%2Fuser_orderlist&page=2&per-page=10'
+    'QUERY_STRING' => 'r=user%2Fuser_orderlist&page=2&per-page=10'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '56846'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487985361.1993
+    'REQUEST_TIME' => 1487985361
+]
+2017-02-25 09:18:54 [127.0.0.1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to undefined function frontend\controllers\execute()' in F:\web\www\yfc\frontend\controllers\UserController.php:169
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-25 09:18:53 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/speak_save'
+]
+
+$_POST = [
+    'speak_body' => '与体育'
+    'food_id' => '1'
+    'speak_user' => '1'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1848'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/speak_save'
+    'QUERY_STRING' => 'r=user/speak_save'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '56894'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '61'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/order_speak&order_id=46'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487985533.0561
+    'REQUEST_TIME' => 1487985533
+]
+2017-02-25 09:19:07 [127.0.0.1][-][-][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to a member function getLastInsertId() on a non-object' in F:\web\www\yfc\frontend\controllers\UserController.php:169
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-25 09:19:07 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/speak_save'
+]
+
+$_POST = [
+    'speak_body' => '与体育'
+    'food_id' => '1'
+    'speak_user' => '1'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1848'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/speak_save'
+    'QUERY_STRING' => 'r=user/speak_save'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '56904'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '61'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/order_speak&order_id=46'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487985547.5499
+    'REQUEST_TIME' => 1487985547
+]
+2017-02-25 09:25:18 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'food_id' doesn't have a default value' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(169): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionSpeak_save()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1364 Field 'food_id' doesn't have a default value
+The SQL being executed was: INSERT INTO `yfc_speak` (`speak_id`) VALUES (DEFAULT)' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `yf...')
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(169): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionSpeak_save()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'food_id' doesn't have a default value
+)
+
+2017-02-25 09:25:18 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/speak_save'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1908'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/speak_save'
+    'QUERY_STRING' => 'r=user/speak_save'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '57419'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487985917.9831
+    'REQUEST_TIME' => 1487985917
+]
+2017-02-25 10:22:30 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '=', expecting ']'' in F:\web\www\yfc\frontend\controllers\UserController.php:176
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-25 10:22:30 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/order_speak'
+    'order_id' => '46'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/order_speak&order_id=46'
+    'QUERY_STRING' => 'r=user/order_speak&order_id=46'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '60120'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user%2Fuser_orderlist&page=1&per-page=10'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487989350.6185
+    'REQUEST_TIME' => 1487989350
+]
+2017-02-25 10:23:01 [127.0.0.1][-][-][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected 'return' (T_RETURN)' in F:\web\www\yfc\frontend\controllers\UserController.php:178
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-02-25 10:23:00 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/order_speak'
+    'order_id' => '46'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/order_speak&order_id=46'
+    'QUERY_STRING' => 'r=user/order_speak&order_id=46'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '60141'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user%2Fuser_orderlist&page=1&per-page=10'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487989380.9742
+    'REQUEST_TIME' => 1487989380
+]
+2017-02-25 10:34:28 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'order_id' in 'field list'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(171): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionSpeak_save()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'order_id' in 'field list'
+The SQL being executed was: INSERT INTO `yfc_speak` (`speak_body`, `food_id`, `speak_user`, `order_id`) VALUES ('菜品错，店家不错', 1, '1', '46')' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `yf...')
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(171): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionSpeak_save()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'order_id' in 'field list'
+)
+
+2017-02-25 10:34:26 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/speak_save'
+]
+
+$_POST = [
+    'speak_body' => '菜品错，店家不错'
+    'food_id' => '1'
+    'speak_user' => '1'
+    'order_id' => '46'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1816'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/speak_save'
+    'QUERY_STRING' => 'r=user/speak_save'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '60679'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '118'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/order_speak&order_id=46'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487990066.2334
+    'REQUEST_TIME' => 1487990066
+]
+2017-02-25 10:46:01 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: adress' in F:\web\www\yfc\frontend\views\user\user_order.php:46
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_order.php(46): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 46, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_order', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(144): yii\base\Controller->render('user_order', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_order()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-25 10:45:55 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '43'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1956'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_order&order_id=43'
+    'QUERY_STRING' => 'r=user/user_order&order_id=43'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '61177'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487990755.2108
+    'REQUEST_TIME' => 1487990755
+]
+2017-02-25 10:46:50 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: adress' in F:\web\www\yfc\frontend\views\user\user_order.php:46
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_order.php(46): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 46, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_order', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(144): yii\base\Controller->render('user_order', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_order()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-25 10:46:50 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '43'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1956'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_order&order_id=43'
+    'QUERY_STRING' => 'r=user/user_order&order_id=43'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '61195'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487990810.606
+    'REQUEST_TIME' => 1487990810
+]
+2017-02-25 10:47:33 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: adress' in F:\web\www\yfc\frontend\views\user\user_order.php:46
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_order.php(46): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 46, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_order', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(144): yii\base\Controller->render('user_order', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_order()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-25 10:47:33 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '43'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1956'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_order&order_id=43'
+    'QUERY_STRING' => 'r=user/user_order&order_id=43'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '61205'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487990853.7754
+    'REQUEST_TIME' => 1487990853
+]
+2017-02-25 10:48:20 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: adress' in F:\web\www\yfc\frontend\views\user\user_order.php:46
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_order.php(46): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 46, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_order', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(144): yii\base\Controller->render('user_order', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_order()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-25 10:48:19 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '43'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1956'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_order&order_id=43'
+    'QUERY_STRING' => 'r=user/user_order&order_id=43'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '61208'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487990899.5741
+    'REQUEST_TIME' => 1487990899
+]
+2017-02-25 10:50:17 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: adress' in F:\web\www\yfc\frontend\views\user\user_order.php:46
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_order.php(46): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 46, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_order', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(144): yii\base\Controller->render('user_order', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_order()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_order', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_order', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-25 10:50:17 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_order'
+    'order_id' => '41'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1948'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/user_order&order_id=41'
+    'QUERY_STRING' => 'r=user/user_order&order_id=41'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '61296'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_orderlist'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487991017.3828
+    'REQUEST_TIME' => 1487991017
+]
+2017-02-25 11:59:59 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cons_id' in 'where clause'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(155): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionUpdate_cons()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('update_cons', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/update_con...', Array)
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cons_id' in 'where clause'
+The SQL being executed was: UPDATE `yfc_orders` SET `cons_zipcode`='100000', `cons_address`='上地七街55号', `cons_name`='Mr先生', `cons_phone`='15601208876', `user_id`=1, `cons_id`='1' WHERE cons_id='1'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'UPDATE `yfc_ord...')
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(155): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionUpdate_cons()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('update_cons', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/update_con...', Array)
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'cons_id' in 'where clause'
+)
+
+2017-02-25 11:59:59 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/update_cons'
+    'cons_zipcode' => '100000'
+    'cons_address' => '上地七街55号'
+    'cons_name' => 'Mr先生'
+    'cons_phone' => '15601208876'
+    'user_id' => '1'
+    'cons_id' => '1'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=user/update_cons&cons_zipcode=100000&cons_address=%E4%B8%8A%E5%9C%B0%E4%B8%83%E8%A1%9755%E5%8F%B7&cons_name=Mr%E5%85%88%E7%94%9F&cons_phone=15601208876&user_id=1&cons_id=1'
+    'QUERY_STRING' => 'r=user/update_cons&cons_zipcode=100000&cons_address=%E4%B8%8A%E5%9C%B0%E4%B8%83%E8%A1%9755%E5%8F%B7&cons_name=Mr%E5%85%88%E7%94%9F&cons_phone=15601208876&user_id=1&cons_id=1'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '63312'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_order&order_id=43'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487995199.599
+    'REQUEST_TIME' => 1487995199
+]
+2017-02-25 12:05:25 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: menu/detals' in F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('detals', Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('menu/detals', Array)
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-25 12:05:25 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'menu/detals'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=menu/detals'
+    'QUERY_STRING' => 'r=menu/detals'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '63455'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487995525.1496
+    'REQUEST_TIME' => 1487995525
+]
+2017-02-25 12:05:33 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: menu/detalis' in F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('detalis', Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('menu/detalis', Array)
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-25 12:05:33 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'menu/detalis'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1944'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=menu/detalis'
+    'QUERY_STRING' => 'r=menu/detalis'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '63457'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1487995533.0451
+    'REQUEST_TIME' => 1487995533
+]
+2017-02-27 08:45:26 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: cons_district' in F:\web\www\yfc\frontend\views\user\user_address.php:33
+Stack trace:
+#0 F:\web\www\yfc\frontend\views\user\user_address.php(33): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 33, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(325): require('F:\\web\\www\\yfc\\...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('F:\\web\\www\\yfc\\...', Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\View.php(149): yii\base\View->renderFile('F:\\web\\www\\yfc\\...', Array, Object(frontend\controllers\UserController))
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(378): yii\base\View->render('user_address', Array, Object(frontend\controllers\UserController))
+#5 F:\web\www\yfc\frontend\controllers\UserController.php(77): yii\base\Controller->render('user_address', Array)
+#6 [internal function]: frontend\controllers\UserController->actionUser_address()
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_address', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_addre...', Array)
+#11 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#13 {main}
+2017-02-27 08:45:26 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_address'
+]
+
+$_COOKIE = [
+    'CNZZDATA1702264' => 'cnzz_eid=2124492813-1486950306-http%3A%2F%2F127.0.0.1%2F&ntime=1486974986'
+    'CNZZDATA1254932726' => '1663333160-1486949768-http%3A%2F%2F127.0.0.1%2F|1487646907'
+    'TS4_TSV4_LOGGED_USER' => 'aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO'
+    'PHPSESSID' => 't8hm2nhi34ivbi36ukqhnnnko0'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1816'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_address'
+    'QUERY_STRING' => 'r=user/user_address'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '50052'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'CNZZDATA1702264=cnzz_eid%3D2124492813-1486950306-http%253A%252F%252F127.0.0.1%252F%26ntime%3D1486974986; CNZZDATA1254932726=1663333160-1486949768-http%253A%252F%252F127.0.0.1%252F%7C1487646907; TS4_TSV4_LOGGED_USER=aTw6jr5eSUZ412mAqJo9YO1oHW5a2ekO; PHPSESSID=t8hm2nhi34ivbi36ukqhnnnko0'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488156326.1246
+    'REQUEST_TIME' => 1488156326
+]
