@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8"/>
     <title>DeathGhost</title>
-    <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发"/>
+    <meta name="keywords" content="有饭吃"/>
     <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!"/>
     <meta name="author" content="DeathGhost"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/public.js"></script>
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
@@ -58,8 +58,8 @@
     </div>
     <nav class="menu_bg">
         <ul class="menu">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="list.html">订餐</a></li>
+            <li><a href="?r=index/index">首页</a></li>
+            <li><a href="?r=search/search">订餐</a></li>
             <li><a href="category.html">积分商城</a></li>
             <li><a href="article_read.html">关于我们</a></li>
         </ul>
