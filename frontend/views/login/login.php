@@ -18,14 +18,14 @@
 						<div class="login_title">
 							登录
 						</div>
-						<form action="" method="post">
+						<form action="?r=login/login_do" method="post">
 							
 							<div class="form_text_ipt">
-								<input name="username" type="text" placeholder="手机号/邮箱">
+								<input name="user_phone" type="text" placeholder="手机号" class="phone">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_text_ipt">
-								<input name="password" type="password" placeholder="密码">
+								<input name="user_password" type="password" placeholder="密码" class="password">
 							</div>
 							<div class="ececk_warning"><span>数据不能为空</span></div>
 							<div class="form_check_ipt">
@@ -37,10 +37,10 @@
 								</div>
 							</div>
 							<div class="form_btn">
-								<button type="button">登录</button>
+								<button type="submit">登录</button>
 							</div>
 							<div class="form_reg_btn">
-								<span>还没有帐号？</span><a href="register.html">马上注册</a>
+								<span>还没有帐号？</span><a href="?r=register/choice">马上注册</a>
 							</div>
 						</form>
 						<div class="other_login">
@@ -61,3 +61,17 @@
 		<script type="text/javascript" src="js/common.js" ></script>
 	</body>
 </html>
+<script>
+	$("form").submit(function(){
+	    var phone = $('.phone').val();
+	  	var password = $('.password').val();
+	  	if(phone=="")
+	  	{
+	  		return false;
+	  	}
+	  	if(password=="")
+	  	{
+	  		return false;
+	  	}
+	});
+</script>

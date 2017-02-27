@@ -3,12 +3,11 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=www.kuqingshu.com;dbname=yfc',
+            'dsn' => 'mysql:host=60.205.185.84;dbname=yfc',
             'username' => 'admin',
             'password' => 'admin',
             'charset' => 'utf8',
             'tablePrefix' => 'yfc_',
-
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

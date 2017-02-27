@@ -1,7 +1,7 @@
 <?php
 namespace frontend\controllers;
 
-//use Yii;
+use Yii;
 //use yii\base\InvalidParamException;
 //use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -11,7 +11,7 @@ use yii\web\Controller;
 /**
  * Site controller
  */
-class IndexController extends Controller
+class IndexController extends CommonController
 {	
 	//首页
 	public function actionIndex()

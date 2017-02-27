@@ -53,34 +53,80 @@
      </select>
      </td>
     </tr>
-    <?php if ($arr['']) {?>
+    <?php if ($arr['pay_status']==1) {?>
     <tr>
      <td width="30%" align="right" class="FontW">邮政编码：</td>
-     <td><input type="text" name="" class="input_zipcode"  value="710077" required pattern="[0-9]{6}"></td>
+     <td><input type="text" name="" class="input_zipcode"  value="<?php echo $arr['adress']['cons_zipcode']?>" required pattern="[0-9]{6}"></td>
     </tr>
     <tr>
      <td width="30%" align="right" class="FontW">街道地址：</td>
-     <td><input type="text" name="" class="input_addr" value="丈八北路2000集" required></td>
+     <td><input type="text" name="" class="input_addr" value="<?php echo $arr['adress']['cons_address']?>" required></td>
     </tr>
     <tr>
      <td width="30%" align="right" class="FontW">收件人姓名：</td>
-     <td><input type="text" name="" class="input_name" value="deathghost" required></td>
+     <td><input type="text" name="" class="input_name" value="<?php echo $arr['adress']['cons_name']?>" required></td>
     </tr>
     <tr>
      <td width="30%" align="right" class="FontW">手机号码：</td>
-     <td><input type="text" name="" class="input_tel" value="1582551819" required pattern="[0-9]{11}"></td>
+     <td><input type="text" name="" class="input_tel" value="<?php echo $arr['adress']['cons_phone']?>" required pattern="[0-9]{11}"></td>
     </tr>
     <tr>
      <td width="30%" align="right" class="FontW">订单备注：</td>
-     <td><input type="text" name="" class="input_mark" value="...速度送货哦...谢谢~"></td>
+     <td><input type="text" name="" class="input_mark" value="<?php echo $arr['date']['date_speak']?>"></td>
+    </tr>
+    <?php }else{?>
+   <tr>
+     <td width="30%" align="right" class="FontW">邮政编码：</td>
+     <td><input type="text" id="cons_zipcode" class="input_zipcode"  value="<?php echo $arr['adress']['cons_zipcode']?>" required pattern="[0-9]{6}"></td>
     </tr>
     <tr>
+     <td width="30%" align="right" class="FontW">街道地址：</td>
+     <td><input type="text" id="cons_address" class="input_addr" value="<?php echo $arr['adress']['cons_address']?>" required></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">收件人姓名：</td>
+     <td><input type="text" id="cons_name" class="input_name" value="<?php echo $arr['adress']['cons_name']?>" required></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">手机号码：</td>
+     <td><input type="text" id="cons_phone" class="input_tel" value="<?php echo $arr['adress']['cons_phone']?>" required pattern="[0-9]{11}"></td>
+    </tr>
+    <tr>
+     <td width="30%" align="right" class="FontW">订单备注：</td>
+     <td><input type="text" name="" class="input_mark" value="<?php echo $arr['date']['date_speak']?>"></td>
+    </tr>
+    <input type="hidden" id="user_id" value="<?php echo $arr['user_id']?>">
+    <input type="hidden" id="cons_id" value="<?php echo $arr['address_id']?>">
      <td width="30%" align="right"></td>
      <!--未付款订单，可以修改地址！-->
-     <td><input type="submit" name="" value="确认修改地址" class="Submit">（未付款订单，可以修改地址！）</td>
+     <td><input type="button" id="sub" value="确认修改地址" class="Submit">（未付款订单，可以修改地址！）</td>
     </tr>
+    <?php } ?>
    </table>
    </form>
  </article>
 </section>
 <!--End content-->
+<script type="text/javascript">
+  $(document).delegate("#sub",'click',function(){
+    var cons_zipcode=$("#cons_zipcode").val();
+    var cons_address=$("#cons_address").val();
+    var cons_name=$("#cons_name").val();
+    var cons_phone=$("#cons_phone").val();
+    var user_id=$("#user_id").val();
+    var cons_id=$("#cons_id").val();
+    $.ajax({
+            type:'get',
+            url:"?r=user/update_cons",
+            data:'cons_zipcode='+cons_zipcode+'&cons_address='+cons_address+'&cons_name='+cons_name+'&cons_phone='+cons_phone+'&user_id='+user_id+'&cons_id='+cons_id,
+            success:function(msg)
+            {
+                if (msg==1) {alert('修改成功'); location.href="?r=user/user_orderlist"}
+                else
+                {
+                  alert('修改失败');return false;
+                }
+            }
+    })
+  })
+</script>
