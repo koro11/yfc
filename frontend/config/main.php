@@ -47,6 +47,7 @@ return [
         ],
         'class'=>[
             'class'=>'/frontend/functions/Function.php',
+            'class'=>'/frontend/functions/Page.php',
         ]
         /*
         'urlManager' => [

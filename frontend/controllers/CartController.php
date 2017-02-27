@@ -23,14 +23,14 @@ class CartController extends Controller
         $session = \Yii::$app->session;
 
         //用户登录cookie中购物信息入库
-        if($session->has('user_info')){
+        if($session->has('user_id')){
             $db = new Carts();
-            $userInfo = $session->get('user_info');
+            $userInfo = $session->get('user_id');
             $field = array('yfc_carts.cart_id','yfc_carts.food_id','food_mername','yfc_food.food_price','user_id','buy_number','food_mer','food_image');
             //用户未下订单的购物信息
-            $cartMsg = $db::find()->select($field)->joinWith('food')->where(['user_id'=>$userInfo['user_id']])->asArray()->all();
+            $cartMsg = $db::find()->select($field)->joinWith('food')->where(['user_id'=>$userInfo])->asArray()->all();
         }else{
-            $cartMsg = $this->actionCookiecart('cart');
+            $cartMsg = isset($_COOKIE['cart']) ? unserialize($_COOKIE['cart']) : array();
         }
 
         $res = array();
@@ -39,13 +39,13 @@ class CartController extends Controller
             foreach($cartMsg as $k=>$v){
                 if($v['food']['is_discount']){
                     $v['food']['price'] = $v['food']['discount_price'];
-                    $sumPrice = $sumPrice+($v['buy_number']*$v['food']['discount_price']);
+                    $sumPrice = $sumPrice+($v['food']['buy_number']*$v['food']['discount_price']);
                 }else{
                     $v['food']['price'] = $v['food']['food_price'];
-                    $sumPrice = $sumPrice+($v['buy_number']*$v['food']['food_price']);
+                    $sumPrice = $sumPrice+($v['food']['buy_number']*$v['food']['food_price']);
                 }
 
-                $res[$v['food_mername']][$k] = $v;
+                $res[$v['food']['food_mername']][$k] = $v;
             }
         }
         return $this->render('cart',['res'=>$res,'sumPrice'=>$sumPrice]);
@@ -60,32 +60,10 @@ class CartController extends Controller
     public function actionRemovecookie($name)
     {
         if(empty($name))return false;
-        $res = \Yii::$app->response->cookies->remove($name);
-        if(!empty($res)){
-            return false;
-        }
+        unset($_COOKIE[$name]);
         return true;
     }
 
-    public function actionCookie()
-    {
-        $session = \Yii::$app->session;
-        $session->set('user_info',array('user_id'=>1));
-//        $cookie = \Yii::$app->response->cookies;
-//
-//        $a = array(array(
-//            'user_id'=>2,
-//            'food_id'=>4,
-//            'food_market'=>5,
-//            'food_price'=>66,
-//            'buy_number'=>90,
-//        ));
-//        $b = $cookie->add(new \yii\web\Cookie([
-//            'name' => 'cart',
-//            'value' => serialize($a),
-//        ]));
-//        var_dump($b);
-    }
     /**
      * cookie购物信息
      * @author Dx
@@ -163,6 +141,11 @@ class CartController extends Controller
             'status'=>0,
             'msg'=>'',
         );
+        $session = \Yii::$app->session;
+        if(!$session->has('user_id')){
+            $return['msg'] = '请先登录';
+            exit(json_encode($return));
+        }
         $param= \Yii::$app->request->get('order');
 
         $count = count($param);
@@ -181,7 +164,7 @@ class CartController extends Controller
                 $return['msg'] = '商家已经下线,请重新选餐';
                 exit(json_encode($return));
             }
-            if(!$res['mer_status']){
+            if($res['mer_status']=='1'){
                 $return['msg'] = $res['mer_name'].'商户已经下线,请明日再来';
                 exit(json_encode($return));
             }

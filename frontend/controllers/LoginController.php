@@ -10,5 +10,6 @@ class LoginController extends Controller
     {
         return $this->render('login');
     }
+
     
 }
