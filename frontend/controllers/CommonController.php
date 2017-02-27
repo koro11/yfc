@@ -14,7 +14,7 @@ class CommonController extends Controller
 		//判断是否有登录session
 		if(!isset($user_id))
 		{
-			return $this->redirect('?r=login/login', 301);
+			return $this->redirect('?r=login/choice', 301);
 	    } 
 	}
 }

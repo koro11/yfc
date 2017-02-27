@@ -4,7 +4,7 @@ use Yii;
 use yii\web\Controller;
 use yii\web\Request;
 use frontend\models\Users;
-use yii\web\Session;
+use yii\web\Session;  
 use \yii\db\Query;
 use yii\web\UploadedFile;
 class RegisterController extends Controller
