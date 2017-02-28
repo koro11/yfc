@@ -111,12 +111,23 @@ class LoginController extends Controller
             }
             $arr1['mer_now_login'] = time();
             $db=\Yii::$app->db ->createCommand()->update('yfc_merchant',$arr1,'mer_id = '.$data['mer_id'])->execute();
+            //echo "ok";die;
             return $this->redirect('?r=index/index', 301);
         }
         else
         {
             return $this->redirect('?r=login/mer_login', 301);
         }
+    }
+    /**
+     * 退出登录
+     */
+    public function actionOut()
+    {
+        $session = Yii::$app->session;
+        unset($session['user_id']);
+        unset($session['mer_id']);
+        return $this->redirect('?r=login/choice', 301);
     }
     
 }
