@@ -6,6 +6,7 @@ use yii\data\Pagination;
 use yii\web\Session;
 use DB;
 use Yii;
+use  frontend\models\Food;
 use  frontend\models\Collect;
 use  frontend\models\Merchant;
 use  frontend\models\User_info;
@@ -13,6 +14,7 @@ use  frontend\models\Orders;
 use  frontend\models\User_ticket;
 use  frontend\models\Tickets;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 class UserController extends Controller
 {
 
@@ -120,12 +122,39 @@ class UserController extends Controller
     {
         $session=Yii::$app->session;
         $user_id=$session->get('user_id'); 
-
-        return $this->render('user_account');
+        
+        /*两边联查查询用户信息*/
+        $info= new User_info;
+        $user= $info->find()->joinWith('users')->where(['yfc_user_info.user_id'=>$user_id])->asArray()->one();
+        return $this->render('user_account',['user'=>$user]);
     }
 
 
-
+    //修改用户数据
+    public function actionUp_account()
+    {
+        $arr=Yii::$app->request->post();
+        $users['user_password']=$arr['user_password'];unset($arr['user_password']);
+        $users['user_phone']=$arr['user_phone'];unset($arr['user_phone']);
+        $upload=new UploadedFile(); //实例化上传类
+        $name=$upload->getInstanceByName('myfile'); //获取文件原名称
+        $img=$_FILES['myfile']; //获取上传文件参数
+        $upload->tempName=$img['tmp_name']; //设置上传的文件的临时名称
+        $img_path='upload/user_img/'.$name; //设置上传文件的路径名称(这里的数据进行入库)
+        $res=$upload->saveAs($img_path); //保存文件
+        $arr['user_image']=$img_path;
+        $resa=Yii::$app->db->createCommand()->update('yfc_users',$users,'user_id=:user_id',[':user_id'=>$arr['user_id']])->execute();
+        $resb=Yii::$app->db->createCommand()->update('yfc_user_info',$arr,'user_id=:user_id',[':user_id'=>$arr['user_id']])->execute();
+        if ($resb) 
+        {
+            echo "<script>alert('修改成功')</script>";
+           return $this->redirect('?r=user/user_account',301); 
+        }
+        else
+        {
+           return $this->redirect('?r=user/user_account',301);
+        }
+    }
 
 
 
@@ -211,7 +240,7 @@ class UserController extends Controller
     {
         $arr=Yii::$app->request->get();unset($arr['r']);
         $session=Yii::$app->session;
-        $user_id=$session->get('user_id'); 
+        $arr['user_id']=$session->get('user_id'); 
         $res=Yii::$app->db->createCommand()->insert('yfc_consignee',$arr)->execute();
         $resa= $res ? 1 : 0;
         return $resa;
@@ -241,10 +270,13 @@ class UserController extends Controller
     {
         $arr=Yii::$app->request->post();
         $order_id=$arr['order_id'];unset($arr['order_id']);
+        $arr['create_time']=time();
         /*插入评论*/
         $res=Yii::$app->db->createCommand()->insert('yfc_speak',$arr)->execute();
         /*获取刚插入ID*/
         $order_speak=Yii::$app->db->getLastInsertId();
+        /*菜品评论+1*/
+        $res=Food::updateAllCounters(['food_comment_num' => 1],['food_id'=>$arr['food_id']]);
         /*修改订单状态*/
         $update=Yii::$app->db->createCommand()
         ->update('yfc_orders',['order_speak'=>$order_speak],"order_id=:order_id",[':order_id'=>$order_id])

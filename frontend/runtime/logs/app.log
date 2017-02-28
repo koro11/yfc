@@ -13306,3 +13306,893 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1488201202.6181
     'REQUEST_TIME' => 1488201202
 ]
+2017-02-28 09:09:20 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: info' in F:\web\www\yfc\frontend\controllers\UserController.php:125
+Stack trace:
+#0 F:\web\www\yfc\frontend\controllers\UserController.php(125): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', 'F:\\web\\www\\yfc\\...', 125, Array)
+#1 [internal function]: frontend\controllers\UserController->actionUser_account()
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_account', Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/user_accou...', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#8 {main}
+2017-02-28 09:09:20 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][info][application] $_GET = [
+    'r' => 'user/user_account'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '1'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1940'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_account'
+    'QUERY_STRING' => 'r=user/user_account'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51246'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_collect'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488244160.0968
+    'REQUEST_TIME' => 1488244160
+]
+2017-02-28 09:53:13 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:900
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(900): PDOStatement->execute()
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(294): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'
+The SQL being executed was: SELECT * FROM `yfc_orders` WHERE (`order_status`=0) AND (`user_id`='1') AND (`shipping`='2') AND (`order_speak`='0') LIMIT 10' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(294): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'shipping' in 'where clause'
+)
+
+2017-02-28 09:53:12 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'key' => 'shipping'
+    'value' => '2'
+    'k' => 'order_speak'
+    'v' => '0'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '1'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1932'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_orderlist&key=shipping&value=2&k=order_speak&v=0'
+    'QUERY_STRING' => 'r=user/user_orderlist&key=shipping&value=2&k=order_speak&v=0'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51832'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488246792.7444
+    'REQUEST_TIME' => 1488246792
+]
+2017-02-28 09:55:10 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:900
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(900): PDOStatement->execute()
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(294): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'shipping' in 'where clause'
+The SQL being executed was: SELECT * FROM `yfc_orders` WHERE (`order_status`=0) AND (`user_id`='1') AND (`shipping`='2') AND (`order_speak`='0') LIMIT 10' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\Query.php(210): yii\db\Command->queryAll()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\ActiveQuery.php(133): yii\db\Query->all('<span class="ke...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(294): yii\db\ActiveQuery->all()
+#5 [internal function]: frontend\controllers\UserController->actionUser_orderlist()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'shipping' in 'where clause'
+)
+
+2017-02-28 09:55:10 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][info][application] $_GET = [
+    'r' => 'user/user_orderlist'
+    'key' => 'shipping'
+    'value' => '2'
+    'k' => 'order_speak'
+    'v' => '0'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '1'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1920'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_orderlist&key=shipping&value=2&k=order_speak&v=0'
+    'QUERY_STRING' => 'r=user/user_orderlist&key=shipping&value=2&k=order_speak&v=0'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51842'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488246910.6092
+    'REQUEST_TIME' => 1488246910
+]
+2017-02-28 09:55:40 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'create_time' doesn't have a default value' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(248): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionSpeak_save()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1364 Field 'create_time' doesn't have a default value
+The SQL being executed was: INSERT INTO `yfc_speak` (`speak_body`, `food_id`, `speak_user`) VALUES ('好吃', 1, '1')' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `yf...')
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(248): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionSpeak_save()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'create_time' doesn't have a default value
+)
+
+2017-02-28 09:55:40 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/speak_save'
+]
+
+$_POST = [
+    'speak_body' => '好吃'
+    'food_id' => '1'
+    'speak_user' => '1'
+    'order_id' => '41'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1920'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/speak_save'
+    'QUERY_STRING' => 'r=user/speak_save'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51857'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '64'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/order_speak&order_id=41'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488246940.7269
+    'REQUEST_TIME' => 1488246940
+]
+2017-02-28 09:58:48 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'user_id' doesn't have a default value' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(218): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionAddress_add()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('address_add', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/address_ad...', Array)
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1364 Field 'user_id' doesn't have a default value
+The SQL being executed was: INSERT INTO `yfc_consignee` (`cons_name`, `cons_province`, `cons_city`, `cons_district`, `cons_address`, `cons_zipcode`, `cons_phone`) VALUES ('马嘚瑟', '北京省', '北京市', '昌平区', '国仕汇901', '473200', '18301079406')' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `yf...')
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(218): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionAddress_add()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('address_add', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/address_ad...', Array)
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'user_id' doesn't have a default value
+)
+
+2017-02-28 09:58:47 [127.0.0.1][-][ehr1q17omb594pp7fidcm0ami4][info][application] $_GET = [
+    'r' => 'user/address_add'
+    'cons_name' => '马嘚瑟'
+    'cons_province' => '北京省'
+    'cons_city' => '北京市'
+    'cons_district' => '昌平区'
+    'cons_address' => '国仕汇901'
+    'cons_zipcode' => '473200'
+    'cons_phone' => '18301079406'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '1'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1920'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/address_add&cons_name=%E9%A9%AC%E5%98%9A%E7%91%9F&cons_province=%E5%8C%97%E4%BA%AC%E7%9C%81&cons_city=%E5%8C%97%E4%BA%AC%E5%B8%82&cons_district=%E6%98%8C%E5%B9%B3%E5%8C%BA&cons_address=%E5%9B%BD%E4%BB%95%E6%B1%87901&cons_zipcode=473200&cons_phone=18301079406'
+    'QUERY_STRING' => 'r=user/address_add&cons_name=%E9%A9%AC%E5%98%9A%E7%91%9F&cons_province=%E5%8C%97%E4%BA%AC%E7%9C%81&cons_city=%E5%8C%97%E4%BA%AC%E5%B8%82&cons_district=%E6%98%8C%E5%B9%B3%E5%8C%BA&cons_address=%E5%9B%BD%E4%BB%95%E6%B1%87901&cons_zipcode=473200&cons_phone=18301079406'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51890'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_address'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488247127.4116
+    'REQUEST_TIME' => 1488247127
+]
+2017-02-28 10:01:03 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: user_id' in F:\web\www\yfc\frontend\controllers\UserController.php:217
+Stack trace:
+#0 F:\web\www\yfc\frontend\controllers\UserController.php(217): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'F:\\web\\www\\yfc\\...', 217, Array)
+#1 [internal function]: frontend\controllers\UserController->actionAddress_add()
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('address_add', Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/address_ad...', Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#8 {main}
+2017-02-28 10:01:03 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/address_add'
+    'cons_name' => '马嘚瑟'
+    'cons_province' => '北京省'
+    'cons_city' => '北京市'
+    'cons_district' => '昌平区'
+    'cons_address' => '国仕汇901'
+    'cons_zipcode' => '473200'
+    'cons_phone' => '18301079406'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1920'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/address_add&cons_name=%E9%A9%AC%E5%98%9A%E7%91%9F&cons_province=%E5%8C%97%E4%BA%AC%E7%9C%81&cons_city=%E5%8C%97%E4%BA%AC%E5%B8%82&cons_district=%E6%98%8C%E5%B9%B3%E5%8C%BA&cons_address=%E5%9B%BD%E4%BB%95%E6%B1%87901&cons_zipcode=473200&cons_phone=18301079406'
+    'QUERY_STRING' => 'r=user/address_add&cons_name=%E9%A9%AC%E5%98%9A%E7%91%9F&cons_province=%E5%8C%97%E4%BA%AC%E7%9C%81&cons_city=%E5%8C%97%E4%BA%AC%E5%B8%82&cons_district=%E6%98%8C%E5%B9%B3%E5%8C%BA&cons_address=%E5%9B%BD%E4%BB%95%E6%B1%87901&cons_zipcode=473200&cons_phone=18301079406'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '51925'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_address'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488247263.7383
+    'REQUEST_TIME' => 1488247263
+]
+2017-02-28 11:05:10 [127.0.0.1][-][-][error][yii\base\ErrorException:2] exception 'yii\base\ErrorException' with message 'move_uploaded_file(uploads/user_img0.jpg): failed to open stream: No such file or directory' in F:\web\www\yfc\vendor\yiisoft\yii2\web\UploadedFile.php:161
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'move_uploaded_f...', 'F:\\web\\www\\yfc\\...', 161, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\web\UploadedFile.php(161): move_uploaded_file('C:\\Windows\\phpC...', 'uploads/user_im...')
+#2 F:\web\www\yfc\frontend\controllers\UserController.php(142): yii\web\UploadedFile->saveAs('uploads/user_im...')
+#3 [internal function]: frontend\controllers\UserController->actionUp_account()
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('up_account', Array)
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/up_account', Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#10 {main}
+2017-02-28 11:05:10 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/up_account'
+]
+
+$_POST = [
+    'user_name' => '京城食客'
+    'user_email' => '351518543@qq.com'
+    'user_phone' => '18301079406'
+    'user_password' => 'e10adc3949ba59abbe56e057f20f883e'
+]
+
+$_FILES = [
+    'myfile' => [
+        'name' => '0.jpg'
+        'type' => 'image/jpeg'
+        'tmp_name' => 'C:\\Windows\\phpC499.tmp'
+        'error' => 0
+        'size' => 25981
+    ]
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1940'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/up_account'
+    'QUERY_STRING' => 'r=user/up_account'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53288'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '26647'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=---------------------------161522187432708'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_account'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488251110.8604
+    'REQUEST_TIME' => 1488251110
+]
+2017-02-28 11:05:28 [127.0.0.1][-][-][error][yii\base\ErrorException:2] exception 'yii\base\ErrorException' with message 'move_uploaded_file(uploads/user_img/0.jpg): failed to open stream: No such file or directory' in F:\web\www\yfc\vendor\yiisoft\yii2\web\UploadedFile.php:161
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(2, 'move_uploaded_f...', 'F:\\web\\www\\yfc\\...', 161, Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\web\UploadedFile.php(161): move_uploaded_file('C:\\Windows\\php9...', 'uploads/user_im...')
+#2 F:\web\www\yfc\frontend\controllers\UserController.php(142): yii\web\UploadedFile->saveAs('uploads/user_im...')
+#3 [internal function]: frontend\controllers\UserController->actionUp_account()
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('up_account', Array)
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/up_account', Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#10 {main}
+2017-02-28 11:05:28 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/up_account'
+]
+
+$_POST = [
+    'user_name' => '京城食客'
+    'user_email' => '351518543@qq.com'
+    'user_phone' => '18301079406'
+    'user_password' => 'e10adc3949ba59abbe56e057f20f883e'
+]
+
+$_FILES = [
+    'myfile' => [
+        'name' => '0.jpg'
+        'type' => 'image/jpeg'
+        'tmp_name' => 'C:\\Windows\\php947.tmp'
+        'error' => 0
+        'size' => 25981
+    ]
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1940'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/up_account'
+    'QUERY_STRING' => 'r=user/up_account'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53313'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '26647'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=---------------------------161522187432708'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_account'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488251128.4724
+    'REQUEST_TIME' => 1488251128
+]
+2017-02-28 11:32:50 [127.0.0.1][-][-][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'Operator 'USER_ID=:USER_ID' requires two operands.' in F:\web\www\yfc\vendor\yiisoft\yii2\db\QueryBuilder.php:1388
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\QueryBuilder.php(1015): yii\db\QueryBuilder->buildSimpleCondition('USER_ID=:USER_I...', Array, '<span class="st...')
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\db\QueryBuilder.php(819): yii\db\QueryBuilder->buildCondition(Array, '<span class="st...')
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\db\QueryBuilder.php(280): yii\db\QueryBuilder->buildWhere(Array, '<span class="st...')
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(486): yii\db\QueryBuilder->update('yfc_users', Array, Array, '<span class="st...')
+#4 F:\web\www\yfc\frontend\controllers\UserController.php(146): yii\db\Command->update('yfc_users', Array, Array, Array)
+#5 [internal function]: frontend\controllers\UserController->actionUp_account()
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('up_account', Array)
+#9 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('user/up_account', Array)
+#10 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#11 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#12 {main}
+2017-02-28 11:32:49 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/up_account'
+]
+
+$_POST = [
+    'user_id' => '1'
+    'user_name' => '京城食客'
+    'user_email' => '351518543@qq.com'
+    'user_sex' => '男'
+    'user_phone' => '18301079406'
+    'user_password' => 'e10adc3949ba59abbe56e057f20f883e'
+]
+
+$_FILES = [
+    'myfile' => [
+        'name' => '0.jpg'
+        'type' => 'image/jpeg'
+        'tmp_name' => 'C:\\Windows\\php143E.tmp'
+        'error' => 0
+        'size' => 25981
+    ]
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1932'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/up_account'
+    'QUERY_STRING' => 'r=user/up_account'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53697'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '26832'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=---------------------------1583931945776'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_account'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488252769.6853
+    'REQUEST_TIME' => 1488252769
+]
+2017-02-28 11:33:30 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_img' in 'field list'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php:844
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(844): PDOStatement->execute()
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(147): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionUp_account()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'user_img' in 'field list'
+The SQL being executed was: UPDATE `yfc_user_info` SET `user_id`=1, `user_name`='京城食客', `user_email`='351518543@qq.com', `user_sex`=0, `user_img`='upload/user_img/0.jpg' WHERE user_id='1'' in F:\web\www\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\db\Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'UPDATE `yfc_use...')
+#1 F:\web\www\yfc\frontend\controllers\UserController.php(147): yii\db\Command->execute()
+#2 [internal function]: frontend\controllers\UserController->actionUp_account()
+#3 F:\web\www\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#4 F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#5 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#6 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#7 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#8 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#9 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'user_img' in 'field list'
+)
+
+2017-02-28 11:33:29 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/up_account'
+]
+
+$_POST = [
+    'user_id' => '1'
+    'user_name' => '京城食客'
+    'user_email' => '351518543@qq.com'
+    'user_sex' => '男'
+    'user_phone' => '18301079406'
+    'user_password' => 'e10adc3949ba59abbe56e057f20f883e'
+]
+
+$_FILES = [
+    'myfile' => [
+        'name' => '0.jpg'
+        'type' => 'image/jpeg'
+        'tmp_name' => 'C:\\Windows\\phpAE8B.tmp'
+        'error' => 0
+        'size' => 25981
+    ]
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ehr1q17omb594pp7fidcm0ami4'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1932'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/up_account'
+    'QUERY_STRING' => 'r=user/up_account'
+    'REQUEST_METHOD' => 'POST'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53779'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'CONTENT_LENGTH' => '26832'
+    'CONTENT_TYPE' => 'multipart/form-data; boundary=---------------------------1583931945776'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ehr1q17omb594pp7fidcm0ami4'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/?r=user/user_account'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488252809.1885
+    'REQUEST_TIME' => 1488252809
+]
