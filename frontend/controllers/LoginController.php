@@ -38,9 +38,7 @@ class LoginController extends Controller
     		$session = Yii::$app->session;
     		$session->set('user_id',$data['user_id']);
     		$time = $query->select('*')->from('yfc_users')->where(['user_id'=>$data['user_id']])->one();
-    		if(!empty($time['now_logint
-                3335323232323232
-                ime']))
+    		if(!empty($time['now_logintime']))
     		{
     			$arr1['last_logintime'] = $time['now_logintime'];
     		} 
