@@ -4,13 +4,12 @@ use yii\db\query;
 //分页类
 class Page {
 
-    public $pageNow	= 1;	//当前页
+    public $pageNow;	//当前页
     public $pageCount;//数据总条数
     public $pageSize = 3;//每页显示条数
 
     //获取分页
     public function getPage($count){
-
         $total = ceil($this->pageCount/$this->pageSize);//总页数
 
         //页码起始数

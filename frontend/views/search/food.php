@@ -81,7 +81,7 @@
         <ul class="Overflow">
             <?php foreach($food as $v):?>
             <li>
-                <a href="detailsp.html" target="_blank" target="_blank" title="<?=$v['food_name']?>"><img src="<?=$v['food_image']?>"></a>
+                <a href="?r=menu/details&id=<?php echo $v['food_id']?>"  title="<?=$v['food_name']?>"><img src="<?=$v['food_image']?>"></a>
                 <p class="P-price FontW Font16"><span>￥<?=$v['food_price']?></span></p>
                 <p class="P-title"><a href="detailsp.html" target="_blank" target="_blank" title="<?=$v['food_name']?>"><?=$v['food_name']?></a></p>
                 <p class="P-shop Overflow">

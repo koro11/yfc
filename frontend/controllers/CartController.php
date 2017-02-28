@@ -39,10 +39,10 @@ class CartController extends Controller
             foreach($cartMsg as $k=>$v){
                 if($v['food']['is_discount']){
                     $v['food']['price'] = $v['food']['discount_price'];
-                    $sumPrice = $sumPrice+($v['food']['buy_number']*$v['food']['discount_price']);
+                    $sumPrice = $sumPrice+($v['buy_number']*$v['food']['discount_price']);
                 }else{
                     $v['food']['price'] = $v['food']['food_price'];
-                    $sumPrice = $sumPrice+($v['food']['buy_number']*$v['food']['food_price']);
+                    $sumPrice = $sumPrice+($v['buy_number']*$v['food']['food_price']);
                 }
 
                 $res[$v['food']['food_mername']][$k] = $v;
@@ -97,8 +97,9 @@ class CartController extends Controller
         $addCart = \Yii::$app->db->createCommand($sql)->execute();
         //清除cookie购物信息
         if(!$addCart)exit('购物信息入库失败,请重试');
-        $del = $this->actionRemovecookie('cart');
-        if(!$del)exit('cookie清除异常');
+
+        unset($_COOKIE['cart']);
+
         return true;
     }
     /**
@@ -147,7 +148,7 @@ class CartController extends Controller
             exit(json_encode($return));
         }
         $param= \Yii::$app->request->get('order');
-
+        sort($param);
         $count = count($param);
         $obj = new Merchant();
         $cartId = '';
@@ -198,5 +199,6 @@ class CartController extends Controller
         $return['msg'] = '数量修改成功';
         exit(json_encode($return));
     }
+
 
 }

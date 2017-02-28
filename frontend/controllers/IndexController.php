@@ -11,7 +11,7 @@ use yii\web\Controller;
 /**
  * Site controller
  */
-class IndexController extends CommonController
+class IndexController extends Controller
 {	
 	//首页
 	public function actionIndex()
