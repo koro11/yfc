@@ -9,7 +9,7 @@
    <li><i></i><a href="?r=user/user_coupon">我的优惠券</a></li>
    <li><i></i><a href="?r=user/user_collect">我的收藏</a></li>
    <li><i></i><a href="?r=user/user_account">账户管理</a></li>
-   <li><i></i><a href="#">安全退出</a></li>
+   <li><i></i><a href="?r=login/login_out">安全退出</a></li>
   </ul>
  </nav>
  <article class="U-article Overflow">
@@ -115,14 +115,13 @@
     var cons_phone=$("#cons_phone").val();
     var user_id=$("#user_id").val();
     var cons_id=$("#cons_id").val();
-    alert(user_id);alert(cons_id);
     $.ajax({
             type:'get',
             url:"?r=user/update_cons",
             data:'cons_zipcode='+cons_zipcode+'&cons_address='+cons_address+'&cons_name='+cons_name+'&cons_phone='+cons_phone+'&user_id='+user_id+'&cons_id='+cons_id,
             success:function(msg)
             {
-                if (msg==1) {alert('修改成功') location.href="?r=user/user_orderlist"}
+                if (msg==1) {alert('修改成功'); location.href="?r=user/user_orderlist"}
                 else
                 {
                   alert('修改失败');return false;

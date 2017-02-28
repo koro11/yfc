@@ -107,6 +107,11 @@
 	    var phone = $('.phone').val();
 	    var address = $('.address').val();
 	    var catipa = $('.catipa').val(); 
+	    var phone_st = $('#phone').text;
+	    if(phone_st!="")
+	    {
+	    	return false;
+	    }
 	  	if(name=="")
 	  	{
 	  		return false;
