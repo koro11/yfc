@@ -9,7 +9,7 @@
    <li><i></i><a href="?r=user/user_coupon">我的优惠券</a></li>
    <li><i></i><a href="?r=user/user_collect">我的收藏</a></li>
    <li><i></i><a href="?r=user/user_account">账户管理</a></li>
-   <li><i></i><a href="#">安全退出</a></li>
+   <li><i></i><a href="?r=login/login_out">安全退出</a></li>
   </ul>
  </nav>
  <article class="U-article Overflow">
