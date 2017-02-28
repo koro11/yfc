@@ -58,9 +58,9 @@
     </div>
     <nav class="menu_bg">
         <ul class="menu">
-            <li><a href="index.html">首页</a></li>
-            <li><a href="list.html">订餐</a></li>
-            <li><a href="category.html">积分商城</a></li>
+            <li><a href="?r=index/index">首页</a></li>
+            <li><a href="?r=search/search">订餐</a></li>
+            <li><a href="?r=search/search&search_type=food&score=score">积分商城</a></li>
             <li><a href="article_read.html">关于我们</a></li>
         </ul>
     </nav>

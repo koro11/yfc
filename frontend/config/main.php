@@ -7,6 +7,11 @@ $params = array_merge(
 );
 
 return [
+//    'bootstrap' => ['debug'],
+//    'modules' => [
+//        'debug' => 'yii\debug\Module',
+//    ],
+
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
