@@ -11716,3 +11716,1118 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1488193624.9817
     'REQUEST_TIME' => 1488193624
 ]
+2017-02-27 21:21:24 [127.0.0.1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: PHP Notice 'yii\base\ErrorException' with message 'unserialize(): Error at offset 0 of 31132 bytes' 
+
+in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php:88
+
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(8, 'unserialize(): ...', 'D:\\phpStudy\\WWW...', 88, Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(88): unserialize('<<<<<<< HEAD\r\na...')
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(63): yii\debug\LogTarget->updateIndexFile('D:\\phpStudy\\WWW...', Array)
+#3 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(118): yii\debug\LogTarget->export()
+#4 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\log\Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#5 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#6 [internal function]: yii\log\Logger->flush(true)
+#7 {main}
+2017-02-27 21:21:24 [127.0.0.1][-][-][info][application] $_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1912'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/'
+    'QUERY_STRING' => ''
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59102'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201684.6744
+    'REQUEST_TIME' => 1488201684
+]
+2017-02-27 21:21:25 [127.0.0.1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: PHP Notice 'yii\base\ErrorException' with message 'unserialize(): Error at offset 0 of 31132 bytes' 
+
+in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php:88
+
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(8, 'unserialize(): ...', 'D:\\phpStudy\\WWW...', 88, Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(88): unserialize('<<<<<<< HEAD\r\na...')
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(63): yii\debug\LogTarget->updateIndexFile('D:\\phpStudy\\WWW...', Array)
+#3 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(118): yii\debug\LogTarget->export()
+#4 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\log\Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#5 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#6 [internal function]: yii\log\Logger->flush(true)
+#7 {main}
+2017-02-27 21:21:25 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'index/index'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1912'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=index/index'
+    'QUERY_STRING' => 'r=index/index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59103'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201685.0034
+    'REQUEST_TIME' => 1488201685
+]
+2017-02-27 21:21:30 [127.0.0.1][-][-][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: PHP Notice 'yii\base\ErrorException' with message 'unserialize(): Error at offset 0 of 31132 bytes' 
+
+in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php:88
+
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleError(8, 'unserialize(): ...', 'D:\\phpStudy\\WWW...', 88, Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(88): unserialize('<<<<<<< HEAD\r\na...')
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(63): yii\debug\LogTarget->updateIndexFile('D:\\phpStudy\\WWW...', Array)
+#3 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2-debug\LogTarget.php(118): yii\debug\LogTarget->export()
+#4 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\log\Dispatcher.php(188): yii\debug\LogTarget->collect(Array, true)
+#5 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#6 [internal function]: yii\log\Logger->flush(true)
+#7 {main}
+2017-02-27 21:21:30 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'login/choice'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1912'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/choice'
+    'QUERY_STRING' => 'r=login/choice'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59112'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=index/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201690.5267
+    'REQUEST_TIME' => 1488201690
+]
+2017-02-27 21:23:16 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: index/choice' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('choice', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('index/choice', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-27 21:23:16 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][info][application] $_GET = [
+    'r' => 'index/choice'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1912'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=index/choice'
+    'QUERY_STRING' => 'r=index/choice'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59126'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201796.2438
+    'REQUEST_TIME' => 1488201796
+]
+2017-02-27 21:23:58 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/merchant_login' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('merchant_login', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/merchant_...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-27 21:23:58 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][info][application] $_GET = [
+    'r' => 'login/merchant_login'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1960'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/merchant_login'
+    'QUERY_STRING' => 'r=login/merchant_login'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59154'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=login/choice'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201838.0302
+    'REQUEST_TIME' => 1488201838
+]
+2017-02-27 21:24:03 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/merchant_login' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('merchant_login', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/merchant_...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-27 21:24:02 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][info][application] $_GET = [
+    'r' => 'login/merchant_login'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1960'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/merchant_login'
+    'QUERY_STRING' => 'r=login/merchant_login'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59154'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=login/choice'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201842.8205
+    'REQUEST_TIME' => 1488201842
+]
+2017-02-27 21:24:13 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/merchant_login' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('merchant_login', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/merchant_...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-27 21:24:13 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][info][application] $_GET = [
+    'r' => 'login/merchant_login'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1912'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/merchant_login'
+    'QUERY_STRING' => 'r=login/merchant_login'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59163'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=login/choice'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201853.4681
+    'REQUEST_TIME' => 1488201853
+]
+2017-02-27 21:25:09 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "123132".' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php:460
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('123132', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-27 21:25:08 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][info][application] $_GET = [
+    'r' => '123132'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1912'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=123132'
+    'QUERY_STRING' => 'r=123132'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59247'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=index/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201908.8832
+    'REQUEST_TIME' => 1488201908
+]
+2017-02-27 21:25:28 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/out' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('out', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/out', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-27 21:25:28 [127.0.0.1][-][6rso726odjnis41mkibf2fgv61][info][application] $_GET = [
+    'r' => 'login/out'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => '6rso726odjnis41mkibf2fgv61'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1960'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/out'
+    'QUERY_STRING' => 'r=login/out'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59257'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=6rso726odjnis41mkibf2fgv61'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=index/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488201928.4883
+    'REQUEST_TIME' => 1488201928
+]
+2017-02-28 09:22:49 [127.0.0.1][-][dpb0utva5sjvrr1sv97pu0p6s0][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/user_login' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_login', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/user_logi...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-28 09:22:48 [127.0.0.1][-][dpb0utva5sjvrr1sv97pu0p6s0][info][application] $_GET = [
+    'r' => 'login/user_login'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => 'dpb0utva5sjvrr1sv97pu0p6s0'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1804'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/user_login'
+    'QUERY_STRING' => 'r=login/user_login'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '50314'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=dpb0utva5sjvrr1sv97pu0p6s0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488244968.9634
+    'REQUEST_TIME' => 1488244968
+]
+2017-02-28 09:24:50 [127.0.0.1][-][dpb0utva5sjvrr1sv97pu0p6s0][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/user_login' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_login', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/user_logi...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-28 09:24:50 [127.0.0.1][-][dpb0utva5sjvrr1sv97pu0p6s0][info][application] $_GET = [
+    'r' => 'login/user_login'
+]
+
+$_COOKIE = [
+    'TS4_TSV4_LOGGED_USER' => 'GVpM1GSjfAQNaCGvS2aXb+Sp5dZkBoIa'
+    'CNZZDATA1254932726' => '1740184430-1487047435-|1487898452'
+    'advanced-frontend' => 'dpb0utva5sjvrr1sv97pu0p6s0'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1804'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/user_login'
+    'QUERY_STRING' => 'r=login/user_login'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '50368'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'TS4_TSV4_LOGGED_USER=GVpM1GSjfAQNaCGvS2aXb%2BSp5dZkBoIa; CNZZDATA1254932726=1740184430-1487047435-%7C1487898452; advanced-frontend=dpb0utva5sjvrr1sv97pu0p6s0'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488245090.5213
+    'REQUEST_TIME' => 1488245090
+]
+2017-02-28 10:48:27 [127.0.0.1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined index: mer_pass' in D:\phpStudy\WWW\yfc\frontend\controllers\LoginController.php:71
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\frontend\controllers\LoginController.php(71): yii\base\ErrorHandler->handleError(8, 'Undefined index...', 'D:\\phpStudy\\WWW...', 71, Array)
+#1 [internal function]: frontend\controllers\LoginController->actionMer_login_do()
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#3 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#4 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('mer_login_do', Array)
+#5 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/mer_login...', Array)
+#6 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#8 {main}
+2017-02-28 10:48:27 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'login/mer_login_do'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ks5ueu4358og5org82etn878g7'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1776'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/mer_login_do'
+    'QUERY_STRING' => 'r=login/mer_login_do'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '53857'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ks5ueu4358og5org82etn878g7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488250107.2283
+    'REQUEST_TIME' => 1488250107
+]
+2017-02-28 10:54:45 [127.0.0.1][-][ks5ueu4358og5org82etn878g7][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: shop/shop_center' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('shop_center', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('shop/shop_cente...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-28 10:54:45 [127.0.0.1][-][ks5ueu4358og5org82etn878g7][info][application] $_GET = [
+    'r' => 'shop/shop_center'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ks5ueu4358og5org82etn878g7'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'mer_id' => '4'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1776'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=shop/shop_center'
+    'QUERY_STRING' => 'r=shop/shop_center'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '54042'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ks5ueu4358og5org82etn878g7'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=index/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488250485.5429
+    'REQUEST_TIME' => 1488250485
+]
+2017-02-28 10:55:09 [127.0.0.1][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\db\Command.php:900
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\db\Command.php(900): PDOStatement->execute()
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 D:\phpStudy\WWW\yfc\frontend\controllers\UserController.php(32): yii\db\Command->queryAll()
+#3 [internal function]: frontend\controllers\UserController->actionUser_index()
+#4 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#5 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#6 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#7 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#8 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#10 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+The SQL being executed was: select * from yfc_user_ticket where user_id=' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\db\Schema.php:633
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\db\Command.php(915): yii\db\Schema->convertException(Object(PDOException), 'select * from y...')
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 D:\phpStudy\WWW\yfc\frontend\controllers\UserController.php(32): yii\db\Command->queryAll()
+#3 [internal function]: frontend\controllers\UserController->actionUser_index()
+#4 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#5 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams('[<span class="s...')
+#6 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#7 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#8 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#10 {main}
+Additional Information:
+Array
+(
+    [0] => 42000
+    [1] => 1064
+    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+)
+
+2017-02-28 10:55:08 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'user/user_index'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ks5ueu4358og5org82etn878g7'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1776'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=user/user_index'
+    'QUERY_STRING' => 'r=user/user_index'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '54049'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ks5ueu4358og5org82etn878g7'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=index/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488250508.2662
+    'REQUEST_TIME' => 1488250508
+]
+2017-02-28 10:56:47 [127.0.0.1][-][ks5ueu4358og5org82etn878g7][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: index/shop_index' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('shop_index', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('index/shop_inde...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-28 10:56:47 [127.0.0.1][-][ks5ueu4358og5org82etn878g7][info][application] $_GET = [
+    'r' => 'index/shop_index'
+    'mer' => '4'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ks5ueu4358og5org82etn878g7'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '10'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1776'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=index/shop_index&mer=4'
+    'QUERY_STRING' => 'r=index/shop_index&mer=4'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '54087'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ks5ueu4358og5org82etn878g7'
+    'HTTP_REFERER' => 'http://localhost/yfc/frontend/web/?r=search%2Fsearch&search_type=shop&keyword=&cate=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488250607.5429
+    'REQUEST_TIME' => 1488250607
+]
+2017-02-28 11:04:47 [127.0.0.1][-][ks5ueu4358og5org82etn878g7][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/user_login' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('user_login', Array)
+#1 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/user_logi...', Array)
+#2 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-28 11:04:46 [127.0.0.1][-][ks5ueu4358og5org82etn878g7][info][application] $_GET = [
+    'r' => 'login/user_login'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'ks5ueu4358og5org82etn878g7'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files (x86)\\AMD APP\\bin\\x86_64;C:\\Program Files (x86)\\AMD APP\\bin\\x86;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files\\TortoiseSVN\\bin;D:\\phpStudy\\php55n;C:\\ProgramData\\ComposerSetup\\bin;E:\\小一\\11e框架\\Git\\cmd;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'D:/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '476'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/?r=login/user_login'
+    'QUERY_STRING' => 'r=login/user_login'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '54307'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_COOKIE' => 'advanced-frontend=ks5ueu4358og5org82etn878g7'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_HOST' => 'localhost'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488251086.8693
+    'REQUEST_TIME' => 1488251086
+]

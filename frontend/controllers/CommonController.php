@@ -11,10 +11,12 @@ class CommonController extends Controller
 		$session=\Yii::$app->session;
 		//取出存入的session值
 		$user_id=$session->get('user_id');
+		$mer_id = $session->get('mer_id');
 		//判断是否有登录session
-		if(!isset($user_id))
+		if(!isset($user_id)&&!isset($mer_id))
 		{
 			return $this->redirect('?r=login/choice', 301);
-	    } 
+	    }
+
 	}
 }
