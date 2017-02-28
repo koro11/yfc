@@ -15,13 +15,15 @@ class Functions
         if(empty($table) || empty($param) || !is_array($param)){
             exit('参数格式不符合标准');
         }
-        $keys = array_keys($param[0]);
+        $keys = array_keys($param[0]['food']);
+
         $keys = '(' . implode(',', $keys) . ')';
-//        var_dump($keys);die;
+
         $sql = "insert into $table $keys values";
+
         foreach($param as $k=>$v){
            $sql .= '(';
-           foreach($v as $key =>$va){
+           foreach($v['food'] as $va){
                $sql .= "'".$va."',";
            }
            $sql = substr($sql, 0, -1);
