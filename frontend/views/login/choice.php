@@ -19,7 +19,7 @@
 							<a href="?r=login/login">用户登录=></a>
 						</div>
 					     <div class="login_title">
-							<a href="?r=login/merchant_login">商家登录=></a>
+							<a href="?r=login/mer_login">商家登录=></a>
 						</div>
 						
 					</div>

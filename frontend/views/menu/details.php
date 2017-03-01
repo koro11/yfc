@@ -52,7 +52,7 @@ $(function(){
       <p>月销量</p>
      </li>
      <li class="line">
-      <p class="Numerical"><?php echo $details['food_comment_num']?></p>
+      <p class="Numerical"><?php echo $num?></p>
       <p>累计评价</p>
      </li>
      <li>
@@ -97,7 +97,7 @@ $(function(){
   <div class="title2 cf">
     <ul class="title-list fr cf ">
       <li class="on">详细说明</li>
-      <li>评价详情（<?php echo $details['food_comment_num']?>）</li>
+      <li>评价详情（<?php echo $num?>）</li>
       <p><b></b></p>
     </ul>
   </div>
@@ -136,7 +136,7 @@ $(function(){
       </table>
       <div class="TurnPage">
 
-         <?php echo $comment?>
+         <?php echo $page?>
 
        </div>
      </div>
@@ -160,25 +160,22 @@ $(function(){
         $(document).delegate(".PNumber",'click',function(){
             var now = $(this).text();
             if(now == '')return false;
-            $('.pick').removeClass('pick').addClass('PNumber');
-            $(this).removeClass('PNumber').addClass('pick');
+
             page(now);
         })
         //首页点击
-        $(".Prev").click(function(){
+        $(document).delegate(".Prev",'click',function(){
             var now = $(this).attr('page');
             if(now == '')return false;
             page(now);
-            $('.pick').removeClass('pick').addClass('PNumber');
-            $(".TurnPage").find('a').eq(1).find('span').removeClass().addClass('pick');
+
         })
         //尾页点击
-        $(".Next").click(function(){
+        $(document).delegate(".Next",'click',function(){
             var now =  $(this).attr('page');
             if(now == '')return false;
             page(now);
-            $('.pick').removeClass('pick').addClass('PNumber');
-            $(".TurnPage").find('a').find('.PNumber').last().removeClass('PNumber').addClass('pick');
+
         })
 
         function page(page){
@@ -188,9 +185,10 @@ $(function(){
             $.get('?r=menu/details',{now:page,id:food,status:1},function(data){
                 if(data.status==1){
                     var str = '';
-                    $.each(data.content,function(k,v){
+                    $.each(data.content.comment,function(k,v){
                         str += '<tr><td>'+v['speak_body']+'<time>'+v['create_time']+'</time></td> <td align="right">'+v['user_name']+'</td></tr>';
                     })
+                    $(".TurnPage").html(data.content.page);
                     $("#td").html(str);
                 }
             },'json')

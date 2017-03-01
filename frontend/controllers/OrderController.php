@@ -2,13 +2,25 @@
 namespace frontend\controllers;
 
 use yii\web\Controller;
-class OrderController extends Controller
+use frontend\models\Consignee;
+class OrderController extends CommonController
 {
-    //提交订单 准备支付
+    /**
+     * 生成订单
+     * @author Dx
+     * @param
+     * @return string
+     */
     public function actionOrder()
     {
         $param = urldecode(\Yii::$app->request->get('buycart'));
-        var_dump($param);die;
+        if(empty($param))exit('缺少参数,不正确');
+        $session = \Yii::$app->session;
+        $uid = $session->get('user_id');
+        if(empty($uid))\Yii::$app->view->renderFile('@app/views/login/login.php');
+        $obj = new Consignee();
+        $address = $obj->getAddress($uid);
+        var_dump($address);die;
         return $this->render('order');
     }
  

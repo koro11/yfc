@@ -182,12 +182,16 @@
         </ul>
         <aside>
             <div class="title">热门商家</div>
-
+            <?php
+            if ($this->beginCache('hot_shop', ['duration' => 3600])) {
+                $hot = \frontend\controllers\SearchController::hotShop();
+                foreach($hot as $v) {
+            ?>
             <div class="C-list">
-                <a href="shop.html" target="_blank" title="店铺名称"><img src="upload/cc.jpg"></a>
-                <p><a href="shop.html" target="_blank">[大雁塔]店铺名称</a></p>
+                <a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank" title="<?=$v['mer_name']?>"><img style="width: 284px;height: 200px;" src="<?=$v['info_image']?>"></a>
+                <p><a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank"><?=$v['mer_name']?></a></p>
                 <p>
-                    <span>人均：20~50元</span>
+                    <span>人均：<?=$v['info_catipa']?>元</span>
                     <span style=" float:right">
                         <img src="images/star-on.png">
                         <img src="images/star-on.png">
@@ -198,7 +202,11 @@
                     </span>
                 </p>
             </div>
-
+            <?php
+                }
+                $this->endCache();
+            }
+            ?>
         </aside>
 
         <div class="TurnPage">

@@ -105,4 +105,22 @@ class Carts extends \yii\db\ActiveRecord
             return false;
         }
     }
+    /**
+     * 餐饮入购物车
+     * @author Dx
+     * @param  array $param
+     * @return
+     */
+    public function setCart($param)
+    {
+        if(empty($param))return false;
+        $this->user_id = $param['user_id'];
+        $this->food_id = $param['food_id'];
+        $this->food_price = $param['food_price'];
+        $this->food_market = $param['food_market'];
+        $this->buy_number = $param['buy_number'];
+        $res = $this->save();
+        if(!$res)return false;
+        return true;
+    }
 }

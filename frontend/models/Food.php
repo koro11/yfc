@@ -95,7 +95,8 @@ class Food extends \yii\db\ActiveRecord
     public function getFooddetails($id)
     {
         if(empty($id))return false;
-        $res = $this->find()->where(['food_id'=>$id])->asArray()->one();
+        $field = array('food_image','food_desc','food_mer','food_id','food_score','is_score','food_saled','discount_price','food_price','is_discount','food_name');
+        $res = $this->find()->select($field)->where(['food_id'=>$id])->asArray()->one();
         if(!$res)return false;
         $seller = ( new Yii\db\query)->select('mer_address,mer_status')->from('yfc_merchant')->where('mer_id=:id',[':id'=>$res['food_mer']])->one();
         $res = array_merge($res,$seller);
@@ -116,17 +117,5 @@ class Food extends \yii\db\ActiveRecord
          if(!$res)return false;
         return $res;
      }
-    /**
-     * 餐饮入购物车
-     * @author Dx
-     * @param  array $param
-     * @return
-     */
-    public function setCart($param)
-    {
-        if(empty($param))return false;
-        $res = $this->insert($param);
-        if(!$res)return false;
-        return true;
-    }
+
 }
