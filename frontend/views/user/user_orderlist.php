@@ -67,8 +67,6 @@ use yii\widgets\LinkPager;
                 <?php
           echo LinkPager::widget([
               'pagination' => $pages,
-              'nextPageLabel'=>'下一页',
-              'prevPageLabel'=>'上一页',
               'firstPageLabel'=>'首页',
               'lastPageLabel'=>'尾页'
            ]);?>
