@@ -14196,3 +14196,67 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1488252809.1885
     'REQUEST_TIME' => 1488252809
 ]
+2017-02-28 14:17:22 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: login/login_out' in F:\web\www\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('login_out', Array)
+#1 F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('login/login_out', Array)
+#2 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in F:\web\www\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 F:\web\www\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 F:\web\www\yfc\frontend\web\index.php(19): yii\base\Application->run()
+#2 {main}
+2017-02-28 14:17:22 [127.0.0.1][-][-][info][application] $_GET = [
+    'r' => 'login/login_out'
+]
+
+$_COOKIE = [
+    'advanced-frontend' => 'moir0d1tim1etkcg80hknhnk01'
+]
+
+$_SERVER = [
+    'PATH' => 'C:\\Program Files\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\TortoiseSVN\\bin;F:\\web\\phpstudy\\php54n;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\Administrator\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SYSTEMROOT' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'PHP_FCGI_MAX_REQUESTS' => '1000'
+    'PHPRC' => 'F:/web/phpStudy/php55n'
+    '_FCGI_SHUTDOWN_EVENT_' => '1800'
+    'SCRIPT_NAME' => '/yfc/frontend/web/index.php'
+    'REQUEST_URI' => '/yfc/frontend/web/index.php?r=login/login_out'
+    'QUERY_STRING' => 'r=login/login_out'
+    'REQUEST_METHOD' => 'GET'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'REMOTE_PORT' => '59384'
+    'SCRIPT_FILENAME' => 'F:/web/www/yfc/frontend/web/index.php'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'CONTEXT_DOCUMENT_ROOT' => 'F:/web/www'
+    'CONTEXT_PREFIX' => ''
+    'REQUEST_SCHEME' => 'http'
+    'DOCUMENT_ROOT' => 'F:/web/www'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_NAME' => '127.0.0.1'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i mod_fcgid/2.3.9'
+    'SERVER_SIGNATURE' => ''
+    'SystemRoot' => 'C:\\Windows'
+    'HTTP_COOKIE' => 'advanced-frontend=moir0d1tim1etkcg80hknhnk01'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_REFERER' => 'http://127.0.0.1/yfc/frontend/web/index.php?r=user/user_account'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.79 Safari/537.36'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CONNECTION' => 'close'
+    'HTTP_HOST' => '127.0.0.1'
+    'FCGI_ROLE' => 'RESPONDER'
+    'PHP_SELF' => '/yfc/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1488262642.4994
+    'REQUEST_TIME' => 1488262642
+]
