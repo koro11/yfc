@@ -5,7 +5,7 @@ use Yii;
 use yii\web\Controller;
 use frontend\models\Users;
 use yii\web\Session;
-use \yii\db\Query;
+use yii\db\Query;
 use frontend\functions\Functions;
 class LoginController extends Controller
 {
@@ -31,7 +31,7 @@ class LoginController extends Controller
     public function actionLogin_do()
     {
 //      $session = Yii::$app->session;
-//        $session->remove('user_id');die;
+//      $session->remove('user_id');die;
     	$arr = Yii::$app->request->post();
     	$pwd = md5($arr['user_password']);
     	$query = new Query;
@@ -39,7 +39,6 @@ class LoginController extends Controller
     	if($data)
     	{
             //购物信息入库
-
             if(isset($_COOKIE['cart'])){
                 $class = new Functions();
                 $cartMsg = unserialize($_COOKIE['cart']);
@@ -51,13 +50,13 @@ class LoginController extends Controller
                     $res[$i]['food']['food_market'] = $cartMsg[0]['food']['is_discount'] ? $cartMsg[0]['food']['discount_price'] : $cartMsg[0]['food']['food_price'];
                     $res[$i]['food']['food_id'] = $cartMsg[$i]['food']['food_id'];
                 }
-//                var_dump($res);die;
+                //var_dump($res);die;
                 $sql = $class->adds('yfc_carts',$res);
 
                 $addCart = \Yii::$app->db->createCommand($sql)->execute();
                 //清除cookie购物信息
-                if(!$addCart)exit('购物信息入库失败,请重试');
-                setcookie('cart','');
+                if(!$addCart)exit('购物信息入库失败,请重试'); 
+                setcookie('cart',''); 
             }
 
     		$session = Yii::$app->session;

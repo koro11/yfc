@@ -53,15 +53,16 @@ return [
         'class'=>[
             'class'=>'/frontend/functions/Function.php',
             'class'=>'/frontend/functions/Page.php',
-        ]
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
         ],
-        */
+        /*'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,//去除index.php 
+            'rules' => [
+                'pattern1'=>'route1',  
+                'pattern2'=>'route2',  
+                'pattern3'=>'route3',
+            ],
+        ],*/
     ],
     'params' => $params,
 ];

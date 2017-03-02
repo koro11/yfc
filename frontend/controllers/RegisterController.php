@@ -23,14 +23,14 @@ class RegisterController extends Controller
 	 */
 	public function actionUser_register_do()
 	{
-		$arr = Yii::$app->request->post();
-		$arr['user_password'] = md5($arr['user_password']);
+		$arr1 = Yii::$app->request->post();
+		$arr['user_password'] = md5($arr1['user_password']);
 		$arr['register_time'] = time();
 		$res = \Yii::$app->db->createCommand()->insert('yfc_users',$arr)->execute();
 		if($res)
 		{
 			$query = new Query;
-    	    $data = $query->select('*')->from('yfc_users')->where(['user_phone'=>$arr['user_phone']])->one();
+    	    $data = $query->select('*')->from('yfc_users')->where(['user_phone'=>$arr1['user_phone']])->one();
     	    $arr2['user_id'] = $data['user_id'];
     	    $arr2['user_name'] = 'yfc_'.rand(000000,999999);
     	    \Yii::$app->db->createCommand()->insert('yfc_user_info',$arr2)->execute();
@@ -40,8 +40,6 @@ class RegisterController extends Controller
 		{
 			return $this->redirect('?r=regirect/user_register', 301);
 		}
-
-
 	}
 	/**
 	 * 商家驻入
