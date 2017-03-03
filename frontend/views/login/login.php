@@ -50,9 +50,7 @@
 								<span>其它登录方式</span>
 							</div>
 							<div class="right other_right">
-								<a href="#">QQ登录</a>
-								<a href="#">微信登录</a>
-								<a href="#">微博登录</a>
+								 <a href="#" onclick='toLogin()'><img src="images/QQ.png" alt=""></a>
 							</div>
 						</div>
 					</div>
@@ -76,4 +74,14 @@
 	  		return false;
 	  	}
 	});
+</script>
+<script>
+ function toLogin()
+ {
+   //以下为按钮点击事件的逻辑。注意这里要重新打开窗口
+   //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
+   var A=window.open("oauth/index.php","TencentLogin", 
+   "width=450,height=320,menubar=0,scrollbars=1,
+   resizable=1,status=1,titlebar=0,toolbar=0,location=1");
+ } 
 </script>

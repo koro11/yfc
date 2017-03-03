@@ -22,7 +22,7 @@
                 <?php foreach ($va as $key => $v) { ?>
                     <table ellpadding="0" cellspacing="0" class="gwc_tb2" class="table1">
                         <tr>
-                            <td class="tb2_td1"><input sellerId="<?php echo $v['food']['food_mer']?>" type="checkbox" cartid="<?php echo isset($v['cart_id'])?$v['cart_id']:''?>"  value="<?php echo $v['food']['price']*$v['food']['buy_number'] ?>" name="newslist" class="newslist-1"/></td>
+                            <td class="tb2_td1"><input sellerId="<?php echo $v['food']['food_mer']?>" type="checkbox" cartid="<?php echo isset($v['cart_id'])?$v['cart_id']:''?>"  value="<?php echo $v['food']['price']*$v['buy_number'] ?>" name="newslist" class="newslist-1"/></td>
                             <td class="tb2_td2"><a href="detailsp.html" target="_blank"><img src="<?php echo $v['food']['food_image']?>"/></a>
                             </td>
                             <td class="tb2_td3"><a href="detailsp.html" target="_blank" style="margin-left: 20px;"><?php echo $v['food']['food_name'] ?></a>
@@ -34,7 +34,7 @@
                             <?php endif; ?>
                             <td class="tb1_td5">
                                 <input class="min1" name="" style="width:30px; height:30px;border:1px solid #ccc;" type="button" value="-"/>
-                                <input calss="text_box1" status="0" name="text_box1" type="text" value="<?php echo $v['food']['buy_number'] ?>" style=" width:40px;height:28px; text-align:center; border:1px solid #ccc;"/>
+                                <input calss="text_box1" status="0" name="text_box1" type="text" value="<?php echo $v['buy_number'] ?>" style=" width:40px;height:28px; text-align:center; border:1px solid #ccc;"/>
                                 <input class="add1" name="" style="width:30px; height:30px;border:1px solid #ccc;" type="button" value="+"/>
                             </td>
                             <td class="tb1_td6"><label class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"><?php echo $v['food']['price'] ?></label>

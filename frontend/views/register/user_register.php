@@ -84,7 +84,7 @@ use yii\captcha\Captcha;
 	  	var password = $('.password').val();
 	  	var rpassword = $('.rpassword').val();
 	  	var phone_st = $('#phone').text();
-	  	var tel=/^1[3|5|7|8]\d{9}$/;//匹配手机号码
+  		var tel=/^1[3|5|7|8]\d{9}$/;//匹配手机号码
   		if(!tel.test(phone))
 	    {
 	    	return false;

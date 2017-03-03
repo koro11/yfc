@@ -5,15 +5,29 @@ use libs\alipay\AlipayNotify;
 use libs\alipay\AlipaySubmit;
 
 use yii\web\Controller;
+use frontend\models\Consignee;
 
-class OrderController extends Controller
+class OrderController extends CommonController
 {
+    /**
+     * 生成订单
+     * @author Dx
+     * @param
+     * @return string
+     */
     public $enableCsrfValidation = false;
-    //提交订单 准备支付
+
     public function actionOrder()
     {
         $param = urldecode(\Yii::$app->request->get('buycart'));
-        var_dump($param);die;
+        if (empty($param)) exit('缺少参数,不正确');
+        $session = \Yii::$app->session;
+        $uid     = $session->get('user_id');
+        if (empty($uid)) \Yii::$app->view->renderFile('@app/views/login/login.php');
+        $obj     = new Consignee();
+        $address = $obj->getAddress($uid);
+        var_dump($address);
+        die;
         return $this->render('order');
     }
 
@@ -28,7 +42,8 @@ class OrderController extends Controller
         return $this->render('pay');
     }
 
-    public function actionAlipay(){
+    public function actionAlipay()
+    {
         /***************************请求参数******************************************/
         //商户订单号，商户网站订单系统中唯一订单号，必填
         $out_trade_no = $_POST['WIDout_trade_no'];
@@ -47,20 +62,20 @@ class OrderController extends Controller
         /****************************************************************************/
         //构造要请求的参数数组，无需改动
         $parameter = array(
-            "service" => $alipay_config['service'],
-            "partner" => $alipay_config['partner'],
-            "seller_id" => $alipay_config['seller_id'],
+            "service"      => $alipay_config['service'],
+            "partner"      => $alipay_config['partner'],
+            "seller_id"    => $alipay_config['seller_id'],
             "payment_type" => $alipay_config['payment_type'],
-            "notify_url" => $alipay_config['notify_url'],
-            "return_url" => $alipay_config['return_url'],
+            "notify_url"   => $alipay_config['notify_url'],
+            "return_url"   => $alipay_config['return_url'],
 
-            "anti_phishing_key"=>$alipay_config['anti_phishing_key'],
-            "exter_invoke_ip"=>$alipay_config['exter_invoke_ip'],
-            "out_trade_no" => $out_trade_no,
-            "subject" => $subject,
-            "total_fee" => $total_fee,
-            "body" => $body,
-            "_input_charset" => trim(strtolower($alipay_config['input_charset']))
+            "anti_phishing_key" => $alipay_config['anti_phishing_key'],
+            "exter_invoke_ip"   => $alipay_config['exter_invoke_ip'],
+            "out_trade_no"      => $out_trade_no,
+            "subject"           => $subject,
+            "total_fee"         => $total_fee,
+            "body"              => $body,
+            "_input_charset"    => trim(strtolower($alipay_config['input_charset']))
             //其他业务参数根据在线开发文档，添加参数.文档地址:https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.kiX33I&treeId=62&articleId=103740&docType=1
             //如"参数名"=>"参数值"
 
@@ -68,7 +83,7 @@ class OrderController extends Controller
 
         //建立请求
         $alipaySubmit = new AlipaySubmit($alipay_config);
-        $html_text = $alipaySubmit->buildRequestForm($parameter,"get", "确认");
+        $html_text    = $alipaySubmit->buildRequestForm($parameter, "get", "确认");
         echo $html_text;
 
     }
@@ -79,10 +94,10 @@ class OrderController extends Controller
 //        echo 123;
 //        logResult(implode(',',$_POST));die;
         $alipay_config = $this->payConfig();
-        $alipayNotify = new AlipayNotify($alipay_config);
+        $alipayNotify  = new AlipayNotify($alipay_config);
         $verify_result = $alipayNotify->verifyNotify();
 
-        if($verify_result) {
+        if ($verify_result) {
             //验证成功
             //请在这里加上商户的业务逻辑程序代
 
@@ -95,7 +110,7 @@ class OrderController extends Controller
             //交易状态
             $trade_status = $_POST['trade_status'];
 
-            if($_POST['trade_status'] == 'TRADE_FINISHED') {//交易完成
+            if ($_POST['trade_status'] == 'TRADE_FINISHED') {//交易完成
                 //判断该笔订单是否在商户网站中已经做过处理
                 //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
                 //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
@@ -105,8 +120,8 @@ class OrderController extends Controller
                 //退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
 
 
-                logResult(implode(',',$_POST));
-            } else if ($_POST['trade_status'] == 'TRADE_SUCCESS'){//可以退款
+                logResult(implode(',', $_POST));
+            } else if ($_POST['trade_status'] == 'TRADE_SUCCESS') {//可以退款
                 //判断该笔订单是否在商户网站中已经做过处理
                 //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
                 //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
@@ -116,11 +131,10 @@ class OrderController extends Controller
                 //付款完成后，支付宝系统发送该交易状态通知
 
 
-                logResult(implode(',',$_POST));
+                logResult(implode(',', $_POST));
             }
-            echo "success";		//请不要修改或删除
-        }
-        else {
+            echo "success";        //请不要修改或删除
+        } else {
             //验证失败
             echo "fail";
 
@@ -132,9 +146,9 @@ class OrderController extends Controller
     public function actionReturnPay()
     {
         $alipay_config = $this->payConfig();
-        $alipayNotify = new AlipayNotify($alipay_config);
+        $alipayNotify  = new AlipayNotify($alipay_config);
         $verify_result = $alipayNotify->verifyReturn();
-        if($verify_result) {
+        if ($verify_result) {
             //验证成功
             //请在这里加上商户的业务逻辑程序代码
 
@@ -150,12 +164,12 @@ class OrderController extends Controller
             //交易状态
             $trade_status = $_GET['trade_status'];
 
-            if($_GET['trade_status'] == 'trade_finished' || $_GET['trade_status'] == 'TRADE_SUCCESS') {
+            if ($_GET['trade_status'] == 'trade_finished' || $_GET['trade_status'] == 'TRADE_SUCCESS') {
                 //判断该笔订单是否在商户网站中已经做过处理
                 //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
                 //如果有做过处理，不执行商户的业务程序
             } else {
-                echo "trade_status=".$_GET['trade_status'];
+                echo "trade_status=" . $_GET['trade_status'];
             }
 
             echo "验证成功<br />";
@@ -192,11 +206,11 @@ class OrderController extends Controller
 
         $alipay_config['sign_type'] = strtoupper('MD5');//签名方式
 
-        $alipay_config['input_charset']= strtolower('utf-8');//字符编码格式 目前支持 gbk 或 utf-8
+        $alipay_config['input_charset'] = strtolower('utf-8');//字符编码格式 目前支持 gbk 或 utf-8
 
         //ca证书路径地址，用于curl中ssl校验
         //请保证cacert.pem文件在当前文件夹目录中
-        $alipay_config['cacert'] = getcwd().'\\cacert.pem';
+        $alipay_config['cacert'] = getcwd() . '\\cacert.pem';
 
         //访问模式,根据自己的服务器是否支持ssl访问，若支持请选择https；若不支持请选择http
         $alipay_config['transport'] = 'http';

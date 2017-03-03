@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 
+use frontend\models\Carts;
 use frontend\models\Speak;
 use yii\db\Query;
 use yii\web\Controller;
@@ -16,19 +17,21 @@ class MenuController extends Controller
         $now = intval(\Yii::$app->request->get('now'));
         $status = \Yii::$app->request->get('status');
         $now = $now ? $now : 1;//当前页
-        $food_id = 4;
         $page = new Page();
+        $page->pageNow = $now;
         //评论model
         $comment = new Speak();
+        //总条数
+        $num = $comment->getCount($food_id);
+        //分页码
+        $commentPage = $this->actionGetpage($page,$num['food_comment_num']);
         if(!$status){
             if(empty($food_id))exit('缺少参数');
             $obj = new Food();
             $details = $obj->getFooddetails($food_id);
+//            var_dump($details);die;
             if(empty($details))exit('商品已下线,请重新选择');
-            //总条数
-            $num = $comment->getCount($food_id);
-            //分页码
-            $commentPage = $this->actionGetpage($page,$num);
+
             $content = $page->getComment($comment,$food_id,$now);
             $cookie = \Yii::$app->response->cookies;
             $cookies = \Yii::$app->request->cookies;
@@ -70,7 +73,7 @@ class MenuController extends Controller
                 $list = $obj->getFoods($cookies->get('history'));
             }
 //            var_dump($list);die;
-            return $this->render('details',['details'=>$details,'comment'=>$commentPage['str'],'content'=>$content,'count'=>$commentPage['count'],'list'=>$list]);
+            return $this->render('details',['details'=>$details,'page'=>$commentPage['str'],'content'=>$content,'count'=>$commentPage['count'],'list'=>$list,'num'=>$num['food_comment_num']]);
         }else{
             $return = array(
                 'status'=>0,
@@ -83,12 +86,19 @@ class MenuController extends Controller
             }
             $db = new \Memcache();
             $db->connect('192.168.1.23','11211');
-            $res = $db->get($now);
+            $res = $db->get($now.$food_id);
             if($res){
                 $content = $res;
             }else{
-                $content = $page->getComment($comment,$food_id,$now);
-                $db->set($now,$content,false,60);
+                if(empty($now)){
+                    $retrun['msg'] = '缺少参数';
+                    exit(json_encode($return));
+                }
+                $content['comment'] = $page->getComment($comment,$food_id,$now);
+
+                $content['page'] = $commentPage['str'];
+
+                $db->set($now.$food_id,$content,false,60);
             }
             if(!$content){
                 exit(json_encode($return));
@@ -133,26 +143,27 @@ class MenuController extends Controller
 
         $db = new Query();
         $res[]['food'] = $db->from('yfc_food')->where(['food_id'=>$id])->one();
-        $res[0]['food']['buy_number'] = $num;
+
+        $res[0]['buy_number'] = $num;
+
         if(!$session->has('user_id')){
 
             if(isset($_COOKIE['cart'])){
                 $arr = unserialize($_COOKIE['cart']);
+
                 foreach($arr as $k=>$v){
                     if($v['food']['food_id']==$res[0]['food']['food_id']){
                         $return['msg'] = '此商品已经存在购物车中';
                         exit(json_encode($return));
                     }
                 }
-
                 if(count($arr)==2){
                     unset($arr[0]);
                 }
 
                 $res = array_merge($arr,$res);
             }
-
-            $data = setcookie('cart',serialize($res));
+            $data = setcookie('cart',serialize($res),time()+86400);
 
             if($data){
                 $return['status'] = 1;
@@ -160,14 +171,21 @@ class MenuController extends Controller
             }
 
         }else{
-            $obj = new Food();
+            $obj = new Carts();
+            $db = new  Query();
+            $food = $db->from('yfc_carts')->where(['food_id'=>$res[0]['food']['food_id']])->one();
+            if(!empty($food)){
+                $return['msg'] = '此商品已经存在购物车中';
+                exit(json_encode($return));
+            }
             $param = array(
                 'user_id'=>$session->get('user_id'),
-                'buy_number'=>'',
+                'buy_number'=>$res[0]['buy_number'],
                 'food_id'=>$id,
-                'food_market'=>$res['discount_price'],
-                'food_price'=>$res['food_price'],
+                'food_market'=>$res[0]['food']['is_discount'] ? $res[0]['food']['discount_price'] : $res[0]['food']['food_price'],
+                'food_price'=>$res[0]['food']['food_price'],
             );
+
             $data = $obj->setCart($param);
             if($data){
                 $return['status'] = 1;

@@ -1,3 +1,7 @@
+<?php
+use yii\web\Session;
+use \yii\db\Query;
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +24,38 @@
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="<?=Url::to('register/choice')?>">注册</a>/<a href="<?=Url::to('login/choice')?>">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <?php
+        $session = Yii::$app->session;
+        $user_id = $session->get('user_id');
+        $mer_id = $session->get('mer_id');
+       /* var_dump($user_id);
+        var_dump($mer_id);die;*/
+        if($user_id!="")
+        {
+            $query = new Query;
+            $username = $query->select('user_name')->from('yfc_user_info')->where(['user_id'=>$user_id])->one();
+            echo '欢迎用户    '.$username['user_name'].'   登录';
+        } 
+        else if($mer_id!="")
+        {
+            $query = new Query;
+            $mername = $query->select('mer_name')->from('yfc_merchant')->where(['mer_id'=>$mer_id])->one();
+            echo '欢迎商家  '.$mername['mer_name'].'   登录';
+        }
+        else
+        {
+            echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
+        }
+    ?>
+    <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
    </div>
    <div class="RightNav">
-    <a href="<?=Url::to()?>">用户中心</a> <a href="<?=Url::to()?>" target="_blank" title="我的订单">我的订单</a> <a href="<?=Url::to()?>">购物车（0）</a> <a href="<?=Url::to()?>" target="_blank" title="我的收藏">我的收藏</a> <a href="<?=Url::to()?>">商家入驻</a>
+   <?php if($user_id!=""){?>
+    <a href="<?=Url::to('user/user_index')?>">用户中心</a>
+   <?php }else{?>
+    <a href="<?=Url::to('shop/shop_center')?>">商户中心</a>
+   <?php }?>
+     <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="cart.html">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
    </div>
   </div>
  </section>

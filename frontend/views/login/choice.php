@@ -21,7 +21,7 @@
 							<a href="<?=Url::to('login/login')?>">用户登录=></a>
 						</div>
 					     <div class="login_title">
-							<a href="<?=Url::to('login/merchant_login')?>">商家登录=></a>
+							<a href="<?=Url::to('login/mer_login')?>">商家登录=></a>
 						</div>
 						
 					</div>

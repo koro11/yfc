@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "yfc_speak".
@@ -56,7 +57,8 @@ class Speak extends \yii\db\ActiveRecord
     public function getCount($id)
     {
         if(empty($id))return false;
-        $num = $this->find()->where(['food_id'=>$id])->count();
+        $db = new Query();
+        $num = $db->from('yfc_food')->select('food_comment_num')->where(['food_id'=>$id])->one();
         if(!$num)return false;
         return $num;
     }
