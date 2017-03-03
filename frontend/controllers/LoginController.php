@@ -6,6 +6,7 @@ use yii\web\Controller;
 use frontend\models\Users;
 use yii\web\Session;
 use \yii\db\Query;
+use yii\helpers\Url;
 class LoginController extends Controller
 {
 	public $layout = false;
@@ -48,11 +49,11 @@ class LoginController extends Controller
     		}
     		$arr1['now_logintime'] = time();
     		$db=\Yii::$app->db ->createCommand()->update('yfc_users',$arr1,'user_id = '.$data['user_id']) ->execute();
-    		return $this->redirect('?r=index/index', 301);
+    		return $this->redirect(Url::to('/index/index'), 301);
     	}
     	else
     	{
-    		return $this->redirect('?r=login/login', 301);
+    		return $this->redirect(Url::to('/login/login'), 301);
     	}
     }
     /**
@@ -86,11 +87,11 @@ class LoginController extends Controller
             }
             $arr1['mer_now_login'] = time();
             $db=\Yii::$app->db ->createCommand()->update('yfc_merchant',$arr1,'mer_id = '.$data['mer_id'])->execute();
-            return $this->redirect('?r=index/index', 301);
+            return $this->redirect(Url::to('/index/index'), 301);
         }
         else
         {
-            return $this->redirect('?r=login/mer_login', 301);
+            return $this->redirect(Url::to('/login/mer_login'), 301);
         }
     }
     

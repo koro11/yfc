@@ -1,3 +1,4 @@
+<?php use \yii\helpers\Url;?>
 <section class="Psection MT20">
     <article class="Searchlist Overflow">
         <section class="Fslmenu slt" style="margin-bottom:5px">
@@ -61,7 +62,7 @@
                     str += '&'+k+'='+v;
                 });
                 str = '?'+str.substr(1);
-                location.href = str;
+                location.href = '<?=Url::to('search/search')?>'+str;
                 return false;
             });
 
@@ -80,11 +81,11 @@
         <ul class="Overflow">
             <?php foreach($food as $v):?>
             <li>
-                <a href="?r=menu/details&id=<?=$v['food_id']?>" title="<?=$v['food_name']?>"><img src="<?=$v['food_image']?>"></a>
+                <a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>"><img src="<?=$v['food_image']?>"></a>
                 <p class="P-price FontW Font16"><span>￥<?=$v['food_price']?></span></p>
-                <p class="P-title"><a href="?r=menu/details&id=<?=$v['food_id']?>" target="_blank" target="_blank" title="<?=$v['food_name']?>"><?=$v['food_name']?></a></p>
+                <p class="P-title"><a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" target="_blank" target="_blank" title="<?=$v['food_name']?>"><?=$v['food_name']?></a></p>
                 <p class="P-shop Overflow">
-                    <span class="sa"><a href="?r=menu/details&id=<?=$v['food_id']?>" target="_blank" target="_blank"
+                    <span class="sa"><a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" target="_blank" target="_blank"
                       title="<?=$v['food_name']?>"><?=$v['food_mername']?></a></span><span class="sp"><?=$v['mer_address']?></span>
                 </p>
             </li>
@@ -119,10 +120,10 @@
 //                        echo 1;
                 ?>
                 <li>
-                    <a href="?r=menu/details&id=<?=$v['food_id']?>" title="<?=$v['food_name']?>" target="_blank"><img src="<?=$v['food_image']?>"></a>
+                    <a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>" target="_blank"><img src="<?=$v['food_image']?>"></a>
                     <p>
                         <span class="Block FontW Font16 CorRed">￥<?=$v['food_price']?></span>
-                        <span class="Block Overflow"><a href="?r=menu/details&id=<?=$v['food_id']?>" title="<?=$v['food_name']?>" target="_blank"><?=$v['food_name']?></a></span>
+                        <span class="Block Overflow"><a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>" target="_blank"><?=$v['food_name']?></a></span>
                         <span class="Block Overflow">累计销量：<i><?=$v['food_saled']?></i>笔</span>
                     </p>
                 </li>

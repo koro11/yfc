@@ -1,4 +1,5 @@
 <?php
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -7,16 +8,21 @@ $params = array_merge(
 );
 
 return [
-//    'bootstrap' => ['debug'],
-//    'modules' => [
-//        'debug' => 'yii\debug\Module',
-//    ],
+
+    'aliases' => [
+        '@libs' => '@app/libs'
+    ],
 
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
+
         'assetManager'=>[
             'bundles'=>[
                 'yii\web\JqueryAsset'=>[
@@ -54,14 +60,7 @@ return [
             'class'=>'/frontend/functions/Function.php',
             'class'=>'/frontend/functions/Page.php',
         ]
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+
     ],
     'params' => $params,
 ];

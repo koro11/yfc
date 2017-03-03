@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<base href="/">
 		<meta charset="utf-8">
 		<title>商家驻入</title>
 		<link rel="stylesheet" href="css/reset.css" />
@@ -9,6 +10,7 @@
 		<script src="https://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="https://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	</head>
+	<?php use yii\helpers\Url;?>
 	<body>
 		<div class="wrap login_wrap">
 			<div class="content">
@@ -21,7 +23,7 @@
 						<div class="login_title">
 							商家驻入
 						</div>
-						<form action="?r=register/merchant_register_do" method="post" enctype="multipart/form-data">
+						<form action="<?=Url::to('register/merchant_register_do')?>" method="post" enctype="multipart/form-data">
 							
 							<div class="form_text_ipt">
 								<input name="mer_name" type="text" placeholder="(可参考饭店名称)" class="name">

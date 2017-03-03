@@ -15,10 +15,13 @@ use  frontend\models\User_ticket;
 use  frontend\models\Tickets;
 use yii\web\Controller;
 use yii\web\UploadedFile;
+use yii\helpers\Url;
+
 class UserController extends Controller
 {
 
     public $enableCsrfValidation= false;
+    public $layout = '@app/views/layouts/main_user.php';
 
     //用户中心首页
     public function actionUser_index()
@@ -148,11 +151,11 @@ class UserController extends Controller
         if ($resb) 
         {
             echo "<script>alert('修改成功')</script>";
-           return $this->redirect('?r=user/user_account',301); 
+           return $this->redirect(Url::to('/user/user_account'),301);
         }
         else
         {
-           return $this->redirect('?r=user/user_account',301);
+           return $this->redirect(Url::to('/user/user_account'),301);
         }
     }
 
@@ -283,11 +286,11 @@ class UserController extends Controller
         ->execute();
         if ($update) 
         {
-           return $this->redirect('?r=user/user_orderlist',301); 
+           return $this->redirect(Url::to('/user/user_orderlist'),301);
         }
         else
         {
-           return $this->redirect('?r=user/user_orderlist&order_id='.$order_id.'',301);
+           return $this->redirect(Url::to(['/user/user_orderlist','order_id'=>$order_id]),301);
         }
         
     }
@@ -342,7 +345,7 @@ public function actionDel_order()
     $res=Yii::$app->db->createCommand()->delete("yfc_orders","order_id=:order_id",[':order_id'=>$order_id])->execute();
     if ($res) 
     {
-        return $this->redirect('?r=user/user_orderlist',301);
+        return $this->redirect(Url::to('/user/user_orderlist'),301);
     }
 }
 

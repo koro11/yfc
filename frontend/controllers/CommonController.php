@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\web\Session;
+use yii\helpers\Url;
 class CommonController extends Controller
 {
 	public function init()
@@ -14,7 +15,7 @@ class CommonController extends Controller
 		//判断是否有登录session
 		if(!isset($user_id))
 		{
-			return $this->redirect('?r=login/choice', 301);
+			return $this->redirect(Url::to('/login/choice'), 301);
 	    } 
 	}
 }

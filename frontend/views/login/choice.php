@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<base href="/">
 		<meta charset="utf-8">
 		<title>登录</title>
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/common.css" />
 	</head>
+	<?php use yii\helpers\Url;?>
 	<body>
 		<div class="wrap login_wrap">
 			<div class="content">
@@ -16,10 +18,10 @@
 					
 					<div class="login_form">
 						<div class="login_title">
-							<a href="?r=login/login">用户登录=></a>
+							<a href="<?=Url::to('login/login')?>">用户登录=></a>
 						</div>
 					     <div class="login_title">
-							<a href="?r=login/merchant_login">商家登录=></a>
+							<a href="<?=Url::to('login/merchant_login')?>">商家登录=></a>
 						</div>
 						
 					</div>

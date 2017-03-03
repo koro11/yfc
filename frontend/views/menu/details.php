@@ -17,7 +17,7 @@ $(function(){
 	});
 	});
 </script>
-
+<?php use yii\helpers\Url;?>
 <!--Start content-->
 <section class="slp">
  <section class="food-hd">
@@ -70,7 +70,7 @@ $(function(){
     <div class="Buybutton">
      <input type="hidden" name="food" value="<?php echo $details['food_id']?>">
      <button class="BuyB">加入购物车</button>
-     <a href="?r=index/shop_index&mer=<?php echo $details['food_mer']?>"><span class="Backhome">进入店铺首页</span></a>
+     <a href="<?=Url::to(['index/shop_index','mer'=>$details['food_mer']])?>"><span class="Backhome">进入店铺首页</span></a>
     </div>
 
    </div>
@@ -185,7 +185,7 @@ $(function(){
             if(page == '')return false;
             if(food == '')return false;
 
-            $.get('?r=menu/details',{now:page,id:food,status:1},function(data){
+            $.get('<?=Url::to('menu/details')?>',{now:page,id:food,status:1},function(data){
                 if(data.status==1){
                     var str = '';
                     $.each(data.content,function(k,v){
@@ -199,7 +199,7 @@ $(function(){
         $('.BuyB').click(function(){
             var id = $('input[name="food"]').val();
             var num = $('input[name="Number"]').val();
-            $.get('?r=menu/addcart',{id:id,num:num},function(data){
+            $.get('<?=Url::to('menu/addcart')?>',{id:id,num:num},function(data){
                 if(data.status == 1){
                     if(window.confirm('成功加入购物车,是否进行结算')){
                         document.location = 'http://127.0.0.1/dongxin/yfc/frontend/web/index.php?r=cart/cart';
