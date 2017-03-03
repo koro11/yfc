@@ -1,17 +1,4 @@
-<!--Start content-->
-<section class="Psection MT20">
-<nav class="U-nav Font14 FontW">
-   <ul>
-   <li><i></i><a href="?r=user/user_index">用户中心首页</a></li>
-   <li><i></i><a href="?r=user/user_orderlist">我的订单</a></li>
-   <li><i></i><a href="?r=user/user_address">收货地址</a></li>
-   <li><i></i><a href="?r=user/user_message">我的留言</a></li>
-   <li><i></i><a href="?r=user/user_coupon">我的优惠券</a></li>
-   <li><i></i><a href="?r=user/user_collect">我的收藏</a></li>
-   <li><i></i><a href="?r=user/user_account">账户管理</a></li>
-   <li><i></i><a href="?r=login/login_out">安全退出</a></li>
-  </ul>
- </nav>
+<?php use \yii\helpers\Url;?>
  <article class="U-article Overflow">
   <!--user Address-->
   <section class="Myaddress Overflow">
@@ -168,13 +155,13 @@
       var cons_id=$(this).attr("consid");
       $.ajax({
         type:'get',
-        url:'?r=user/del_address',
+        url:'<?=Url::to('user/del_address')?>',
         data:'cons_id='+cons_id,
         success:function(msg)
         {
           if (msg==1) 
           {
-            alert('删除成功');location.href="?r=user/user_address";
+            alert('删除成功');location.href="<?=Url::to('user/user_address')?>";
           }
         }
       })
@@ -195,17 +182,17 @@
       var cons_phone=$(this).parent().parent().parent().find("#cons_phone").val();
       $.ajax({
         type:'get',
-        url:'?r=user/update_cons',
+        url:'<?=Url::to('user/update_cons')?>',
         data:'cons_id='+cons_id+"&user_id="+user_id+"&cons_name="+cons_name+"&cons_province="+cons_province+"&cons_city="+cons_city+"&cons_district="+cons_district+"&cons_address="+cons_address+"&cons_zipcode="+cons_zipcode+"&cons_phone="+cons_phone,
         success:function(msg)
         {
             if (msg==1) 
             {
-              alert('修改成功');location.href="?r=user/user_address";
+              alert('修改成功');location.href="<?=Url::to('user/user_address')?>";
             }
             else
             {
-              alert('修改成功');location.href="?r=user/user_address";
+              alert('修改成功');location.href="<?=Url::to('user/user_address')?>";
             }
         }
       })
@@ -223,13 +210,13 @@
       var cons_phone=$(this).parent().parent().parent().find("#cons_phone").val();
       $.ajax({
           type:'get',
-          url:'?r=user/address_add',
+          url:'<?=Url::to('user/address_add')?>',
           data:"cons_name="+cons_name+"&cons_province="+cons_province+"&cons_city="+cons_city+"&cons_district="+cons_district+"&cons_address="+cons_address+"&cons_zipcode="+cons_zipcode+"&cons_phone="+cons_phone,
           success:function(msg)
           {
               if (msg==1) 
               {
-                  alert('添加成功');location.href="?r=user/user_address";
+                  alert('添加成功');location.href="<?=Url::to('user/user_address')?>";
               }
               else
               {

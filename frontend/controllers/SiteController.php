@@ -12,7 +12,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use yii\helpers\Url;
 /**
  * Site controller
  */
@@ -72,7 +72,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->redirect('?r=index/index');
+        return $this->redirect(Url::to('/index/index'));
     }
 
     /**
