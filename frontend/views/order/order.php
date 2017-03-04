@@ -1,5 +1,6 @@
 <!--Start content-->
 <section class="Psection MT20" id="Cflow">
+
 <!--如果用户未添加收货地址，则显示如下-->
  <div class="confirm_addr_f">
   <span class="flow_title">收货地址：</span>
@@ -26,8 +27,9 @@
   <!--已保存的地址列表-->
   <form action="#">
    <ul class="address">
-    <li id="style1"><input type="radio" value="" id="1" name="rdColor" onclick="changeColor(1)"/><label for="1"> 浙江省 杭州市 余杭区 航海路1588号（孙先生收）<span class="fontcolor">183092***73</span></label></li>
-    <li id="style2"><input type="radio" value="" id="2" name="rdColor" onclick="changeColor(2)"/><label for="2"> 陕西省 西安市 雁塔区 丈八路22号（孙先生收）<span class="fontcolor">183092***73</span></label></li>
+    <?php foreach($address as $k=>$v):?>
+    <li id="style1"><input type="radio" checked value="<?php echo $v['cons_id']?>" name="rdColor" onclick="changeColor(1)"/><label for="1"> <?php echo $v['cons_province']?> <?php echo $v['cons_city'] ?> <?php echo $v['cons_district']?> <?php echo $v['cons_address']?>（孙先生收）<span class="fontcolor"><?php echo str_replace(substr($address[0]['cons_phone'],4,4),'****',$address[0]['cons_phone'])?></span></label></li>
+    <?php endforeach;?>
     <li><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img src="images/newaddress.png"/></a></li>
    </ul>
    </form>
@@ -57,72 +59,200 @@
    <th width="30%">配送方式</th>
    <th width="30%">运费</th>
    <th width="40%">说明</th>
+      <?php foreach($ships as $k=>$v):?>
    <tr>
-    <td>送货上门</td>
-    <td>￥0.00</td>
-    <td>配送说明信息...</td>
+
+    <td><input type="radio" name="ships" value="<?php echo $v['ship_id']?>"><?php echo $v['ship_name']?></td>
+    <td>￥<?php echo $v['ship_cost']?></td>
+    <td><?php echo $v['ship_desc']?></td>
    </tr>
+      <?php endforeach;?>
   </table>
   <span class="flow_title">在线支付方式：</span>
    <form action="#">
     <ul>
-    <li><input type="radio" name="pay" id="alipay" value="alipay" /><label for="alipay"><i class="alipay"></i></label></li>
+    <li><input type="radio" name="pay" checked id="alipay" value="1" /><label for="alipay"><i class="alipay"></i></label></li>
     </ul>
    </form>
   </div>
-  <form action="#">
+
   <div class="inforlist">
    <span class="flow_title">商品清单</span>
    <table>
-    <th>名称</th>
+    <th>名称 </th>
     <th>数量</th>
     <th>价格</th>
     <th>小计</th>
-    <tr>
-     <td>酸辣土豆丝</td>
-     <td>2</td>
-     <td>￥59</td>
-     <td>￥118</td>
-    </tr>
-    <tr>
-     <td>鱼香肉丝</td>
-     <td>1</td>
-     <td>￥59</td>
-     <td>￥59</td>
-    </tr>
+
+    <?php foreach($res as$k=> $va):?>
+      <tbody class="td">
+     <tr style="background-color: darkgrey">
+      <td colspan="4">店铺：<?php echo substr($k,'0',strrpos($k,',')) ?>
+       <span style="float: right;margin-top: 5px;">店铺优惠：
+        <select  name="tickets" seller="<?php echo substr($k,strrpos($k,',')+1)?>" lower="<?php echo $k?>">
+         <option tic="0" value="0">不使用优惠卷</option>
+         <?php foreach($va['store'] as $ks=>$vs):?>
+         <option tic="<?php echo $vs['tic_id']?>" value="<?php echo $vs['tic_cost']?>">￥<?php echo $vs['tic_cost'].'元'.$vs['tic_desc']?></option>
+         <?php endforeach;?>
+        </select></span></td>
+     </tr>
+
+      <?php foreach($va['food'] as $ka=>$v):?>
+          <tr>
+              <td><div style="height:50px;"><img style="width: 80px;" src="<?php echo $v['food_image']?>" title="<?php echo $v['food_name']?>"></div><?php echo $v['food_name']?></td>
+              <td><?php echo $v['buy_number']?></td>
+              <td>￥<?php echo $v['price']?></td>
+              <td>￥<?php echo $v['sumprice']?></td>
+              <input type="hidden" name="cart" value="<?php echo $v['cart_id']?>">
+          </tr>
+      <?php endforeach;?>
+      </tbody>
+
+   <?php endforeach;?>
    </table>
     <div class="Order_M">
-     <p><em>订单附言:</em><input name=""  type="text"></p>
+     <p><em>订单附言:</em><input name="leaving"  type="text"></p>
      <p><em>优惠券:</em>
-     <select name="">
-      <option>￥10元优惠券</option>
+     <select name="fullCourt" tic="全场">
+      <option tic='0'value="0">不使用优惠劵</option>
+      <?php foreach($fullCourt as $k=>$v):?>
+      <option tic="<?php echo $v['tickets']['tic_id']?>" value="<?php echo $v['tickets']['tic_cost']?>">￥<?php echo $v['tickets']['tic_cost']?><?php echo $v['tickets']['tic_desc']?></option>
+      <?php endforeach;?>
      </select>
      </p>
     </div>
     <div class="Sum_infor">
-    <p class="p1">配送费用：￥0.00+商品费用：￥177.00-优惠券：￥10.00</p>
-    <p class="p2">合计：<span>￥167.00</span></p>
-    <input type="submit" value="提交订单" / class="p3button">
+    <p class="p1">配送费用：￥10.00+商品费用：￥<?php echo $sumPrice?>-优惠券：￥<span id="discount">0</span>.00</p>
+    <p class="p2">合计：<span>￥<?php echo $sumPrice?>.00</span></p>
+    <input type="submit" value="提交订单" class="p3button">
     </div>
    </div>
-   </form>
  </div>
+
 </section>
 <script>
 //Test code,You can delete this script /2014-9-21DeathGhost/
-$(document).ready(function(){
- var submitorder =$.noConflict();
- submitorder(".p3button").click(function(){
-	 submitorder("#Cflow").hide();
-	 submitorder("#Aflow").show();
-	 });
-});
+ $(".p3button").click(function(){
+
+     var address = $("input[name=rdColor]:checked").val();
+     if(!address){
+        alert('请选择收货地址');
+        return false;
+     }
+     var payment = $("input[name=pay]:checked").val();
+     if(!payment){
+      alert('请选择支付方式');
+      return false;
+     }
+     var fullCourt = $('select[name="fullCourt"] option:selected').attr('tic');
+     var count = $('select[name=tickets]').size();
+     var lower = [];
+
+     for(var i=0;i<count;i++){
+       var num = $('select[name=tickets]').eq(i).parents('.td').find('input[name=cart]').size();
+       var cart = '';
+       for(var a=0;a<num;a++){
+            if(cart == ''){
+              cart += $('select[name=tickets]').eq(i).parents('.td').find('input[name=cart]').eq(a).val();
+            }else{
+              cart += ','+$('select[name=tickets]').eq(i).parents('.td').find('input[name=cart]').eq(a).val();
+            }
+       }
+       var seller = {
+           'lower' : $('select[name=tickets]').eq(i).find('option:selected').attr('tic'),
+           'seller' : $('select[name=tickets]').eq(i).attr('seller'),
+           'cart':cart,
+       }
+         lower[i] = seller;
+     }
+
+     var leaving = $("input[name=leaving]").val();
+
+     $.ajax({
+        type: "POST",
+        url: "?r=order/setorder",
+        data: {lower:lower,fullCourt:fullCourt,payment:payment,address:address,leaving:leaving},
+        async:false,
+        dataType:'json',
+        success: function(data){
+           if(data.status==0){
+               alert(data.msg);
+               return false;
+           }else{
+               $("#payss").attr('href',data.url);
+               $('.CorRed').text(data.order);
+               $('.money').text('￥'+data.sum);
+               $("#Cflow").hide();
+               $("#Aflow").show();
+           }
+        }
+     });
+
+ });
+ var arr = [];
+ $('select[name=fullCourt]').change(function(){
+  var price = $(this).val();
+  var obj = $('#discount');
+  var lower = $(this).attr('tic');
+
+  if(arr[lower]){
+   if(price == '0'){
+    var money = arr[lower];
+    obj.text((obj.text()-money));
+    delete arr[lower];
+   }else{
+    var money = arr[lower];
+
+    obj.text((obj.text()-money));
+    delete arr[lower];
+    arr[lower] = price;
+    var sum = parseInt(obj.text())+parseInt(price);
+    obj.text(sum);
+    arr[lower] = price;
+   }
+  }else{
+   var sum = parseInt(obj.text())+parseInt(price);
+   obj.text(sum);
+   arr[lower] = price;
+  }
+
+ })
+
+ $('select[name="tickets"]').change(function(){
+  var lower = $(this).attr('lower');
+  var price = $(this).val();
+  var obj = $('#discount');
+
+  if(arr[lower]){
+   if(price == '0'){
+    var money = arr[lower];
+    obj.text((obj.text()-money));
+    delete arr[lower];
+   }else{
+    var money = arr[lower];
+    obj.text((obj.text()-money));
+    delete arr[lower];
+    arr[lower] = price;
+    var sum = parseInt(obj.text())+parseInt(price);
+    obj.text(sum);
+    arr[lower] = price;
+   }
+
+  }else{
+   var sum = parseInt(obj.text())+parseInt(price);
+   obj.text(sum);
+   arr[lower] = price;
+  }
+
+ })
+
+
 </script>
 <section class="Psection MT20 Textcenter" style="display:none;" id="Aflow">
   <!-- 订单提交成功后则显示如下 -->
   <p class="Font14 Lineheight35 FontW">恭喜你！订单提交成功！</p>
-  <p class="Font14 Lineheight35 FontW">您的订单编号为：<span class="CorRed">201409205134</span></p>
-  <p class="Font14 Lineheight35 FontW">共计金额：<span class="CorRed">￥359</span></p>
-  <p><button type="button" class="Lineheight35"><a href="#" target="_blank">支付宝立即支付</a></button><button type="button" class="Lineheight35"><a href="user_center.html">进入用户中心</button></p>
+  <p class="Font14 Lineheight35 FontW">您的订单编号为：<span class="CorRed"></span></p>
+  <p class="Font14 Lineheight35 FontW">共计金额：<span class="money"></span></p>
+  <p><span style="background-color: #b3b4a8;height: 50px;" class="Lineheight35"><a id="payss" href="#" target="_blank">支付宝立即支付</a></span><button type="button" class="Lineheight35"><a href="user_center.html">进入用户中心</button></p>
 </section>
 <!--End content-->

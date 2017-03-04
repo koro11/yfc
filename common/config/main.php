@@ -4,6 +4,8 @@ return [
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+            'cachePath' => '@runtime/cache2',
         ],
     ],
+
 ];

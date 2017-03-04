@@ -105,4 +105,38 @@ class Carts extends \yii\db\ActiveRecord
             return false;
         }
     }
+    /**
+     * 餐饮入购物车
+     * @author Dx
+     * @param  array $param
+     * @return
+     */
+    public function setCart($param)
+    {
+        if(empty($param))return false;
+        $this->user_id = $param['user_id'];
+        $this->food_id = $param['food_id'];
+        $this->food_price = $param['food_price'];
+        $this->food_market = $param['food_market'];
+        $this->buy_number = $param['buy_number'];
+        $res = $this->save();
+        if(!$res)return false;
+        return true;
+    }
+    /**
+     * 查看购物车
+     * @author Dx
+     * @param  string $cartId
+     * @param  intval $uid
+     * @return
+     */
+    public  function getCart($cartId,$uid)
+    {
+        $field = array('yfc_carts.cart_id','yfc_carts.food_id','food_mername','yfc_food.food_price','user_id','buy_number','food_mer','food_image','food_name');
+        //用户未下订单的购物信息
+        $cartMsg = $this->find()->select($field)->joinWith('food')->where('cart_id in ('.$cartId.') and user_id=('.$uid.')')->asArray()->all();
+        if(empty($cartMsg))return false;
+        return $cartMsg;
+    }
+
 }

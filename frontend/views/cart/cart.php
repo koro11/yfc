@@ -1,4 +1,6 @@
+
 <!--Start content-->
+<?php use \yii\helpers\Url;?>
 <form action="#">
     <div class="gwc" style=" margin:auto;">
         <table cellpadding="0" cellspacing="0" class="gwc_tb1">
@@ -14,14 +16,14 @@
         </table>
         <?php if(!empty($res)):?>
         <?php foreach ($res as $k => $va) { ?>
-            <table cellpadding="0" cellspacing="0" class="gwc_tb2" class="table1">
+            <table cellpadding="0" cellspacing="0" class="gwc_tb3" class="table1">
                 <tr>
-                    <td colspan="7"  class="shopname Font14 FontW">店铺：<?php echo $k ?></td>
+                    <td colspan="7"  class="shopname Font14 FontW"><input style="margin-left: 10px;margin-right: 10px;" type="checkbox" name="store" value="<?php echo substr($k,strrpos($k,',')+1)?>">店铺：<?php echo substr($k,'0',strrpos($k,',')) ?></td>
                 </tr>
+                <table ellpadding="0" cellspacing="0" class="gwc_tb2" class="table1">
                 <?php foreach ($va as $key => $v) { ?>
-                    <table ellpadding="0" cellspacing="0" class="gwc_tb2" class="table1">
                         <tr>
-                            <td class="tb2_td1"><input sellerId="<?php echo $v['food']['food_mer']?>" type="checkbox" cartid="<?php echo $v['cart_id']?>"  value="<?php echo $v['food']['price']*$v['buy_number'] ?>" name="newslist" class="newslist-1"/></td>
+                            <td class="tb2_td1"><input type="checkbox" cartid="<?php echo isset($v['cart_id'])?$v['cart_id']:''?>"  value="<?php echo $v['food']['price']*$v['buy_number'] ?>" name="newslist" class="newslist-1"/></td>
                             <td class="tb2_td2"><a href="detailsp.html" target="_blank"><img src="<?php echo $v['food']['food_image']?>"/></a>
                             </td>
                             <td class="tb2_td3"><a href="detailsp.html" target="_blank" style="margin-left: 20px;"><?php echo $v['food']['food_name'] ?></a>
@@ -38,10 +40,11 @@
                             </td>
                             <td class="tb1_td6"><label class="tot" style="color:#ff5500;font-size:14px; font-weight:bold;"><?php echo $v['food']['price'] ?></label>
                             </td>
-                            <td class="tb1_td7"><a href="javascript:;" foodid="<?php echo $v['cart_id']?>" calss="delcart">删除</a></td>
+                            <td class="tb1_td7"><a href="javascript:;" foodid="<?php echo isset($v['cart_id'])?$v['cart_id']:''?>" calss="delcart">删除</a></td>
                         </tr>
-                    </table>
+
                 <?php } ?>
+                </table>
             </table>
         <?php } ?>
         <?php else:?>
@@ -60,7 +63,7 @@
                     <input id="cancel" type="checkbox"/>
                     取消
                 </td>
-                <td class="tb3_td2 GoBack_Buy Font14"><a href="?r=index/index" target="_blank">继续购物</a></td>
+                <td class="tb3_td2 GoBack_Buy Font14"><a href="<?=Url::to('index/index')?>" target="_blank">继续购物</a></td>
                 <td class="tb3_td2">已选商品
                     <label id="shuliang" style="color:#ff5500;font-size:14px; font-weight:bold;">0</label>
                     件

@@ -5,8 +5,9 @@ use yii\web\Controller;
 use yii\web\Request;
 use frontend\models\Users;
 use yii\web\Session;  
-use \yii\db\Query;
+use yii\db\Query;
 use yii\web\UploadedFile;
+use yii\helpers\Url;
 class RegisterController extends Controller
 {
 	public $layout = false;
@@ -34,11 +35,11 @@ class RegisterController extends Controller
     	    $arr2['user_id'] = $data['user_id'];
     	    $arr2['user_name'] = 'yfc_'.rand(000000,999999);
     	    \Yii::$app->db->createCommand()->insert('yfc_user_info',$arr2)->execute();
-			return $this->redirect('?r=login/login', 301);
+			return $this->redirect(Url::to('/login/login'), 301);
 		}
 		else
 		{
-			return $this->redirect('?r=regirect/user_register', 301);
+			return $this->redirect(Url::to('/regirect/user_register'), 301);
 		}
 
 
@@ -74,11 +75,11 @@ class RegisterController extends Controller
         $res = \Yii::$app->db->createCommand()->insert('yfc_merchant',$post)->execute();
         if($res)
         {
-        	return $this->redirect('?r=login/Mer_login', 301);
+        	return $this->redirect(Url::to('/login/Mer_login'), 301);
         }
         else
         {
-        	return $this->redirect('?r=regirect/user_register', 301);
+        	return $this->redirect(Url::to('/regirect/user_register'), 301);
         }
 	}
 	/**

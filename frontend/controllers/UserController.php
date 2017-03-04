@@ -6,19 +6,29 @@ use yii\data\Pagination;
 use yii\web\Session;
 use DB;
 use Yii;
+use  frontend\models\Food;
+use  frontend\models\Collect;
+use  frontend\models\Merchant;
 use  frontend\models\User_info;
 use  frontend\models\Orders;
+use  frontend\models\User_ticket;
+use  frontend\models\Tickets;
 use yii\web\Controller;
+use yii\web\UploadedFile;
+use yii\helpers\Url;
+
 class UserController extends Controller
 {
 
     public $enableCsrfValidation= false;
+    public $layout = '@app/views/layouts/main_user.php';
 
     //用户中心首页
     public function actionUser_index()
     {
         //相当于获取用户id 
-        $user_id=1;     
+        $session=Yii::$app->session;
+        $user_id=$session->get('user_id');   
 
         //实例化模型层并且查询用户信息（积分在用户信息表中）  
         $info= new User_info;
@@ -26,9 +36,7 @@ class UserController extends Controller
 
         //查询优惠券信息
         $user['ticket']= count(Yii::$app->db->createCommand('select * from yfc_user_ticket where user_id='.$user_id.'')->queryAll());
-        // $sql="select pay_status,shipping_status,order_speak,count(*) from yfc_orders  where user_id=".$user_id." and order_status=0 group by pay_status,shipping_status,order_speak";
-        // $arr=Yii::$app->db->createCommand($sql)->queryAll();
-        // var_dump($arr);die;
+        
         //分类查询待付款，待收货，待发货，待评价
         $pay='select * from yfc_orders where user_id='.$user_id.' and order_status=0  and pay_status=0';
         $ship='select * from yfc_orders where user_id='.$user_id.' and order_status=0  and shipping_status=0 and pay_status=1';
@@ -55,12 +63,26 @@ class UserController extends Controller
     //用户优惠券
     public function actionUser_coupon()
     {
-        return $this->render('user_coupon');
+        //相当于获取用户id 
+        $session=Yii::$app->session;
+        $user_id=$session->get('user_id'); 
+
+        //查询优惠券信息，判断过期时间 
+        $ticket= new User_ticket;
+        $user= $ticket->find()->with('tickets')->where(['yfc_user_ticket.user_id'=>$user_id])->asArray()->All();
+        return $this->render('user_coupon',['user'=>$user]);
     }
 
 
 
-
+    /*删除优惠券*/
+    public function actionDel_tic()
+    {
+        $cun_id=Yii::$app->request->get('cun_id');
+        $res=Yii::$app->db->createCommand()->delete("yfc_user_ticket","cun_id=:cun_id",[':cun_id'=>$cun_id])->execute();
+        $resa= $res ? 1 : 0;
+        return $resa;
+    }
 
 
 
@@ -72,11 +94,22 @@ class UserController extends Controller
     //用户收获地址
     public function actionUser_address()
     {
-        $user_id=1;//session获取用户id
+        $session=Yii::$app->session;
+        $user_id=$session->get('user_id'); 
         $arr=Yii::$app->db->createCommand("select * from yfc_consignee where user_id=".$user_id."")->queryAll();
         return $this->render('user_address',['arr'=>$arr]);
     }
 
+
+
+    //用户删除地址
+    public function actionDel_address()
+    {
+        $cons_id=Yii::$app->request->get("cons_id");
+        $res=Yii::$app->db->createCommand()->delete("yfc_consignee","cons_id=:cons_id",[':cons_id'=>$cons_id])->execute();
+        $resa=$res ? 1 : 0 ;
+        return $resa;
+    }
 
 
 
@@ -90,11 +123,41 @@ class UserController extends Controller
     //用户账户管理
     public function actionUser_account()
     {
-        return $this->render('user_account');
+        $session=Yii::$app->session;
+        $user_id=$session->get('user_id'); 
+        
+        /*两边联查查询用户信息*/
+        $info= new User_info;
+        $user= $info->find()->joinWith('users')->where(['yfc_user_info.user_id'=>$user_id])->asArray()->one();
+        return $this->render('user_account',['user'=>$user]);
     }
 
 
-
+    //修改用户数据
+    public function actionUp_account()
+    {
+        $arr=Yii::$app->request->post();
+        $users['user_password']=$arr['user_password'];unset($arr['user_password']);
+        $users['user_phone']=$arr['user_phone'];unset($arr['user_phone']);
+        $upload=new UploadedFile(); //实例化上传类
+        $name=$upload->getInstanceByName('myfile'); //获取文件原名称
+        $img=$_FILES['myfile']; //获取上传文件参数
+        $upload->tempName=$img['tmp_name']; //设置上传的文件的临时名称
+        $img_path='upload/user_img/'.$name; //设置上传文件的路径名称(这里的数据进行入库)
+        $res=$upload->saveAs($img_path); //保存文件
+        $arr['user_image']=$img_path;
+        $resa=Yii::$app->db->createCommand()->update('yfc_users',$users,'user_id=:user_id',[':user_id'=>$arr['user_id']])->execute();
+        $resb=Yii::$app->db->createCommand()->update('yfc_user_info',$arr,'user_id=:user_id',[':user_id'=>$arr['user_id']])->execute();
+        if ($resb) 
+        {
+            echo "<script>alert('修改成功')</script>";
+           return $this->redirect(Url::to('/user/user_account'),301);
+        }
+        else
+        {
+           return $this->redirect(Url::to('/user/user_account'),301);
+        }
+    }
 
 
 
@@ -104,10 +167,25 @@ class UserController extends Controller
     //用户收藏
     public function actionUser_collect()
     {
-        return $this->render('user_collect');
+        $session=Yii::$app->session;
+        $user_id=$session->get('user_id'); 
+
+        /*查询用户关注的所有商家*/
+        $collect=new Collect;
+        $arr= $collect->find()->with('merchant')->where(['yfc_collect.user_id'=>$user_id])->asArray()->All();
+        return $this->render('user_collect',['arr'=>$arr]);
     }
 
 
+
+    //删除收藏
+    public function actionDel_collect()
+    {
+        $collect_id=Yii::$app->request->get('collect_id');
+        $res=Yii::$app->db->createCommand()->delete("yfc_collect","collect_id=:collect_id",[":collect_id"=>$collect_id])->execute();
+        $resa= $res ? 1  :  0;
+        return $resa;
+    }
 
 
 
@@ -160,6 +238,18 @@ class UserController extends Controller
     }
 
 
+    //添加地址
+    public function actionAddress_add()
+    {
+        $arr=Yii::$app->request->get();unset($arr['r']);
+        $session=Yii::$app->session;
+        $arr['user_id']=$session->get('user_id'); 
+        $res=Yii::$app->db->createCommand()->insert('yfc_consignee',$arr)->execute();
+        $resa= $res ? 1 : 0;
+        return $resa;
+    }
+
+
 
 
     /*订单评价页面*/
@@ -183,21 +273,24 @@ class UserController extends Controller
     {
         $arr=Yii::$app->request->post();
         $order_id=$arr['order_id'];unset($arr['order_id']);
+        $arr['create_time']=time();
         /*插入评论*/
         $res=Yii::$app->db->createCommand()->insert('yfc_speak',$arr)->execute();
         /*获取刚插入ID*/
         $order_speak=Yii::$app->db->getLastInsertId();
+        /*菜品评论+1*/
+        $res=Food::updateAllCounters(['food_comment_num' => 1],['food_id'=>$arr['food_id']]);
         /*修改订单状态*/
         $update=Yii::$app->db->createCommand()
         ->update('yfc_orders',['order_speak'=>$order_speak],"order_id=:order_id",[':order_id'=>$order_id])
         ->execute();
         if ($update) 
         {
-           return $this->redirect('?r=user/user_orderlist',301); 
+           return $this->redirect(Url::to('/user/user_orderlist'),301);
         }
         else
         {
-           return $this->redirect('?r=user/user_orderlist&order_id='.$order_id.'',301);
+           return $this->redirect(Url::to(['/user/user_orderlist','order_id'=>$order_id]),301);
         }
         
     }
@@ -207,8 +300,10 @@ class UserController extends Controller
     //订单列表
     public function actionUser_orderlist()
     {
-        $name="李硕";//session读取用户名
-        $user_id=1;//读取用户id
+        $session=Yii::$app->session;
+        $user_id=$session->get('user_id'); 
+        $user=Yii::$app->db->createCommand("select * from yfc_user_info where user_id=".$user_id."")->queryOne();
+        $name=$user['user_name'];
         $res=Yii::$app->request->get();
         /*var_dump($arr);die;*/
         $test=new Orders();   //实例化model模型
@@ -250,7 +345,7 @@ public function actionDel_order()
     $res=Yii::$app->db->createCommand()->delete("yfc_orders","order_id=:order_id",[':order_id'=>$order_id])->execute();
     if ($res) 
     {
-        return $this->redirect('?r=user/user_orderlist',301);
+        return $this->redirect(Url::to('/user/user_orderlist'),301);
     }
 }
 

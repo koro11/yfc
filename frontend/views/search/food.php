@@ -1,4 +1,4 @@
-<!--Start content-->
+<?php use \yii\helpers\Url;?>
 <section class="Psection MT20">
     <article class="Searchlist Overflow">
         <section class="Fslmenu slt" style="margin-bottom:5px">
@@ -62,7 +62,7 @@
                     str += '&'+k+'='+v;
                 });
                 str = '?'+str.substr(1);
-                location.href = str;
+                location.href = '<?=Url::to('search/search')?>'+str;
                 return false;
             });
 
@@ -81,11 +81,11 @@
         <ul class="Overflow">
             <?php foreach($food as $v):?>
             <li>
-                <a href="detailsp.html" target="_blank" target="_blank" title="<?=$v['food_name']?>"><img src="<?=$v['food_image']?>"></a>
+                <a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>"><img src="<?=$v['food_image']?>"></a>
                 <p class="P-price FontW Font16"><span>￥<?=$v['food_price']?></span></p>
-                <p class="P-title"><a href="detailsp.html" target="_blank" target="_blank" title="<?=$v['food_name']?>"><?=$v['food_name']?></a></p>
+                <p class="P-title"><a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" target="_blank" target="_blank" title="<?=$v['food_name']?>"><?=$v['food_name']?></a></p>
                 <p class="P-shop Overflow">
-                    <span class="sa"><a href="shop.html" target="_blank" target="_blank"
+                    <span class="sa"><a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" target="_blank" target="_blank"
                       title="<?=$v['food_name']?>"><?=$v['food_mername']?></a></span><span class="sp"><?=$v['mer_address']?></span>
                 </p>
             </li>
@@ -113,14 +113,25 @@
         <div class="bestproduct">
             <span class="Bpt Block FontW Font14">热销商品推荐</span>
             <ul>
+                <?php
+                if ($this->beginCache('hot_food', ['duration' => 3600])) {
+                    $hot = \frontend\controllers\SearchController::hotFood();
+                    foreach($hot as $v) {
+//                        echo 1;
+                ?>
                 <li>
-                    <a href="detailsp.html" title="酸辣土豆丝" target="_blank"><img src="upload/02.jpg"></a>
+                    <a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>" target="_blank"><img src="<?=$v['food_image']?>"></a>
                     <p>
-                        <span class="Block FontW Font16 CorRed">￥59.00</span>
-                        <span class="Block Overflow"><a href="detailsp.html" title="酸辣土豆丝" target="_blank">酸辣土豆丝</a></span>
-                        <span class="Block Overflow">累计销量：<i>255</i>笔</span>
+                        <span class="Block FontW Font16 CorRed">￥<?=$v['food_price']?></span>
+                        <span class="Block Overflow"><a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>" target="_blank"><?=$v['food_name']?></a></span>
+                        <span class="Block Overflow">累计销量：<i><?=$v['food_saled']?></i>笔</span>
                     </p>
                 </li>
+                <?php
+                    }
+                    $this->endCache();
+                }
+                ?>
             </ul>
         </div>
         <!--广告位或其他推荐版块-->

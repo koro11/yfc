@@ -16,6 +16,7 @@ use app\models\Hot_word;
 class IndexController extends Controller
 {
     public $enableCsrfValidation = false;
+
 	//首页
 	public function actionIndex()
 	{

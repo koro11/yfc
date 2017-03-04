@@ -16,13 +16,15 @@ class Functions
         if(empty($table) || empty($param) || !is_array($param)){
             exit('参数格式不符合标准');
         }
-        $keys = array_keys($param[0]);
+        $keys = array_keys($param[0]['food']);
+
         $keys = '(' . implode(',', $keys) . ')';
-//        var_dump($keys);die;
+
         $sql = "insert into $table $keys values";
+
         foreach($param as $k=>$v){
            $sql .= '(';
-           foreach($v as $key =>$va){
+           foreach($v as $va){
                $sql .= "'".$va."',";
            }
            $sql = substr($sql, 0, -1);
@@ -31,8 +33,27 @@ class Functions
         }
         $sql = substr($sql, 0, -1);
         return $sql;
-
-
     }
+    public function add($table,$param)
+    {
+        if(empty($table) || empty($param) || !is_array($param)){
+            exit('参数格式不符合标准');
+        }
+        $keys = array_keys($param);
+
+        $keys = '(' . implode(',', $keys) . ')';
+
+        $sql = "insert into $table $keys values";
+            $sql .= '(';
+            foreach($param as $va){
+                $sql .= "'".$va."',";
+            }
+            $sql = substr($sql, 0, -1);
+            $sql .= ")";
+            $sql .= ",";
+        $sql = substr($sql, 0, -1);
+        return $sql;
+    }
+
 }
 

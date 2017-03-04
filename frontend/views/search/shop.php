@@ -1,5 +1,5 @@
 <!--Start content-->
-<? $url = $_SERVER["QUERY_STRING"];?>
+<?php use \yii\helpers\Url;?>
 <section class="Psection">
     <section class="fslist_navtree">
         <ul class="select">
@@ -72,8 +72,9 @@
                     str += '&'+k+'='+v;
                 });
                 str = '?'+str.substr(1);
-                location.href = str;
-//                alert(str);
+
+                location.href = '<?=Url::to('search/search')?>'+str;
+//                alert('<?//=\yii\helpers\Url::to('search/search')?>//'+str);
                 return false;
             });
 
@@ -106,7 +107,7 @@
                     str += '&'+k+'='+v;
                 });
                 str = '?'+str.substr(1);
-                location.href = str;
+                location.href = '<?=Url::to('search/search')?>'+str;
                 return false;
             });
 
@@ -158,7 +159,7 @@
             <?php } ?>
             <? foreach($shop as $v): ?>
             <li>
-                <a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank" title="调用产品名/店铺名"><img src="<?=$v['info_image']?>"></a>
+                <a href="<?=Url::to(['index/shop_index','mer'=>$v['mer_id']])?>" target="_blank" title="调用产品名/店铺名"><img src="<?=$v['info_image']?>"></a>
                 <hgroup>
                     <h3><?=$v['mer_name'];?></h3>
                     <h4></h4>
@@ -175,19 +176,23 @@
                         <img src="images/star-off.png">
                         <span class="Score-v">4.8</span>
                     </span>
-                    <span class="DSBUTTON"><a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank" class="Fontfff">点外卖</a></span>
+                    <span class="DSBUTTON"><a href="<?=Url::to(['index/shop_index','mer'=>$v['mer_id']])?>" target="_blank" class="Fontfff">点外卖</a></span>
                 </p>
             </li>
             <? endforeach;?>
         </ul>
         <aside>
             <div class="title">热门商家</div>
-
+            <?php
+            if ($this->beginCache('hot_shop', ['duration' => 3600])) {
+                $hot = \frontend\controllers\SearchController::hotShop();
+                foreach($hot as $v) {
+            ?>
             <div class="C-list">
-                <a href="shop.html" target="_blank" title="店铺名称"><img src="upload/cc.jpg"></a>
-                <p><a href="shop.html" target="_blank">[大雁塔]店铺名称</a></p>
+                <a href="<?=Url::to(['index/shop_index','mer'=>$v['mer_id']])?>" target="_blank" title="<?=$v['mer_name']?>"><img style="width: 284px;height: 200px;" src="<?=$v['info_image']?>"></a>
+                <p><a href="<?=Url::to(['index/shop_index','mer'=>$v['mer_id']])?>" target="_blank"><?=$v['mer_name']?></a></p>
                 <p>
-                    <span>人均：20~50元</span>
+                    <span>人均：<?=$v['info_catipa']?>元</span>
                     <span style=" float:right">
                         <img src="images/star-on.png">
                         <img src="images/star-on.png">
@@ -198,7 +203,11 @@
                     </span>
                 </p>
             </div>
-
+            <?php
+                }
+                $this->endCache();
+            }
+            ?>
         </aside>
 
         <div class="TurnPage">
