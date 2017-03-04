@@ -1,3 +1,4 @@
+<?php use yii\helpers\Url ;?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+
 </head>
 
 <body>
@@ -19,10 +21,18 @@
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="?r=register/choice">注册</a>/<a href="?r=login/choice">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <a href="?r=register/choice">注册</a>/
+       <a href="?r=login/choice">登录</a>
+       <a href="#">QQ客服</a>
+       <a href="#">微信客服</a>
+       <a href="#">手机客户端</a>
    </div>
    <div class="RightNav">
-    <a href="user_center.html">用户中心</a> <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="cart.html">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+    <a href="<?=Url::to(['user/user_index']);?>">用户中心</a>
+       <a href="<?=Url::to(['user/user_order']);?>" target="_blank" title="我的订单">我的订单</a>
+       <a href="<?=Url::to(['cart/cart']);?>">购物车（0）</a>
+       <a href="<?=Url::to(['user/ser_collect']);?>" target="_blank" title="我的收藏">我的收藏</a>
+       <a href="<?=Url::to(['register/choice']);?>">商家入驻</a>
    </div>
   </div>
  </section>
@@ -47,7 +57,7 @@
                 </div>
             </form>
             <p class="hotkeywords">
-                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>
+<!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
             </p>
         </div>
         <script>

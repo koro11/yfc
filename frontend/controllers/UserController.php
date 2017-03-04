@@ -9,7 +9,7 @@ use Yii;
 use  frontend\models\User_info;
 use  frontend\models\Orders;
 use yii\web\Controller;
-class UserController extends Controller
+class UserController extends CommonController
 {
 
     public $enableCsrfValidation= false;
