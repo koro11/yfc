@@ -34,34 +34,19 @@ class CartController extends Controller
         }
 
         $res = array();
-        $sumPrice = '';//商品总价格
         if(!empty($cartMsg)){
             foreach($cartMsg as $k=>$v){
                 if($v['food']['is_discount']){
                     $v['food']['price'] = $v['food']['discount_price'];
-                    $sumPrice = $sumPrice+($v['buy_number']*$v['food']['discount_price']);
                 }else{
                     $v['food']['price'] = $v['food']['food_price'];
-                    $sumPrice = $sumPrice+($v['buy_number']*$v['food']['food_price']);
                 }
 
-                $res[$v['food']['food_mername']][$k] = $v;
+                $res[$v['food']['food_mername'].','.$v['food_mer']][$k] = $v;
             }
         }
-        return $this->render('cart',['res'=>$res,'sumPrice'=>$sumPrice]);
-    }
 
-    /**
-     * 清除cookie
-     * @author Dx
-     * @param  string $name
-     * @return bool
-     */
-    public function actionRemovecookie($name)
-    {
-        if(empty($name))return false;
-        unset($_COOKIE[$name]);
-        return true;
+        return $this->render('cart',['res'=>$res]);
     }
 
     /**
@@ -81,27 +66,7 @@ class CartController extends Controller
         $cartMsg = empty($cookies->get($name)) ? array() : unserialize($cookies->get($name));
         return $cartMsg;
     }
-    /**
-     *购物信息入库
-     * @author Dx
-     * @param array $cartMsg
-     * @param string $userId
-     * @return boolean
-     */
-    public function actionAddshopping($userId,$cartMsg)
-    {
-        if(empty($cartMsg)||empty($userId))return false;
-        //cookie购物信息入库
-        $class = new Functions();
-        $sql = $class->adds('yfc_carts',$cartMsg);
-        $addCart = \Yii::$app->db->createCommand($sql)->execute();
-        //清除cookie购物信息
-        if(!$addCart)exit('购物信息入库失败,请重试');
 
-        unset($_COOKIE['cart']);
-
-        return true;
-    }
     /**
      * 删除购物车
      * @author Dx
@@ -115,7 +80,7 @@ class CartController extends Controller
             'msg'=>'成功删除此项餐饮'
         );
         $cartId = intval(\Yii::$app->request->get('cartId'));
-
+//        var_dump($cartId);die;
         if(empty($cartId)){
             $return['status'] = 0;
             $return['msg'] ='删除失败,请重试' ;
@@ -134,6 +99,8 @@ class CartController extends Controller
      * @author Dx
      * @param intval   $sellerId
      * @param resource $obj
+     * @param array   $param
+     * @param array   $seller
      * @return json
      */
     public  function actionSettlement()
@@ -147,14 +114,22 @@ class CartController extends Controller
             $return['msg'] = '请先登录';
             exit(json_encode($return));
         }
+        //餐饮
         $param= \Yii::$app->request->get('order');
-        sort($param);
-        $count = count($param);
+        //商户ID
+        $seller= \Yii::$app->request->get('store');
+        if(empty($param) || empty($seller)){
+            $return['msg'] = '无法结算';
+            exit($return);
+        }
+        //商户判断
+        $count = count($seller);
         $obj = new Merchant();
-        $cartId = '';
+        $store = '';
         //查看所选餐饮的商家是否还在线
         for($i = 0;$i<$count;$i++){
-            $sellerId = $param[$i]['sellerId'];
+            //商户ID
+            $store .= empty($store)? $sellerId = $seller[$i]['store'] : ','.$sellerId = $seller[$i]['store'];
             if(empty($sellerId)){
                 $return['msg'] = '参数格式不正确,请重试';
                 exit(json_encode($return));
@@ -162,16 +137,27 @@ class CartController extends Controller
 
             $res = $obj->checkOffline($sellerId);
             if(!$res){
-                $return['msg'] = '商家已经下线,请重新选餐';
+                $return['msg'] = '商户已经不存在';
                 exit(json_encode($return));
             }
             if($res['mer_status']=='1'){
-                $return['msg'] = $res['mer_name'].'商户已经下线,请明日再来';
+                $return['msg'] = $res['mer_name'].'商户未营业,请明日再来';
                 exit(json_encode($return));
             }
+        }
+        //餐饮
+        sort($param);
+        $cartId = '';
+        $cartCount = count($param);
+        for($i=0;$i<$cartCount;$i++){
             $cartId .= empty($cartId)? $param[$i]['cartId'] : ','.$param[$i]['cartId'];
         }
-        $return['content'] = urlencode($cartId);
+        //URL
+        $cartId = urlencode($cartId);
+        $store = urlencode($store);
+
+        $url = APP_URL.'?r=order/order';
+        $return['content'] = $url.'&buycart='.substr($cartId,0,4).'&id='.substr($cartId,4,4).'&param='.substr($cartId,8).'&mer='.$store;
         $return['msg'] ='可以进行下单';
         $return['status'] = 1;
         exit(json_encode($return));

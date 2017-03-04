@@ -8,12 +8,17 @@
     <meta name="author" content="DeathGhost"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="js/jquery.js"></script>
+<!--    <script type="text/javascript" src="js/jquerys.js"></script>-->
     <script type="text/javascript" src="js/public.js"></script>
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 </head>
-
+<style>
+    .p3button{
+        cursor: pointer;
+    }
+</style>
 <body>
 <header>
  <section class="Topmenubg">

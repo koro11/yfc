@@ -72,4 +72,5 @@ class Consignee extends \yii\db\ActiveRecord
         if(empty($res))return false;
         return $res;
     }
+
 }

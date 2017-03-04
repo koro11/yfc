@@ -39,19 +39,21 @@ class LoginController extends Controller
     	if($data)
     	{
             //购物信息入库
-
             if(isset($_COOKIE['cart'])){
                 $class = new Functions();
                 $cartMsg = unserialize($_COOKIE['cart']);
+                $db = new Query();
+
                 $num = count($cartMsg);
                 for($i=0; $i<$num; $i++){
+                    $food = $db->from('yfc_food')->where(['food_id'=>$cartMsg[$i]['food']['food_id']])->one();
                     $res[$i]['food']['user_id'] = $data['user_id'];
-                    $res[$i]['food']['food_price'] = $cartMsg[$i]['food']['food_price'];
+                    $res[$i]['food']['food_price'] = $food['food_price'];
                     $res[$i]['food']['buy_number'] = $cartMsg[$i]['buy_number'];
-                    $res[$i]['food']['food_market'] = $cartMsg[0]['food']['is_discount'] ? $cartMsg[0]['food']['discount_price'] : $cartMsg[0]['food']['food_price'];
+                    $res[$i]['food']['food_market'] = $food['is_discount'] ? $food['discount_price'] : $food['food_price'];
                     $res[$i]['food']['food_id'] = $cartMsg[$i]['food']['food_id'];
                 }
-//                var_dump($res);die;
+
                 $sql = $class->adds('yfc_carts',$res);
 
                 $addCart = \Yii::$app->db->createCommand($sql)->execute();
