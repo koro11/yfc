@@ -1,6 +1,11 @@
+<?php
+use yii\web\Session;
+use \yii\db\Query;
+?>
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="/">
     <meta charset="utf-8"/>
     <title>DeathGhost</title>
     <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发"/>
@@ -14,20 +19,52 @@
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 </head>
+<<<<<<< HEAD
 <style>
     .p3button{
         cursor: pointer;
     }
 </style>
+
+<?php use \yii\helpers\Url;?>
+
 <body>
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    <a href="?r=register/choice">注册</a>/<a href="?r=login/choice">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
+    <?php
+        $session = Yii::$app->session;
+        $user_id = $session->get('user_id');
+        $mer_id = $session->get('mer_id');
+       /* var_dump($user_id);
+        var_dump($mer_id);die;*/
+        if($user_id!="")
+        {
+            $query = new Query;
+            $username = $query->select('user_name')->from('yfc_user_info')->where(['user_id'=>$user_id])->one();
+            echo '欢迎用户    '.$username['user_name'].'   登录';
+        } 
+        else if($mer_id!="")
+        {
+            $query = new Query;
+            $mername = $query->select('mer_name')->from('yfc_merchant')->where(['mer_id'=>$mer_id])->one();
+            echo '欢迎商家  '.$mername['mer_name'].'   登录';
+        }
+        else
+        {
+            echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
+        }
+    ?>
+    <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
    </div>
    <div class="RightNav">
-    <a href="user_center.html">用户中心</a> <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="?r=cart/cart">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+   <?php if($user_id!=""){?>
+    <a href="<?=Url::to('user/user_index')?>">用户中心</a>
+   <?php }else{?>
+    <a href="<?=Url::to('shop/shop_center')?>">商户中心</a>
+   <?php }?>
+     <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
    </div>
   </div>
  </section>
@@ -35,11 +72,11 @@
         <div class="Logo">
             <img src="images/logo.jpg" title="DeathGhost" alt="模板">
             <i></i>
-            <span>西安市 [ <a href="#">莲湖区</a> ]</span>
+            <span>北京市 [ <a href="#">海淀区</a> ]</span>
         </div>
         <div class="Search">
-            <form method="get" action="">
-                <input type="hidden" name="r" value="search/search">
+            <form method="get" action="<?=Url::to('search/search')?>">
+<!--                <input type="hidden" name="r" value="search/search">-->
                 <div class="Search_nav" id="selectsearch">
                     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'class="choose"';}?>>餐厅</a>
                     <a href="javascript:;" onClick="selectsearch(this,'food_name')" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'class="choose"';}?>>食物名</a>
@@ -55,18 +92,13 @@
                 <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>
             </p>
         </div>
-        <script>
-            $(function(){
-
-            });
-        </script>
     </div>
     <nav class="menu_bg">
         <ul class="menu">
-            <li><a href="?r=index/index">首页</a></li>
-            <li><a href="?r=search/search">订餐</a></li>
-            <li><a href="?r=search/search&search_type=food&score=score">积分商城</a></li>
-            <li><a href="article_read.html">关于我们</a></li>
+            <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
+            <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
+            <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
+            <li><a href="<?=Url::to()?>">关于我们</a></li>
         </ul>
     </nav>
 </header>

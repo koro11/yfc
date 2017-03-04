@@ -1,5 +1,6 @@
 
 <!--Start content-->
+<?php use \yii\helpers\Url;?>
 <form action="#">
     <div class="gwc" style=" margin:auto;">
         <table cellpadding="0" cellspacing="0" class="gwc_tb1">
@@ -62,7 +63,7 @@
                     <input id="cancel" type="checkbox"/>
                     取消
                 </td>
-                <td class="tb3_td2 GoBack_Buy Font14"><a href="?r=index/index" target="_blank">继续购物</a></td>
+                <td class="tb3_td2 GoBack_Buy Font14"><a href="<?=Url::to('index/index')?>" target="_blank">继续购物</a></td>
                 <td class="tb3_td2">已选商品
                     <label id="shuliang" style="color:#ff5500;font-size:14px; font-weight:bold;">0</label>
                     件

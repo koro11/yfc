@@ -4,11 +4,13 @@ use yii\captcha\Captcha;
 <!DOCTYPE html>
 <html>
 	<head>
+		<base href="/">
 		<meta charset="utf-8">
 		<title>用户注册</title>
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/common.css" />
 	</head>
+	<?php use yii\helpers\Url;?>
 	<body onload="document.forms[0].reset()">
 		<div class="wrap login_wrap">
 			<div class="content">
@@ -21,7 +23,7 @@ use yii\captcha\Captcha;
 						<div class="login_title">
 							用户注册
 						</div>
-						<form action="?r=register/user_register_do" method="post">
+						<form action="<?=Url::to('register/user_register_do')?>" method="post">
 							
 							<div class="form_text_ipt">
 								<input name="user_phone" type="text" placeholder="用户手机号" class="phone"><span id="phone" style="color:#f00;"></span>
@@ -82,7 +84,7 @@ use yii\captcha\Captcha;
 	  	var password = $('.password').val();
 	  	var rpassword = $('.rpassword').val();
 	  	var phone_st = $('#phone').text();
-	  	var tel=/^1[3|5|7|8]\d{9}$/;//匹配手机号码
+  		var tel=/^1[3|5|7|8]\d{9}$/;//匹配手机号码
   		if(!tel.test(phone))
 	    {
 	    	return false;

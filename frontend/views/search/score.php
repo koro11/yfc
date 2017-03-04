@@ -1,3 +1,4 @@
+<?php use \yii\helpers\Url;?>
 <section class="Psection">
 	<section class="CateL Overflow">
 		<section class="Fslmenu slt" style="margin-bottom:5px">
@@ -61,7 +62,7 @@
 					str += '&'+k+'='+v;
 				});
 				str = '?'+str.substr(1);
-				location.href = str;
+				location.href = '<?=Url::to('search/search')?>'+str;
 				return false;
 			});
 
@@ -80,7 +81,7 @@
 		<ul>
 			<?php foreach($food as $v):?>
 			<li>
-				<a href="?r=menu/details&id=<?=$v['food_id']?>" title="<?=$v['food_name']?>">
+				<a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>">
 					<img src="<?=$v['food_image']?>">
 					<p class="Overflow"><?=$v['food_name']?><span>￥<?=$v['food_price']?></span></p>
 					<p class="Overflow">赠送：<span class="CorRed Font16"><?=$v['food_score']?></span>积分<i></i></p>
@@ -122,9 +123,9 @@
 					foreach($hot as $v) {
 				?>
 					<li>
-						<a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank" title="<?=$v['mer_name']?>"><img src="<?=$v['info_image']?>"></a>
+						<a href="<?=Url::to(['index/shop_index','mer'=>$v['mer_id']])?>" target="_blank" title="<?=$v['mer_name']?>"><img src="<?=$v['info_image']?>"></a>
 						<p class="Font14 FontW Overflow Lineheight35">
-							<a href="?r=index/shop_index&mer=<?=$v['mer_id'];?>" target="_blank" title="<?=$v['mer_name']?>"><?=$v['mer_name']?></a>
+							<a href="<?=Url::to(['index/shop_index','mer'=>$v['mer_id']])?>" target="_blank" title="<?=$v['mer_name']?>"><?=$v['mer_name']?></a>
 						</p>
 						<p class="Lineheight35 Overflow"><span><?=$v['mer_address']?></span>
 						</p>

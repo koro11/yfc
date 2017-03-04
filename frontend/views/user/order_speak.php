@@ -1,17 +1,4 @@
-<!--Start content-->
-<section class="Psection MT20">
-<nav class="U-nav Font14 FontW">
-   <ul>
-   <li><i></i><a href="?r=user/user_index">用户中心首页</a></li>
-   <li><i></i><a href="?r=user/user_orderlist">我的订单</a></li>
-   <li><i></i><a href="?r=user/user_address">收货地址</a></li>
-   <li><i></i><a href="?r=user/user_message">我的留言</a></li>
-   <li><i></i><a href="?r=user/user_coupon">我的优惠券</a></li>
-   <li><i></i><a href="?r=user/user_collect">我的收藏</a></li>
-   <li><i></i><a href="?r=user/user_account">账户管理</a></li>
-   <li><i></i><a href="?r=login/login_out">安全退出</a></li>
-  </ul>
- </nav>
+<?php use \yii\helpers\Url;?>
  <article class="U-article Overflow">
   <span class="Font14 FontW Lineheight35 Block">订单信息：</span>
    <table class="U-order-D">
@@ -35,7 +22,7 @@
      <!--如果未付款，则显示立即付款按钮-->
      </tr>
    </table>
-   <form action="?r=user/speak_save" method="post">
+   <form action="<?=Url::to('user/speak_save')?>" method="post">
    <table>
    <tr>
      <td>

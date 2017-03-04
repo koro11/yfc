@@ -1,25 +1,12 @@
-<!--Start content-->
-<section class="Psection MT20">
-<nav class="U-nav Font14 FontW">
-  <ul>
-   <li><i></i><a href="?r=user/user_index">用户中心首页</a></li>
-   <li><i></i><a href="?r=user/user_orderlist">我的订单</a></li>
-   <li><i></i><a href="?r=user/user_address">收货地址</a></li>
-   <li><i></i><a href="?r=user/user_message">我的留言</a></li>
-   <li><i></i><a href="?r=user/user_coupon">我的优惠券</a></li>
-   <li><i></i><a href="?r=user/user_collect">我的收藏</a></li>
-   <li><i></i><a href="?r=user/user_account">账户管理</a></li>
-   <li><i></i><a href="?r=login/login_out">安全退出</a></li>
-  </ul>
- </nav>
+<?php use \yii\helpers\Url;?>
  <article class="U-article Overflow">
   <!--user Account-->
   <section class="AccManage Overflow">
    <span class="AMTitle Block Font14 FontW Lineheight35">账户管理</span>
-   <p>登陆邮箱：<?php echo $user['user_email']?> 
-   <p>手机号码：<?php echo $user['users']['user_phone']?>  </p>
-   <p>上次登陆：<?php echo date("Y年m月d日 H:i:s",$user['users']['last_logintime'])?>( *如非本人登陆，请立即修改您的密码！ )</p>
-   <form action="?r=user/up_account" method="post" enctype="multipart/form-data">
+   <p>登陆邮箱：<?=$user['user_email']?>
+   <p>手机号码：<?=$user['users']['user_phone']?>  </p>
+   <p>上次登陆：<?=date("Y年m月d日 H:i:s",$user['users']['last_logintime'])?>( *如非本人登陆，请立即修改您的密码！ )</p>
+   <form action="<?=Url::to('user/up_account')?>" method="post" enctype="multipart/form-data">
     <table>
     <tr>
     <td width="30%" align="right">*修改头像：</td>

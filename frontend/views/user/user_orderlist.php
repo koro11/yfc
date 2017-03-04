@@ -1,6 +1,7 @@
 <!--Start content-->
 <?php
 use yii\widgets\LinkPager;
+use \yii\helpers\Url;
 ?>
 <style> 
     .pagination{margin:20px 0; overflow:hidden;line-height:30px;list-style:none;}
@@ -9,19 +10,7 @@ use yii\widgets\LinkPager;
     .pagination a.current,.pagination span.current,.pagination span.disabled{background:#009875;cursor:pointer;}
     .pagination input{border:1px solid #cbcbcb;margin:0 5px; height:28px;font-size:16px;line-height:28px;}
   </style>
-<section class="Psection MT20">
-<nav class="U-nav Font14 FontW">
-   <ul>
-   <li><i></i><a href="?r=user/user_index">用户中心首页</a></li>
-   <li><i></i><a href="?r=user/user_orderlist">我的订单</a></li>
-   <li><i></i><a href="?r=user/user_address">收货地址</a></li>
-   <li><i></i><a href="?r=user/user_message">我的留言</a></li>
-   <li><i></i><a href="?r=user/user_coupon">我的优惠券</a></li>
-   <li><i></i><a href="?r=user/user_collect">我的收藏</a></li>
-   <li><i></i><a href="?r=user/user_account">账户管理</a></li>
-  <li><i></i><a href="?r=login/login_out">安全退出</a></li>
-  </ul>
- </nav>
+
  <article class="U-article Overflow">
   <!--user order list-->
   <section >
@@ -34,10 +23,10 @@ use yii\widgets\LinkPager;
      <th class="Font14 FontW">操作</th>
      <?php foreach ($models as $key => $value) {?>
      <tr>
-      <td class="FontW"><a href="user_order.html"><?php echo $value['order_sn']?></a></td>
-      <td><?php echo date('Y-m-d,H:i',$value['order_paytime'])?></td>
-      <td><?php echo $name?></td>
-      <td>￥<?php echo $value['order_amount']?></td>
+      <td class="FontW"><a href="user_order.html"><?= $value['order_sn']?></a></td>
+      <td><?= date('Y-m-d,H:i',$value['order_paytime'])?></td>
+      <td><?= $name?></td>
+      <td>￥<?= $value['order_amount']?></td>
       <?php if($value['shipping_status']==0 && $value['pay_status']==0){?>
       <td>未付款,未配送</td>
       <?php }elseif($value['shipping_status']==0 && $value['pay_status']==1){?>
@@ -49,15 +38,15 @@ use yii\widgets\LinkPager;
       <?php }?>
 
       <?php if ($value['shipping_status']==2 && $value['pay_status']==1 && $value['order_speak']!=0) {?>
-      <td><a href="?r=user/user_order&order_id=<?php echo $value['order_id']?>">查看订单</a></td>
+      <td><a href="<?=Url::to(['user/user_order','order_id'=>$value['order_id']])?>">查看订单</a></td>
       <?php }elseif($value['shipping_status']==2 && $value['pay_status']==1 && $value['order_speak']==0){?>
-      <td><a href="?r=user/user_order&order_id=<?php echo $value['order_id']?>">查看订单</a> | 
-        <a href="?r=user/order_speak&order_id=<?php echo $value['order_id']?>">评价订单</a></td>
+      <td><a href="<?=Url::to(['user/user_order','order_id'=>$value['order_id']])?>">查看订单</a> |
+        <a href="<?=Url::to(['user/order_speak','order_id'=>$value['order_id']])?>">评价订单</a></td>
       <?php }elseif($value['pay_status']==0){?>
-      <td> <a href="?r=order/order&order_id=<?php echo $value['order_id']?>">付款</a>
-        |<a href="?r=user/user_order&order_id=<?php echo $value['order_id']?>">修改地址</a></td>
+      <td> <a href="<?=Url::to(['order/order','order_id'=>$value['order_id']])?>">付款</a>
+        |<a href="<?=Url::to(['user/user_order','order_id'=>$value['order_id']])?>">修改地址</a></td>
       <?php }else{?>
-      <td><a href="?r=user/del_order&order_id=<?php echo $value['order_id']?>">取消订单</a>
+      <td><a href="<?=Url::to(['user/del_order','order_id'=>$value['order_id']])?>">取消订单</a>
       <?php }?>
      </tr>
      <?php }?>
@@ -67,8 +56,6 @@ use yii\widgets\LinkPager;
                 <?php
           echo LinkPager::widget([
               'pagination' => $pages,
-              'nextPageLabel'=>'下一页',
-              'prevPageLabel'=>'上一页',
               'firstPageLabel'=>'首页',
               'lastPageLabel'=>'尾页'
            ]);?>
