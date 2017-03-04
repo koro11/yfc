@@ -16,7 +16,6 @@ use  frontend\models\Tickets;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\helpers\Url;
-
 class UserController extends Controller
 {
 

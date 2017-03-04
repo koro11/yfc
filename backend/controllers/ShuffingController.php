@@ -20,6 +20,7 @@ class ShuffingController extends CommonController
     {
         if (Yii::$app->request->isPost) {
             $upload = new Upload();
+
             $img = $upload->files($_FILES['file']);
             $db = \Yii::$app->db->createCommand();
             $db->insert('yfc_shuffing',['path'=>$img])->execute();

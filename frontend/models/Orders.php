@@ -62,6 +62,7 @@ class Orders extends ActiveRecord
             'Remarks' => 'Remarks',
         ];
     }
+
 	public function getDate(){
         return $this->hasOne(Date::className(),['deta_id'=>'order_date']);
 	}
@@ -94,6 +95,13 @@ class Orders extends ActiveRecord
         $id = \Yii::$app->db->getLastInsertId();
         return $id;
     }
+    public function getUsers(){
+        return $this->hasOne(Users::className(),['user_id'=>'user_id']);
+    }
+    public function getFood(){
+        return $this->hasMany(Food::className(),['food_id'=>'food_id']);
+    }
+
 
 }
  ?>

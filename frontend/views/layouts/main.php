@@ -1,6 +1,7 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
+use yii\helpers\Url ;
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,7 @@ use \yii\db\Query;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+
 </head>
 <style>
     .p3button{
@@ -86,7 +88,7 @@ use \yii\db\Query;
                 </div>
             </form>
             <p class="hotkeywords">
-                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>
+<!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
             </p>
         </div>
     </div>
