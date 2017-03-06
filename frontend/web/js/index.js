@@ -1,5 +1,4 @@
 //lunbotu
-var _orders = $("#get_orders").val(); //index/get_orders
 var foodurl = $("#foodurl").val();    //index/s_food
 var shopurl = $("#shopurl").val();    //index/s_shop
 var cateurl = $("#cateurl").val();    //index/get_cate
@@ -105,33 +104,34 @@ $(function() {
 });
 
 //get_orders
-var UpRoll = document.getElementById('UpRoll');
-var lis = UpRoll.getElementsByTagName('li');
-var ml = 0;
-var timer1 = setInterval(function(){
-    // var liHeight = lis[0].offsetHeight;
-    var timer2 = setInterval(function(){
-        UpRoll.scrollTop = (++ml);
-        if(ml ==1){
-            clearInterval(timer2);
-            UpRoll.scrollTop = 0;
-            ml = 0;
-            lis[0].parentNode.appendChild(lis[0]);
-        }
-    },10);
-},5000);
+
+// var UpRoll = document.getElementById('UpRoll');
+// var lis = UpRoll.getElementsByTagName('li');
+// var ml = 0;
+// var timer1 = setInterval(function(){
+//     // var liHeight = lis[0].offsetHeight;
+//     var timer2 = setInterval(function(){
+//         UpRoll.scrollTop = (++ml);
+//         if(ml ==1){
+//             clearInterval(timer2);
+//             UpRoll.scrollTop = 0;
+//             ml = 0;
+//             lis[0].parentNode.appendChild(lis[0]);
+//         }
+//     },10);
+// },5000);
 
 //订单
-function get_orders() {
-    $.ajax({
-        type: "GET",
-        url: _orders,
-        success: function(msg){
-            $("#UpRoll").html(msg);
-        }
-    });
-}
-get_orders();
+// function get_orders() {
+//     $.ajax({
+//         type: "GET",
+//         url: _orders,
+//         success: function(msg){
+//             $("#UpRoll").html(msg);
+//         }
+//     });
+// }
+// get_orders();
 // setInterval(get_orders,5000);
 
 //菜品分类 &&　商家分类
@@ -261,23 +261,14 @@ $(function(){
 
 
     //订单轮播
-
-    var oi = 0; //jishu
-    var oclone = $(".Orderlist li").first().clone();//克隆第一张图片
-    $(".Orderlist").append(oclone);//复制到列表最后
-    var osize = $(".Orderlist li").size();
-
-    /*自动轮播*/
-    var ot = setInterval(function () { oi++; omove();},2000);
-    /*移动事件*/
-    function omove() {
-        if (oi == osize) {
-            $(".Orderlist").css({ top: 0 });
-            oi = 1;
-        }
-        $(".Orderlist").stop().animate({ top: -oi * 89 }, 500);
-    }
-
+    setInterval(function () {
+        var last = $(".Orderlist li").last().clone();
+        last.css('display','none');
+        $(".Orderlist").prepend(last);
+        last.show(1000,function () {
+            $(".Orderlist li").last().remove();
+        });
+    },2000);
 
     //用户菜品点评轮播
     var i = 0; //jishu

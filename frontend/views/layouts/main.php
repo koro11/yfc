@@ -1,7 +1,7 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
-use yii\helpers\Url ;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,7 @@ use yii\helpers\Url ;
     <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!"/>
     <meta name="author" content="DeathGhost"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
@@ -85,6 +85,7 @@ use yii\helpers\Url ;
                 <div class="Search_area">
                     <input type="search" id="fkeyword" name="keyword" <?php if(isset($_GET['keyword']) && !empty($_GET['keyword'])){echo 'value="'.$_GET['keyword'].'"';}?> placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox"/>
                     <input type="submit" class="searchbutton" value="搜 索"/>
+                    <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
                 </div>
             </form>
             <p class="hotkeywords">
@@ -100,6 +101,7 @@ use yii\helpers\Url ;
             <li><a href="<?=Url::to()?>">关于我们</a></li>
         </ul>
     </nav>
+    <script type="text/javascript" src="js/public.js"></script>
 </header>
 
 <?= $content ?>

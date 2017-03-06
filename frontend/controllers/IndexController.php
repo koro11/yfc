@@ -27,23 +27,31 @@ class IndexController extends Controller
 	//首页
 	public function actionIndex()
 	{
-        $request = Yii::$app->request;
         //轮播图
         $shuffing = Shuffing::find()->where(['is_show'=>0])->orderBy('sort DESC')->limit(3)->asArray()->all();
-        //地区
-        $district = District::find()->limit(12)->asArray()->all();
-        //获取菜品类型
-        $foodcate = FoodCategory::find()->asArray()->all();
-        //默认显示的菜品
-        $food = Food::find()->select(['food_id','food_mername','food_name','food_image','food_price','is_discount','discount_price','is_new'])->where(['is_delete'=>0])->orderBy('food_saled DESC')->limit(3)->asArray()->all();
-        //默认显示的店家logo
-        $merlogo = Merchant::find()->select(['mer_logo','mer_name','mer_id'])->where(['mer_status'=>0])->limit(5)->asArray()->all();//->orderBy('评分 DESC')
-        //获取商家主营类型
-        $mercate = MerCategory::find()->asArray()->all();
-        //默认显示的店家
-        $merchant = Merchant::find()->select(['mer_id','mer_name','mer_address','mer_phone'])->with('merinfo')->where(['mer_status'=>0])->limit(3)->asArray()->all();
 
         //订单
+        $sql="SELECT consignee,food_name,shipping_status FROM yfc_orders as o JOIN yfc_food as f on o.food_id=f.food_id WHERE pay_status=1 AND order_status=0 ORDER BY order_paytime DESC";
+        // LIMIT 0,3
+        $orders = \Yii::$app->db->createCommand($sql)->queryAll();
+
+        //地区
+        $district = District::find()->limit(12)->asArray()->all();
+
+        //获取菜品类型
+        $foodcate = FoodCategory::find()->asArray()->all();
+
+        //默认显示的菜品
+        $food = Food::find()->select(['food_id','food_mername','food_name','food_image','food_price','is_discount','discount_price','is_new'])->where(['is_delete'=>0])->orderBy('food_saled DESC')->limit(3)->asArray()->all();
+
+        //默认显示的店家logo
+        $merlogo = Merchant::find()->select(['mer_logo','mer_name','mer_id'])->where(['mer_status'=>0])->limit(5)->asArray()->all();//->orderBy('评分 DESC')
+
+        //获取商家主营类型
+        $mercate = MerCategory::find()->asArray()->all();
+
+        //默认显示的店家
+        $merchant = Merchant::find()->select(['mer_id','mer_name','mer_address','mer_phone'])->with('merinfo')->where(['mer_status'=>0])->limit(3)->asArray()->all();
 
         //菜品点评
         $sql = "SELECT s.speak_body,s.food_id,f.food_image,food_name,u.user_name,m.mer_name from yfc_speak s join yfc_food f on s.food_id=f.food_id JOIN yfc_user_info u on s.speak_user=u.user_id JOIN yfc_merchant m on f.food_mer=m.mer_id";
@@ -51,6 +59,7 @@ class IndexController extends Controller
 
         //SELECT mid,AVG(score) as c from yfc_mer_grade GROUP BY mid HAVING  c>10  评分
         $data['shuffing'] = $shuffing;
+        $data['orders'] = $orders;
         $data['district'] = $district;
         $data['foodcate'] = $foodcate;
         $data['food'] = $food;
@@ -67,16 +76,6 @@ class IndexController extends Controller
         $request = \Yii::$app->request;
         $hotWords = Hot_word::find()->where(['show_status'=>0,'word_type'=>$request->post('type')])->orderBy('hot_length DESC')->limit(5)->asArray()->all();
         echo json_encode($hotWords);
-    }
-
-    //订单
-    public function actionGet_orders()
-    {
-        $this->layout = false;
-        $sql="SELECT consignee,food_name,shipping_status FROM yfc_orders as o JOIN yfc_food as f on o.food_id=f.food_id WHERE pay_status=1 AND order_status=0 ORDER BY order_paytime DESC";
-        // LIMIT 0,3
-        $orders = \Yii::$app->db->createCommand($sql)->queryAll();
-        return $this->render('get_orders',['orders'=>$orders]);
     }
 
 	//食物搜索
@@ -115,7 +114,7 @@ class IndexController extends Controller
             $where = ['mer_status'=>0,'dis_id'=>$data['d_id'],'info_mer_cate'=>$data['cate_id']];
         }
 
-        $merchant = Merchant::find()->select(['mer_id','mer_name','mer_address','mer_phone'])->with('merinfo')->where($where)->limit(3)->asArray()->all();
+        $merchant = Merchant::find()->select(['mer_id','mer_name','mer_address','mer_phone'])->joinwith('merinfo')->where($where)->limit(3)->asArray()->all();
 		return $this->render('get_merchant',['merchant'=>$merchant]);
 	}
 

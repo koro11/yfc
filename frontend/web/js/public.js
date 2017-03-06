@@ -1,5 +1,4 @@
 /*public js xianhuachneg.com*/
-getHotWords(0);
 /*Tab Search style*/
 function selectsearch(theA,word){
  obj=document.getElementById("selectsearch").getElementsByTagName("a");
@@ -64,10 +63,11 @@ function getUrl(){
 	return arr;
 }
 
+var hoturl = $("#hoturl").val(); 	//index/get_hotword
 function getHotWords(type) {
 	$.ajax({
 		type: "POST",
-		url: "?r=index/hot_word",
+		url: hoturl,
 		data: {type:type},
 		dataType:'json',
 		success: function(msg){
@@ -79,6 +79,9 @@ function getHotWords(type) {
 		}
 	});
 }
+
+getHotWords(0);
+
 
 $(document).on('click',".hotSearch",function(){
 	$("#fkeyword").val($(this).html());

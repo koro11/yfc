@@ -54,16 +54,23 @@
    <li><i></i><a href="article_read.html" target="_blank" title="">来这儿，就吃了。竭诚服务，用心服务，...</a></li>
   </ul>
   <div class="myOrder">
-  <ul class="Orderlist" id="UpRoll">
-   <?php foreach ($shuffing as $key => $val): ?>
-    <li>
-     <p>订单编号：2014090912978</p>
-     <p>收件人：张小姐</p>
-     <p>订单状态：<i class="State01">已发货</i><i class="State02">已签收</i><i class="State03">已点评</i></p>
-    </li>
-   <?php endforeach ?>
-     </div>
-  </ul>
+   <ul class="Orderlist" id="UpRoll">
+       <?php foreach ($orders as $key => $val): ?>
+           <li>
+               <p>菜品：<?=$val['food_name'];?></p>
+               <p>收件人：<?=$val['consignee'];?></p>
+               <p>订单状态：<i class="State01">已支付</i>
+                   <?php if ($val['shipping_status']==0): ?>
+                       <i class="State01">配货中</i>
+                   <?php elseif ($val['shipping_status']==1): ?>
+                       <i class="State02">配送中</i>
+                   <?php else: ?>
+                       <i class="State03">已收货</i>
+                   <?php endif ?>
+           </li>
+       <?php endforeach ?>
+   </ul>
+  </div>
 
  </aside>
 </section>
@@ -187,7 +194,8 @@
   </div>
  </aside>
 </section>
-<input type="hidden" id="get_orders" value="<?=Url::to(['index/get_orders']);?>">
+<input name="_csrf" type="hidden" id="_csrf" value="<?= Yii::$app->request->csrfToken ?>">
+
 <input type="hidden" id="foodurl" value="<?=Url::to(['index/s_food']);?>">
 <input type="hidden" id="shopurl" value="<?=Url::to(['index/s_shop']);?>">
 <input type="hidden" id="cateurl" value="<?=Url::to(['index/get_cate']);?>">
