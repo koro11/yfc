@@ -144,7 +144,7 @@ window.onload = function () {
  <article>
   <div class="shopinfor">
    <div class="title">
-    <img src="upload/wpjnewlogo.jpg" class="shop-ico">
+    <img src="<?=$shop_info['merchant']['mer_logo']?>" class="shop-ico">
     <span><?=$shop_info['merchant']['mer_name']?></span>
     <span>
      <img src="images/star-on.png">
@@ -213,27 +213,26 @@ window.onload = function () {
     <!--case1-->
     <div class="menutab show">
      <ul class="products">
-
-    <?php foreach ($shop_foods as $key => $value): ?>    
-    <li>
-     <a href="<?php echo $shop_info['merchant']['mer_status'] == 1 ? Url::to(['index/shop_index','mer'=>$shop_info['info_mer']]): Url::to(['menu/details','id'=>$value['food_id']]);?>" target="_blank" title="<?=$value['food_name']?>">
-         <img src="<?=$value['food_image']?>" class="foodsimgsize">
-         </a>
-          <div class="item">
-     <div>
-      <p><?=$value['food_name']?></p>
-      <p class="AButton">拖至购物车:￥<?=$value['food_price']?></p>
-     </div>
-     </div>
-    </li>
+      <?php foreach ($shop_foods as $key => $value): ?>    
+      <li>
+       <a href="<?php echo $shop_info['merchant']['mer_status'] == 1 ? Url::to(['index/shop_index','mer'=>$shop_info['info_mer']]): Url::to(['menu/details','id'=>$value['food_id']]);?>" target="_blank" title="<?=$value['food_name']?>">
+           <img src="<?=$value['food_image']?>" class="foodsimgsize">
+       </a>
+      <div class="item">
+       <div>
+        <p><?=$value['food_name']?></p>
+        <p class="AButton">拖至购物车:￥<?=$value['food_price']?></p>
+       </div>
+       </div>
+      </li>
     <?php endforeach ?>
     <div class="TurnPage">
     <?=$shop_foods_pages?>
     </div> 
    </ul>
-   
     </div>
-    </div>
+    <!--case1-->
+
     <!--case2-->
     <div class="menutab">
      <?php foreach ($shop_comment as $ck => $cv): ?>
@@ -251,8 +250,9 @@ window.onload = function () {
       </div>
      </div>
      <?php endforeach ?>
-
     </div>
+    <!--case2-->
+
     <!--case4-->
     <div class="menutab">
      <div class="shopdetails">
@@ -268,19 +268,19 @@ window.onload = function () {
      </div>
     </div>
     </div>
+    <!--case4-->
+  
     <!--case5-->
     <div class="menutab">
      <div class="message_list">
-      <?php foreach ($shop_message as $k => $v): ?>
-        
-     <span class="Ask"><i><?=$v['user_name']?></i>:<?=$v['m_message']?>-<i>于<?=$v['m_addtime']?></i></span>
-      <?php if ($v['back']!=''): ?>
-        
-     <span class="Answer"><i><?=$v['back']['mer_name']?>回复</i>：<?=$v['back']['m_message']?>-<i><?=$v['back']['m_addtime']?></i></span>
-      <?php endif ?>
-      <?php endforeach ?>
+      <?php foreach ($shop_message as $k => $v): ?>     
+         <span class="Ask"><i><?=$v['user_name']?></i>:<?=$v['m_message']?>-<i>于<?=$v['m_addtime']?></i></span>
+          <?php if ($v['back']!=''): ?>
+            
+         <span class="Answer"><i><?=$v['back']['mer_name']?>回复</i>：<?=$v['back']['m_message']?>-<i><?=$v['back']['m_addtime']?></i></span>
+          <?php endif ?>
+          <?php endforeach ?>
      </div>
-
     <div>
       <input type="hidden" class="user_id">
       <input type="hidden" class="mer_status" value="<?=$shop_info['merchant']['mer_status']?>">
@@ -289,8 +289,9 @@ window.onload = function () {
       <textarea class="user_message" id="" cols="50" rows="3"></textarea>
       <button class="show_btn" >留言</button>
     </div>
-
     </div>
+    <!--case5 -->
+
   </div>
 </div>
  </article>

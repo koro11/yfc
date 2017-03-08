@@ -8,10 +8,12 @@ use frontend\models\Merchant_info;
 use frontend\models\Food_category;
 use frontend\models\Orders;
 use frontend\models\Food;
+use frontend\models\Message;
 use frontend\controllers\CommonController;
 use frontend\models\Tickets;
 use yii\web\UploadedFile;
 use yii\data\Pagination;
+use frontend\custom_classes\Page;
 use yii\web\Session;
 /**
  * Yii2.0 ShopController  
@@ -28,6 +30,8 @@ class ShopController extends CommonController
     
     public function actionShop_intro()
     {
+        // $mer_id['id'] = Yii::$app->session->get('mer_id');
+        // echo $mer_id;die();
         return $this->render('shop_intro');
     }
 
@@ -40,18 +44,20 @@ class ShopController extends CommonController
     {
         // 哪个商家
         $mer_id = Yii::$app->session->get('mer_id');
-       
+        // var_dump($mer_id);die();
+        // $mer_id = 1;
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
         if ($arr) {
             # code...
         // var_dump($arr);die();
+        if ($arr) {
         $arr['mer_last_login'] = date('Y-m-d H:i:s',$arr['mer_last_login']);
         //查询订单表里待未配送的，已配送的
         $unship = Orders::find()->where(['merchant_id'=>$mer_id,'order_status'=>0,'shipping_status'=>0])->asArray()->all();
         $shiped = Orders::find()->where(['merchant_id'=>$mer_id,'order_status'=>0,'shipping_status'=>2])->asArray()->all();
         $arr['unship'] = count($unship);
         $arr['shiped'] = count($shiped);
-
+        // var_dump($arr);die;
         return $this->render('shop_center',['merchant'=>$arr]);
         }
     }
@@ -65,6 +71,7 @@ class ShopController extends CommonController
     {
         // 哪个商家
         $mer_id = Yii::$app->session->get('mer_id');
+
         //查询商家订单
         $orders = Orders::find()
                         ->where(['merchant_id'=>$mer_id,'order_status'=>0])
@@ -185,13 +192,23 @@ class ShopController extends CommonController
     {
         // 哪个商家
         $mer_id = Yii::$app->session->get('mer_id');
+        // $mer_id = 1;
         //哪家商家在操作
         $foods = Food::find()
                        ->joinWith('food_category')
-                       ->where(['food_mer'=>$mer_id])
-                       ->asArray()
-                       ->all();
-        return $this->render('shop_foods');
+                       ->where(['food_mer'=>$mer_id]);
+        // var_dump($foods);die();
+                       
+        $pages = new Pagination([
+        //'totalCount' => $countQuery->count(),
+        'totalCount' => $foods->count(),
+        'pageSize'   => 1   //每页显示条数
+         ]);
+        $foods_data = $foods->offset($pages->offset)
+                             ->limit($pages->limit)
+                             ->all();
+        // var_dump($foods_data);die();
+        return $this->render('shop_foods',['foods'=>$foods_data,'pages'=>$pages]);
     }
 
     /**
@@ -200,9 +217,66 @@ class ShopController extends CommonController
      * @access public
      */
     public function actionShop_messages()
-    {      
-        return $this->render('Shop_messages');
+    {   
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id'); 
+        // $mer_id = 1;
+        $page  =1;
+        $limit = ($page-1)*3;
+        $message_data = Message::get_new_message($mer_id,$limit);
+        // 留言分页
+        $query = new \yii\db\Query; 
+        $page = new Page;
+        $message_count = $query->from('yfc_message')->where(['m_mer'=>$mer_id,'m_type'=>0])->count();
+        // echo $message_count;die();
+        $page->pageCount = $message_count;
+        $page->pageSize = 3;
+        $pages = $page->getPage();
+        
+        return $this->render('Shop_messages',['shop_message'=>$message_data,'pages'=>$pages]); 
     }
+
+    /**
+     * @shop_message_back
+     * 商家回复处理
+     * @access public
+     * @param  mixed integer boolean
+     * @return mixed void
+     */
+     public function actionShop_message_back()
+     {
+         $data = Yii::$app->request->post();
+         // var_dump($data);
+         $data['m_message'] = htmlspecialchars($data['m_message']);
+         $data['m_addtime'] = time();
+         $data['m_type'] = 1;
+         $db = \Yii::$app->db->createCommand();
+         $result = $db->insert('yfc_message' , $data )->execute();
+         echo $result ? 1 : 0;
+     }
+
+     public function actionShop_page_back()
+     {
+         $p = Yii::$app->request->get('p');
+         $limit = ($p-1)*3;
+         // $mer_id = Yii::$app->session->get('mer_id');
+         $mer_id  =1;
+         $message_data = Message::get_new_message($mer_id,$limit);
+         $page = new Page;    
+         $query = new \yii\db\Query;
+         $message_count = $query->from('yfc_message')->where(['m_mer'=>$mer_id,'m_type'=>0])->count();
+         //获取数据总条数
+         $page->pageCount = $message_count;      
+         $page->pageNow = $p;
+         $page->pageSize = 3;
+
+         // var_dump($foods);
+         //获取数据集合
+         $data['msg'] = $message_data;
+         $data['page'] = $page->getPage();
+
+         echo json_encode($data);       
+     }
 
     /**
      * @Shop_issue_tickets

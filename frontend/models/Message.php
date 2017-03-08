@@ -34,7 +34,7 @@ class Message extends ActiveRecord
      * 获取某商家最新的三条留言和对应的商家回复
      * @access public
      */
-    static public function get_new_message($mer_id = 1)
+    static public function get_new_message($mer_id = 1,$offset = 0)
      {
          
          $new_message = Message::find()
@@ -43,7 +43,7 @@ class Message extends ActiveRecord
                                ->orderBy('m_addtime DESC')
                                ->asArray()
                                ->all();
-         $new_message = array_slice($new_message, 0,3);
+         $new_message = array_slice($new_message, $offset,3);
          // var_dump($new_message);die();   
          foreach ($new_message as $key => $value) {
           
@@ -52,6 +52,7 @@ class Message extends ActiveRecord
          unset($new_message[$key]['user']);
         
          $new_message[$key]['m_addtime'] = date('Y-m-d H:i:s',$value['m_addtime']);
+         $new_message[$key]['m_message'] = htmlspecialchars_decode($value['m_message']);
          
          //对应的商家回复
          $back = Message::find()                           
@@ -64,6 +65,7 @@ class Message extends ActiveRecord
              $back['mer_name'] = $back['mer']['mer_name'];
              unset($back['mer']);
              $back['m_addtime'] = date('Y-m-d H:i:s',$back['m_addtime']);
+             $back['m_message'] = htmlspecialchars_decode($back['m_message']);
              $new_message[$key]['back'] = $back;
           }
           else
