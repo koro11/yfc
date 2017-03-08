@@ -24,6 +24,7 @@ use \yii\helpers\Url;
 </head>
 
 </head>
+
 <style>
     .p3button{
         cursor: pointer;

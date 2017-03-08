@@ -156,8 +156,9 @@ class CartController extends Controller
         $cartId = urlencode($cartId);
         $store = urlencode($store);
 
-        $url = APP_URL.'?r=order/order';
-        $return['content'] = $url.'&buycart='.substr($cartId,0,4).'&id='.substr($cartId,4,4).'&param='.substr($cartId,8).'&mer='.$store;
+        $url = APP_URL.'order/order';
+
+        $return['content'] = $url.'?buycart='.substr($cartId,0,4).'&id='.substr($cartId,4,4).'&param='.substr($cartId,8).'&mer='.$store;
         $return['msg'] ='可以进行下单';
         $return['status'] = 1;
         exit(json_encode($return));

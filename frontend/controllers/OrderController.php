@@ -5,6 +5,7 @@ use frontend\models\Carts;
 use frontend\models\Merchant;
 use frontend\models\Orders;
 use frontend\models\Date;
+use frontend\models\Total_order;
 use yii\db\Query;
 use yii\web\Controller;
 use frontend\models\Consignee;
@@ -17,18 +18,18 @@ class OrderController extends CommonController
 {
     public $enableCsrfValidation = false;
     /**
-     * 生成订单
+     * 订单展示
      * @author Dx
      * @param  string $cartId
      * @param  intval $uid
      * @return string
      */
-
     public function actionOrder()
     {
         //用户ID
         $session = \Yii::$app->session;
         $uid = intval($session->get('user_id'));
+
         if(!$uid) echo \Yii::$app->view->renderFile('@app/views/login/login.php');
         //结算参数
         $param = \Yii::$app->request->get();
@@ -36,7 +37,7 @@ class OrderController extends CommonController
         unset($param['r']);
         //商品ID
         $cartId = urldecode($param['buycart'].$param['id'].$param['param']);
-        $seller = urldecode($param['mer']);
+
         //获取要结算的商品
         $cart = new Carts();
         $data = $cart->getCart($cartId,$uid);
@@ -44,7 +45,7 @@ class OrderController extends CommonController
         //收货地址
         $obj = new Consignee();
         $address = $obj->getAddress($uid);
-        if(!$address)exit('请登录');
+
         $sumPrice = '';
         //优惠券
         $ticket = new User_ticket();
@@ -62,20 +63,25 @@ class OrderController extends CommonController
             }
             $res[$v['food']['food_mername'].','.$v['food']['food_mer']]['food'][$k] = $v;
         }
-//        var_dump($res);die;
-        $store = $ticket->getTicket($uid,$seller);
 
-        $i = 0;
+        //商户优惠券
         foreach($res as $k=>$v){
-            $food_mer = $v['food'][$i]['food_mer'];
-            foreach($store as $ks=>$va){
-                if($va['tickets']['tic_merchant'] == $food_mer){
+            $food_mer = substr($k,strrpos($k,',')+1);
+            $price = '';
+            foreach($v['food'] as $ke=>$va){
+                $price =  $price+$va['price'];
+            }
+            $store = $ticket->getTicket($uid,$food_mer,$price);
+//            var_dump($store);die;
+            if($store){
+                foreach($store as $ks=>$va){
                     $res[$k]['store'][] = $va['tickets'];
                 }
             }
-            $i++;
+
         }
-        $fullCourt = $ticket->getFullcourt($uid);
+        $fullCourt = $ticket->getFullcourt($uid,$sumPrice);
+
         //配送
         $obj = new Query();
         $ships = $obj->from('yfc_ships')->all();
@@ -96,12 +102,22 @@ class OrderController extends CommonController
             'status'=>0,
             'msg'=>'',
         );
-        $uid = $session->get('user_id');
+        if(!$session->has('user_id')){
+            $return['msg'] = '请重新登录,登录已过期';
+            exit(json_encode($return));
+        }
+        $uid = intval($session->get('user_id'));
+        //支付方式
+        $obj = new Query();
         $param = \Yii::$app->request->post();
-
+        $ship = $obj->select('ship_name,ship_id')->from('yfc_ships')->where(['ship_id'=>$param['ships']])->one();
+        if(!$ship){
+            $return['msg'] = '配送方式不存在';
+            exit(json_encode($return));
+        }
         $ticket = new User_ticket();
         //全场优惠券是否过期
-        if($param['fullCourt']){
+        if(isset($param['fullCourt'])){
             $res = $ticket->getCoupon($uid,$param['fullCourt']);
             if(!$res){
                 $return['msg'] = '全场优惠券过期啦';
@@ -122,7 +138,6 @@ class OrderController extends CommonController
 
         //商家是否可以下单
         $cart = new Carts();
-
         $business = new Merchant();
         $arr = array();
         $cart_id = array();
@@ -179,8 +194,7 @@ class OrderController extends CommonController
             $return['msg'] = '收货地址错误';
             exit(json_encode($return));
         }
-        //支付方式
-        $obj = new Query();
+
         $pay = $obj->select('pay_way')->from('yfc_pays')->where(['pay_id'=>$param['payment']])->one();
         if(empty($pay)){
             $return['msg'] = '支付方式不存在,请重新选择';
@@ -193,16 +207,19 @@ class OrderController extends CommonController
             $return['msg'] = '网络拥挤,结算购物车失败';
             exit(json_encode($return));
         }
-       //订单
+        //订单
         $order = new Orders();
         $details = new Date();
         $data = array();
         $money = '';
         $order_sn = '';
+        $order_id = '';
         foreach($arr as $k=>$v){
             $data['merchant_id'] = $k;
-            $order_sn .= $data['order_sn'] = $this->actionGetorder_sn();
+            $data['order_sn'] = $this->actionGetorder_sn();
             $data['user_id'] = $uid;
+            $data['ship_id'] = $ship['ship_id'];
+            $data['ship_name'] = $ship['ship_name'];
             //留言
             if(!empty($param['leaving'])){
                 $data['Remarks'] = $param['leaving'];
@@ -215,12 +232,12 @@ class OrderController extends CommonController
             //支付
             $data['pay_way'] = $pay['pay_way'];
             $data['pay_id'] = $param['payment'];
+            $data['order_paytime'] = time();
             //收货
             $data['address_id'] = $address;
             $data['consignee'] = $consignee['cons_name'];
             //获取此商家消费价钱
             $fooddetails = $this->actinGetsumprice($v);
-
             //餐饮ID
             $data['food_id'] = $fooddetails['id'];
             //餐饮总计
@@ -228,25 +245,38 @@ class OrderController extends CommonController
             //订单总计
             $money += $data['order_amount'] = isset($data['discount_pay']) ? $data['food_amount']-$data['discount_pay'] : $data['food_amount'];
             $id = $order->setOrder($data);
-
             if(!$id){
                 $return['msg'] = '餐饮下单失败,请重试';
                 exit(json_encode($return));
             }
+            $order_id = empty($order_id) ? $id : $order_id.','.$id;
             $res = $details->setOrderdetails($v,$id);
             if(!$res){
                 $return['msg'] = '餐饮下单失败,请联系商家';
                 exit(json_encode($return));
             }
+        }
 
-         }
-         $url = $this->actionCreate_pay_url($order_sn,$money);
-         $return['sum'] = $money;
-         $return['order'] = $order_sn;
-         $return['url'] = $url;
-         $return['msg'] = '成功下单';
-         $return['status'] = 1;
-         exit(json_encode($return));
+        $total = new Total_order();
+        $data = array(
+            'total_order_user'=>$uid,
+            'total_order_sn'=>$order_sn = $this->actionGetorder_sn(),
+            'total_creat_time'=>time(),
+            'total_order_details'=>$order_id,
+        );
+        if(!$total->setOrder($data)){
+            $return['msg'] = '中途出现了点差错,请联系管理员';
+            exit(json_encode($return));
+        };
+
+        //支付宝
+        $url = $this->actionCreate_pay_url($order_sn,'0.01');
+        $return['sum'] = $money;
+        $return['order'] = $order_sn;
+        $return['url'] = $url;
+        $return['msg'] = '成功下单';
+        $return['status'] = 1;
+        exit(json_encode($return));
     }
     //支付宝签名创建
     public function actionCreate_pay_url($order_sn,$money){
@@ -267,7 +297,7 @@ class OrderController extends CommonController
             "seller_email" => $alipay_config['seller_email'], // 收款支付宝账号
             "payment_type"	=> '1', // 支付类型
             "notify_url"	=> 'http://yy.8023i.com/order/pay_notify', // 服务器异步通知页面路径
-            "return_url"	=> 'http://yy.8023i.com/order/pay_return', // 页面跳转同步通知页面路径
+            "return_url"	=> 'http://www.img.com/order/pay_return', // 页面跳转同步通知页面路径
             "out_trade_no"	=> $order_sn, // 商户网站订单系统中唯一订单号
             "subject"	=> "8023i", // 订单名称
             "total_fee"	=> $money, // 付款金额
@@ -304,22 +334,37 @@ class OrderController extends CommonController
     //支付异步回调
     public function actionPay_notify(){
         $result = $_REQUEST;
-        var_dump($result);die;
-//        if ($result['trade_status'] == 'TRADE_FINISHED' || $result['trade_status'] == 'TRADE_SUCCESS') {
-//            $res = $this->payment('order_number',$result['out_trade_no']);
-//            if($res){
-//                return view('500',['message'=>'支付成功']);
-//            }else{
-//                return view('500',['message'=>'支付失败请联系客服']);
-//            }
-//        }else{
-//            return view('500',['message'=>'支付失败']);
-//        }
+
+        if ($result['trade_status'] == 'TRADE_FINISHED' || $result['trade_status'] == 'TRADE_SUCCESS') {
+            $session = \Yii::$app->session;
+            $total = new Total_order();
+            $order = new Orders();
+            $data = $total->getOne($result['out_trade_no'],$session->get('user_id'));
+            $res = $order->savePay($data['total_order_details']);
+            if($res){
+                echo 'success';
+            }
+        }
     }
     //支付同步回调
     public function actionPay_return()
     {
+        $result = $_REQUEST;
 
+        if ($result['trade_status'] == 'TRADE_FINISHED' || $result['trade_status'] == 'TRADE_SUCCESS') {
+            $session = \Yii::$app->session;
+            $total = new Total_order();
+            $order = new Orders();
+            $data = $total->getOne($result['out_trade_no'],$session->get('user_id'));
+            $res = $order->savePay($data['total_order_details']);
+            if($res){
+                echo 'success';
+            }else{
+                echo 'error';
+            }
+        }else{
+            echo 'qqqq';
+        }
     }
 
     public function actinGetsumprice($param)
@@ -351,23 +396,15 @@ class OrderController extends CommonController
      */
     public function actionGetorder_sn()
     {
+        $session = \Yii::$app->session;
+        $uid = $session->get('user_id');
         //订单号生成
-        $orderNumber = 'LaiZhe'.rand(10000000,99999999).substr(time(),5,5);
+        $orderNumber = 'LaiZhe'.rand(100000,999999).substr(time(),5,5).$uid;
         $order = new Orders();
         $res = $order->getOrderNumber($orderNumber);
         if(!$res)$this->actionGetorder_sn();
         return $orderNumber;
 
-        $param = urldecode(\Yii::$app->request->get('buycart'));
-        if (empty($param)) exit('缺少参数,不正确');
-        $session = \Yii::$app->session;
-        $uid     = $session->get('user_id');
-        if (empty($uid)) \Yii::$app->view->renderFile('@app/views/login/login.php');
-        $obj     = new Consignee();
-        $address = $obj->getAddress($uid);
-        var_dump($address);
-        die;
-        return $this->render('order');
     }
 
     //确认提交订单
