@@ -81,8 +81,10 @@
 							
 						</form>
 						<div class="other_login">
+						 <a href="<?=Url::to('login/mer_login')?>">已有账号？请登录</a>	
 						</div>
 					</div>
+
 				</div>
 			</div>
 		</div>
