@@ -19,6 +19,12 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="js/WdatePicker.js"></script>
     <script type="text/javascript" src="js/calendar.js"></script>
+
+
+<script>
+
+</script>
+
 </head>
 <style>
     .p3button{
