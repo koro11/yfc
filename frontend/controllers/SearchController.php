@@ -82,7 +82,7 @@ class SearchController extends Controller
     }
 
     /**
-     * 搜索商店
+     * 搜索餐厅
      * @param $search
      * @param $cache
      * @return mixed
@@ -230,6 +230,10 @@ class SearchController extends Controller
         return $hot;
     }
 
+    /**
+     * 获取最热食物
+     * @return array|\yii\db\ActiveRecord[]
+     */
     public static function hotFood()
     {
         return Food::find()

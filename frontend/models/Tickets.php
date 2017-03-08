@@ -5,9 +5,6 @@ use yii\db\ActiveRecord;
 
 class Tickets extends ActiveRecord
 {
-	
-
-
 
 }
  ?>

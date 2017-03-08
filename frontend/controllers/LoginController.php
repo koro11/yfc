@@ -6,7 +6,9 @@ use yii\web\Controller;
 use frontend\models\Users;
 use yii\web\Session;
 use \yii\db\Query;
+use yii\helpers\Url;
 use frontend\functions\Functions;
+
 class LoginController extends Controller
 {
 	public $layout = false;
@@ -39,19 +41,21 @@ class LoginController extends Controller
     	if($data)
     	{
             //购物信息入库
-
             if(isset($_COOKIE['cart'])){
                 $class = new Functions();
                 $cartMsg = unserialize($_COOKIE['cart']);
+                $db = new Query();
+
                 $num = count($cartMsg);
                 for($i=0; $i<$num; $i++){
+                    $food = $db->from('yfc_food')->where(['food_id'=>$cartMsg[$i]['food']['food_id']])->one();
                     $res[$i]['food']['user_id'] = $data['user_id'];
-                    $res[$i]['food']['food_price'] = $cartMsg[$i]['food']['food_price'];
+                    $res[$i]['food']['food_price'] = $food['food_price'];
                     $res[$i]['food']['buy_number'] = $cartMsg[$i]['buy_number'];
-                    $res[$i]['food']['food_market'] = $cartMsg[0]['food']['is_discount'] ? $cartMsg[0]['food']['discount_price'] : $cartMsg[0]['food']['food_price'];
+                    $res[$i]['food']['food_market'] = $food['is_discount'] ? $food['discount_price'] : $food['food_price'];
                     $res[$i]['food']['food_id'] = $cartMsg[$i]['food']['food_id'];
                 }
-//                var_dump($res);die;
+
                 $sql = $class->adds('yfc_carts',$res);
 
                 $addCart = \Yii::$app->db->createCommand($sql)->execute();
@@ -73,11 +77,11 @@ class LoginController extends Controller
     		}
     		$arr1['now_logintime'] = time();
     		$db=\Yii::$app->db ->createCommand()->update('yfc_users',$arr1,'user_id = '.$data['user_id']) ->execute();
-    		return $this->redirect('?r=index/index', 301);
+    		return $this->redirect(Url::to('/index/index'), 301);
     	}
     	else
     	{
-    		return $this->redirect('?r=login/login', 301);
+    		return $this->redirect(Url::to('/login/login'), 301);
     	}
     }
     /**
@@ -111,12 +115,12 @@ class LoginController extends Controller
             }
             $arr1['mer_now_login'] = time();
             $db=\Yii::$app->db ->createCommand()->update('yfc_merchant',$arr1,'mer_id = '.$data['mer_id'])->execute();
-            //echo "ok";die;
-            return $this->redirect('?r=index/index', 301);
+            return $this->redirect(Url::to('/index/index'), 301);
+
         }
         else
         {
-            return $this->redirect('?r=login/mer_login', 301);
+            return $this->redirect(Url::to('/login/mer_login'), 301);
         }
     }
     /**
@@ -127,7 +131,7 @@ class LoginController extends Controller
         $session = Yii::$app->session;
         unset($session['user_id']);
         unset($session['mer_id']);
-        return $this->redirect('?r=login/choice', 301);
+        return $this->redirect(Url::to('/login/choice'), 301);
     }
     
 }

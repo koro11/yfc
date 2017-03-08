@@ -2,22 +2,48 @@ $(document).ready(function () {
 	// 全选        
 	$(".allselect").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
-			$(this).attr("checked", true);
+			if ($(this).attr("checked")) {
+				$(this).attr("checked", false);
+				$("input[name='store']").attr('checked',false);
+				$("#invert").attr('checked',false);
+			} else {
+				$(this).attr("checked", true);
+				$("input[name='store']").attr('checked',true);
+				$("#invert").attr('checked',false);
+			}
 		});
+		if($(this).attr("checked")){
+			$(".allselect").attr('checked',true);
+		}else{
+			$(".allselect").attr('checked',false);
+		}
 		GetCount();
 	});
-
+	$("input[name=store]").click(function(){
+		if($(this).attr('checked')){
+			$(this).parents('table').next('table').find('input[name=newslist]').attr('checked',true);
+		}else{
+			$(this).parents('table').next('table').find('input[name=newslist]').attr('checked',false);
+		}
+		GetCount();
+	})
 	//反选
 	$("#invert").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
 			if ($(this).attr("checked")) {
 				$(this).attr("checked", false);
-
 			} else {
 				$(this).attr("checked", true);
-
-			} 
+			}
 		});
+		var count = $('.gwc_tb2 input[name=newslist]:checked').size();
+
+		if($('.gwc_tb2 input[name=newslist]').size() == count){
+			$(".allselect").attr('checked',true);
+			$("input[name='store']").attr('checked',true);
+		}else{
+			$(".allselect").attr('checked',false);
+		}
 		GetCount();
 	});
 	//取消
@@ -29,18 +55,12 @@ $(document).ready(function () {
 		GetCount();
 	});
 
-	// 所有复选(:checkbox)框点击事件
-	$(".gwc_tb2 input[name=newslist]").click(function () {
-		if ($(this).attr("checked")) {
-
-		} else {
-
-		}
-	});
 
 	// 输出
 	$(".gwc_tb2 input[name=newslist]").click(function () {
-
+		if($(this).attr('checked')){
+			$(this).closest('table').prev().find('input[name=store]').attr('checked',true);
+		}
 		GetCount();
 	});
 });
@@ -53,6 +73,12 @@ function GetCount() {
 			for (var i = 0; i < $(this).length; i++) {
 				conts += parseInt($(this).val());
 				aa += 1;
+			}
+			$(this).closest('table').prev().find('input[name=store]').attr('checked',true);
+		}else{
+			var count = $(this).closest('table').find('input[name=newslist]:checked').size();
+			if(count<1){
+				$(this).closest('table').prev().find('input[name=store]').attr('checked',false);
 			}
 		}
 	});
@@ -72,7 +98,8 @@ function GetCount() {
     $(function(){
 		$(".tb1_td7").click(function(){
 			var _this = $(this);
-			var cartId = _this.find('a').attr('cartid');
+			var cartId = _this.find('a').attr('foodid');
+			//alert(cartId);return false;
 			$.get('?r=cart/delcart',{cartId:cartId},function(data){
 				if(data.status==1){
 					_this.parent().parent().remove();
@@ -120,13 +147,12 @@ function GetCount() {
 $(function(){
 	var status = '1';
 	$('#jz2').click(function(){
-		var box = $('input:checked');
+		var box = $('input[name=newslist]:checked');
 		if(box.size()==0){
 			alert('请选择商品');
 			return false;
 		}
 		var cart = [];
-
 		var sum = box.size();
 
 		for (var i = 0; i < sum; i++) {
@@ -139,21 +165,29 @@ $(function(){
 				}
 				var arr={
 					'cartId':cartId,
-					'sellerId' : box.eq(i).attr('sellerId'),
 				}
 			}
 			cart[i]=arr;
+		}
+		var store = [];
+		var seller = $('input[name=store]:checked');
+		var count = seller.size();
+		for(var i=0;i<count;i++){
+			var sellerId = {
+				'store' : seller.eq(i).val(),
+			}
+			store[i] = sellerId;
 		}
 		if(status!=1){
 			alert('网络状态异常,请重试');
 			return false;
 		}
-		$.get('?r=cart/settlement',{order:cart},function(data){
+		$.get('?r=cart/settlement',{order:cart,store:store},function(data){
 			if(data.status == '0'){
 				alert(data.msg);
 				return false;
 			}else{
-				document.location = 'http://127.0.0.1/dongxin/yfc/frontend/web/?r=order/order&buycart='+data.content;
+				document.location = data.content;
 			}
 		},'json')
 

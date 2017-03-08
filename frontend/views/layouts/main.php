@@ -1,31 +1,43 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
+<<<<<<< HEAD
 
+=======
+use \yii\helpers\Url;
+>>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="/">
     <meta charset="utf-8"/>
     <title>DeathGhost</title>
-    <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发"/>
+    <meta name="keywords" content="有饭吃"/>
     <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!"/>
     <meta name="author" content="DeathGhost"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
+=======
+>>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
 
+</head>
+<style>
+    .p3button{
+        cursor: pointer;
+    }
+</style>
 <body>
 <header>
  <section class="Topmenubg">
   <div class="Topnav">
    <div class="LeftNav">
-    
     <?php
         $session = Yii::$app->session;
         $user_id = $session->get('user_id');
@@ -46,18 +58,18 @@ use \yii\db\Query;
         }
         else
         {
-            echo '<a href="?r=register/choice">注册</a>/<a href="?r=login/choice">登录</a>';
+            echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
         }
     ?>
-    <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="?r=login/out">退出</a>
+    <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
    </div>
    <div class="RightNav">
    <?php if($user_id!=""){?>
-    <a href="?r=user/user_index">用户中心</a>
+    <a href="<?=Url::to('user/user_index')?>">用户中心</a>
    <?php }else{?>
-    <a href="?r=shop/shop_center">商户中心</a>
+    <a href="<?=Url::to('shop/shop_center')?>">商户中心</a>
    <?php }?>
-     <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="cart.html">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+     <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
    </div>
   </div>
  </section>
@@ -65,6 +77,7 @@ use \yii\db\Query;
         <div class="Logo">
             <img src="images/logo.jpg" title="DeathGhost" alt="模板">
             <i></i>
+<<<<<<< HEAD
             <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
                 <span id="adress">北京市</span>
             <?php }else{?>
@@ -80,12 +93,15 @@ use \yii\db\Query;
             <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
              <?php }?>      
             <?php }?>         
+=======
+            <span>北京市 [ <a href="#">海淀区</a> ]</span>
+>>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
         </div>
        
             
         <div class="Search">
-            <form method="get" action="">
-                <input type="hidden" name="r" value="search/search">
+            <form method="get" action="<?=Url::to('search/search')?>">
+<!--                <input type="hidden" name="r" value="search/search">-->
                 <div class="Search_nav" id="selectsearch">
                     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'class="choose"';}?>>餐厅</a>
                     <a href="javascript:;" onClick="selectsearch(this,'food_name')" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'class="choose"';}?>>食物名</a>
@@ -95,26 +111,23 @@ use \yii\db\Query;
                 <div class="Search_area">
                     <input type="search" id="fkeyword" name="keyword" <?php if(isset($_GET['keyword']) && !empty($_GET['keyword'])){echo 'value="'.$_GET['keyword'].'"';}?> placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox"/>
                     <input type="submit" class="searchbutton" value="搜 索"/>
+                    <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
                 </div>
             </form>
             <p class="hotkeywords">
-                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>
+<!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
             </p>
         </div>
-        <script>
-            $(function(){
-
-            });
-        </script>
     </div>
     <nav class="menu_bg">
         <ul class="menu">
-            <li><a href="?r=index/index">首页</a></li>
-            <li><a href="?r=search/search">订餐</a></li>
-            <li><a href="?r=search/search&search_type=food&score=score">积分商城</a></li>
-            <li><a href="article_read.html">关于我们</a></li>
+            <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
+            <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
+            <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
+            <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>
     </nav>
+    <script type="text/javascript" src="js/public.js"></script>
 </header>
 
 <?= $content ?>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<base href="/">
 		<meta charset="utf-8">
 		<title>登录</title>
 		<link rel="stylesheet" href="css/reset.css" />
 		<link rel="stylesheet" href="css/common.css" />
 	</head>
+	<?php use yii\helpers\Url;?>
 	<body>
 		<div class="wrap login_wrap">
 			<div class="content">
@@ -18,7 +20,7 @@
 						<div class="login_title">
 							登录
 						</div>
-						<form action="?r=login/login_do" method="post">
+						<form action="<?=Url::to('login/login_do')?>" method="post">
 							
 							<div class="form_text_ipt">
 								<input name="user_phone" type="text" placeholder="手机号" class="phone">
@@ -40,7 +42,7 @@
 								<button type="submit">登录</button>
 							</div>
 							<div class="form_reg_btn">
-								<span>还没有帐号？</span><a href="?r=register/choice">马上注册</a>
+								<span>还没有帐号？</span><a href="<?=Url::to('register/choice')?>">马上注册</a>
 							</div>
 						</form>
 						<div class="other_login">
