@@ -186,15 +186,13 @@ window.onload = function () {
      <p><span>人均消费：</span><?=$shop_info['merchant']['info_catipa']?>元</p>
      <div class="Button">
 
-     <?php if ($shop_info['merchant']['mer_status'] == 0): ?>      
-      <a href="#ydwm"><span class="DCbutton">查看菜谱点菜</span></a>
-        <?php else: ?>
-          <font color="red">该商家目前暂不提供服务，请耐心等候...</font>
+     <?php if ($shop_info['merchant']['mer_status'] == 1): ?>      
+        <font color="red">该商家目前暂不提供服务，请耐心等候...</font>
         <?php endif ?>
 
      </div>
      <div class="otherinfor">
-     <a href="<?=$shop_info['info_mer']?>" class="icoa"><img src="images/collect.png">收藏店铺（<?=$shop_collect_num?>）</a>
+     <a href="javascript:void(0)" class="icoa" mid="<?=$shop_info['info_mer']?>"><img src="images/collect.png">收藏店铺（<?=$shop_collect_num?>）</a>
      <div class="bshare-custom"><a title="分享" class="bshare-more bshare-more-icon more-style-addthis">分享</a></div>
    <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
      </div>
@@ -211,22 +209,22 @@ window.onload = function () {
     </ul>
   </div>
   <div class="menutab-wrap">
-   <a name="ydwm">
+   <div name="ydwm">
     <!--case1-->
     <div class="menutab show">
      <ul class="products">
 
     <?php foreach ($shop_foods as $key => $value): ?>    
     <li>
-     <a href="<?php echo $shop_info['merchant']['mer_status'] == 1 ? Url::to(['index/#']): Url::to(['menu/details','id'=>$value['food_id']]);?>" target="_blank" title="<?=$value['food_name']?>">
+     <a href="<?php echo $shop_info['merchant']['mer_status'] == 1 ? Url::to(['index/shop_index','mer'=>$shop_info['info_mer']]): Url::to(['menu/details','id'=>$value['food_id']]);?>" target="_blank" title="<?=$value['food_name']?>">
          <img src="<?=$value['food_image']?>" class="foodsimgsize">
          </a>
-          <a href="#" class="item">
+          <div class="item">
      <div>
       <p><?=$value['food_name']?></p>
       <p class="AButton">拖至购物车:￥<?=$value['food_price']?></p>
      </div>
-     </a>
+     </div>
     </li>
     <?php endforeach ?>
     <div class="TurnPage">
@@ -234,7 +232,7 @@ window.onload = function () {
     </div> 
    </ul>
    
-    </a>
+    </div>
     </div>
     <!--case2-->
     <div class="menutab">
