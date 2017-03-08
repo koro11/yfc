@@ -1,11 +1,9 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
-<<<<<<< HEAD
 
-=======
 use \yii\helpers\Url;
->>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,11 +19,9 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
-<<<<<<< HEAD
+
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
-=======
->>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
 
 </head>
 <style>
@@ -77,7 +73,7 @@ use \yii\helpers\Url;
         <div class="Logo">
             <img src="images/logo.jpg" title="DeathGhost" alt="模板">
             <i></i>
-<<<<<<< HEAD
+
             <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
                 <span id="adress">北京市</span>
             <?php }else{?>
@@ -93,9 +89,7 @@ use \yii\helpers\Url;
             <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
              <?php }?>      
             <?php }?>         
-=======
-            <span>北京市 [ <a href="#">海淀区</a> ]</span>
->>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
+
         </div>
        
             

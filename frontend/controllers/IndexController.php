@@ -29,12 +29,6 @@ class IndexController extends Controller
 	//首页
 	public function actionIndex()
 	{
-<<<<<<< HEAD
-		
-		return $this->render('index');
-
-
-=======
         //轮播图
         $shuffing = Shuffing::find()->where(['is_show'=>0])->orderBy('sort DESC')->limit(3)->asArray()->all();
 
@@ -76,7 +70,7 @@ class IndexController extends Controller
         $data['merchant'] = $merchant;
         $data['speak'] = $speak;
 		return $this->render('index',$data);
->>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
+
 	}
 
 	//热搜
