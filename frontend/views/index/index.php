@@ -83,7 +83,7 @@
     <p class="class_B">
     <a href="javascript:void(0);" class="close" cate_id="" >全部<img src="./images/ch.png"></a>
     <span ><a href="javascript:void(0);" class="showbtn">more ></a></span>
-    <span ><a href="javascript:void(0);" class="showbtn">高级查询 ></a></span>
+    <span ><a href="<?=Url::to(['search/search']);?>">高级查询 ></a></span>
     </p>
    </ul>
       <!--遮罩层-->
