@@ -1,4 +1,9 @@
 .idea
+<<<<<<< HEAD
 /frontend/runtime
 /backend/runtime
 runtime
+=======
+runtime
+/backend/runtime
+>>>>>>> 23-merchant-info

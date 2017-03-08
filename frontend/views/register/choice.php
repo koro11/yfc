@@ -23,8 +23,8 @@
 					     <div class="login_title">
 							<a href="<?=Url::to('register/merchant_register')?>">商家入驻=></a>
 						</div>
-						
 					</div>
+					<a href="<?=Url::to('login/chioce')?>">已有账号？请登录</a> 
 				</div>
 			</div>
 		</div>
