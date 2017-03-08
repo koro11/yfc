@@ -25,11 +25,9 @@ class ShopController extends Controller
     
     public $layout = '@app/views/layouts/center_nav.php';
     public $enableCsrfValidation = false;
-    public static $merchant = 1;
     
     public function actionShop_intro()
     {
-        
         return $this->render('shop_intro');
     }
 
@@ -41,9 +39,8 @@ class ShopController extends Controller
      public function actionShop_center()
     {
         // 哪个商家
-        $mer_id = self::$merchant;
-        // echo $mer_id;die(); 
-
+        $mer_id = Yii::$app->session->get('mer_id');
+       
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
         // var_dump($arr);die();
         $arr['mer_last_login'] = date('Y-m-d H:i:s',$arr['mer_last_login']);
@@ -63,9 +60,11 @@ class ShopController extends Controller
      */
     public function actionShop_orders()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
         //查询商家订单
         $orders = Orders::find()
-                        ->where(['merchant_id'=>self::$merchant,'order_status'=>0])
+                        ->where(['merchant_id'=>$mer_id,'order_status'=>0])
                         ->orderBy('shipping_status'); 
         // var_dump($orders);die();
         $pages = new Pagination([
@@ -87,7 +86,9 @@ class ShopController extends Controller
      */
     public function actionShop_complete_info()
     { 
-        return $this->render('shop_complete_info',['info_mer'=>self::$merchant]);
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
+        return $this->render('shop_complete_info',['info_mer'=>$mer_id]);
     }
     
     /**
@@ -112,7 +113,7 @@ class ShopController extends Controller
         $cate = Merchant::find()->select('info_mer_cate')->where(['mer_id'=>$data['info_mer']])->asArray()->one();
         $data['info_mer_cate'] = $cate['info_mer_cate'];
         $result = Merchant_info::updateAll($data,['info_mer'=>$data['info_mer']]);
-        return $this->redirect('?r=shop/shop_center',301);
+        return $this->redirect(Url::to('/shop/shop_center'),301);
     }
     
     //关于商家的信息
@@ -128,13 +129,15 @@ class ShopController extends Controller
      */
     public function actionShop_addfood()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
         //菜系分类
         $food_category = Food_category::find()->asArray()->all();
 
         //哪家商家在操作
-        $merchant_info = Merchant::find()->where(['mer_id'=>self::$merchant])->asArray()->one();
+        $merchant_info = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
        
-        return $this->render('shop_addfood',['food_category'=>$food_category,'merchant'=>['mer_id'=>self::$merchant,'mer_name'=>$merchant_info['mer_name']]]);
+        return $this->render('shop_addfood',['food_category'=>$food_category,'merchant'=>['mer_id'=>$mer_id,'mer_name'=>$merchant_info['mer_name']]]);
     }
 
     /**
@@ -162,11 +165,11 @@ class ShopController extends Controller
         $result = $db->insert('yfc_food' , $data )->execute();
        
         if ($result) {
-            return $this->redirect('?r=shop/shop_food_list',301);
+            return $this->redirect(Url::to('/shop/shop_food_list'),301);
         }
         else
         {
-            return $this->redirect('?r=shop/shop_food_list',301);
+            return $this->redirect(Url::to('/shop/shop_food_list'),301);
         }
     }
 
@@ -177,10 +180,12 @@ class ShopController extends Controller
      */
     public function actionShop_foods()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
         //哪家商家在操作
         $foods = Food::find()
                        ->joinWith('food_category')
-                       ->where(['food_mer'=>self::$merchant])
+                       ->where(['food_mer'=>$mer_id])
                        ->asArray()
                        ->all();
         return $this->render('shop_foods');
@@ -203,8 +208,10 @@ class ShopController extends Controller
      */
     public function actionShop_issue_tickets()
     {
+         // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
         //哪家商家在操作
-        $merchant_info = Merchant::find()->where(['mer_id'=>self::$merchant])->asArray()->one();
+        $merchant_info = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
 
         return $this->render('shop_issue_tickets',['merchant'=>['mer_id'=>$merchant_info['mer_id'],'mer_name'=>$merchant_info['mer_name']]]);
     }
@@ -228,11 +235,11 @@ class ShopController extends Controller
 
         }
         if ($result) {
-            return $this->redirect('?r=shop/shop_tickets',301);
+            return $this->redirect(Url::to('/shop/shop_tickets'),301);
         }
         else
         {
-            return $this->redirect('?r=shop/shop_issue_tickets',301);
+            return $this->redirect(Url::to('/shop/shop_issue_tickets'),301);
         }
     }
 
@@ -243,9 +250,11 @@ class ShopController extends Controller
      */
     public function actionShop_tickets()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
        //改商家发行多少优惠券
         $tickets = Tickets::find()
-                       ->where(['tic_merchant'=>self::$merchant])
+                       ->where(['tic_merchant'=>$mer_id])
                        ->asArray()
                        ->all();
         // var_dump($tickets);die();
