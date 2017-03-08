@@ -26,11 +26,6 @@ class OrderController extends CommonController
 
     public function actionOrder()
     {
-<<<<<<< HEAD
-        $param = urldecode(\Yii::$app->request->get('buycart'));
-        // if(empty($param))exit('缺少参数,不正确');
-=======
-
         //用户ID
         $session = \Yii::$app->session;
         $uid = intval($session->get('user_id'));
@@ -95,7 +90,7 @@ class OrderController extends CommonController
      */
     public function actionSetorder()
     {
->>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
+
         $session = \Yii::$app->session;
         $return = array(
             'status'=>0,

@@ -29,7 +29,6 @@ class UserController extends Controller
         //相当于获取用户id 
         $session=Yii::$app->session;
         $user_id=$session->get('user_id');   
-
         //实例化模型层并且查询用户信息（积分在用户信息表中）  
         $info= new User_info;
         $user= $info->find()->joinWith('users')->where(['yfc_user_info.user_id'=>$user_id])->asArray()->one();
@@ -41,24 +40,16 @@ class UserController extends Controller
         $pay='select * from yfc_orders where user_id='.$user_id.' and order_status=0  and pay_status=0';
         $ship='select * from yfc_orders where user_id='.$user_id.' and order_status=0  and shipping_status=0 and pay_status=1';
         $shipping='select * from yfc_orders where user_id='.$user_id.' and order_status=0  and shipping_status!=2 and pay_status=1';
+
         $speak="select * from yfc_orders where user_id=".$user_id." and order_status=0 and order_speak=0 and shipping_status=2 and pay_status=1";
         $order['pay']= count(Yii::$app->db->createCommand($pay)->queryAll());
         $order['ship']=count(Yii::$app->db->createCommand($ship)->queryAll());
         $order['shipping']=count(Yii::$app->db->createCommand($shipping)->queryAll());
         $order['speak']=count(Yii::$app->db->createCommand($speak)->queryAll());
-
+        // var_dump($order);die;
         //指向试图
         return $this->render('user_index',['user'=>$user,'order'=>$order]);
     }
-
-
-
-
-
-
-
-
-
     
     //用户优惠券
     public function actionUser_coupon()
@@ -73,8 +64,6 @@ class UserController extends Controller
         return $this->render('user_coupon',['user'=>$user]);
     }
 
-
-
     /*删除优惠券*/
     public function actionDel_tic()
     {
@@ -83,13 +72,6 @@ class UserController extends Controller
         $resa= $res ? 1 : 0;
         return $resa;
     }
-
-
-
-
-
-
-
 
     //用户收获地址
     public function actionUser_address()
@@ -100,8 +82,6 @@ class UserController extends Controller
         return $this->render('user_address',['arr'=>$arr]);
     }
 
-
-
     //用户删除地址
     public function actionDel_address()
     {
@@ -110,14 +90,6 @@ class UserController extends Controller
         $resa=$res ? 1 : 0 ;
         return $resa;
     }
-
-
-
-
-
-
-
-
 
 
     //用户账户管理
@@ -159,11 +131,6 @@ class UserController extends Controller
         }
     }
 
-
-
-
-
-
     //用户收藏
     public function actionUser_collect()
     {
@@ -187,26 +154,11 @@ class UserController extends Controller
         return $resa;
     }
 
-
-
-
-
-
-
-
     //我的留言
     public function actionUser_message()
     {
         return $this->render('user_message');
     }
-
-
-
-
-
-
-
-
 
 
 	//订单信息
@@ -281,11 +233,7 @@ class UserController extends Controller
         ->execute();
         if ($update)
         {
-<<<<<<< HEAD
-           return $this->redirect('?r=user/user_orderlist',301);
-=======
            return $this->redirect(Url::to('/user/user_orderlist'),301);
->>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
         }
         else
         {
@@ -331,12 +279,6 @@ class UserController extends Controller
         ]);
     }     
     
-
-
-
-
-
-
 /*删除订单*/
 public function actionDel_order()
 {
@@ -347,18 +289,6 @@ public function actionDel_order()
         return $this->redirect(Url::to('/user/user_orderlist'),301);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -64,15 +64,11 @@ class Orders extends ActiveRecord
         ];
     }
 
-<<<<<<< HEAD
-	
-    
-	
-=======
+
 	public function getDate(){
         return $this->hasOne(Date::className(),['deta_id'=>'order_date']);
 	}
->>>>>>> 958ca1fdc67806e017e1f69385652f29114266c1
+
 
     /**
      * 查看订单号是否重复
