@@ -58,6 +58,7 @@ class RegisterController extends Controller
 	public function actionMerchant_register_do()
 	{
 		$post = Yii::$app->request->post();
+		var_dump($post);die;
 		//var_dump($post);die;
 		$upload=new UploadedFile;                      //实例化上传类       
         $file=$upload->getInstanceByName('mer_logo');  //获取文件原名称

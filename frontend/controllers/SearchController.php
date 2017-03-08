@@ -9,6 +9,7 @@ use frontend\models\Merchant;
 use Yii;
 use yii\data\Pagination;
 use yii\web\Controller;
+use yii\web\Session;
 
 class SearchController extends Controller
 {
@@ -22,6 +23,7 @@ class SearchController extends Controller
         if (empty($type) || $type != 'food') {
             //搜索店铺
             $search = Yii::$app->request->get();
+
             unset($search['r']);
 
             $key = 'search'.json_encode($search);
@@ -45,8 +47,8 @@ class SearchController extends Controller
                 $dis = District::find()->asArray()->all();
                 $cache->set('search_dis',$dis);
             }
-
-//            var_dump($dis);
+            
+            // var_dump($data['shop']);die;
             return $this->render('shop', [
                 'shop'  => $data['shop'],
                 'pages' => $data['pages'],
@@ -87,6 +89,7 @@ class SearchController extends Controller
      */
     public function searchShop($search,$cache,$key)
     {
+       
         $keyword = isset($search['keyword']) ? $search['keyword'] : '';
         $cate_id = isset($search['cate']) ? $search['cate'] : '';
         $dis_id  = isset($search['dis']) ? $search['dis'] : '';
@@ -95,18 +98,32 @@ class SearchController extends Controller
         $min     = isset($catipa[0]) ? $catipa[0] : '';
         $max     = isset($catipa[1]) ? $catipa[1] : '';
         $order   = isset($search['order']) ? str_replace('-', ' ', $search['order']) : '';
-
-        $shop = Merchant::find()
+        
+        if (isset($search['order'])&&$search['order']=='address-asc') 
+        {
+            $session=Yii::$app->session;
+            $user_id=$session->get('user_id'); 
+            $arr=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
+            $shop=Yii::$app->db->createCommand("select   * from(select info_mer_cate,mer_id,mer_name,mer_address,mer_lng,mer_lat,ROUND(6378.138 * 2 * ASIN(SQRT(POW(SIN((".$arr['user_lat']." * PI() / 180 - mer_lat * PI() / 180) / 2),2)+ COS(".$arr['user_lat']." * PI() / 180) * COS(mer_lat * PI() / 180) * POW(SIN((".$arr['user_lng']." * PI() / 180-   mer_lng * PI() / 180) / 2),2)))* 1000) as juli from yfc_merchant)yfc_merchant where juli<1000")->queryAll();
+            
+            $data['pages'] = new Pagination(['totalCount' => count($shop), 'pageSize' => '2']);
+            // var_dump($data);die;
+            // $shop = $shop->offset($data['pages']->offset)->limit($data['pages']->limit)->orderBy($order)->asArray()->all();
+        }
+        else
+        {
+            
+            $shop = Merchant::find()
             ->select(['info_mer_cate', 'info_catipa', 'mer_id', 'mer_name', 'mer_address'])
             ->where(['mer_status' => '0'])
             ->andFilterWhere(['like', 'mer_name', $keyword])
             ->andFilterWhere(['=', 'info_mer_cate', $cate_id])
             ->andFilterWhere(['=', 'dis_id', $dis_id])
             ->andFilterWhere(['between', 'info_catipa', $min, $max]);
-
-        $data['pages'] = new Pagination(['totalCount' => $shop->count(), 'pageSize' => '2']);
-
-        $shop = $shop->offset($data['pages']->offset)->limit($data['pages']->limit)->orderBy($order)->asArray()->all();
+            $data['pages'] = new Pagination(['totalCount' => count($shop), 'pageSize' => '2']);
+            $shop = $shop->offset($data['pages']->offset)->limit($data['pages']->limit)->orderBy($order)->asArray()->all();
+        }
+        
 
         foreach ($shop as $k => $v) {
             $mer_info = $this->getMerInfo($v['mer_id']);
@@ -167,6 +184,9 @@ class SearchController extends Controller
             ->where(['info_mer' => $id])
             ->asArray()
             ->one();
+
+
+
     }
 
 
@@ -219,4 +239,53 @@ class SearchController extends Controller
             ->asArray()
             ->all();
     }
+
+
+
+
+
+    /**
+     * 计算某个经纬度的周围某段距离的正方形的四个点
+     *
+     * @param
+     *            radius 地球半径 平均6371km
+     * @param
+     *            lng float 经度
+     * @param
+     *            lat float 纬度
+     * @param
+     *            distance float 该点所在圆的半径，该圆与此正方形内切，默认值为1千米
+     * @return array 正方形的四个点的经纬度坐标
+     */
+        public function returnSquarePoint($lng, $lat, $distance, $radius = 6371)
+        {
+            $dlng = 2 * asin(sin($distance / (2 * $radius)) / cos(deg2rad($lat)));
+            $dlng = rad2deg($dlng);
+            
+            $dlat = $distance / $radius;
+            $dlat = rad2deg($dlat);
+            
+            return array(
+                'left-top' => array(
+                    'lat' => $lat + $dlat,
+                    'lng' => $lng - $dlng
+                ),
+                'right-top' => array(
+                    'lat' => $lat + $dlat,
+                    'lng' => $lng + $dlng
+                ),
+                'left-bottom' => array(
+                    'lat' => $lat - $dlat,
+                    'lng' => $lng - $dlng
+                ),
+                'right-bottom' => array(
+                    'lat' => $lat - $dlat,
+                    'lng' => $lng + $dlng
+                )
+            );
+        }
+
+
+
+
 }
