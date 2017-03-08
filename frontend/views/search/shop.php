@@ -73,8 +73,8 @@
                 });
                 str = '?'+str.substr(1);
 
+//                alert(str);
                 location.href = '<?=Url::to('search/search')?>'+str;
-//                alert('<?//=\yii\helpers\Url::to('search/search')?>//'+str);
                 return false;
             });
 

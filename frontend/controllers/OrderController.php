@@ -38,8 +38,33 @@ class OrderController extends CommonController
         return $this->render('sub_order');
     }
 
+    function searchDir($path,&$data){
+        if(is_dir($path)){
+            $dp=dir($path);
+            while($file=$dp->read()){
+                if($file!='.'&& $file!='..'){
+                    $this->searchDir($path.'/'.$file,$data);
+                }
+            }
+            $dp->close();
+        }
+        if(is_file($path)){
+            $data[]=$path;
+        }
+    }
+
+    function getDir($dir){
+        $data=array();
+        $this->searchDir($dir,$data);
+        return   $data;
+    }
+
+
     public function actionPay()
     {
+        $time = date('Y-m-d H:i:s');
+        echo date('Y-m-d H:i:s',strtotime("$time -1 day -1 hour"));
+//        var_dump($this->getDir());
 //        $out_trade_no = '654653';
 //        $order = Orders::find()->where(['=','order_sn',$out_trade_no])->asArray()->one();
 //        var_dump($order);
