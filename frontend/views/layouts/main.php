@@ -1,6 +1,7 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
+use \yii\helpers\Url;
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,16 +9,15 @@ use \yii\db\Query;
     <base href="/">
     <meta charset="utf-8"/>
     <title>DeathGhost</title>
-    <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发"/>
+    <meta name="keywords" content="有饭吃"/>
     <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!"/>
     <meta name="author" content="DeathGhost"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/jquery.js"></script>
-<!--    <script type="text/javascript" src="js/jquerys.js"></script>-->
-    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+
 </head>
 
 <style>
@@ -25,9 +25,6 @@ use \yii\db\Query;
         cursor: pointer;
     }
 </style>
-
-<?php use \yii\helpers\Url;?>
-
 <body>
 <header>
  <section class="Topmenubg">
@@ -86,10 +83,11 @@ use \yii\db\Query;
                 <div class="Search_area">
                     <input type="search" id="fkeyword" name="keyword" <?php if(isset($_GET['keyword']) && !empty($_GET['keyword'])){echo 'value="'.$_GET['keyword'].'"';}?> placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox"/>
                     <input type="submit" class="searchbutton" value="搜 索"/>
+                    <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
                 </div>
             </form>
             <p class="hotkeywords">
-                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>
+<!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
             </p>
         </div>
     </div>
@@ -97,10 +95,12 @@ use \yii\db\Query;
         <ul class="menu">
             <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
             <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
+            <li><a href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
             <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
-            <li><a href="<?=Url::to()?>">关于我们</a></li>
+            <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>
     </nav>
+    <script type="text/javascript" src="js/public.js"></script>
 </header>
 
 <?= $content ?>

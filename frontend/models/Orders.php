@@ -7,6 +7,7 @@ use yii\db\ActiveRecord;
 use yii\db\Command;
 class Orders extends ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -62,6 +63,7 @@ class Orders extends ActiveRecord
             'Remarks' => 'Remarks',
         ];
     }
+
 	public function getDate(){
         return $this->hasOne(Date::className(),['deta_id'=>'order_date']);
 	}
@@ -94,12 +96,25 @@ class Orders extends ActiveRecord
         $id = \Yii::$app->db->getLastInsertId();
         return $id;
     }
+<<<<<<< HEAD
     public function savePay($id)
     {
         $res = $this->updateAll(['order_paytime'=>time(),'pay_status'=>1],'order_id in ('.$id.')');
         if(!$res)return false;
         return $res;
     }
+=======
+    public function getUsers(){
+        return $this->hasOne(Users::className(),['user_id'=>'user_id']);
+    }
+    public function getFood(){
+        return $this->hasMany(Food::className(),['food_id'=>'food_id']);
+    }
+
+>>>>>>> 6ed2e4b38979c7edc9f7565274ff7743a41bfd18
 
 }
  ?>
+
+
+

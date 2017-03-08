@@ -101,10 +101,11 @@ class Merchant extends \yii\db\ActiveRecord
 //    }
 
 
-    public function getMerInfo()
+    public function getMerinfo()
     {
         return $this->hasOne(MerchantInfo::className(), ['info_mer' => 'mer_id']);
     }
 
 }
+
 
