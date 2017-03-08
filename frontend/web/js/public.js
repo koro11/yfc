@@ -73,7 +73,7 @@ function getHotWords(type) {
 		success: function(msg){
 			var str='';
 			$.each(msg,function (k,v) {
-				str+='<a href="#" class="hotSearch" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+				str+='<a href="javascript:void(0);" class="hotSearch" title="'+v.hot_word+'">'+v.hot_word+'</a>';
 			})
 			$(".hotkeywords").html(str);
 		}
