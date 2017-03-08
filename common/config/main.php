@@ -1,6 +1,7 @@
 <?php
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+
 //    'modules' =>[
 //      'redactor' =>[
 //          'uploadDir' => '@frontend//web/uploads',
@@ -13,5 +14,4 @@ return [
             'cachePath' => '@runtime/cache2',
         ],
     ],
-
 ];

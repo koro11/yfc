@@ -23,7 +23,7 @@
    <ul id="sb-slider" class="sb-slider">
     <?php foreach ($shuffing as $key => $val): ?>
     <li>
-     <a href="<?=$val['shuffing_link'];?>" target="_blank"><img src="<?='http://www.luo.com/big1/yfc/backend/web/'.$val['path'];?>" /></a>
+     <a href="<?=$val['shuffing_link'];?>" target="_blank"><img src="<?='http://www.img.com/'.$val['path'];?>" /></a>
      <div class="sb-description">
       <h3><?=$val['shuffing_desc'];?></h3>
      </div>

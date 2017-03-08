@@ -353,6 +353,7 @@ code::selection {background:#dddddd;}
 .shopdetails .shopdetailsT{width:438px;height:300px;float:left;margin-left:8px;}
 .shopdetails .shopdetailsT p{line-height:35px;font-size:14px;}
 .shopdetails .shopdetailsT p span{font-weight:bold;}
+#allmap{width: 434px;height: 300px;overflow: hidden;margin:0;font-family:"微软雅黑";}
 /*article list*/
 .A-left{float:left;width:900px;height:auto;}
 .A-right{float:left;width:290px;margin-left:10px;height:auto;}
@@ -404,6 +405,16 @@ code::selection {background:#dddddd;}
 .A-Message .Abutt{padding:8px 20px;font-weight:bold;background-image: -moz-linear-gradient(top, #fff, #f5f5f5); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #f5f5f5)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/ margin-left:120px;}
 
 
+
+/* box */
+.box_mask{position:absolute;width:600px;left:50%;height:auto;z-index:100;background-color:#fff;border:1px #ddd solid;padding:1px;}
+.box_mask h2{height:25px;font-size:14px;background-color:#aaa;position:relative;padding-left:10px;line-height:25px;color:#fff;}
+.box_mask h2 a{position:absolute;right:5px;font-size:12px;color:#fff;}
+.box_mask .list{padding:10px;}
+.box_mask .list li{height:24px;line-height:24px;}
+.box_mask .list li span{margin:0 5px 0 0;font-family:"宋体";font-size:12px;font-weight:400;color:#ddd;}
+.show_btn {font:bold 24px '微软雅黑';}
+#bg_bg{background-color:#666;position:absolute;z-index:99;left:0;top:0;display:none;width:100%;height:100%;opacity:0.5;filter: alpha(opacity=50);-moz-opacity: 0.5;}
 
 
 
@@ -623,6 +634,7 @@ code::selection {background:#dddddd;}
 .TurnPage .Next i{border-top:5px solid #FFFFFF;border-left:5px solid #d8d8d8;border-bottom:5px solid #FFFFFF;display:inline-block;margin-left:5px;}
 .TurnPage .PNumber{padding:5px 15px;background:#FFF;border:1px #dddddd solid;}
 .TurnPage .pick{padding:5px 15px;background:#FFF;border:1px red solid;}
+.TurnPage .active{background-color: yellow;}
 /*footer*/
 footer{height:auto;width:100%;background:#f1f1f1;margin-top:10px;border-top:1px #bababa solid;}
 footer .Otherlink{width:1200px;margin:0 auto;}

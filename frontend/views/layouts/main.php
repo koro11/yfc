@@ -1,7 +1,7 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
-
+use \yii\helpers\Url;
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,9 +24,6 @@ use \yii\db\Query;
         cursor: pointer;
     }
 </style>
-
-<?php use \yii\helpers\Url;?>
-
 <body>
 <header>
  <section class="Topmenubg">
@@ -97,8 +94,9 @@ use \yii\db\Query;
         <ul class="menu">
             <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
             <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
+            <li><a href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
             <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
-            <li><a href="<?=Url::to()?>">关于我们</a></li>
+            <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>
     </nav>
     <script type="text/javascript" src="js/public.js"></script>

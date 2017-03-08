@@ -1,5 +1,4 @@
 <?php
-
 namespace frontend\models;
 
 use Yii;
@@ -86,6 +85,13 @@ class Food extends \yii\db\ActiveRecord
             'food_desc' => 'Food Desc',
         ];
     }
+    //关联 Food_category 表  
+    public function getFood_category()
+    {      
+        // 第一个参数为要关联的子表模型类名称， 
+        // 第二个参数指定通过子表的 info_mer 去关联主表的 mer_id 字段  
+        return $this->hasOne(Food_category::className(), ['cate_id' => 'food_cate']);  
+    }  
     /**
      * 餐饮详情
      * @author Dx

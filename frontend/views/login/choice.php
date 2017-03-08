@@ -23,8 +23,8 @@
 					     <div class="login_title">
 							<a href="<?=Url::to('login/mer_login')?>">商家登录=></a>
 						</div>
-						
 					</div>
+					<a href="<?=Url::to(['register/choice']);?>">还没账号？请先注册</a>
 				</div>
 			</div>
 		</div>

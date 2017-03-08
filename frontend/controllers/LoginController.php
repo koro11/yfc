@@ -134,4 +134,8 @@ class LoginController extends Controller
         return $this->redirect(Url::to('/login/choice'), 301);
     }
     
+    public function actionRegister()
+    {
+        return $this->render('register');
+    }
 }
