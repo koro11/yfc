@@ -82,6 +82,7 @@
 						</form>
 						<div class="other_login">
 						 <a href="<?=Url::to('login/mer_login')?>">已有账号？请登录</a>	
+						 <a href="<?=Url::to('index/index')?>">返回首页</a>
 						</div>
 					</div>
 
@@ -111,7 +112,7 @@
 	    var phone = $('.phone').val();
 	    var address = $('.address').val();
 	    var catipa = $('.catipa').val(); 
-	    var phone_st = $('#phone').text;
+	    var phone_st = $('#phone').text();
 	    if(phone_st!="")
 	    {
 	    	return false;

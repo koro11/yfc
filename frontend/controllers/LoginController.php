@@ -63,7 +63,6 @@ class LoginController extends Controller
                 if(!$addCart)exit('购物信息入库失败,请重试');
                 setcookie('cart','');
             }
-
     		$session = Yii::$app->session;
     		$session->set('user_id',$data['user_id']);
     		$time = $query->select('*')->from('yfc_users')->where(['user_id'=>$data['user_id']])->one();
@@ -77,11 +76,11 @@ class LoginController extends Controller
     		}
     		$arr1['now_logintime'] = time();
     		$db=\Yii::$app->db ->createCommand()->update('yfc_users',$arr1,'user_id = '.$data['user_id']) ->execute();
-    		return $this->redirect(Url::to('/index/index'), 301);
+    		return 'ok';
     	}
     	else
     	{
-    		return $this->redirect(Url::to('/login/login'), 301);
+    		return 'no';
     	}
     }
     /**
@@ -115,12 +114,12 @@ class LoginController extends Controller
             }
             $arr1['mer_now_login'] = time();
             $db=\Yii::$app->db ->createCommand()->update('yfc_merchant',$arr1,'mer_id = '.$data['mer_id'])->execute();
-            return $this->redirect(Url::to('/index/index'), 301);
+            return 'ok';
 
         }
         else
         {
-            return $this->redirect(Url::to('/login/mer_login'), 301);
+            return 'no';
         }
     }
     /**

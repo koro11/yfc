@@ -75,7 +75,7 @@ class RegisterController extends Controller
         $res = \Yii::$app->db->createCommand()->insert('yfc_merchant',$post)->execute();
         if($res)
         {
-        	return $this->redirect(Url::to('/login/Mer_login'), 301);
+        	return $this->redirect(Url::to('/login/mer_login'), 301);
         }
         else
         {

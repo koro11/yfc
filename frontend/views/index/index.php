@@ -189,7 +189,6 @@
             <a href="<?=Url::to(['menu/details','id'=>$val['food_id']])?>">用户“<?=$val['user_name'];?>”对[ <?=$val['mer_name'];?> ]“<?=$val['food_name'];?>”评说：<?=mb_substr($val['speak_body'],0,21,'utf-8');?>...</a>
         </li>
     <?php endforeach ?>
-
    </ul>
   </div>
  </aside>
