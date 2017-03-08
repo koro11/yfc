@@ -1,13 +1,13 @@
-<?php 
+<?php
 namespace frontend\models;
 
 use yii\db\ActiveRecord;
 
 class User_ticket extends ActiveRecord
 {
-	public function getTickets(){
+    public function getTickets(){
         return $this->hasOne(Tickets::className(),['tic_id'=>'tic_id']);
-	}
+    }
 
     /**
      * 获取商户优惠券
@@ -16,11 +16,10 @@ class User_ticket extends ActiveRecord
      * @param string $merId
      * @return array|bool|\yii\db\ActiveRecord[]
      */
-    public function getTicket($uid,$merId)
+    public function getTicket($uid,$merId,$price=0)
     {
         if(empty($uid)||empty($merId))exit('缺少参数');
-        $field = array('tic_id','tic_desc','tic_cost','tic_status');
-        $res = $this->find()->joinWith('tickets')->where('user_id = ('.$uid.') and tic_end > ('.time().') and tic_merchant in ('.$merId.')')->asArray()->all();
+        $res = $this->find()->joinWith('tickets')->where('user_id = ('.$uid.') and tic_end > ('.time().') and tic_merchant in ('.$merId.') and tic_cost < ('.$price.')')->asArray()->all();
         if(!$res)return false;
         return $res;
     }
@@ -28,13 +27,14 @@ class User_ticket extends ActiveRecord
     /**
      * 获取全场优惠券
      * @author Dx
-     * @param $uid
+     * @param intval $uid
+     * @param intval $sum
      * @return array|bool|\yii\db\ActiveRecord[]
      */
-    public function getFullcourt($uid)
+    public function getFullcourt($uid,$sum)
     {
         if(empty($uid))exit('缺少参数');
-        $res = $this->find()->joinWith('tickets')->where('user_id = ('.$uid.') and tic_end > ('.time().')')->andWhere(['=','tic_status','1'])->asArray()->all();
+        $res = $this->find()->joinWith('tickets')->where('user_id = ('.$uid.') and tic_end > ('.time().') and tic_cost < ('.$sum.')')->andWhere(['=','tic_status','1'])->asArray()->all();
         if(!$res)return false;
         return $res;
     }
@@ -84,4 +84,4 @@ class User_ticket extends ActiveRecord
     }
 
 }
- ?>
+?>

@@ -19,7 +19,7 @@ use \yii\db\Query;
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 </head>
-<<<<<<< HEAD
+
 <style>
     .p3button{
         cursor: pointer;

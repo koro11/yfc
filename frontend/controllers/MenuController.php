@@ -154,6 +154,7 @@ class MenuController extends Controller
                 foreach($arr as $k=>$v){
                     if($v['food']['food_id']==$res[0]['food']['food_id']){
                         $return['msg'] = '此商品已经存在购物车中';
+                        $return['status'] = '-1';
                         exit(json_encode($return));
                     }
                 }
@@ -171,11 +172,14 @@ class MenuController extends Controller
             }
 
         }else{
+
             $obj = new Carts();
             $db = new  Query();
-            $food = $db->from('yfc_carts')->where(['food_id'=>$res[0]['food']['food_id']])->one();
+            $food = $db->from('yfc_carts')->where(['food_id'=>$res[0]['food']['food_id'],'user_id'=>$session->get('user_id')])->one();
+
             if(!empty($food)){
                 $return['msg'] = '此商品已经存在购物车中';
+                $return['status'] = '-1';
                 exit(json_encode($return));
             }
             $param = array(

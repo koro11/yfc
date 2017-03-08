@@ -12,6 +12,7 @@
                 <td class="tb1_td5">数量</td>
                 <td class="tb1_td6">单价</td>
                 <td class="tb1_td7">操作</td>
+                <td><input type="hidden" id="url" value="<?=APP_URL?>"></td>
             </tr>
         </table>
         <?php if(!empty($res)):?>
@@ -53,6 +54,7 @@
                     <td style="line-height:300px;" colspan="7"  class="shopname Font14 FontW"><center><font color="red">您的购物车是空的,快去选餐吧!</font></center></td>
                 </tr>
             </table>
+
         <?php endif;?>
         <table cellpadding="0" cellspacing="0" class="gwc_tb3">
             <tr>

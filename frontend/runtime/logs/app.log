@@ -36410,3 +36410,572 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1488537433.923
     'REQUEST_TIME' => 1488537433
 ]
+2017-03-08 13:47:02 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "upload/merchants/merchant1-1487924840.jpg".' in D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Module.php:460
+Stack trace:
+#0 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('upload/merchant...', Array)
+#1 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\phpStudy\WWW\dongxin\yfc\frontend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\dongxin\yfc\frontend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2017-03-08 13:47:02 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][info][application] $_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    '_gat_UA-74997751-3' => '1'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/search/search'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; _gat_UA-74997751-3=1; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '60408'
+    'REDIRECT_URL' => '/upload/merchants/merchant1-1487924840.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/upload/merchants/merchant1-1487924840.jpg'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488952022.539
+    'REQUEST_TIME' => 1488952022
+]
+2017-03-08 13:47:05 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: index/shop_index' in D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Controller.php:125
+Stack trace:
+#0 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Module.php(454): yii\base\Controller->runAction('shop_index', Array)
+#1 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('index/shop_inde...', Array)
+#2 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 D:\phpStudy\WWW\dongxin\yfc\frontend\web\index.php(22): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\dongxin\yfc\frontend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2017-03-08 13:47:05 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][info][application] $_GET = [
+    'mer' => '2'
+]
+
+$_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    '_gat_UA-74997751-3' => '1'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/search/search'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; _gat_UA-74997751-3=1; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '60408'
+    'REDIRECT_URL' => '/index/shop_index'
+    'REDIRECT_QUERY_STRING' => 'mer=2'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'mer=2'
+    'REQUEST_URI' => '/index/shop_index?mer=2'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488952025.348
+    'REQUEST_TIME' => 1488952025
+]
+2017-03-08 14:25:01 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'Url' not found' in D:\phpStudy\WWW\dongxin\yfc\frontend\views\order\order.php:224
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-03-08 14:25:01 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][info][application] $_GET = [
+    'buycart' => '57%2'
+    'id' => 'C58'
+    'param' => ''
+    'mer' => '3'
+]
+
+$_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+    'history' => 'd8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a:2:{i:0;s:7:\"history\";i:1;s:3:\"2,1\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '5'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/cart/cart'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2; history=d8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a%3A2%3A%7Bi%3A0%3Bs%3A7%3A%22history%22%3Bi%3A1%3Bs%3A3%3A%222%2C1%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '62098'
+    'REDIRECT_URL' => '/order/order'
+    'REDIRECT_QUERY_STRING' => 'buycart=57%2&id=C58&param=&mer=3'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'buycart=57%2&id=C58&param=&mer=3'
+    'REQUEST_URI' => '/order/order?buycart=57%2&id=C58&param=&mer=3'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488954301.371
+    'REQUEST_TIME' => 1488954301
+]
+2017-03-08 14:25:49 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'Url' not found' in D:\phpStudy\WWW\dongxin\yfc\frontend\views\order\order.php:224
+Stack trace:
+#0 [internal function]: yii\base\ErrorHandler->handleFatalError()
+#1 {main}
+2017-03-08 14:25:48 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][info][application] $_GET = [
+    'buycart' => '57%2'
+    'id' => 'C58'
+    'param' => ''
+    'mer' => '3'
+]
+
+$_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+    'history' => 'd8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a:2:{i:0;s:7:\"history\";i:1;s:3:\"2,1\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '5'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/cart/cart'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2; history=d8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a%3A2%3A%7Bi%3A0%3Bs%3A7%3A%22history%22%3Bi%3A1%3Bs%3A3%3A%222%2C1%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '62181'
+    'REDIRECT_URL' => '/order/order'
+    'REDIRECT_QUERY_STRING' => 'buycart=57%2&id=C58&param=&mer=3'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'buycart=57%2&id=C58&param=&mer=3'
+    'REQUEST_URI' => '/order/order?buycart=57%2&id=C58&param=&mer=3'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488954348.705
+    'REQUEST_TIME' => 1488954348
+]
+2017-03-08 14:39:47 [127.0.0.1][-][-][error][yii\web\Session::open] session_start(): Failed to decode session object. Session has been destroyed
+    in D:\phpStudy\WWW\dongxin\yfc\frontend\controllers\CommonController.php:15
+2017-03-08 14:39:46 [127.0.0.1][-][-][info][application] $_POST = [
+    'lower' => [
+        0 => [
+            'lower' => '4'
+            'seller' => '3'
+            'cart' => '57,58'
+        ]
+    ]
+    'payment' => '1'
+    'address' => '10'
+    'leaving' => ''
+    'ships' => '2'
+]
+
+$_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+    'history' => 'd8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a:2:{i:0;s:7:\"history\";i:1;s:3:\"2,1\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_REFERER' => 'http://www.img.com/order/order?buycart=57%2&id=C58&param=&mer=3'
+    'CONTENT_LENGTH' => '121'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2; history=d8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a%3A2%3A%7Bi%3A0%3Bs%3A7%3A%22history%22%3Bi%3A1%3Bs%3A3%3A%222%2C1%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '62629'
+    'REDIRECT_URL' => '/order/setorder'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/order/setorder'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488955186.976
+    'REQUEST_TIME' => 1488955186
+]
+2017-03-08 14:41:21 [127.0.0.1][-][-][error][yii\web\Session::open] session_start(): Failed to decode session object. Session has been destroyed
+    in D:\phpStudy\WWW\dongxin\yfc\frontend\controllers\CommonController.php:15
+2017-03-08 14:41:21 [127.0.0.1][-][-][info][application] $_GET = [
+    'buycart' => '57%2'
+    'id' => 'C58'
+    'param' => ''
+    'mer' => '3'
+]
+
+$_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+    'history' => 'd8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a:2:{i:0;s:7:\"history\";i:1;s:3:\"2,1\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/cart/cart'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2; history=d8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a%3A2%3A%7Bi%3A0%3Bs%3A7%3A%22history%22%3Bi%3A1%3Bs%3A3%3A%222%2C1%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '62755'
+    'REDIRECT_URL' => '/order/order'
+    'REDIRECT_QUERY_STRING' => 'buycart=57%2&id=C58&param=&mer=3'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'buycart=57%2&id=C58&param=&mer=3'
+    'REQUEST_URI' => '/order/order?buycart=57%2&id=C58&param=&mer=3'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488955281.455
+    'REQUEST_TIME' => 1488955281
+]
+2017-03-08 14:42:28 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "upload/merchants/merchant1-1487924840.jpg".' in D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Module.php:460
+Stack trace:
+#0 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('upload/merchant...', Array)
+#1 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\phpStudy\WWW\dongxin\yfc\frontend\web\index.php(22): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 D:\phpStudy\WWW\dongxin\yfc\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\phpStudy\WWW\dongxin\yfc\frontend\web\index.php(22): yii\base\Application->run()
+#2 {main}
+2017-03-08 14:42:28 [127.0.0.1][-][7jfmd3888crjjhqgvm2ltv1ng2][info][application] $_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+    'history' => 'd8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a:2:{i:0;s:7:\"history\";i:1;s:3:\"2,1\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    'user_id' => '5'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/search/search'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2; history=d8bb38952a281d79df25da0044bc1c92c471ff24c5e667f425d31110bae68632a%3A2%3A%7Bi%3A0%3Bs%3A7%3A%22history%22%3Bi%3A1%3Bs%3A3%3A%222%2C1%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '62783'
+    'REDIRECT_URL' => '/upload/merchants/merchant1-1487924840.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/upload/merchants/merchant1-1487924840.jpg'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488955348.607
+    'REQUEST_TIME' => 1488955348
+]
+2017-03-08 16:30:48 [127.0.0.1][-][-][error][yii\web\Session::open] session_start(): Failed to decode session object. Session has been destroyed
+    in D:\phpStudy\WWW\dongxin\yfc\frontend\controllers\CommonController.php:15
+2017-03-08 16:30:48 [127.0.0.1][-][-][info][application] $_GET = [
+    'buycart' => '64'
+    'id' => ''
+    'param' => ''
+    'mer' => '1'
+]
+
+$_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+    'history' => '1599853977179cbaca43530867d9efb53bb890bfade4de80b59e108d3fdad7daa:2:{i:0;s:7:\"history\";i:1;s:3:\"3,2\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/cart/cart'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2; history=1599853977179cbaca43530867d9efb53bb890bfade4de80b59e108d3fdad7daa%3A2%3A%7Bi%3A0%3Bs%3A7%3A%22history%22%3Bi%3A1%3Bs%3A3%3A%223%2C2%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '52438'
+    'REDIRECT_URL' => '/order/order'
+    'REDIRECT_QUERY_STRING' => 'buycart=64&id=&param=&mer=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'buycart=64&id=&param=&mer=1'
+    'REQUEST_URI' => '/order/order?buycart=64&id=&param=&mer=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488961848.738
+    'REQUEST_TIME' => 1488961848
+]
+2017-03-08 16:32:14 [127.0.0.1][-][-][error][yii\web\Session::open] session_start(): Failed to decode session object. Session has been destroyed
+    in D:\phpStudy\WWW\dongxin\yfc\frontend\controllers\CommonController.php:15
+2017-03-08 16:32:14 [127.0.0.1][-][-][info][application] $_GET = [
+    'buycart' => '65'
+    'id' => ''
+    'param' => ''
+    'mer' => '1'
+]
+
+$_COOKIE = [
+    '_ga' => 'GA1.2.561940733.1488951459'
+    'advanced-frontend' => '7jfmd3888crjjhqgvm2ltv1ng2'
+    'history' => '1599853977179cbaca43530867d9efb53bb890bfade4de80b59e108d3fdad7daa:2:{i:0;s:7:\"history\";i:1;s:3:\"3,2\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'www.img.com'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://www.img.com/cart/cart'
+    'HTTP_COOKIE' => '_ga=GA1.2.561940733.1488951459; advanced-frontend=7jfmd3888crjjhqgvm2ltv1ng2; history=1599853977179cbaca43530867d9efb53bb890bfade4de80b59e108d3fdad7daa%3A2%3A%7Bi%3A0%3Bs%3A7%3A%22history%22%3Bi%3A1%3Bs%3A3%3A%223%2C2%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Lenovo\\Lenovo Home\\;D:\\phpStudy\\php55;C:\\ProgramData\\ComposerSetup\\bin;D:\\Git\\cmd;D:\\svn\\bin;D:\\nodejs\\;C:\\Users\\Aaron\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\Aaron\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Win32) OpenSSL/1.0.2e PHP/5.5.30'
+    'SERVER_NAME' => 'www.img.com'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web'
+    'SERVER_ADMIN' => 'admin@phpStudy.net'
+    'SCRIPT_FILENAME' => 'D:/phpStudy/WWW/dongxin/yfc/frontend/web/index.php'
+    'REMOTE_PORT' => '52490'
+    'REDIRECT_URL' => '/order/order'
+    'REDIRECT_QUERY_STRING' => 'buycart=65&id=&param=&mer=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'buycart=65&id=&param=&mer=1'
+    'REQUEST_URI' => '/order/order?buycart=65&id=&param=&mer=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1488961934.791
+    'REQUEST_TIME' => 1488961934
+]

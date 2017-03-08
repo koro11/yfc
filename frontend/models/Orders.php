@@ -94,6 +94,12 @@ class Orders extends ActiveRecord
         $id = \Yii::$app->db->getLastInsertId();
         return $id;
     }
+    public function savePay($id)
+    {
+        $res = $this->updateAll(['order_paytime'=>time(),'pay_status'=>1],'order_id in ('.$id.')');
+        if(!$res)return false;
+        return $res;
+    }
 
 }
  ?>
