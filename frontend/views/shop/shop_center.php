@@ -1,3 +1,4 @@
+<?php use yii\helpers\Url; ?>
 <article class="U-article Overflow">
   <!--"引用“user_page/user_index.html”"-->
   <section class="usercenter">
@@ -10,7 +11,7 @@
    </div>
     <ul class="s-States Overflow FontW" id="Lbn">
      <li class="Font14 FontW">幸福业务在线提醒：</li>
-     <li><a href="?r=shop/shop_orders">新订单( <?=$merchant['unship']?> )</a></li> 
+     <li><a href="<?=Url::to(['shop/shop_orders'])?>">新订单( <?=$merchant['unship']?> )</a></li> 
     </ul>
   </section>
  </article>

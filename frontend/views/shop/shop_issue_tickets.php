@@ -1,3 +1,4 @@
+<?php use yii\helpers\Url; ?>
 <!--Start content-->
 
  <article class="U-article Overflow">
@@ -5,7 +6,7 @@
   <section class="AccManage Overflow">
    <span class="AMTitle Block Font14 FontW Lineheight35">发行优惠券</span>
   
-   <form action="?r=shop/shop_issue_act" method="post" >
+   <form action="<?=Url::to(['shop/shop_issue_act'])?>" method="post" >
     <table >
     <input type="hidden" name="tic_merchant" value="<?=$merchant['mer_id']?>">
     <input type="hidden" name="tic_mername" value="<?=$merchant['mer_name']?>">
