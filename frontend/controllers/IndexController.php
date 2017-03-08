@@ -134,6 +134,9 @@ class IndexController extends Controller
         }
 	}
 
-	//
+    public function actionAbout_us()
+    {
+        return $this->render('about_us');
+	}
 
 }
