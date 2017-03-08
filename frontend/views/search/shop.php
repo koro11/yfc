@@ -189,7 +189,9 @@ use \yii\db\Query;
                 </hgroup>
                 <p>菜系：<?=$v['cat_name'];?></p>
                 <p>地址：<?=$v['mer_address'];?></p>
-               
+               <?php if (isset($v['juli'])) {?>
+                <p>距离：<?=$v['juli'];?>米</p>
+               <?php }?>
                 <p>
                     <span class="Score-l">
                         <img src="images/star-on.png">

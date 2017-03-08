@@ -59,8 +59,6 @@ class RegisterController extends Controller
 	public function actionMerchant_register_do()
 	{
 		$post = Yii::$app->request->post();
-		var_dump($post);die;
-		//var_dump($post);die;
 		$upload=new UploadedFile;                      //实例化上传类       
         $file=$upload->getInstanceByName('mer_logo');  //获取文件原名称
         $name = $file->name;
@@ -76,7 +74,7 @@ class RegisterController extends Controller
         $res = \Yii::$app->db->createCommand()->insert('yfc_merchant',$post)->execute();
         if($res)
         {
-        	return $this->redirect(Url::to('/login/Mer_login'), 301);
+        	return $this->redirect(Url::to('/login/mer_login'), 301);
         }
         else
         {

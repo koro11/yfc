@@ -99,16 +99,17 @@ class SearchController extends Controller
         $max     = isset($catipa[1]) ? $catipa[1] : '';
         $order   = isset($search['order']) ? str_replace('-', ' ', $search['order']) : '';
         
-        if (isset($search['order'])&&$search['order']=='address-asc') 
+        if (isset($search['order'])&&($search['order']=='address-asc'||$search['order']=='address-desc')) 
         {
+            $ha=substr($search['order'],8);
             $session=Yii::$app->session;
             $user_id=$session->get('user_id'); 
             $arr=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
-            $shop=Yii::$app->db->createCommand("select   * from(select info_mer_cate,mer_id,mer_name,mer_address,mer_lng,mer_lat,ROUND(6378.138 * 2 * ASIN(SQRT(POW(SIN((".$arr['user_lat']." * PI() / 180 - mer_lat * PI() / 180) / 2),2)+ COS(".$arr['user_lat']." * PI() / 180) * COS(mer_lat * PI() / 180) * POW(SIN((".$arr['user_lng']." * PI() / 180-   mer_lng * PI() / 180) / 2),2)))* 1000) as juli from yfc_merchant)yfc_merchant where juli<1000")->queryAll();
+            $shop=Yii::$app->db->createCommand("select count(*) from yfc_merchant")->queryAll();
+            $num = $shop[0]["count(*)"];
+            $data['pages'] = new Pagination(['totalCount' => $num, 'pageSize' => '2']);
+            $shop=Yii::$app->db->createCommand("select   * from(select info_mer_cate,mer_id,mer_name,mer_address,mer_lng,mer_lat,ROUND(6378.138 * 2 * ASIN(SQRT(POW(SIN((".$arr['user_lat']." * PI() / 180 - mer_lat * PI() / 180) / 2),2)+ COS(".$arr['user_lat']." * PI() / 180) * COS(mer_lat * PI() / 180) * POW(SIN((".$arr['user_lng']." * PI() / 180-   mer_lng * PI() / 180) / 2),2)))* 1000) as juli from yfc_merchant)yfc_merchant   ORDER BY juli ".$ha." limit ".$data['pages']->offset.','.$data['pages']->limit)->queryAll();
             
-            $data['pages'] = new Pagination(['totalCount' => count($shop), 'pageSize' => '2']);
-            // var_dump($data);die;
-            // $shop = $shop->offset($data['pages']->offset)->limit($data['pages']->limit)->orderBy($order)->asArray()->all();
         }
         else
         {
@@ -120,7 +121,7 @@ class SearchController extends Controller
             ->andFilterWhere(['=', 'info_mer_cate', $cate_id])
             ->andFilterWhere(['=', 'dis_id', $dis_id])
             ->andFilterWhere(['between', 'info_catipa', $min, $max]);
-            $data['pages'] = new Pagination(['totalCount' => count($shop), 'pageSize' => '2']);
+            $data['pages'] = new Pagination(['totalCount' => $shop->count(), 'pageSize' => '2']);
             $shop = $shop->offset($data['pages']->offset)->limit($data['pages']->limit)->orderBy($order)->asArray()->all();
         }
         

@@ -17,7 +17,7 @@ use  frontend\models\Tickets;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\helpers\Url;
-class UserController extends Controller
+class UserController extends CommonController
 {
 
     public $enableCsrfValidation= false;
@@ -32,6 +32,7 @@ class UserController extends Controller
         //实例化模型层并且查询用户信息（积分在用户信息表中）  
         $info= new User_info;
         $user= $info->find()->joinWith('users')->where(['yfc_user_info.user_id'=>$user_id])->asArray()->one();
+        if ($user) {
         /*var_dump($user);die;*/
         //查询优惠券信息
         $user['ticket']= count(Yii::$app->db->createCommand('select * from yfc_user_ticket where user_id='.$user_id.'')->queryAll());
@@ -49,6 +50,7 @@ class UserController extends Controller
         // var_dump($order);die;
         //指向试图
         return $this->render('user_index',['user'=>$user,'order'=>$order]);
+         }
     }
     
     //用户优惠券

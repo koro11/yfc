@@ -20,7 +20,7 @@ use yii\web\Session;
  * @email  351518543@qq.com
  * @Time   2017-2-23 
  */
-class ShopController extends Controller
+class ShopController extends CommonController
 {
     
     public $layout = '@app/views/layouts/center_nav.php';
@@ -42,6 +42,8 @@ class ShopController extends Controller
         $mer_id = Yii::$app->session->get('mer_id');
        
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
+        if ($arr) {
+            # code...
         // var_dump($arr);die();
         $arr['mer_last_login'] = date('Y-m-d H:i:s',$arr['mer_last_login']);
         //查询订单表里待未配送的，已配送的
@@ -51,6 +53,7 @@ class ShopController extends Controller
         $arr['shiped'] = count($shiped);
 
         return $this->render('shop_center',['merchant'=>$arr]);
+        }
     }
    
     /**
