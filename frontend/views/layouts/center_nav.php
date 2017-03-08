@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <base href="/">
 <meta charset="utf-8" />
 <title>DeathGhost</title>
 <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />

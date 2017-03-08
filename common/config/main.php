@@ -8,5 +8,10 @@ return [
 //          'uploadUrl' =>  'http://www.yfc.com/uploads',
 //      ]
 //    ],
-
+    'components' => [
+        'cache' => [
+            'class' => 'yii\caching\FileCache',
+            'cachePath' => '@runtime/cache2',
+        ],
+    ],
 ];
