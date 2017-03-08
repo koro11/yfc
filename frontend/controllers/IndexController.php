@@ -134,6 +134,9 @@ class IndexController extends Controller
         }
 	}
 
+    /**
+     * 关于我们
+     */
     public function actionAbout_us()
     {
         return $this->render('about_us');

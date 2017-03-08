@@ -94,6 +94,7 @@ use \yii\helpers\Url;
         <ul class="menu">
             <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
             <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
+            <li><a href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
             <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
             <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>

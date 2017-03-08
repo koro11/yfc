@@ -623,6 +623,7 @@ code::selection {background:#dddddd;}
 .TurnPage .Next i{border-top:5px solid #FFFFFF;border-left:5px solid #d8d8d8;border-bottom:5px solid #FFFFFF;display:inline-block;margin-left:5px;}
 .TurnPage .PNumber{padding:5px 15px;background:#FFF;border:1px #dddddd solid;}
 .TurnPage .pick{padding:5px 15px;background:#FFF;border:1px red solid;}
+.TurnPage .active{background-color: yellow;}
 /*footer*/
 footer{height:auto;width:100%;background:#f1f1f1;margin-top:10px;border-top:1px #bababa solid;}
 footer .Otherlink{width:1200px;margin:0 auto;}
