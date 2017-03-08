@@ -6,16 +6,14 @@
 <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发" />
 <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!" />
 <meta name="author" content="DeathGhost"/>
-<link rel="stylesheet" href="css/reset.css" />
-
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/public.js"></script>
-<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+<script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/jqpublic.js"></script>
 <script type="text/javascript" src="js/cart.js"></script>
 <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
-
+<script type="text/javascript" src="js/WdatePicker.js"></script>
+<script type="text/javascript" src="js/calendar.js"></script>
 <!--
 Author: DeathGhost
 Author URI: http://www.deathghost.cn
@@ -67,8 +65,23 @@ Author URI: http://www.deathghost.cn
  </nav>
 </header>
 
-<?= $content?>
 
+<section class="Psection MT20">
+<nav class="U-nav Font14 FontW">
+  <ul>
+   <li><i></i><a href="?r=shop/shop_center">商家中心首页</a></li>
+   <li><i></i><a href="?r=shop/shop_complete_info">完善信息</a></li>
+   <li><i></i><a href="?r=shop/shop_foods">菜谱</a></li>
+   <li><i></i><a href="?r=shop/shop_addfood">添加菜谱</a></li>
+   <li><i></i><a href="?r=shop/shop_orders">订单</a></li>
+   <li><i></i><a href="?r=shop/shop_tickets">优惠券</a></li>
+   <li><i></i><a href="?r=shop/shop_issue_tickets">发行优惠券</a></li>
+   <li><i></i><a href="?r=shop/shop_messages">顾客留言</a></li>
+   <!-- <li><i></i><a href="user_account.html">账户管理</a></li> -->
+   <li><i></i><a href="?r=login/login_out">安全退出</a></li>
+  </ul>
+ </nav>
+ <?= $content?>
 <div class="F-link">
   <span>友情链接：</span>
   <a href="http://www.deathghost.cn" target="_blank" title="DeathGhost">DeathGhost</a>
@@ -126,3 +139,4 @@ Author URI: http://www.deathghost.cn
 </footer>
 </body>
 </html>
+

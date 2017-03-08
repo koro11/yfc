@@ -11,4 +11,8 @@ class LoginController extends Controller
         return $this->render('login');
     }
     
+    public function actionRegister()
+    {
+        return $this->render('register');
+    }
 }

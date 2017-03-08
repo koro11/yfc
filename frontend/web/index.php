@@ -1,4 +1,8 @@
 <?php
+
+header("content-type:text/html;charset=utf8");
+
+
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
