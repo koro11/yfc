@@ -7,7 +7,7 @@ use Yii;
 //use yii\filters\VerbFilter;
 //use yii\filters\AccessControl;
 use yii\web\Controller;
-use frontend\models\Shuffing;
+use frontend\models\Shuffing; 
 use frontend\models\Hot_word;
 use frontend\models\District;
 use frontend\models\MerCategory;
@@ -127,7 +127,7 @@ class IndexController extends Controller
             //菜品分类
             $foodcate = FoodCategory::find()->asArray()->all();
             return $this->render('get_cate',['type'=>1,'foodcate'=>$foodcate]);
-        }else{
+        }else{ 
             //餐馆分类
             $mercate = MerCategory::find()->asArray()->all();
             return $this->render('get_cate',['type'=>2,'mercate'=>$mercate]);
