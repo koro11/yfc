@@ -131,7 +131,7 @@ class IndexController extends Controller
     public function actionShop_index()
     {
     	// 哪个商家
-        $mer_id = 2; 
+        $mer_id = \Yii::$app->request->get('mer');
         
         //商家信息
         $merchant_info = new Merchant_info;

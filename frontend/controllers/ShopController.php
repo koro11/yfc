@@ -8,9 +8,11 @@ use frontend\models\Merchant_info;
 use frontend\models\Food_category;
 use frontend\models\Orders;
 use frontend\models\Food;
+use frontend\controllers\CommonController;
 use frontend\models\Tickets;
 use yii\web\UploadedFile;
 use yii\data\Pagination;
+use yii\web\Session;
 /**
  * Yii2.0 ShopController  
  * 商家管理控制器          
@@ -20,6 +22,7 @@ use yii\data\Pagination;
  */
 class ShopController extends Controller
 {
+    
     public $layout = '@app/views/layouts/center_nav.php';
     public $enableCsrfValidation = false;
     public static $merchant = 1;
