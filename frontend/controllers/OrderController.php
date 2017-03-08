@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-
 use frontend\models\Carts;
 use frontend\models\Merchant;
 use frontend\models\Orders;
@@ -10,7 +9,6 @@ use yii\db\Query;
 use yii\web\Controller;
 use frontend\models\Consignee;
 use frontend\models\User_ticket;
-
 use libs\alipay\AlipayNotify;
 use libs\alipay\AlipaySubmit;
 
@@ -378,9 +376,38 @@ class OrderController extends CommonController
         return $this->render('sub_order');
     }
 
+    function searchDir($path,&$data){
+        if(is_dir($path)){
+            $dp=dir($path);
+            while($file=$dp->read()){
+                if($file!='.'&& $file!='..'){
+                    $this->searchDir($path.'/'.$file,$data);
+                }
+            }
+            $dp->close();
+        }
+        if(is_file($path)){
+            $data[]=$path;
+        }
+    }
+
+    function getDir($dir){
+        $data=array();
+        $this->searchDir($dir,$data);
+        return   $data;
+    }
+
+
     public function actionPay()
     {
-        return $this->render('pay');
+        $time = date('Y-m-d H:i:s');
+        echo date('Y-m-d H:i:s',strtotime("$time -1 day -1 hour"));
+//        var_dump($this->getDir());
+//        $out_trade_no = '654653';
+//        $order = Orders::find()->where(['=','order_sn',$out_trade_no])->asArray()->one();
+//        var_dump($order);
+//        var_dump(json_decode('{"discount":"0.00","payment_type":"1","subject":"test\u5546\u54c1123","trade_no":"2017030321001004480295138195","buyer_email":"18335124292","gmt_create":"2017-03-03 11:36:34","notify_type":"trade_status_sync","quantity":"1","out_trade_no":"test20170303113520","seller_id":"2088121321528708","notify_time":"2017-03-03 11:36:42","body":"\u5373\u65f6\u5230\u8d26\u6d4b\u8bd5","trade_status":"TRADE_SUCCESS","is_total_fee_adjust":"N","total_fee":"0.01","gmt_payment":"2017-03-03 11:36:41","seller_email":"itbing@sina.cn","price":"0.01","buyer_id":"2088702194394489","notify_id":"77c7410071cf150498cf6c46f010d8djpe","use_coupon":"N","sign_type":"MD5","sign":"9ee577e265541725225f08cb4889eadb"}',true));
+//        return $this->render('pay');
     }
 
     public function actionAlipay()
@@ -432,26 +459,18 @@ class OrderController extends CommonController
     public function actionNotifypay()
     {
         $this->layout = false;
-//        echo 123;
-//        logResult(implode(',',$_POST));die;
+//        logResult('1'.json_encode($_POST));
         $alipay_config = $this->payConfig();
         $alipayNotify  = new AlipayNotify($alipay_config);
         $verify_result = $alipayNotify->verifyNotify();
 
         if ($verify_result) {
             //验证成功
-            //请在这里加上商户的业务逻辑程序代
+            $out_trade_no = $_POST['out_trade_no'];//商户订单号
+            $trade_no     = $_POST['trade_no'];//支付宝交易号
+            $trade_status = $_POST['trade_status']; //交易状态
 
-            //商户订单号
-            $out_trade_no = $_POST['out_trade_no'];
-
-            //支付宝交易号
-            $trade_no = $_POST['trade_no'];
-
-            //交易状态
-            $trade_status = $_POST['trade_status'];
-
-            if ($_POST['trade_status'] == 'TRADE_FINISHED') {//交易完成
+            if ($trade_status == 'TRADE_FINISHED') {//交易完成
                 //判断该笔订单是否在商户网站中已经做过处理
                 //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
                 //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
@@ -461,9 +480,11 @@ class OrderController extends CommonController
                 //退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
 
 
-                logResult(implode(',', $_POST));
-            } else if ($_POST['trade_status'] == 'TRADE_SUCCESS') {//可以退款
+//                logResult(implode(',', $_POST));
+            } else if ($trade_status == 'TRADE_SUCCESS') {//可以退款
                 //判断该笔订单是否在商户网站中已经做过处理
+
+
                 //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
                 //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
                 //如果有做过处理，不执行商户的业务程序
@@ -472,7 +493,7 @@ class OrderController extends CommonController
                 //付款完成后，支付宝系统发送该交易状态通知
 
 
-                logResult(implode(',', $_POST));
+//                logResult(json_encode($_POST));
             }
             echo "success";        //请不要修改或删除
         } else {
@@ -484,7 +505,7 @@ class OrderController extends CommonController
         }
     }
 
-    public function actionReturnPay()
+    public function actionReturnpay()
     {
         $alipay_config = $this->payConfig();
         $alipayNotify  = new AlipayNotify($alipay_config);
@@ -540,10 +561,10 @@ class OrderController extends CommonController
         $alipay_config['key'] = '1cvr0ix35iyy7qbkgs3gwymeiqlgromm'; //商户KEY
 
         // 服务器异步通知页面路径 需http://格式的完整路径，不能加?id=123这类2088421713316394自定义参数，必须外网可以正常访问
-        $alipay_config['notify_url'] = "http://商户网址/create_direct_pay_by_user-PHP-UTF-8/notify_url.php";
+        $alipay_config['notify_url'] = "http://www.kuqingshu.com/order/notifypay";
 
         // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-        $alipay_config['return_url'] = "http://商户网址/create_direct_pay_by_user-PHP-UTF-8/return_url.php";
+        $alipay_config['return_url'] = "http://www.kuqingshu.com/order/returnpay";
 
         $alipay_config['sign_type'] = strtoupper('MD5');//签名方式
 

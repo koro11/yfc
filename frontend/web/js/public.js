@@ -51,14 +51,18 @@ document.getElementById("style"+arg).style.border = "1px #ffe580 solid";
 function getUrl(){
 	var href = top.location.href;
 	var _index = href.indexOf('?');
-	var str = href.substr(_index+1);
-	str = str.split('&');
+	var str = '';
 	var arr = new Object();
-	for(var i=0;i<str.length;i++){
-		var a = str[i];
-		a = a.split('=');
-		var b = a[0];
-		arr[b] = a[1] ? a[1] : '';
+	if(_index != -1){
+		str = href.substr(_index+1);
+		str = str.split('&');
+		for(var i=0;i<str.length;i++){
+			var a = str[i];
+			a = a.split('=');
+			var b = a[0];
+			arr[b] = a[1] ? a[1] : '';
+		}
+		return arr;
 	}
 	return arr;
 }
@@ -81,7 +85,6 @@ function getHotWords(type) {
 }
 
 getHotWords(0);
-
 
 $(document).on('click',".hotSearch",function(){
 	$("#fkeyword").val($(this).html());

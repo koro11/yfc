@@ -7,6 +7,7 @@ use yii\db\ActiveRecord;
 use yii\db\Command;
 class Orders extends ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
