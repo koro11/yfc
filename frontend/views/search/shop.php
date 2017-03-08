@@ -1,3 +1,8 @@
+<?php
+use yii\web\Session;
+use \yii\db\Query;
+
+?>
 <!--Start content-->
 <?php use \yii\helpers\Url;?>
 <section class="Psection">
@@ -150,8 +155,26 @@
                 <span class="s-up"></span>
             </span>
         </a>
+        <?php 
+        $session = Yii::$app->session;
+        $user_id = $session->get('user_id');
+        if (empty($user_id)){?>
+            
+        <?php }else{?>
+                <a href="javascript:;" order="address" title="距离排序">
+            <span>
+                <span>最近</span>
+                <span class="s-up"></span>
+            </span>
+        </a>
+        <?php }?>
+        
     </section>
-
+            <script type="text/javascript">
+                $(document).delegate("#address","click",function(){
+                    location.href="?r=search/search&coor=coor";
+                })
+            </script>
     <section class="Fsl">
         <ul>
             <?php if(empty($shop)){ ?>
@@ -166,7 +189,9 @@
                 </hgroup>
                 <p>菜系：<?=$v['cat_name'];?></p>
                 <p>地址：<?=$v['mer_address'];?></p>
-                <p>人均：<?=$v['info_catipa'];?>元</p>
+               <?php if (isset($v['juli'])) {?>
+                <p>距离：<?=$v['juli'];?>米</p>
+               <?php }?>
                 <p>
                     <span class="Score-l">
                         <img src="images/star-on.png">

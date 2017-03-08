@@ -2,6 +2,8 @@
 namespace frontend\controllers;
 
 use Yii;
+use yii\web\Request; 
+use DB;
 //use yii\base\InvalidParamException;
 //use yii\web\BadRequestHttpException;
 
@@ -77,6 +79,7 @@ class IndexController extends Controller
         $data['merchant'] = $merchant;
         $data['speak'] = $speak;
 		return $this->render('index',$data);
+
 	}
 
 	//热搜
@@ -131,8 +134,8 @@ class IndexController extends Controller
     public function actionShop_index()
     {
     	// 哪个商家
-        $mer_id = 2; 
-        
+        $mer_id = \Yii::$app->request->get('mer');
+        // $mer_id = 1;
         //商家信息
         $merchant_info = new Merchant_info;
         $merchant = $merchant_info->find()
@@ -142,7 +145,8 @@ class IndexController extends Controller
                         ->asArray()
                         ->one();
         //存入cookie,浏览历史
-        $shop_desc = [
+        if ($merchant) {
+           $shop_desc = [
                      'info_mer'=>$merchant['info_mer'],
                      'info_mername'=>$merchant['merchant']['mer_name'],
                      'info_image'=>$merchant['info_image'],
@@ -150,7 +154,8 @@ class IndexController extends Controller
                      ] ;
         // var_dump($shop_desc);die();
         $this->index_history($shop_desc);
-
+        }
+        
         $cookies = Yii::$app->request->cookies;                      //注意此处是request
         $get_history = $cookies->get('shop_history', 'defaultName');//设置默认值
         $shop_history = unserialize($get_history);
@@ -386,4 +391,23 @@ class IndexController extends Controller
         return $this->render('about_us');
 	}
 
+
+	/*添加用户经纬度*/
+	public function actionAdd_coor()
+	{
+		$arr=Yii::$app->request->get();unset($arr['r']);
+		$res=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$arr['user_id']."")->queryOne();
+		if (empty($res)) 
+		{
+			$resa=Yii::$app->db->createCommand()->update("yfc_user_coor",$arr)->execute();
+		}
+		else
+		{
+			$resa=Yii::$app->db->createCommand()->update("yfc_user_coor",$arr,"user_id=:user_id",[":user_id"=>$arr['user_id']])->execute();
+		}
+		$resb=$resa ? 1  : 0;
+		return $resb;
+	}
+
+	
 }

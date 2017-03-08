@@ -198,9 +198,14 @@ $(function(){
             var id = $('input[name="food"]').val();
             var num = $('input[name="Number"]').val();
             $.get('<?=Url::to('menu/addcart')?>',{id:id,num:num},function(data){
+
                 if(data.status == 1){
                     if(window.confirm('成功加入购物车,是否进行结算')){
-                        document.location = 'http://127.0.0.1/dongxin/yfc/frontend/web/index.php?r=cart/cart';
+                        document.location = '<?=Url::to('cart/cart')?>';
+                    }
+                }else if(data.status == '-1'){
+                    if(window.confirm('此商品已经存在购物车中,是否进入购物车')){
+                        document.location = '<?=Url::to('cart/cart')?>';
                     }
                 }else{
                     alert(data.msg);

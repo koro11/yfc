@@ -64,6 +64,8 @@ $(document).ready(function () {
 		GetCount();
 	});
 });
+
+
 //******************
 function GetCount() {
 	var conts = 0;
@@ -96,11 +98,12 @@ function GetCount() {
 }
 //ADD:对删除链接进行处理2014-9-20DeathGhost
     $(function(){
+		var urls = $("#url").val();
 		$(".tb1_td7").click(function(){
 			var _this = $(this);
 			var cartId = _this.find('a').attr('foodid');
 			//alert(cartId);return false;
-			$.get('?r=cart/delcart',{cartId:cartId},function(data){
+			$.get(urls+'cart/delcart',{cartId:cartId},function(data){
 				if(data.status==1){
 					_this.parent().parent().remove();
 				}else{
@@ -145,6 +148,7 @@ function GetCount() {
 	})
 //结算
 $(function(){
+	var urls = $("#url").val();
 	var status = '1';
 	$('#jz2').click(function(){
 		var box = $('input[name=newslist]:checked');
@@ -182,7 +186,7 @@ $(function(){
 			alert('网络状态异常,请重试');
 			return false;
 		}
-		$.get('?r=cart/settlement',{order:cart,store:store},function(data){
+		$.get(urls+'cart/settlement',{order:cart,store:store},function(data){
 			if(data.status == '0'){
 				alert(data.msg);
 				return false;
@@ -195,9 +199,10 @@ $(function(){
 
 	function savenum(num,id)
 	{
+		var urls = $("#url").val();
 		$.ajax({
 			type: "get",
-			url: "?r=cart/savenum",
+			url: urls+"cart/savenum",
 			data: {num:num,id:id},
 			asynv:false,
 			dataType: 'json',

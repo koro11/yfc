@@ -1,4 +1,4 @@
-
+<?php use yii\helpers\Url ;?>
 <style>
   .login_wrap{
   background: url(../images/logo_bg.jpg) no-repeat center;
@@ -144,7 +144,7 @@ window.onload = function () {
  <article>
   <div class="shopinfor">
    <div class="title">
-    <img src="upload/wpjnewlogo.jpg" class="shop-ico">
+    <img src="<?=$shop_info['merchant']['mer_logo']?>" class="shop-ico">
     <span><?=$shop_info['merchant']['mer_name']?></span>
     <span>
      <img src="images/star-on.png">
@@ -186,15 +186,13 @@ window.onload = function () {
      <p><span>人均消费：</span><?=$shop_info['merchant']['info_catipa']?>元</p>
      <div class="Button">
 
-     <?php if ($shop_info['merchant']['mer_status'] == 0): ?>      
-      <a href="#ydwm"><span class="DCbutton">查看菜谱点菜</span></a>
-        <?php else: ?>
-          <font color="red">该商家目前暂不提供服务，请耐心等候...</font>
+     <?php if ($shop_info['merchant']['mer_status'] == 1): ?>      
+        <font color="red">该商家目前暂不提供服务，请耐心等候...</font>
         <?php endif ?>
 
      </div>
      <div class="otherinfor">
-     <a href="<?=$shop_info['info_mer']?>" class="icoa"><img src="images/collect.png">收藏店铺（<?=$shop_collect_num?>）</a>
+     <a href="javascript:void(0)" class="icoa" mid="<?=$shop_info['info_mer']?>"><img src="images/collect.png">收藏店铺（<?=$shop_collect_num?>）</a>
      <div class="bshare-custom"><a title="分享" class="bshare-more bshare-more-icon more-style-addthis">分享</a></div>
    <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
      </div>
@@ -211,38 +209,37 @@ window.onload = function () {
     </ul>
   </div>
   <div class="menutab-wrap">
-   <a name="ydwm">
+   <div name="ydwm">
     <!--case1-->
     <div class="menutab show">
      <ul class="products">
-
-    <?php foreach ($shop_foods as $key => $value): ?>    
-    <li>
-     <a href="?r=index/<?php echo $shop_info['merchant']['mer_status'] == 1 ? 'shop_index#': 'foods&f='.$value['food_id'];?>" target="_blank" title="<?=$value['food_name']?>">
-         <img src="<?=$value['food_image']?>" class="foodsimgsize">
-         </a>
-          <a href="#" class="item">
-     <div>
-      <p><?=$value['food_name']?></p>
-      <p class="AButton">拖至购物车:￥<?=$value['food_price']?></p>
-     </div>
-     </a>
-    </li>
+      <?php foreach ($shop_foods as $key => $value): ?>    
+      <li>
+       <a href="<?php echo $shop_info['merchant']['mer_status'] == 1 ? Url::to(['index/shop_index','mer'=>$shop_info['info_mer']]): Url::to(['menu/details','id'=>$value['food_id']]);?>" target="_blank" title="<?=$value['food_name']?>">
+           <img src="<?=$value['food_image']?>" class="foodsimgsize">
+       </a>
+      <div class="item">
+       <div>
+        <p><?=$value['food_name']?></p>
+        <p class="AButton">拖至购物车:￥<?=$value['food_price']?></p>
+       </div>
+       </div>
+      </li>
     <?php endforeach ?>
     <div class="TurnPage">
     <?=$shop_foods_pages?>
     </div> 
    </ul>
-   
-    </a>
     </div>
+    <!--case1-->
+
     <!--case2-->
     <div class="menutab">
      <?php foreach ($shop_comment as $ck => $cv): ?>
        
      <div class="shopcomment">
       <div class="Spname">
-       <a href="?r=menu/detai&id=<?=$cv['food_id']?>" target="_blank" title="<?=$cv['food_name']?>"><img src="<?=$cv['food_image']?>" width="70"></a>
+       <a href="<?=Url::to(['menu/details','id'=>$cv['food_id']]);?>" target="_blank" title="<?=$cv['food_name']?>"><img src="<?=$cv['food_image']?>" width="70"></a>
       </div>
       <div class="C-content">
        <q><?=$cv['speak_body']?></q>
@@ -253,8 +250,9 @@ window.onload = function () {
       </div>
      </div>
      <?php endforeach ?>
-
     </div>
+    <!--case2-->
+
     <!--case4-->
     <div class="menutab">
      <div class="shopdetails">
@@ -270,19 +268,19 @@ window.onload = function () {
      </div>
     </div>
     </div>
+    <!--case4-->
+  
     <!--case5-->
     <div class="menutab">
      <div class="message_list">
-      <?php foreach ($shop_message as $k => $v): ?>
-        
-     <span class="Ask"><i><?=$v['user_name']?></i>:<?=$v['m_message']?>-<i>于<?=$v['m_addtime']?></i></span>
-      <?php if ($v['back']!=''): ?>
-        
-     <span class="Answer"><i><?=$v['back']['mer_name']?>回复</i>：<?=$v['back']['m_message']?>-<i><?=$v['back']['m_addtime']?></i></span>
-      <?php endif ?>
-      <?php endforeach ?>
+      <?php foreach ($shop_message as $k => $v): ?>     
+         <span class="Ask"><i><?=$v['user_name']?></i>:<?=$v['m_message']?>-<i>于<?=$v['m_addtime']?></i></span>
+          <?php if ($v['back']!=''): ?>
+            
+         <span class="Answer"><i><?=$v['back']['mer_name']?>回复</i>：<?=$v['back']['m_message']?>-<i><?=$v['back']['m_addtime']?></i></span>
+          <?php endif ?>
+          <?php endforeach ?>
      </div>
-
     <div>
       <input type="hidden" class="user_id">
       <input type="hidden" class="mer_status" value="<?=$shop_info['merchant']['mer_status']?>">
@@ -291,8 +289,9 @@ window.onload = function () {
       <textarea class="user_message" id="" cols="50" rows="3"></textarea>
       <button class="show_btn" >留言</button>
     </div>
-
     </div>
+    <!--case5 -->
+
   </div>
 </div>
  </article>
@@ -327,7 +326,7 @@ window.onload = function () {
                 <button type="button" class="log_btn">登录</button>
               </div>
               <div class="form_reg_btn">
-                <span>还没有帐号？</span><a href="?r=register/user_register">马上注册</a>
+                <span>还没有帐号？</span><a href="<?=Url::to(['register/user_register'])?>">马上注册</a>
               </div>
             </form>
             <div class="other_login">
@@ -378,10 +377,10 @@ window.onload = function () {
    <?php if ($shop_history): ?>   
    <?php foreach ($shop_history as $sk => $sv): ?> 
     <li>
-    <a href="?r=index/shop_index&mer=<?=$sv['info_mer']?>" target="_blank" title="<?=$sv['info_mername']?>"><img src="<?=$sv['info_image']?>"></a>
+    <a href="<?=Url::to(['index/shop_index','mer'=>$sv['info_mer']]);?>" target="_blank" title="<?=$sv['info_mername']?>"><img src="<?=$sv['info_image']?>"></a>
     <p>
      <span class="shopname" title="动态调用完整标题">
-     <a href="?r=index/shop_index&mer=<?=$sv['info_mer']?>" target="_blank" title="<?=$sv['info_mername']?>"><?=$sv['info_mername']?></a>
+     <a href="<?=Url::to(['index/shop_index','mer'=>$sv['info_mer']]);?>" target="_blank" title="<?=$sv['info_mername']?>"><?=$sv['info_mername']?></a>
      <br>
      <span><?=$sv['info_address']?></span>
      </span>
@@ -393,7 +392,9 @@ window.onload = function () {
    </ul>
   </div>
  </aside>
- 
+<input type="hidden" class="page_url" value="<?=Url::to(['index/get_ajax']);?>">
+<input type="hidden" class="this_url" value="<?=Url::to(['index/shop_index']);?>">
+<input type="hidden" class="clear_url" value="<?=Url::to(['index/clear_history']);?>">
 </section>
 <!--End content-->
 <script type="text/javascript">
@@ -418,10 +419,11 @@ window.onload = function () {
   function page(p){
     
     var mid = $(".mer_id").val();
+    var page_url = $('.page_url').val();
     // alert(mid);return false;
     $.ajax({
        type: "GET",
-       url: "?r=index/get_ajax",
+       url: page_url,
        data: {p:p,mid:mid},
        dataType:'json',
        success: function(msg){
@@ -435,13 +437,14 @@ window.onload = function () {
   function str1(data)
   {
     var str = '';
+    var this_url = $('.this_url').val();
     var mer_status = $('.mer_status').val();
     // alert(mer_status);return false;
     if (mer_status == 1) 
       {
         $.each(data.msg,function(k,v){
          str+='<li>'
-            + '<a href="?r=index/shop_index#" target="_blank" title="'+v.food_name+'"><img src="'+v.food_image+'" class="foodsimgsize"></a>'
+            + '<a href="'+this_url+'" target="_blank" title="'+v.food_name+'"><img src="'+v.food_image+'" class="foodsimgsize"></a>'
             + '<a href="#" class="item">'
             + '<div>'
             + '<p>'+v.food_name+'</p>'
@@ -455,7 +458,7 @@ window.onload = function () {
       {
         $.each(data.msg,function(k,v){
          str+='<li>'
-            + '<a href="?r=index/foods&f='+v.food_id+'" target="_blank" title="'+v.food_name+'"><img src="'+v.food_image+'" class="foodsimgsize"></a>'
+            + '<a href="menu/details?&id='+v.food_id+'" target="_blank" title="'+v.food_name+'"><img src="'+v.food_image+'" class="foodsimgsize"></a>'
             + '<a href="#" class="item">'
             + '<div>'
             + '<p>'+v.food_name+'</p>'
@@ -471,7 +474,7 @@ $(function(){
       //清除浏览记录
     $('.clear_history').click(function(){
       
-      $.get('?r=index/clear_history',function(data){
+      $.get("<?=Url::to(['index/clear_history']);?>",function(data){
         if (data == 1) { 
          alert('清除浏览记录成功')
          $('.history_list').hide();
@@ -481,7 +484,7 @@ $(function(){
 
       //留言
      $(".show_btn").click(function () {
-        $.get('?r=index/check_login',function(data){
+        $.get("<?=Url::to(['index/check_login']);?>",function(data){
             if(data == 0)
             {
               showDiv();
@@ -501,7 +504,7 @@ $(function(){
                 
                    $.ajax({
                      type: "POST",
-                     url: "?r=message/message_add",
+                     url: "<?=Url::to(['message/message_add']);?>",
                      data: 
                      {
                       m_user:user_id,
@@ -565,7 +568,7 @@ $(function(){
             }
             else
             {
-              $.get('?r=index/check_user_phone',{user_phone:obj['username']},function(phone_msg){
+              $.get("<?=Url::to(['index/check_user_phone']);?>",{user_phone:obj['username']},function(phone_msg){
                 if(phone_msg == 1)
                 {
                   this_phone.next().next().text('该手机号尚未注册').removeClass('state1').addClass('state3');
@@ -584,7 +587,7 @@ $(function(){
      $('.log_btn').click(function(){
       
       obj['userpass']  = $("input[name=password]").val();
-      $.get('?r=index/check_user_login',obj,function(usr_data){
+      $.get("<?=Url::to(['index/check_user_login']);?>",obj,function(usr_data){
        if (usr_data == 0) {
         alert('密码错误')
         $("input[name=password]").focus()

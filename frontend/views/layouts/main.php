@@ -1,7 +1,9 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
+
 use \yii\helpers\Url;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +20,11 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
+
+</head>
+
 <style>
     .p3button{
         cursor: pointer;
@@ -39,7 +45,7 @@ use \yii\helpers\Url;
         {
             $query = new Query;
             $username = $query->select('user_name')->from('yfc_user_info')->where(['user_id'=>$user_id])->one();
-            echo '欢迎用户    '.$username['user_name'].'   登录';
+            echo '欢迎用户    <span id="user_id" user_id="'.$user_id.'">'.$username['user_name'].'</span>   登录';
         } 
         else if($mer_id!="")
         {
@@ -68,8 +74,26 @@ use \yii\helpers\Url;
         <div class="Logo">
             <img src="images/logo.jpg" title="DeathGhost" alt="模板">
             <i></i>
-            <span>北京市 [ <a href="#">海淀区</a> ]</span>
+
+            <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
+                <span id="adress">北京市</span>
+            <?php }else{?>
+            <?php 
+                $coor=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
+            if(empty($coor)){?>
+                <span id="adress">北京市 请输入:[<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" />]</span>
+             <div id="l-map" style="display:none"></div>
+                     <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+             <?php }else{?>  
+              <span id="adress"> <input type="text" id="suggestId" size="20" placeholder="<?php echo $coor['coor_address']?>"  style="width:150px;"  />&nbsp;&nbsp;&nbsp;&nbsp;<a herf="#" id="up">修改</a></span>
+             <div id="l-map" style="display:none"></div>
+            <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+             <?php }?>      
+            <?php }?>         
+
         </div>
+       
+            
         <div class="Search">
             <form method="get" action="<?=Url::to('search/search')?>">
 <!--                <input type="hidden" name="r" value="search/search">-->
@@ -166,3 +190,91 @@ use \yii\helpers\Url;
 </footer>
 </body>
 </html>
+<script type="text/javascript">
+    // 百度地图API功能
+    function G(id) {
+        return document.getElementById(id);
+    }
+
+    var map = new BMap.Map("l-map");
+    map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        {"input" : "suggestId"
+        ,"location" : map
+    });
+
+    ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+    var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }    
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+        
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }    
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+
+    var myValue;
+    ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+    var _value = e.item.value;
+        myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+        
+        setPlace();
+    });
+
+    function setPlace(){
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun(){
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+        $(document).delegate("#suggestId","blur",function(){
+        var name=$(this).val();
+        $("#adress").html(name);
+        var adds = new Array();
+        adds[0]=name;
+        geocodeSearch(adds);
+    })      
+        
+    }
+    function geocodeSearch(add){
+        var myGeo = new BMap.Geocoder();
+        myGeo.getPoint(add, function(point){
+            if (point) {
+                var address = new BMap.Point(point.lng, point.lat);
+                var user_id=$("#user_id").attr("user_id");
+                var coor_address=add[0];
+                var user_lng=address.lng;
+                var user_lat=address.lat;
+                $.ajax({
+                    type:"get",
+                    url:'?r=index/add_coor',
+                    data:'user_id='+user_id+'&coor_address='+coor_address+'&user_lng='+user_lng+'&user_lat='+user_lat,
+                    success:function(msg)
+                    {
+                        if (msg!=1) 
+                        {
+                            alert('地址设置失败');
+                        }
+                    }
+                });
+            }
+        }, "北京市");
+    }
+    
+</script>
+<script type="text/javascript">
+    $(document).delegate("#up","click",function(){
+        $("#suggestId").attr({placeholder:"请输入"});
+    })
+</script>

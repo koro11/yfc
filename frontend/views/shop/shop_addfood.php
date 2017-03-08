@@ -1,3 +1,4 @@
+<?php use yii\helpers\Url; ?>
 <!--Start content-->
 
  <article class="U-article Overflow">
@@ -5,7 +6,7 @@
   <section class="AccManage Overflow">
    <span class="AMTitle Block Font14 FontW Lineheight35">添加菜谱</span>
   
-   <form action="?r=shop/shop_addfood_act" method="post" enctype="multipart/form-data">
+   <form action="<?=Url::to(['shop/shop_addfood_act'])?>" method="post" enctype="multipart/form-data">
     <table >
     <input type="hidden" name="food_mer" value="<?=$merchant['mer_id']?>">
     <input type="hidden" name="food_mername" value="<?=$merchant['mer_name']?>">

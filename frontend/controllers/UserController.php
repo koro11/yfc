@@ -4,16 +4,19 @@ namespace frontend\controllers;
 use yii\data\Pagination;
 use DB;
 use Yii;
-use frontend\models\Food;
-use frontend\models\Collect;
-use frontend\models\User_info;
-use frontend\models\Orders;
-use frontend\models\User_ticket;
+use  frontend\models\Food;
+use  frontend\models\Date;
+use  frontend\models\Collect;
+use  frontend\models\Merchant;
+use  frontend\models\User_info;
+use  frontend\models\Orders;
+use  frontend\models\User_ticket;
+use  frontend\models\Tickets;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\helpers\Url;
 
-class UserController extends Controller
+class UserController extends CommonController
 {
 
     public $enableCsrfValidation = false;
@@ -23,30 +26,33 @@ class UserController extends Controller
     public function actionUser_index()
     {
         //相当于获取用户id 
+
         $session = Yii::$app->session;
         $user_id = $session->get('user_id');
-
         //实例化模型层并且查询用户信息（积分在用户信息表中）  
         $info = new User_info;
         $user = $info->find()->joinWith('users')->where(['yfc_user_info.user_id' => $user_id])->asArray()->one();
+        if ($user) {
+            /*var_dump($user);die;*/
+            //查询优惠券信息
+            $user['ticket'] = count(Yii::$app->db->createCommand('select * from yfc_user_ticket where user_id=' . $user_id . '')->queryAll());
 
-        //查询优惠券信息
-        $user['ticket'] = count(Yii::$app->db->createCommand('select * from yfc_user_ticket where user_id=' . $user_id . '')->queryAll());
+            //分类查询待付款，待收货，待发货，待评价
 
-        //分类查询待付款，待收货，待发货，待评价
-        $pay               = 'select * from yfc_orders where user_id=' . $user_id . ' and order_status=0  and pay_status=0';
-        $ship              = 'select * from yfc_orders where user_id=' . $user_id . ' and order_status=0  and shipping_status=0 and pay_status=1';
-        $shipping          = 'select * from yfc_orders where user_id=' . $user_id . ' and order_status=0  and shipping_status!=2 and pay_status=1';
-        $speak             = "select * from yfc_orders where user_id=" . $user_id . " and order_status=0 and order_speak=0 and shipping_status=2 and pay_status=1";
-        $order['pay']      = count(Yii::$app->db->createCommand($pay)->queryAll());
-        $order['ship']     = count(Yii::$app->db->createCommand($ship)->queryAll());
-        $order['shipping'] = count(Yii::$app->db->createCommand($shipping)->queryAll());
-        $order['speak']    = count(Yii::$app->db->createCommand($speak)->queryAll());
+            $pay      = 'select * from yfc_orders where user_id=' . $user_id . ' and order_status=0  and pay_status=0';
+            $ship     = 'select * from yfc_orders where user_id=' . $user_id . ' and order_status=0  and shipping_status=0 and pay_status=1';
+            $shipping = 'select * from yfc_orders where user_id=' . $user_id . ' and order_status=0  and shipping_status!=2 and pay_status=1';
 
-        //指向试图
-        return $this->render('user_index', ['user' => $user, 'order' => $order]);
+            $speak             = "select * from yfc_orders where user_id=" . $user_id . " and order_status=0 and order_speak=0 and shipping_status=2 and pay_status=1";
+            $order['pay']      = count(Yii::$app->db->createCommand($pay)->queryAll());
+            $order['ship']     = count(Yii::$app->db->createCommand($ship)->queryAll());
+            $order['shipping'] = count(Yii::$app->db->createCommand($shipping)->queryAll());
+            $order['speak']    = count(Yii::$app->db->createCommand($speak)->queryAll());
+            // var_dump($order);die;
+            //指向试图
+            return $this->render('user_index', ['user' => $user, 'order' => $order]);
+        }
     }
-
 
     //用户优惠券
     public function actionUser_coupon()
@@ -60,7 +66,6 @@ class UserController extends Controller
         $user   = $ticket->find()->with('tickets')->where(['yfc_user_ticket.user_id' => $user_id])->asArray()->All();
         return $this->render('user_coupon', ['user' => $user]);
     }
-
 
     /*删除优惠券*/
     public function actionDel_tic()
@@ -80,7 +85,6 @@ class UserController extends Controller
         $arr     = Yii::$app->db->createCommand("select * from yfc_consignee where user_id=" . $user_id . "")->queryAll();
         return $this->render('user_address', ['arr' => $arr]);
     }
-
 
     //用户删除地址
     public function actionDel_address()
@@ -130,7 +134,6 @@ class UserController extends Controller
         }
     }
 
-
     //用户收藏
     public function actionUser_collect()
     {
@@ -168,13 +171,11 @@ class UserController extends Controller
         $order_id = Yii::$app->request->get('order_id');
 
         /*实例化模型层，两表联查 查询订单表和详细订单表*/
-        $orders = new Orders;
-        $arr    = $orders->find()->joinWith('date')->where(['yfc_orders.order_id' => $order_id])->asArray()->one();
+        $orders  = new Date;
+        $arr     = $orders->find()->joinWith('orders')->where(['yfc_date.order_id' => $order_id])->asArray()->All();
+        $address = Yii::$app->db->createCommand('select * from yfc_consignee where cons_id=' . $arr[0]['orders']['address_id'] . '')->queryOne();
+        return $this->render('user_order', ['arr' => $arr, 'address' => $address]);
 
-        $arr['food']   = Yii::$app->db->createCommand('select * from yfc_food where food_id=' . $arr['date']['food_id'] . '')->queryOne();
-        $arr['adress'] = Yii::$app->db->createCommand('select * from yfc_consignee where cons_id=' . $arr['address_id'] . '')->queryOne();
-
-        return $this->render('user_order', ['arr' => $arr]);
     }
 
 
@@ -211,11 +212,9 @@ class UserController extends Controller
         $order_id = Yii::$app->request->get('order_id');
 
         /*实例化模型层，两表联查 查询订单表和详细订单表*/
-        $orders          = new Orders;
-        $arr             = $orders->find()->joinWith('date')->where(['yfc_orders.order_id' => $order_id])->asArray()->one();
-        $arr['food']     = Yii::$app->db->createCommand('select * from yfc_food where food_id=' . $arr['date']['food_id'] . '')->queryOne();
-        $arr['order_id'] = $order_id;
 
+        $orders = new Date;
+        $arr    = $orders->find()->joinWith('orders')->where(['yfc_date.order_id' => $order_id])->asArray()->All();
         return $this->render('order_speak', ['arr' => $arr]);
     }
 
@@ -223,16 +222,19 @@ class UserController extends Controller
     /*订单评价入库*/
     public function actionSpeak_save()
     {
+
         $arr      = Yii::$app->request->post();
         $order_id = $arr['order_id'];
         unset($arr['order_id']);
         $arr['create_time'] = time();
+        $food_id            = explode(',', $arr['food_id']);
         /*插入评论*/
         $res = Yii::$app->db->createCommand()->insert('yfc_speak', $arr)->execute();
         /*获取刚插入ID*/
         $order_speak = Yii::$app->db->getLastInsertId();
         /*菜品评论+1*/
-        $res = Food::updateAllCounters(['food_comment_num' => 1], ['food_id' => $arr['food_id']]);
+
+        $res = Food::updateAllCounters(['food_comment_num' => 1], ['food_id' => $food_id[0]]);
         /*修改订单状态*/
         $update = Yii::$app->db->createCommand()
             ->update('yfc_orders', ['order_speak' => $order_speak], "order_id=:order_id", [':order_id' => $order_id])
@@ -275,8 +277,8 @@ class UserController extends Controller
             'pages'  => $pages,
             'name'   => $name
         ]);
-    }
 
+    }
 
     /*删除订单*/
     public function actionDel_order()
@@ -284,8 +286,13 @@ class UserController extends Controller
         $order_id = Yii::$app->request->get('order_id');
         $res      = Yii::$app->db->createCommand()->delete("yfc_orders", "order_id=:order_id", [':order_id' => $order_id])->execute();
         if ($res) {
-            return $this->redirect(Url::to('/user/user_orderlist'), 301);
+            $order_id = Yii::$app->request->get('order_id');
+            $res      = Yii::$app->db->createCommand()->delete("yfc_orders", "order_id=:order_id", [':order_id' => $order_id])->execute();
+            if ($res) {
+                return $this->redirect(Url::to('/user/user_orderlist'), 301);
+            }
         }
+
     }
 
 
