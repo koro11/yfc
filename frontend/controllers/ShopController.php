@@ -68,8 +68,7 @@ class ShopController extends CommonController
          * 商家订单详情页
          * @access public
          */
-        public
-        function actionShop_orders()
+        public function actionShop_orders()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
@@ -96,8 +95,7 @@ class ShopController extends CommonController
          * 商家完善详情页
          * @access public
          */
-        public
-        function actionShop_complete_info()
+        public function actionShop_complete_info()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
@@ -109,8 +107,7 @@ class ShopController extends CommonController
          * 商家完善详情处理页
          * @access public
          */
-        public
-        function actionShop_complete_act()
+        public function actionShop_complete_act()
         {
             $data = Yii::$app->request->post();
 
@@ -131,8 +128,7 @@ class ShopController extends CommonController
         }
 
         //关于商家的信息
-        public
-        function actionShop_info()
+        public function actionShop_info()
         {
             return $this->render('shop_info');
         }
@@ -142,8 +138,7 @@ class ShopController extends CommonController
          * 商家添加菜谱页
          * @access public
          */
-        public
-        function actionShop_addfood()
+        public function actionShop_addfood()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
@@ -161,8 +156,7 @@ class ShopController extends CommonController
          * 商家完善详情处理页
          * @access public
          */
-        public
-        function actionShop_addfood_act()
+        public function actionShop_addfood_act()
         {
             $data = Yii::$app->request->post();
 
@@ -193,8 +187,7 @@ class ShopController extends CommonController
          * 商家详情页
          * @access public
          */
-        public
-        function actionShop_foods()
+        public function actionShop_foods()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
@@ -222,8 +215,7 @@ class ShopController extends CommonController
          * 商家留言回复
          * @access public
          */
-        public
-        function actionShop_messages()
+        public function actionShop_messages()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
@@ -250,8 +242,7 @@ class ShopController extends CommonController
          * @param  mixed integer boolean
          * @return mixed void
          */
-        public
-        function actionShop_message_back()
+        public function actionShop_message_back()
         {
             $data = Yii::$app->request->post();
             // var_dump($data);
@@ -263,8 +254,7 @@ class ShopController extends CommonController
             echo $result ? 1 : 0;
         }
 
-        public
-        function actionShop_page_back()
+        public function actionShop_page_back()
         {
             $p     = Yii::$app->request->get('p');
             $limit = ($p - 1) * 3;
@@ -292,8 +282,7 @@ class ShopController extends CommonController
          * 商家发行优惠券
          * @access public
          */
-        public
-        function actionShop_issue_tickets()
+        public function actionShop_issue_tickets()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
@@ -308,8 +297,7 @@ class ShopController extends CommonController
          * 商家发行优惠券
          * @access public
          */
-        public
-        function actionShop_issue_act()
+        public function actionShop_issue_act()
         {
             $data = Yii::$app->request->post();
 
@@ -334,8 +322,7 @@ class ShopController extends CommonController
          * 商家优惠券页
          * @access public
          */
-        public
-        function actionShop_tickets()
+        public function actionShop_tickets()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
