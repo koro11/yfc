@@ -18,5 +18,9 @@ return [
             'class' => 'yii\caching\FileCache',
             'cachePath' => '@runtime/cache2',
         ],
+        'user' => [
+            'identityClass' => 'app\models\User',
+            'enableAutoLogin' => true,
+        ],
     ],
 ];
