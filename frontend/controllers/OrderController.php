@@ -418,30 +418,7 @@ class OrderController extends CommonController
     {
         return $this->render('sub_order');
     }
-
-    function searchDir($path, &$data)
-    {
-        if (is_dir($path)) {
-            $dp = dir($path);
-            while ($file = $dp->read()) {
-                if ($file != '.' && $file != '..') {
-                    $this->searchDir($path . '/' . $file, $data);
-                }
-            }
-            $dp->close();
-        }
-        if (is_file($path)) {
-            $data[] = $path;
-        }
-    }
-
-    function getDir($dir)
-    {
-        $data = array();
-        $this->searchDir($dir, $data);
-        return $data;
-    }
-
+    
 
     public function actionPay()
     {
