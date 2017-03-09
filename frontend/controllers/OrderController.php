@@ -31,7 +31,7 @@ class OrderController extends CommonController
 
         //用户ID
 
-      $param = urldecode(\Yii::$app->request->get('buycart'));
+        $param = urldecode(\Yii::$app->request->get('buycart'));
         if(empty($param))exit('缺少参数,不正确');
 
         $session = \Yii::$app->session;
@@ -276,6 +276,8 @@ class OrderController extends CommonController
             'total_order_sn'      => $order_sn = $this->actionGetorder_sn(),
             'total_creat_time'    => time(),
             'total_order_details' => $order_id,
+            'total_order_price'   =>$money,
+            'total_order_address' =>$address,
         );
         if (!$total->setOrder($data)) {
             $return['msg'] = '中途出现了点差错,请联系管理员';
@@ -549,6 +551,7 @@ class OrderController extends CommonController
                 if(!$data)exit('not found');
                 $res = $order->savePay($data['total_order_details']);
                 if(!$res)exit('fail');
+                if(!$total->savePay($out_trade_no))exit('fail');
             }
             echo "success";        //请不要修改或删除
         } else {
