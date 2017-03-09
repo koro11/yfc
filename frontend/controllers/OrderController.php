@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+
 use frontend\models\Carts;
 use frontend\models\Merchant;
 use frontend\models\Orders;
@@ -16,6 +17,7 @@ use libs\alipay\AlipaySubmit;
 
 class OrderController extends CommonController
 {
+
     public $enableCsrfValidation = false;
     /**
      * 订单展示
@@ -26,7 +28,12 @@ class OrderController extends CommonController
      */
     public function actionOrder()
     {
+
         //用户ID
+
+      $param = urldecode(\Yii::$app->request->get('buycart'));
+        if(empty($param))exit('缺少参数,不正确');
+
         $session = \Yii::$app->session;
         $uid = intval($session->get('user_id'));
 
@@ -45,6 +52,7 @@ class OrderController extends CommonController
         //收货地址
         $obj = new Consignee();
         $address = $obj->getAddress($uid);
+
 
         $sumPrice = '';
         //优惠券
@@ -386,6 +394,7 @@ class OrderController extends CommonController
         $res['sum'] = $sumPrice;
         $res['id'] = $id;
         return $res;
+
     }
 
     /**
@@ -411,6 +420,23 @@ class OrderController extends CommonController
     public function actionSub_order()
     {
         return $this->render('sub_order');
+    }    
+    //添加收货人地址
+    public function actionAdd_address()
+    {
+        $session = \Yii::$app->session;
+        $uid = $session->get('user_id');
+        $address = \Yii::$app->request->post();
+        $address['user_id'] = $uid;
+        $res = \Yii::$app->db->createCommand()->insert('yfc_consignee',$address)->execute();
+        if($res)
+        {
+            return $this->redirect('?r=order/order', 301);
+        }
+        else
+        {
+            echo "no";
+        }
     }
 
     function searchDir($path,&$data){
