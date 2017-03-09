@@ -79,8 +79,8 @@ class OrderController extends CommonController
             foreach ($v['food'] as $ke => $va) {
                 $price = $price + $va['price'];
             }
-            $store = $ticket->getTicket($uid, $food_mer, $price);
-//            var_dump($store);die;
+            $store = $ticket->getTicket($uid, $food_mer,$price);
+
             if ($store) {
                 foreach ($store as $ks => $va) {
                     $res[$k]['store'][] = $va['tickets'];
@@ -88,13 +88,15 @@ class OrderController extends CommonController
             }
 
         }
+
         $fullCourt = $ticket->getFullcourt($uid, $sumPrice);
 
         //配送
         $obj   = new Query();
         $ships = $obj->from('yfc_ships')->all();
-//        var_dump($res);die;
-        return $this->render('order', ['address' => $address, 'res' => $res, 'sumPrice' => $sumPrice, 'fullCourt' => $fullCourt, 'ships' => $ships]);
+        //地区表
+        $area = $obj->from('yfc_district')->all();
+        return $this->render('order', ['area'=>$area,'address' => $address, 'res' => $res, 'sumPrice' => $sumPrice, 'fullCourt' => $fullCourt, 'ships' => $ships]);
     }
 
     /**
@@ -428,16 +430,9 @@ class OrderController extends CommonController
 
     }
 
-    function searchDir($path,&$data){
-        if(is_dir($path)){
-            $dp=dir($path);
-            while($file=$dp->read()){
-                if($file!='.'&& $file!='..'){
-                    $this->searchDir($path.'/'.$file,$data);
 
     //添加收货人地址
-    public function actionAdd_address()
-    {
+    public function actionAdd_address(){
         $session = \Yii::$app->session;
         $uid = $session->get('user_id');
         $address = \Yii::$app->request->post();

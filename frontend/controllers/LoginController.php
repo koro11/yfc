@@ -7,7 +7,7 @@ use frontend\models\Users;
 use yii\web\Session;
 use \yii\db\Query;
 use yii\helpers\Url;
-use yii\db\Query;
+
 use frontend\functions\Functions;
 
 class LoginController extends Controller
