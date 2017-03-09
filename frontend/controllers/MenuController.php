@@ -164,7 +164,7 @@ class MenuController extends Controller
 
                 $res = array_merge($arr,$res);
             }
-            $data = setcookie('cart',serialize($res),time()+86400);
+            $data = setcookie('cart',serialize($res),time()+86400,'/');
 
             if($data){
                 $return['status'] = 1;

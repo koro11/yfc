@@ -42,7 +42,7 @@ class CartController extends Controller
                     $v['food']['price'] = $v['food']['food_price'];
                 }
 
-                $res[$v['food']['food_mername'].','.$v['food_mer']][$k] = $v;
+                $res[$v['food']['food_mername'].','.$v['food']['food_mer']][$k] = $v;
             }
         }
 

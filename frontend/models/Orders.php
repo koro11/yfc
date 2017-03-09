@@ -77,7 +77,7 @@ class Orders extends ActiveRecord
     public function getOrderNumber($number)
     {
         if(empty($number))return false;
-        $res = $this->find()->where(['order_sn'=>$number])->asArray()->one();
+        $res = $this->find()->where(['order_sn'=>$number])->asArray()->exists();
         if($res)return false;
         return true;
     }
@@ -96,14 +96,34 @@ class Orders extends ActiveRecord
         $id = \Yii::$app->db->getLastInsertId();
         return $id;
     }
-<<<<<<< HEAD
-    public function savePay($id)
+
+    /**
+     * 修改支付状态
+     * @author
+     * @param $id
+     * @return bool
+     */
+    public function savePay($order)
     {
-        $res = $this->updateAll(['order_paytime'=>time(),'pay_status'=>1],'order_id in ('.$id.')');
+        $res = $this->updateAll(array('order_paytime'=>time(),'pay_status'=>'1'),'order_id in ('.$order.')');
         if(!$res)return false;
-        return $res;
+        return true;
     }
-=======
+
+    /**
+     * 支付状态
+     * @author Dx
+     * @param  string
+     * @return
+     */
+    public function getPay($order)
+    {
+        if(empty($order))return false;
+        $res = $this->find()->where(['order_sn'=>$order,'pay_status'=>'1'])->exists();
+        if($res)return false;
+        return true;
+    }
+
     public function getUsers(){
         return $this->hasOne(Users::className(),['user_id'=>'user_id']);
     }
@@ -111,7 +131,6 @@ class Orders extends ActiveRecord
         return $this->hasMany(Food::className(),['food_id'=>'food_id']);
     }
 
->>>>>>> 6ed2e4b38979c7edc9f7565274ff7743a41bfd18
 
 }
  ?>
