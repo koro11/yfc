@@ -31,7 +31,7 @@ class RegisterController extends Controller
         $arr1                 = Yii::$app->request->post();
         $arr['user_password'] = md5($arr1['user_password']);
         $arr['register_time'] = time();
-        $res                  = \Yii::$app->db->createCommand()->insert('yfc_users', $arr)->execute();
+        $res                  =   \Yii::$app->db->createCommand()->insert('yfc_users', $arr)->execute();
         if ($res) {
             $query             = new Query;
             $data              = $query->select('*')->from('yfc_users')->where(['user_phone' => $arr1['user_phone']])->one();

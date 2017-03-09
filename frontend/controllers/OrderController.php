@@ -28,9 +28,7 @@ class OrderController extends CommonController
      */
     public function actionOrder()
     {
-
         //用户ID
-
         $param = urldecode(\Yii::$app->request->get('buycart'));
         if (empty($param)) exit('缺少参数,不正确');
 
@@ -80,7 +78,6 @@ class OrderController extends CommonController
                 $price = $price + $va['price'];
             }
             $store = $ticket->getTicket($uid, $food_mer, $price);
-            //            var_dump($store);die;
             if ($store) {
                 foreach ($store as $ks => $va) {
                     $res[$k]['store'][] = $va['tickets'];
@@ -88,13 +85,16 @@ class OrderController extends CommonController
             }
 
         }
+
         $fullCourt = $ticket->getFullcourt($uid, $sumPrice);
 
         //配送
         $obj   = new Query();
         $ships = $obj->from('yfc_ships')->all();
-        //        var_dump($res);die;
-        return $this->render('order', ['address' => $address, 'res' => $res, 'sumPrice' => $sumPrice, 'fullCourt' => $fullCourt, 'ships' => $ships]);
+
+        //地区表
+        $area = $obj->from('yfc_district')->all();
+        return $this->render('order', ['area'=>$area,'address' => $address, 'res' => $res, 'sumPrice' => $sumPrice, 'fullCourt' => $fullCourt, 'ships' => $ships]);
     }
 
     /**
@@ -273,6 +273,8 @@ class OrderController extends CommonController
             'total_order_sn'      => $order_sn = $this->actionGetorder_sn(),
             'total_creat_time'    => time(),
             'total_order_details' => $order_id,
+            'total_order_price'   =>$money,
+            'total_order_address' =>$address,
         );
         if (!$total->setOrder($data)) {
             $return['msg'] = '中途出现了点差错,请联系管理员';
@@ -426,12 +428,12 @@ class OrderController extends CommonController
 
     }
 
+
     //添加收货人地址
-    public function actionAdd_address()
-    {
-        $session            = \Yii::$app->session;
-        $uid                = $session->get('user_id');
-        $address            = \Yii::$app->request->post();
+    public function actionAdd_address(){
+        $session = \Yii::$app->session;
+        $uid = $session->get('user_id');
+        $address = \Yii::$app->request->post();
         $address['user_id'] = $uid;
         $res                = \Yii::$app->db->createCommand()->insert('yfc_consignee', $address)->execute();
         if ($res) {
@@ -517,6 +519,7 @@ class OrderController extends CommonController
                 if (!$data) exit('not found');
                 $res = $order->savePay($data['total_order_details']);
                 if (!$res) exit('fail');
+                if(!$total->savePay($out_trade_no))exit('fail');
             }
             echo "success";        //请不要修改或删除
         } else {
