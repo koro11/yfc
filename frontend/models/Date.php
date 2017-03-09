@@ -17,6 +17,11 @@ use yii\base\Exception;
  */
 class Date extends \yii\db\ActiveRecord
 {
+
+	public function getOrders(){
+    return $this->hasOne(Orders::className(),['order_id'=>'order_id']);
+}
+
     /**
      * @inheritdoc
      */
@@ -88,4 +93,5 @@ class Date extends \yii\db\ActiveRecord
             return true;
         }
     }
+
 }

@@ -64,9 +64,11 @@ class Orders extends ActiveRecord
         ];
     }
 
+
 	public function getDate(){
         return $this->hasOne(Date::className(),['deta_id'=>'order_date']);
 	}
+
 
     /**
      * 查看订单号是否重复
@@ -97,18 +99,22 @@ class Orders extends ActiveRecord
         return $id;
     }
 
+
     /**
      * 修改支付状态
      * @author
      * @param $id
      * @return bool
      */
+
     public function savePay($order)
+
     {
         $res = $this->updateAll(array('order_paytime'=>time(),'pay_status'=>'1'),'order_id in ('.$order.')');
         if(!$res)return false;
         return true;
     }
+
 
     /**
      * 支付状态
@@ -124,13 +130,13 @@ class Orders extends ActiveRecord
         return true;
     }
 
+
     public function getUsers(){
         return $this->hasOne(Users::className(),['user_id'=>'user_id']);
     }
     public function getFood(){
         return $this->hasMany(Food::className(),['food_id'=>'food_id']);
     }
-
 
 }
  ?>
