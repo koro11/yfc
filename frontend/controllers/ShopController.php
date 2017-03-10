@@ -66,10 +66,8 @@ class ShopController extends CommonController
         /**
          * @Shop_orders
          * 商家订单详情页
-         * @access public
          */
-        public
-        function actionShop_orders()
+        public function actionShop_orders()
         {
             // 哪个商家
             $mer_id = Yii::$app->session->get('mer_id');
