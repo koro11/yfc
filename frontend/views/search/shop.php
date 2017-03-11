@@ -90,20 +90,20 @@ use \yii\db\Query;
                 var _order = _this.attr('order');
                 var _span = _this.children().children().last();
                 var _class = _span.attr('class');
-//                _this.children().children().last().removeClass('s-up').addClass('s-down');
+//                _this.children().children().last().removeClass('s-down').addClass('s-up');
                 if(_order != ''){
                     if(arr.order != undefined){
                         if(arr.order.indexOf(_order) != -1){
-                            if(_class == 's-up'){
-                                _span.removeClass('s-up').addClass('s-down');
-                                _class = 's-down';
-                            }else{
+                            if(_class == 's-down'){
                                 _span.removeClass('s-down').addClass('s-up');
                                 _class = 's-up';
+                            }else{
+                                _span.removeClass('s-up').addClass('s-down');
+                                _class = 's-down';
                             }
                         }
                     }
-                    arr.order = _order + '-' + ((_class == 's-up') ? 'asc' : 'desc');
+                    arr.order = _order + '-' + ((_class == 's-down') ? 'asc' : 'desc');
                 }else{
                     delete arr.order;
                 }
@@ -118,11 +118,11 @@ use \yii\db\Query;
 
             ar = getUrl();
             if(ar.order != undefined){
-                _spans = $('.s-up');
+                _spans = $('.s-down');
                 for(var i=0;i<_spans.size();i++){
                     if(ar.order.indexOf(_spans.eq(i).parents('a').attr('order')) != -1){
                         if(ar.order.indexOf('desc') != -1){
-                            _spans.eq(i).removeClass('s-up').addClass('s-down');
+                            _spans.eq(i).removeClass('s-down').addClass('s-up');
                         }
                     }
                 }
@@ -140,19 +140,19 @@ use \yii\db\Query;
         <a href="javascript:;" order="grade" title="评价">
             <span>
                 <span>评价&nbsp;</span>
-                <span class="s-up"></span>
+                <span class="s-down"></span>
             </span>
         </a>
         <a href="javascript:;" order="sales" title="销量">
             <span>
                 <span>销量</span>
-                <span class="s-up"></span>
+                <span class="s-down"></span>
             </span>
         </a>
         <a href="javascript:;" order="info_catipa" title="价格排序">
             <span>
                 <span>价格</span>
-                <span class="s-up"></span>
+                <span class="s-down"></span>
             </span>
         </a>
         <?php 
@@ -164,7 +164,7 @@ use \yii\db\Query;
                 <a href="javascript:;" order="address" title="距离排序">
             <span>
                 <span>最近</span>
-                <span class="s-up"></span>
+                <span class="s-down"></span>
             </span>
         </a>
         <?php }?>
@@ -189,6 +189,9 @@ use \yii\db\Query;
                 </hgroup>
                 <p>菜系：<?=$v['cat_name'];?></p>
                 <p>地址：<?=$v['mer_address'];?></p>
+                <?php if (isset($v['info_catipa'])) {?>
+                <p>人均：<?=$v['info_catipa']?>元</p>
+                <?php }?>
                <?php if (isset($v['juli'])) {?>
                 <p>距离：<?=$v['juli'];?>米</p>
                <?php }?>

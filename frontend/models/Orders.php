@@ -100,14 +100,17 @@ class Orders extends ActiveRecord
     }
 
 
+
+
     /**
      * 修改支付状态
      * @author
      * @param $id
      * @return bool
      */
-
     public function savePay($order)
+
+
 
     {
         $res = $this->updateAll(array('order_paytime'=>time(),'pay_status'=>'1'),'order_id in ('.$order.')');
@@ -131,12 +134,14 @@ class Orders extends ActiveRecord
     }
 
 
+
     public function getUsers(){
         return $this->hasOne(Users::className(),['user_id'=>'user_id']);
     }
     public function getFood(){
         return $this->hasMany(Food::className(),['food_id'=>'food_id']);
     }
+
 
 }
  ?>

@@ -75,7 +75,6 @@
     <td><textarea name="food_desc" id="" cols="50" rows="3"></textarea>
     </td>
     <tr>
-    <tr>
     <td></td>
     <td><input type="submit" value="保 存">&nbsp;&nbsp;&nbsp;&nbsp;<input  type="reset" value="取 消"></td>
     </tr>

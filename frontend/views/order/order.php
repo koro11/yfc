@@ -1,3 +1,4 @@
+    <?php use yii\helpers\Url;?>
 <!--Start content-->
 <section class="Psection MT20" id="Cflow">
 <!--如果用户未添加收货地址，则显示如下-->
@@ -5,7 +6,7 @@
 <span class="flow_title">收货地址：</span>
   <?php if(empty($address)){?>
   <!--如果未添加地址，则显示此表单-->
-  <form class="add_address" action="?r=order/add_address" method="post">
+  <form class="add_address" action="<?=Url::to('/order/add_address')?>" method="post">
    <p><i>收件人姓名：</i><input type="text" name="cons_name" required></p>
    <p>
    <i>选择所在地：</i> 
@@ -37,7 +38,7 @@
   
    <?php }?>
    <!--add new address-->
-   <form action="?r=order/add_address" method="post">
+   <form action="<?=Url::to('/order/add_address')?>" method="post">
    <div id="light" class="O-L-content">
     <ul>
      <li><span><label for="">选择所在地：</label></span><p><em>*</em>

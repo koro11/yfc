@@ -125,7 +125,7 @@ class SearchController extends Controller
 
         foreach ($shop as $k => $v) {
             $mer_info = $this->getMerInfo($v['mer_id']);
-//                $shop[$k]['info_catipa'] = $mer_info['info_catipa'];
+            //$shop[$k]['info_catipa'] = $mer_info['info_catipa'];
             $shop[$k]['info_image'] = $mer_info['info_image'];
             $cat_name               = $this->getCateName($v['info_mer_cate']);
             $shop[$k]['cat_name']   = $cat_name['cat_name'];
@@ -178,7 +178,7 @@ class SearchController extends Controller
     {
         return MerchantInfo::find()
             ->select(['info_image'])
-//                    ->with('merCate')
+            //->with('merCate')
             ->where(['info_mer' => $id])
             ->asArray()
             ->one();
@@ -213,7 +213,7 @@ class SearchController extends Controller
         foreach ($sum as $v) {
             $ids[] = $v['food_mer'];
         }
-//        var_dump($ids);die;
+        //var_dump($ids);die;
 
         $hot = Merchant::find()
             ->select(['mer_id', 'mer_name', 'info_catipa', 'mer_address'])

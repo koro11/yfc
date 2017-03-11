@@ -24,7 +24,7 @@ use \yii\helpers\Url;
      <?php foreach ($models as $key => $value) {?>
      <tr>
       <td class="FontW"><a href="user_order.html"><?= $value['order_sn']?></a></td>
-      <td><?= date('Y-m-d,H:i',$value['order_paytime'])?></td>
+      <td><?= date('Y-m-d,H:i',$value['order_addtime'])?></td>
       <td><?= $name?></td>
       <td>￥<?= $value['order_amount']?></td>
       <?php if($value['shipping_status']==0 && $value['pay_status']==0){?>

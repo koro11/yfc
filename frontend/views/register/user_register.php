@@ -45,6 +45,7 @@ use yii\captcha\Captcha;
 						</form>
 						<div class="other_login">
 						<a href="<?=Url::to('login/login')?>">已有账号？请登录</a>
+						<a href="<?=Url::to('index/index')?>">返回首页</a>
 						</div>
 					</div>
 
