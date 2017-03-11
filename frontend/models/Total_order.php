@@ -80,4 +80,17 @@ class Total_order extends \yii\db\ActiveRecord
        if(!$res)return false;
        return $res;
     }
+    /**
+     * 修改支付状态
+     * @author
+     * @param $id
+     * @return bool
+     */
+    public function savePay($order)
+
+    {
+        $res = $this->updateAll(array('total_order_pay'=>1),'order_sn in ('.$order.')');
+        if(!$res)return false;
+        return true;
+    }
 }

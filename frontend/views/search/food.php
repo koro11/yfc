@@ -117,7 +117,6 @@
                 if ($this->beginCache('hot_food', ['duration' => 3600])) {
                     $hot = \frontend\controllers\SearchController::hotFood();
                     foreach($hot as $v) {
-//                        echo 1;
                 ?>
                 <li>
                     <a href="<?=Url::to(['menu/details','id'=>$v['food_id']])?>" title="<?=$v['food_name']?>" target="_blank"><img src="<?=$v['food_image']?>"></a>

@@ -198,7 +198,7 @@ $(function(){
             var id = $('input[name="food"]').val();
             var num = $('input[name="Number"]').val();
             $.get('<?=Url::to('menu/addcart')?>',{id:id,num:num},function(data){
-
+//                alert(data);return false;
                 if(data.status == 1){
                     if(window.confirm('成功加入购物车,是否进行结算')){
                         document.location = '<?=Url::to('cart/cart')?>';

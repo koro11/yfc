@@ -24,7 +24,7 @@ class Functions
 
         foreach($param as $k=>$v){
            $sql .= '(';
-           foreach($v as $va){
+           foreach($v['food'] as $va){
                $sql .= "'".$va."',";
            }
            $sql = substr($sql, 0, -1);
