@@ -1,9 +1,7 @@
 <?php
 use yii\web\Session;
 use \yii\db\Query;
-
 use \yii\helpers\Url;
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,7 +64,7 @@ use \yii\helpers\Url;
    <?php }else{?>
     <a href="<?=Url::to('shop/shop_center')?>">商户中心</a>
    <?php }?>
-     <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+     <a href="<?=Url::to('user/user_orderlist')?>" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
    </div>
   </div>
  </section>

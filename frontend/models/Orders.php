@@ -101,14 +101,15 @@ class Orders extends ActiveRecord
 
 
 
+
     /**
      * 修改支付状态
      * @author
      * @param $id
      * @return bool
      */
-
     public function savePay($order)
+
 
 
     {
@@ -116,7 +117,6 @@ class Orders extends ActiveRecord
         if(!$res)return false;
         return true;
     }
-
 
 
     /**
@@ -132,6 +132,7 @@ class Orders extends ActiveRecord
         if($res)return false;
         return true;
     }
+
 
 
     public function getUsers(){

@@ -96,8 +96,7 @@
     color:green;
 }
 </style>
-<script src="http://api.map.baidu.com/api?v=2.0&ak=rLwK3QfoqXKyQvHGtkcM6A77GYSm4ys4"></script>
-<script>
+<script type="text/javascript">
 $(function(){   
   $('.title-list li').click(function(){
     var liindex = $('.title-list li').index(this);
@@ -397,6 +396,8 @@ window.onload = function () {
 <input type="hidden" class="clear_url" value="<?=Url::to(['index/clear_history']);?>">
 </section>
 <!--End content-->
+<script src="http://api.map.baidu.com/api?v=2.0&ak=rLwK3QfoqXKyQvHGtkcM6A77GYSm4ys4"></script>
+
 <script type="text/javascript">
   // 百度地图API功能
   var map = new BMap.Map("allmap");
@@ -415,6 +416,8 @@ window.onload = function () {
     }
   }, "北京市");
 
+</script>
+<script type="text/javascript">
    //分页
   function page(p){
     

@@ -17,15 +17,12 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="js/WdatePicker.js"></script>
-    <script type="text/javascript" src="js/calendar.js"></script>
 
-
-<script>
-
-</script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
+</head>
 
 </head>
+
 <style>
     .p3button{
         cursor: pointer;
@@ -59,7 +56,7 @@ use \yii\helpers\Url;
             echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
         }
     ?>
-    <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
+   <a href="<?=Url::to('login/out')?>"><font color="blue">退出</font></a>
    </div>
    <div class="RightNav">
    <?php if($user_id!=""){?>
@@ -67,19 +64,36 @@ use \yii\helpers\Url;
    <?php }else{?>
     <a href="<?=Url::to('shop/shop_center')?>">商户中心</a>
    <?php }?>
-     <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
-   </div>
+     <a href="<?=Url::to('shop/shop_orders')?>" target="_blank" title="我的订单">我的订单</a> 
   </div>
  </section>
     <div class="Logo_search">
         <div class="Logo">
             <img src="images/logo.jpg" title="DeathGhost" alt="模板">
             <i></i>
-            <span>北京市 [ <a href="#">海淀区</a> ]</span>
+
+            <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
+                <span id="adress">北京市</span>
+            <?php }else{?>
+                <?php
+                $coor=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
+                if(empty($coor)){?>
+                    <span id="adress">北京市 请输入:[<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" />]</span>
+                    <div id="l-map" style="display:none"></div>
+                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                <?php }else{?>
+                    <span id="adress"> <input type="text" id="suggestId" size="20" placeholder="<?php echo $coor['coor_address']?>"  style="width:150px;"  />&nbsp;&nbsp;&nbsp;&nbsp;<a herf="#" id="up">修改</a></span>
+                    <div id="l-map" style="display:none"></div>
+                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                <?php }?>
+            <?php }?>
+
         </div>
+
+
         <div class="Search">
             <form method="get" action="<?=Url::to('search/search')?>">
-<!--                <input type="hidden" name="r" value="search/search">-->
+                <!--                <input type="hidden" name="r" value="search/search">-->
                 <div class="Search_nav" id="selectsearch">
                     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'class="choose"';}?>>餐厅</a>
                     <a href="javascript:;" onClick="selectsearch(this,'food_name')" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'class="choose"';}?>>食物名</a>
@@ -93,7 +107,7 @@ use \yii\helpers\Url;
                 </div>
             </form>
             <p class="hotkeywords">
-<!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
+                <!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
             </p>
         </div>
     </div>
@@ -101,6 +115,7 @@ use \yii\helpers\Url;
         <ul class="menu">
             <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
             <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
+            <li><a href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
             <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
             <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>

@@ -1,41 +1,100 @@
+<?php
+use yii\web\Session;
+use \yii\db\Query;
+use \yii\helpers\Url;
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <base href="/">
     <meta charset="utf-8"/>
     <title>DeathGhost</title>
-    <meta name="keywords" content="DeathGhost,DeathGhost.cn,web前端设,移动WebApp开发"/>
+    <meta name="keywords" content="有饭吃"/>
     <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!"/>
     <meta name="author" content="DeathGhost"/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/public.js"></script>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
-<?php use \yii\helpers\Url;?>
+
+</head>
+
+<style>
+    .p3button{
+        cursor: pointer;
+    }
+</style>
 <body>
 <header>
- <section class="Topmenubg">
-  <div class="Topnav">
-   <div class="LeftNav">
-    <a href="<?=Url::to('register/choice')?>">注册</a>/<a href="<?=Url::to('login/choice')?>">登录</a><a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a>
-   </div>
-   <div class="RightNav">
-    <a href="<?=Url::to()?>">用户中心</a> <a href="<?=Url::to()?>" target="_blank" title="我的订单">我的订单</a> <a href="<?=Url::to()?>">购物车（0）</a> <a href="<?=Url::to()?>" target="_blank" title="我的收藏">我的收藏</a> <a href="<?=Url::to()?>">商家入驻</a>
-   </div>
-  </div>
- </section>
+    <section class="Topmenubg">
+        <div class="Topnav">
+            <div class="LeftNav">
+                <?php
+                $session = Yii::$app->session;
+                $user_id = $session->get('user_id');
+                $mer_id = $session->get('mer_id');
+                /* var_dump($user_id);
+                 var_dump($mer_id);die;*/
+                if($user_id!="")
+                {
+                    $query = new Query;
+                    $username = $query->select('user_name')->from('yfc_user_info')->where(['user_id'=>$user_id])->one();
+                    echo '欢迎用户    <span id="user_id" user_id="'.$user_id.'">'.$username['user_name'].'</span>   登录';
+                }
+                else if($mer_id!="")
+                {
+                    $query = new Query;
+                    $mername = $query->select('mer_name')->from('yfc_merchant')->where(['mer_id'=>$mer_id])->one();
+                    echo '欢迎商家  '.$mername['mer_name'].'   登录';
+                }
+                else
+                {
+                    echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
+                }
+                ?>
+                <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
+            </div>
+            <div class="RightNav">
+                <?php if($user_id!=""){?>
+                    <a href="<?=Url::to('user/user_index')?>">用户中心</a>
+                <?php }else{?>
+                    <a href="<?=Url::to('shop/shop_center')?>">商户中心</a>
+                <?php }?>
+                <a href="<?=Url::to('user/user_orderlist')?>" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="<?=Url::to('user/user_collect')?>" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+            </div>
+        </div>
+    </section>
     <div class="Logo_search">
         <div class="Logo">
             <img src="images/logo.jpg" title="DeathGhost" alt="模板">
             <i></i>
-            <span>北京市 [ <a href="#">海淀区</a> ]</span>
+
+            <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
+                <span id="adress">北京市</span>
+            <?php }else{?>
+                <?php
+                $coor=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
+                if(empty($coor)){?>
+                    <span id="adress">北京市 请输入:[<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" />]</span>
+                    <div id="l-map" style="display:none"></div>
+                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                <?php }else{?>
+                    <span id="adress"> <input type="text" id="suggestId" size="20" placeholder="<?php echo $coor['coor_address']?>"  style="width:150px;"  />&nbsp;&nbsp;&nbsp;&nbsp;<a herf="#" id="up">修改</a></span>
+                    <div id="l-map" style="display:none"></div>
+                    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+                <?php }?>
+            <?php }?>
+
         </div>
+
+
         <div class="Search">
             <form method="get" action="<?=Url::to('search/search')?>">
-<!--                <input type="hidden" name="r" value="search/search">-->
+                <!--                <input type="hidden" name="r" value="search/search">-->
                 <div class="Search_nav" id="selectsearch">
                     <a href="javascript:;" onClick="selectsearch(this,'restaurant_name')" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'class="choose"';}?>>餐厅</a>
                     <a href="javascript:;" onClick="selectsearch(this,'food_name')" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'class="choose"';}?>>食物名</a>
@@ -45,10 +104,11 @@
                 <div class="Search_area">
                     <input type="search" id="fkeyword" name="keyword" <?php if(isset($_GET['keyword']) && !empty($_GET['keyword'])){echo 'value="'.$_GET['keyword'].'"';}?> placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox"/>
                     <input type="submit" class="searchbutton" value="搜 索"/>
+                    <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
                 </div>
             </form>
             <p class="hotkeywords">
-                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>
+                <!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
             </p>
         </div>
     </div>
@@ -56,11 +116,14 @@
         <ul class="menu">
             <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
             <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
+            <li><a href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
             <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
-            <li><a href="<?=Url::to()?>">关于我们</a></li>
+            <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>
     </nav>
+    <script type="text/javascript" src="js/public.js"></script>
 </header>
+
 <!--Start content-->
 <section class="Psection MT20">
     <nav class="U-nav Font14 FontW">

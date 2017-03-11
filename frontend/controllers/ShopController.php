@@ -47,10 +47,21 @@ class ShopController extends CommonController
         $mer_id = Yii::$app->session->get('mer_id');
         // var_dump($mer_id);die();
         // $mer_id = 1;
-        $arr = Merchant::find()->where(['mer_id' => $mer_id])->asArray()->one();
+
+        $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
+       
         if ($arr) {
-            # code...
-            // var_dump($arr);die();
+        $arr['mer_last_login'] = date('Y-m-d H:i:s',$arr['mer_last_login']);
+        //查询订单表里待未配送的，已配送的
+        $unship = Orders::find()->where(['merchant_id'=>$mer_id,'order_status'=>0,'shipping_status'=>0])->asArray()->all();
+        $shiped = Orders::find()->where(['merchant_id'=>$mer_id,'order_status'=>0,'shipping_status'=>2])->asArray()->all();
+        $arr['unship'] = count($unship);
+        $arr['shiped'] = count($shiped);
+        // var_dump($arr);die;
+        return $this->render('shop_center',['merchant'=>$arr]);
+
+        $arr = Merchant::find()->where(['mer_id' => $mer_id])->asArray()->one();
+  
             if ($arr) {
                 $arr['mer_last_login'] = date('Y-m-d H:i:s', $arr['mer_last_login']);
                 //查询订单表里待未配送的，已配送的
@@ -61,6 +72,7 @@ class ShopController extends CommonController
                 // var_dump($arr);die;
                 return $this->render('shop_center', ['merchant' => $arr]);
             }
+
         }
     }
 
