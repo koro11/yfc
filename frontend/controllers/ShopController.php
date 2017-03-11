@@ -47,9 +47,7 @@ class ShopController extends CommonController
         // var_dump($mer_id);die();
         // $mer_id = 1;
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
-        if ($arr) {
-            # code...
-        // var_dump($arr);die();
+       
         if ($arr) {
         $arr['mer_last_login'] = date('Y-m-d H:i:s',$arr['mer_last_login']);
         //查询订单表里待未配送的，已配送的

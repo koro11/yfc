@@ -4,6 +4,12 @@
   <!--user Account-->
   <section class="AccManage Overflow">
    <span class="AMTitle Block Font14 FontW Lineheight35">用户留言</span>
+     <?php if (!$shop_message): ?>
+       <div class="message_list">
+         暂时没有用户留言，宝宝须努力！...
+       </div>
+     <?php else: ?>
+     
      <div class="message_list">
      <?php foreach ($shop_message as $k => $v): ?>     
          <span class="Ask" ><i><?=$v['user_name']?></i>:<?=$v['m_message']?>-<i>于<?=$v['m_addtime']?></i></span>
@@ -31,7 +37,8 @@
      </div>
      <div class="TurnPage">
           <?=$pages?>
-        </div>
+     </div>
+     <?php endif ?>
 <input type="hidden" class="back_url" value="<?=Url::to('shop/shop_message_back')?>">
 <input type="hidden" class="page_url" value="<?=Url::to('shop/shop_page_back')?>">
 </section>
