@@ -1,7 +1,6 @@
 <?php
 namespace frontend\controllers;
 
-
 use frontend\models\Carts;
 use frontend\models\Merchant;
 use frontend\models\Orders;
@@ -28,10 +27,11 @@ class OrderController extends CommonController
      */
     public function actionOrder()
     {
-
         //用户ID
         $param = urldecode(\Yii::$app->request->get('buycart'));
-        if(empty($param))exit('缺少参数,不正确');
+
+        if (empty($param)) exit('缺少参数,不正确');
+
 
         $session = \Yii::$app->session;
         $uid = intval($session->get('user_id'));
@@ -77,27 +77,31 @@ class OrderController extends CommonController
             foreach($v['food'] as $ke=>$va){
                 $price =  $price+$va['price'];
             }
-            $store = $ticket->getTicket($uid,$food_mer,$price);
-//            var_dump($store);die;
-            if($store){
-                foreach($store as $ks=>$va){
+
+            $store = $ticket->getTicket($uid, $food_mer, $price);
+            if ($store) {
+                foreach ($store as $ks => $va) {
                     $res[$k]['store'][] = $va['tickets'];
                 }
             }
 
         }
+
         $fullCourt = $ticket->getFullcourt($uid,$sumPrice);
 
         //配送
         $obj = new Query();
         $ships = $obj->from('yfc_ships')->all();
+
        //var_dump($res);die;
         $session = \Yii::$app->session;
         $uid = $session->get('user_id');
         $query = new Query;
-        $area = $query->select('*')->from('yfc_district')->all();
-        //var_dump($address);die;
-        return $this->render('order',['address'=>$address,'res'=>$res,'sumPrice'=>$sumPrice,'fullCourt'=>$fullCourt,'ships'=>$ships,'area'=>$area]);
+
+        //地区表
+        $area = $obj->from('yfc_district')->all();
+        return $this->render('order', ['area'=>$area,'address' => $address, 'res' => $res, 'sumPrice' => $sumPrice, 'fullCourt' => $fullCourt, 'ships' => $ships]);
+
     }
     /**
      * 生成订单
@@ -107,7 +111,6 @@ class OrderController extends CommonController
      */
     public function actionSetorder()
     {
-
         $session = \Yii::$app->session;
         $return = array(
             'status'=>0,
@@ -241,9 +244,9 @@ class OrderController extends CommonController
                 $data['discount_pay'] =  $v['discount_pay'];
             }
             //支付
+
             $data['pay_way'] = $pay['pay_way'];
-            $data['pay_id'] = $param['payment'];
-            $data['order_paytime'] = time();
+            $data['pay_id']  = $param['payment'];
             //收货
             $data['address_id'] = $address;
             $data['consignee'] = $consignee['cons_name'];
@@ -269,11 +272,15 @@ class OrderController extends CommonController
         }
 
         $total = new Total_order();
-        $data = array(
-            'total_order_user'=>$uid,
-            'total_order_sn'=>$order_sn = $this->actionGetorder_sn(),
-            'total_creat_time'=>time(),
-            'total_order_details'=>$order_id,
+
+        $data  = array(
+            'total_order_user'    => $uid,
+            'total_order_sn'      => $order_sn = $this->actionGetorder_sn(),
+            'total_creat_time'    => time(),
+            'total_order_details' => $order_id,
+            'total_order_price'   =>$money,
+            'total_order_address' =>$address,
+
         );
         if(!$total->setOrder($data)){
             $return['msg'] = '中途出现了点差错,请联系管理员';
@@ -290,36 +297,77 @@ class OrderController extends CommonController
         exit(json_encode($return));
     }
     //支付宝签名创建
-    public function actionCreate_pay_url($order_sn,$money){
-        $alipay_config['partner']		= '2088121321528708';
-        //收款支付宝账号
-        $alipay_config['seller_email']	= 'itbing@sina.cn';
-        //安全检验码，以数字和字母组成的32位字符
-        $alipay_config['key']			= '1cvr0ix35iyy7qbkgs3gwymeiqlgromm';
-        //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-        //签名方式 不需修改
-        $alipay_config['sign_type']    = strtoupper('MD5');
+
+
+    public function actionCreate_pay_url($order_sn, $money)
+    {
+
+        $alipay_config['seller_email'] = 'itbing@sina.cn';
+
+        /*******************************构造配置来自alipay.config******************************************/
+        //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        //合作身份者ID，签约账号，以2088开头由16位纯数字组成的字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm
+        $alipay_config['partner'] = '2088121321528708';//商户ID
+
+        //收款支付宝账号，以2088开头由16位纯数字组成的字符串，一般情况下收款账号就是签约账号
+        $alipay_config['seller_id'] = $alipay_config['partner'];
+
+        // MD5密钥，安全检验码，由数字和字母组成的32位字符串，查看地址：https://b.alipay.com/order/pidAndKey.htm
+        $alipay_config['key'] = '1cvr0ix35iyy7qbkgs3gwymeiqlgromm'; //商户KEY
+
+        // 服务器异步通知页面路径 需http://格式的完整路径，不能加?id=123这类2088421713316394自定义参数，必须外网可以正常访问
+        $alipay_config['notify_url'] = "http://www.8023i.com/order/notifypay";
+
+        // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
+        $alipay_config['return_url'] = "http://www.8023i.com/order/returnpay";
+
+        $alipay_config['sign_type'] = strtoupper('MD5');//签名方式
+
+        $alipay_config['input_charset'] = strtolower('utf-8');//字符编码格式 目前支持 gbk 或 utf-8
+
+        //ca证书路径地址，用于curl中ssl校验
+        //请保证cacert.pem文件在当前文件夹目录中
+        $alipay_config['cacert'] = getcwd() . '\\cacert.pem';
+
+
         //访问模式,根据自己的服务器是否支持ssl访问，若支持请选择https；若不支持请选择http
         $alipay_config['transport']    = 'http';
 
-        $parameter = array(
-            "service" => "create_direct_pay_by_user",
-            "partner" => $alipay_config['partner'], // 合作身份者id
-            "seller_email" => $alipay_config['seller_email'], // 收款支付宝账号
-            "payment_type"	=> '1', // 支付类型
-            "notify_url"	=> 'http://yy.8023i.com/order/pay_notify', // 服务器异步通知页面路径
-            "return_url"	=> 'http://www.img.com/order/pay_return', // 页面跳转同步通知页面路径
-            "out_trade_no"	=> $order_sn, // 商户网站订单系统中唯一订单号
-            "subject"	=> "8023i", // 订单名称
-            "total_fee"	=> $money, // 付款金额
-            "body"	=> "来这吃", // 订单描述 可选
-            "_input_charset"	=> 'utf-8', // 字符编码格式
+
+        // 支付类型 ，无需修改
+        $alipay_config['payment_type'] = "1";
+
+        // 产品类型，无需修改
+        $alipay_config['service'] = "create_direct_pay_by_user";
+        //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+        //↓↓↓↓↓↓↓↓↓↓ 请在这里配置防钓鱼信息，如果没开通防钓鱼功能，为空即可 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+        // 防钓鱼时间戳 若要使用请调用类文件submit中的query_timestamp函数
+        $alipay_config['anti_phishing_key'] = "";
+
+
+        // 客户端的IP地址 非局域网的外网IP地址，如：221.0.0.1
+        $alipay_config['exter_invoke_ip'] = "";
+        $parameter                        = array(
+            "service"        => "create_direct_pay_by_user",
+            "partner"        => $alipay_config['partner'], // 合作身份者id
+            "seller_email"   => $alipay_config['seller_email'], // 收款支付宝账号
+            "payment_type"   => '1', // 支付类型
+            "notify_url"     => 'http://yy.8023i.com/order/pay_notify', // 服务器异步通知页面路径
+            "return_url"     => 'http://www.img.com/order/pay_return', // 页面跳转同步通知页面路径
+            "out_trade_no"   => $order_sn, // 商户网站订单系统中唯一订单号
+            "subject"        => "8023i", // 订单名称
+            "total_fee"      => $money, // 付款金额
+            "body"           => "来这吃", // 订单描述 可选
+            "_input_charset" => 'utf-8', // 字符编码格式
+
         );
 
         // 参数排序
         ksort($parameter);
         reset($parameter);
-        $str = "";
+        $alipaySubmit = new AlipaySubmit($alipay_config);
+        $str          = "";
         foreach ($parameter as $k => $v) {
             if (empty($str)) {
                 $str .= $k . "=" . $v;
@@ -342,41 +390,13 @@ class OrderController extends CommonController
         return $action_url.$pay;
     }
 
-    //支付异步回调
-    public function actionPay_notify(){
-        $result = $_REQUEST;
 
-        if ($result['trade_status'] == 'TRADE_FINISHED' || $result['trade_status'] == 'TRADE_SUCCESS') {
-            $session = \Yii::$app->session;
-            $total = new Total_order();
-            $order = new Orders();
-            $data = $total->getOne($result['out_trade_no'],$session->get('user_id'));
-            $res = $order->savePay($data['total_order_details']);
-            if($res){
-                echo 'success';
-            }
-        }
-    }
-    //支付同步回调
-    public function actionPay_return()
-    {
-        $result = $_REQUEST;
-
-        if ($result['trade_status'] == 'TRADE_FINISHED' || $result['trade_status'] == 'TRADE_SUCCESS') {
-            $session = \Yii::$app->session;
-            $total = new Total_order();
-            $order = new Orders();
-            $data = $total->getOne($result['out_trade_no'],$session->get('user_id'));
-            $res = $order->savePay($data['total_order_details']);
-            if($res){
-                echo 'success';
-            }else{
-                echo 'error';
-            }
-        }else{
-            echo 'qqqq';
-        }
-    }
+    /**
+     * 每家商家消费信息
+     * @author Dx
+     * @param $param
+     * @return mixed
+     */
 
     public function actinGetsumprice($param)
     {
@@ -417,28 +437,23 @@ class OrderController extends CommonController
 
     }
 
-    //确认提交订单
-    public function actionSub_order()
-    {
-        return $this->render('sub_order');
-    }    
+
     //添加收货人地址
-    public function actionAdd_address()
-    {
+    public function actionAdd_address(){
         $session = \Yii::$app->session;
         $uid = $session->get('user_id');
         $address = \Yii::$app->request->post();
         $address['user_id'] = $uid;
-        $res = \Yii::$app->db->createCommand()->insert('yfc_consignee',$address)->execute();
-        if($res)
-        {
-            return $this->redirect(Url::to('/order/order'), 301);
-        }
-        else
-        {
+
+        $res                = \Yii::$app->db->createCommand()->insert('yfc_consignee', $address)->execute();
+        if ($res) {
+            return $this->redirect('?r=order/order', 301);
+        } else {
+
             echo "no";
         }
     }
+
 
     function searchDir($path,&$data){
         if(is_dir($path)){
@@ -461,18 +476,6 @@ class OrderController extends CommonController
         return   $data;
     }
 
-
-    public function actionPay()
-    {
-        $time = date('Y-m-d H:i:s');
-        echo date('Y-m-d H:i:s',strtotime("$time -1 day -1 hour"));
-//        var_dump($this->getDir());
-//        $out_trade_no = '654653';
-//        $order = Orders::find()->where(['=','order_sn',$out_trade_no])->asArray()->one();
-//        var_dump($order);
-//        var_dump(json_decode('{"discount":"0.00","payment_type":"1","subject":"test\u5546\u54c1123","trade_no":"2017030321001004480295138195","buyer_email":"18335124292","gmt_create":"2017-03-03 11:36:34","notify_type":"trade_status_sync","quantity":"1","out_trade_no":"test20170303113520","seller_id":"2088121321528708","notify_time":"2017-03-03 11:36:42","body":"\u5373\u65f6\u5230\u8d26\u6d4b\u8bd5","trade_status":"TRADE_SUCCESS","is_total_fee_adjust":"N","total_fee":"0.01","gmt_payment":"2017-03-03 11:36:41","seller_email":"itbing@sina.cn","price":"0.01","buyer_id":"2088702194394489","notify_id":"77c7410071cf150498cf6c46f010d8djpe","use_coupon":"N","sign_type":"MD5","sign":"9ee577e265541725225f08cb4889eadb"}',true));
-//        return $this->render('pay');
-    }
 
     public function actionAlipay()
     {
@@ -520,10 +523,13 @@ class OrderController extends CommonController
 
     }
 
+    /**
+     * 异步返回
+     */
     public function actionNotifypay()
     {
         $this->layout = false;
-//        logResult('1'.json_encode($_POST));
+        //        logResult('1'.json_encode($_POST));
         $alipay_config = $this->payConfig();
         $alipayNotify  = new AlipayNotify($alipay_config);
         $verify_result = $alipayNotify->verifyNotify();
@@ -535,29 +541,19 @@ class OrderController extends CommonController
             $trade_status = $_POST['trade_status']; //交易状态
 
             if ($trade_status == 'TRADE_FINISHED') {//交易完成
-                //判断该笔订单是否在商户网站中已经做过处理
-                //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-                //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
-                //如果有做过处理，不执行商户的业务程序
+                //修改用户确认收货状态
 
-                //注意：
-                //退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
-
-
-//                logResult(implode(',', $_POST));
+                //                logResult(implode(',', $_POST));
             } else if ($trade_status == 'TRADE_SUCCESS') {//可以退款
-                //判断该笔订单是否在商户网站中已经做过处理
 
-
-                //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-                //请务必判断请求时的total_fee、seller_id与通知时获取的total_fee、seller_id为一致的
-                //如果有做过处理，不执行商户的业务程序
-
-                //注意：
-                //付款完成后，支付宝系统发送该交易状态通知
-
-
-//                logResult(json_encode($_POST));
+                $session = \Yii::$app->session;
+                $total   = new Total_order();
+                $order   = new Orders();
+                $data    = $total->getOne($out_trade_no, $session->get('user_id'));
+                if (!$data) exit('not found');
+                $res = $order->savePay($data['total_order_details']);
+                if (!$res) exit('fail');
+                if(!$total->savePay($out_trade_no))exit('fail');
             }
             echo "success";        //请不要修改或删除
         } else {
@@ -569,6 +565,9 @@ class OrderController extends CommonController
         }
     }
 
+    /**
+     * 同步返回
+     */
     public function actionReturnpay()
     {
         $alipay_config = $this->payConfig();
@@ -586,27 +585,36 @@ class OrderController extends CommonController
 
             //支付宝交易号
             $trade_no = $_GET['trade_no'];
-
+            //交易金额
+            $money = $_GET['total_fee'];
             //交易状态
             $trade_status = $_GET['trade_status'];
+            //用户已经确认收货---->trade_finished
+            if ($_GET['trade_status'] == 'TRADE_FINISHED') {
 
-            if ($_GET['trade_status'] == 'trade_finished' || $_GET['trade_status'] == 'TRADE_SUCCESS') {
-                //判断该笔订单是否在商户网站中已经做过处理
-                //如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
-                //如果有做过处理，不执行商户的业务程序
-            } else {
-                echo "trade_status=" . $_GET['trade_status'];
+                //支付成功--->TRADE_SUCCESS
+            } elseif ($_GET['trade_status'] == 'TRADE_SUCCESS') {
+                $session = \Yii::$app->session;
+                $total   = new Total_order();
+                $order   = new Orders();
+                $data    = $total->getOne($out_trade_no, $session->get('user_id'));
+                if (!$data) {
+                    return $this->render('sub_order', ['status' => '-1', 'msg' => '结算的订单跑丢了呢!!']);
+                }
+                $res = $order->savePay($data['total_order_details']);
+                //	var_dump($res);die;
+                if (!$res) {
+                    return $this->render('sub_order', ['status' => '-1', 'msg' => '网络障碍,请速速联系客服说明已支付!!']);
+                }
             }
 
-            echo "验证成功<br />";
+            return $this->render('sub_order', ['money' => $money, 'order' => $out_trade_no]);
 
             //——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         } else {
-            //验证失败
-            //如要调试，请看alipay_notify.php页面的verifyReturn函数
-            echo "验证失败";
+            return $this->render('sub_order', ['status' => '-1', 'msg' => '支付失败,请重试']);
         }
 
     }
@@ -625,10 +633,10 @@ class OrderController extends CommonController
         $alipay_config['key'] = '1cvr0ix35iyy7qbkgs3gwymeiqlgromm'; //商户KEY
 
         // 服务器异步通知页面路径 需http://格式的完整路径，不能加?id=123这类2088421713316394自定义参数，必须外网可以正常访问
-        $alipay_config['notify_url'] = "http://www.kuqingshu.com/order/notifypay";
+        $alipay_config['notify_url'] = "http://www.8023i.com/order/notifypay";
 
         // 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-        $alipay_config['return_url'] = "http://www.kuqingshu.com/order/returnpay";
+        $alipay_config['return_url'] = "http://www.8023i.com/order/returnpay";
 
         $alipay_config['sign_type'] = strtoupper('MD5');//签名方式
 
@@ -658,4 +666,5 @@ class OrderController extends CommonController
         return $alipay_config;
 
     }
+
 }
