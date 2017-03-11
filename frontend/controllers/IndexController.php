@@ -35,7 +35,7 @@ class IndexController extends Controller
 {
     public $enableCsrfValidation = false;
 
-	//首页
+    //首页
 	public function actionIndex()
 	{
         //轮播图

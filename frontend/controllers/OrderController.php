@@ -12,13 +12,12 @@ use frontend\models\Consignee;
 use frontend\models\User_ticket;
 use libs\alipay\AlipayNotify;
 use libs\alipay\AlipaySubmit;
-
+use yii\helpers\Url;
 
 class OrderController extends CommonController
 {
 
     public $enableCsrfValidation = false;
-
     /**
      * 订单展示
      * @author Dx
@@ -30,53 +29,55 @@ class OrderController extends CommonController
     {
         //用户ID
         $param = urldecode(\Yii::$app->request->get('buycart'));
+
         if (empty($param)) exit('缺少参数,不正确');
+
 
         $session = \Yii::$app->session;
-        $uid     = intval($session->get('user_id'));
+        $uid = intval($session->get('user_id'));
 
-        if (!$uid) echo \Yii::$app->view->renderFile('@app/views/login/login.php');
+        if(!$uid) echo \Yii::$app->view->renderFile('@app/views/login/login.php');
         //结算参数
         $param = \Yii::$app->request->get();
-        if (empty($param)) exit('缺少参数,不正确');
+        if(empty($param))exit('缺少参数,不正确');
         unset($param['r']);
         //商品ID
-        $cartId = urldecode($param['buycart'] . $param['id'] . $param['param']);
+        $cartId = urldecode($param['buycart'].$param['id'].$param['param']);
 
         //获取要结算的商品
         $cart = new Carts();
-        $data = $cart->getCart($cartId, $uid);
-        if (empty($data)) exit('此商品已经下单喽');
+        $data = $cart->getCart($cartId,$uid);
+        if(empty($data))exit('此商品已经下单喽');
         //收货地址
-        $obj     = new Consignee();
+        $obj = new Consignee();
         $address = $obj->getAddress($uid);
-
 
         $sumPrice = '';
         //优惠券
         $ticket = new User_ticket();
         //处理商品信息
-        foreach ($data as $k => $v) {
+        foreach($data as $k=>$v){
             //餐饮价格和总价格
-            if ($v['food']['is_discount']) {
-                $v['price']    = $v['food']['discount_price'];
-                $v['sumprice'] = ($v['buy_number'] * $v['food']['discount_price']);
-                $sumPrice      = $sumPrice + ($v['buy_number'] * $v['food']['discount_price']);
-            } else {
-                $v['price']    = $v['food']['food_price'];
-                $v['sumprice'] = ($v['buy_number'] * $v['food']['food_price']);
-                $sumPrice      = $sumPrice + ($v['buy_number'] * $v['food']['food_price']);
+            if($v['food']['is_discount']){
+                $v['price'] = $v['food']['discount_price'];
+                $v['sumprice'] = ($v['buy_number']*$v['food']['discount_price']);
+                $sumPrice = $sumPrice+($v['buy_number']*$v['food']['discount_price']);
+            }else{
+                $v['price'] = $v['food']['food_price'];
+                $v['sumprice'] = ($v['buy_number']*$v['food']['food_price']);
+                $sumPrice = $sumPrice+($v['buy_number']*$v['food']['food_price']);
             }
-            $res[$v['food']['food_mername'] . ',' . $v['food']['food_mer']]['food'][$k] = $v;
+            $res[$v['food']['food_mername'].','.$v['food']['food_mer']]['food'][$k] = $v;
         }
 
         //商户优惠券
-        foreach ($res as $k => $v) {
-            $food_mer = substr($k, strrpos($k, ',') + 1);
-            $price    = '';
-            foreach ($v['food'] as $ke => $va) {
-                $price = $price + $va['price'];
+        foreach($res as $k=>$v){
+            $food_mer = substr($k,strrpos($k,',')+1);
+            $price = '';
+            foreach($v['food'] as $ke=>$va){
+                $price =  $price+$va['price'];
             }
+
             $store = $ticket->getTicket($uid, $food_mer, $price);
             if ($store) {
                 foreach ($store as $ks => $va) {
@@ -86,17 +87,22 @@ class OrderController extends CommonController
 
         }
 
-        $fullCourt = $ticket->getFullcourt($uid, $sumPrice);
+        $fullCourt = $ticket->getFullcourt($uid,$sumPrice);
 
         //配送
-        $obj   = new Query();
+        $obj = new Query();
         $ships = $obj->from('yfc_ships')->all();
+
+       //var_dump($res);die;
+        $session = \Yii::$app->session;
+        $uid = $session->get('user_id');
+        $query = new Query;
 
         //地区表
         $area = $obj->from('yfc_district')->all();
         return $this->render('order', ['area'=>$area,'address' => $address, 'res' => $res, 'sumPrice' => $sumPrice, 'fullCourt' => $fullCourt, 'ships' => $ships]);
-    }
 
+    }
     /**
      * 生成订单
      * @author Dx
@@ -106,86 +112,86 @@ class OrderController extends CommonController
     public function actionSetorder()
     {
         $session = \Yii::$app->session;
-        $return  = array(
-            'status' => 0,
-            'msg'    => '',
+        $return = array(
+            'status'=>0,
+            'msg'=>'',
         );
-        if (!$session->has('user_id')) {
+        if(!$session->has('user_id')){
             $return['msg'] = '请重新登录,登录已过期';
             exit(json_encode($return));
         }
         $uid = intval($session->get('user_id'));
         //支付方式
-        $obj   = new Query();
+        $obj = new Query();
         $param = \Yii::$app->request->post();
-        $ship  = $obj->select('ship_name,ship_id')->from('yfc_ships')->where(['ship_id' => $param['ships']])->one();
-        if (!$ship) {
+        $ship = $obj->select('ship_name,ship_id')->from('yfc_ships')->where(['ship_id'=>$param['ships']])->one();
+        if(!$ship){
             $return['msg'] = '配送方式不存在';
             exit(json_encode($return));
         }
         $ticket = new User_ticket();
         //全场优惠券是否过期
-        if (isset($param['fullCourt'])) {
-            $res = $ticket->getCoupon($uid, $param['fullCourt']);
-            if (!$res) {
+        if(isset($param['fullCourt'])){
+            $res = $ticket->getCoupon($uid,$param['fullCourt']);
+            if(!$res){
                 $return['msg'] = '全场优惠券过期啦';
                 exit(json_encode($return));
             }
-            if (!$ticket->delStore($res['tic_id'])) {
+            if(!$ticket->delStore($res['tic_id'])){
                 $return['msg'] = '全场优惠券无法使用,请重试';
                 exit(json_encode($return));
             }
         }
 
         $store = $param['lower'];
-        if (!is_array($store)) {
+        if(!is_array($store)){
             $return['msg'] = '参数不正确';
             exit(json_encode($return));
         }
         $count = count($store);
 
         //商家是否可以下单
-        $cart     = new Carts();
+        $cart = new Carts();
         $business = new Merchant();
-        $arr      = array();
-        $cart_id  = array();
+        $arr = array();
+        $cart_id = array();
         $lower_id = '';
-        for ($i = 0; $i < $count; $i++) {
-            if (empty($store[$i]['seller'])) {
+        for($i=0;$i<$count;$i++){
+            if(empty($store[$i]['seller'])){
                 $return['msg'] = '无法下单,重试';
                 exit(json_encode($return));
             }
 
             $res = $business->checkOffline($store[$i]['seller']);
-            if (!$res) {
+            if(!$res){
                 $return['msg'] = '商户已经不存在';
                 exit(json_encode($return));
             }
-            if ($res['mer_status'] == '1') {
-                $return['msg'] = $res['mer_name'] . '商户未营业,请明日再来';
+            if($res['mer_status']=='1'){
+                $return['msg'] = $res['mer_name'].'商户未营业,请明日再来';
                 exit(json_encode($return));
             }
             //商户优惠券是否过期
-            if (!empty($store[$i]['lower']) || $store[$i]['lower']) {
-                $Coupon = $ticket->getStore($uid, $store[$i]['lower'], $store[$i]['seller']);
-                if (empty($Coupon)) {
-                    $return['msg'] = $res['mer_name'] . '商户的优惠券已失效,请换一张';
+            if(!empty($store[$i]['lower']) || $store[$i]['lower']){
+                $Coupon = $ticket->getStore($uid,$store[$i]['lower'],$store[$i]['seller']);
+                if(empty($Coupon)){
+                    $return['msg'] = $res['mer_name'].'商户的优惠券已失效,请换一张';
                     exit($return);
                 }
             }
-            $food = $cart->getCart($store[$i]['cart'], $uid);
-            if (empty($food)) {
+            $food = $cart->getCart($store[$i]['cart'],$uid);
+            if(empty($food)){
                 $return['msg'] = '商家已经下线,无法购买';
                 exit($return);
             }
 
-            foreach ($food as $k => $v) {
-                if ($v['food_mer'] == $store[$i]['seller']) {
-                    if (isset($Coupon) && $store[$i]['lower'] == $Coupon['tickets']['tic_id']) {
-                        $lower_id .= empty($lower_id) ? $Coupon['tickets']['tic_id'] : ',' . $Coupon['tickets']['tic_id'];
+            foreach($food as $k=>$v){
+                if($v['food_mer']==$store[$i]['seller']){
+                    if(isset($Coupon) && $store[$i]['lower']==$Coupon['tickets']['tic_id']){
+                        $lower_id .= empty($lower_id)? $Coupon['tickets']['tic_id'] : ','.$Coupon['tickets']['tic_id'];
                         //删除优惠券
-                        if (!$ticket->delStore($lower_id)) {
-                            $return['msg'] = '优惠券使用失败,请重试';
+                        if(!$ticket->delStore($lower_id)){
+                            $return['msg'] ='优惠券使用失败,请重试';
                             exit(json_encode($return));
                         }
                         $arr[$store[$i]['seller']]['discount_pay'] = $Coupon['tickets']['tic_cost'];
@@ -193,59 +199,57 @@ class OrderController extends CommonController
                     $arr[$store[$i]['seller']][] = $v;
                 }
             }
-            $cart_id[$i] = $store[$i]['cart'];
+            $cart_id[$i]=$store[$i]['cart'];
         }
 
-        $address   = intval($param['address']);
-        $consignee = Consignee::find()->select('cons_name')->where(['cons_id' => $address, 'user_id' => $uid])->one();
-        if (!$consignee) {
+        $address = intval($param['address']);
+        $consignee = Consignee::find()->select('cons_name')->where(['cons_id'=>$address,'user_id'=>$uid])->one();
+        if(!$consignee){
             $return['msg'] = '收货地址错误';
             exit(json_encode($return));
         }
 
-        $pay = $obj->select('pay_way')->from('yfc_pays')->where(['pay_id' => $param['payment']])->one();
-        if (empty($pay)) {
+        $pay = $obj->select('pay_way')->from('yfc_pays')->where(['pay_id'=>$param['payment']])->one();
+        if(empty($pay)){
             $return['msg'] = '支付方式不存在,请重新选择';
             exit(json_encode($return));
         }
 
         //购物车ID
-        $cartid = implode(',', $cart_id);
-        if (!$cart->delCart($cartid)) {
+        $cartid = implode(',',$cart_id);
+        if(!$cart->delCart($cartid)){
             $return['msg'] = '网络拥挤,结算购物车失败';
             exit(json_encode($return));
         }
         //订单
-        $order    = new Orders();
-        $details  = new Date();
-        $data     = array();
-        $money    = '';
+        $order = new Orders();
+        $details = new Date();
+        $data = array();
+        $money = '';
         $order_sn = '';
         $order_id = '';
-        foreach ($arr as $k => $v) {
+        foreach($arr as $k=>$v){
             $data['merchant_id'] = $k;
-            $data['order_sn']    = $this->actionGetorder_sn();
-            $data['user_id']     = $uid;
-            $data['ship_id']     = $ship['ship_id'];
-            $data['ship_name']   = $ship['ship_name'];
+            $data['order_sn'] = $this->actionGetorder_sn();
+            $data['user_id'] = $uid;
+            $data['ship_id'] = $ship['ship_id'];
+            $data['ship_name'] = $ship['ship_name'];
             //留言
-            if (!empty($param['leaving'])) {
+            if(!empty($param['leaving'])){
                 $data['Remarks'] = $param['leaving'];
             }
             $data['order_addtime'] = time();
             //优惠券
-            if (isset($v['discount_pay'])) {
-                $data['discount_pay'] = $v['discount_pay'];
+            if(isset($v['discount_pay'])){
+                $data['discount_pay'] =  $v['discount_pay'];
             }
             //支付
 
             $data['pay_way'] = $pay['pay_way'];
             $data['pay_id']  = $param['payment'];
-
-
             //收货
             $data['address_id'] = $address;
-            $data['consignee']  = $consignee['cons_name'];
+            $data['consignee'] = $consignee['cons_name'];
             //获取此商家消费价钱
             $fooddetails = $this->actinGetsumprice($v);
             //餐饮ID
@@ -253,21 +257,22 @@ class OrderController extends CommonController
             //餐饮总计
             $data['food_amount'] = $fooddetails['sum'];
             //订单总计
-            $money += $data['order_amount'] = isset($data['discount_pay']) ? $data['food_amount'] - $data['discount_pay'] : $data['food_amount'];
+            $money += $data['order_amount'] = isset($data['discount_pay']) ? $data['food_amount']-$data['discount_pay'] : $data['food_amount'];
             $id = $order->setOrder($data);
-            if (!$id) {
+            if(!$id){
                 $return['msg'] = '餐饮下单失败,请重试';
                 exit(json_encode($return));
             }
-            $order_id = empty($order_id) ? $id : $order_id . ',' . $id;
-            $res      = $details->setOrderdetails($v, $id);
-            if (!$res) {
+            $order_id = empty($order_id) ? $id : $order_id.','.$id;
+            $res = $details->setOrderdetails($v,$id);
+            if(!$res){
                 $return['msg'] = '餐饮下单失败,请联系商家';
                 exit(json_encode($return));
             }
         }
 
         $total = new Total_order();
+
         $data  = array(
             'total_order_user'    => $uid,
             'total_order_sn'      => $order_sn = $this->actionGetorder_sn(),
@@ -275,23 +280,24 @@ class OrderController extends CommonController
             'total_order_details' => $order_id,
             'total_order_price'   =>$money,
             'total_order_address' =>$address,
+
         );
-        if (!$total->setOrder($data)) {
+        if(!$total->setOrder($data)){
             $return['msg'] = '中途出现了点差错,请联系管理员';
             exit(json_encode($return));
         };
 
         //支付宝
-        $url              = $this->actionCreate_pay_url($order_sn, '0.01');
-        $return['sum']    = $money;
-        $return['order']  = $order_sn;
-        $return['url']    = $url;
-        $return['msg']    = '成功下单';
+        $url = $this->actionCreate_pay_url($order_sn,'0.01');
+        $return['sum'] = $money;
+        $return['order'] = $order_sn;
+        $return['url'] = $url;
+        $return['msg'] = '成功下单';
         $return['status'] = 1;
         exit(json_encode($return));
     }
-
     //支付宝签名创建
+
 
     public function actionCreate_pay_url($order_sn, $money)
     {
@@ -323,8 +329,10 @@ class OrderController extends CommonController
         //请保证cacert.pem文件在当前文件夹目录中
         $alipay_config['cacert'] = getcwd() . '\\cacert.pem';
 
+
         //访问模式,根据自己的服务器是否支持ssl访问，若支持请选择https；若不支持请选择http
-        $alipay_config['transport'] = 'http';
+        $alipay_config['transport']    = 'http';
+
 
         // 支付类型 ，无需修改
         $alipay_config['payment_type'] = "1";
@@ -352,6 +360,7 @@ class OrderController extends CommonController
             "total_fee"      => $money, // 付款金额
             "body"           => "来这吃", // 订单描述 可选
             "_input_charset" => 'utf-8', // 字符编码格式
+
         );
 
         // 参数排序
@@ -366,20 +375,21 @@ class OrderController extends CommonController
                 $str .= "&" . $k . "=" . $v;
             }
         }
-        $parameter['sign']      = md5($str . $alipay_config['key']);    // 签名
+        $parameter['sign'] = md5($str.$alipay_config['key']);	// 签名
         $parameter['sign_type'] = $alipay_config['sign_type'];
         // var_dump($parameter);die;
         $action_url = "https://mapi.alipay.com/gateway.do?";
-        $pay        = '';
+        $pay = '';
         foreach ($parameter as $k => $v) {
             if (empty($pay)) {
-                $pay .= $k . "=" . $v;
-            } else {
-                $pay .= '&' . $k . "=" . $v;
+                $pay.=$k."=".$v;
+            }else{
+                $pay.='&'.$k."=".$v;
             }
         }
-        return $action_url . $pay;
+        return $action_url.$pay;
     }
+
 
     /**
      * 每家商家消费信息
@@ -387,25 +397,24 @@ class OrderController extends CommonController
      * @param $param
      * @return mixed
      */
+
     public function actinGetsumprice($param)
     {
-        if (empty($param)) exit('缺少参数');
+        if(empty($param))exit('缺少参数');
         unset($param['food_id']);
-        if (isset($param['discount_pay'])) unset($param['discount_pay']);
+        if(isset($param['discount_pay']))unset($param['discount_pay']);
         $sumPrice = '';
-        $id       = '';
-        foreach ($param as $k => $v) {
+        $id = '';
+        foreach($param as $k=>$v){
 
-            if ($v['food']['is_discount']) {
-                $sumPrice += $v['buy_number'] * $v['food']['discount_price'];
-            } else {
-                $sumPrice += $v['buy_number'] * $v['food']['food_price'];
+            if($v['food']['is_discount']){
+                $sumPrice += $v['buy_number']*$v['food']['discount_price'];
+            }else{
+                $sumPrice += $v['buy_number']*$v['food']['food_price'];
             }
-            $id .= empty($id) ? $v['food']['food_id'] : ',' . $v['food']['food_id'];
+            $id .= empty($id) ? $v['food']['food_id'] : ','.$v['food']['food_id'];
         }
-        $res['sum'] = $sumPrice;
-        $res['id']  = $id;
-        return $res;
+        
 
     }
 
@@ -418,12 +427,12 @@ class OrderController extends CommonController
     public function actionGetorder_sn()
     {
         $session = \Yii::$app->session;
-        $uid     = $session->get('user_id');
+        $uid = $session->get('user_id');
         //订单号生成
-        $orderNumber = 'LaiZhe' . rand(100000, 999999) . substr(time(), 5, 5) . $uid;
-        $order       = new Orders();
-        $res         = $order->getOrderNumber($orderNumber);
-        if (!$res) $this->actionGetorder_sn();
+        $orderNumber = 'LaiZhe'.rand(100000,999999).substr(time(),5,5).$uid;
+        $order = new Orders();
+        $res = $order->getOrderNumber($orderNumber);
+        if(!$res)$this->actionGetorder_sn();
         return $orderNumber;
 
     }
@@ -435,13 +444,38 @@ class OrderController extends CommonController
         $uid = $session->get('user_id');
         $address = \Yii::$app->request->post();
         $address['user_id'] = $uid;
+
         $res                = \Yii::$app->db->createCommand()->insert('yfc_consignee', $address)->execute();
         if ($res) {
             return $this->redirect('?r=order/order', 301);
         } else {
+
             echo "no";
         }
     }
+
+
+    function searchDir($path,&$data){
+        if(is_dir($path)){
+            $dp=dir($path);
+            while($file=$dp->read()){
+                if($file!='.'&& $file!='..'){
+                    $this->searchDir($path.'/'.$file,$data);
+                }
+            }
+            $dp->close();
+        }
+        if(is_file($path)){
+            $data[]=$path;
+        }
+    }
+
+    function getDir($dir){
+        $data=array();
+        $this->searchDir($dir,$data);
+        return   $data;
+    }
+
 
     public function actionAlipay()
     {

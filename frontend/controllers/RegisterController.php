@@ -124,11 +124,14 @@ class RegisterController extends Controller
         $post['mer_logo']          = $img_path;
         $post['mer_pass']          = md5($post['mer_pass']);
         $post['mer_register_time'] = time();
-        $res                       = \Yii::$app->db->createCommand()->insert('yfc_merchant', $post)->execute();
-        if ($res) {
-            return $this->redirect(Url::to('/login/mer_login'), 301);
-        } else {
-            return $this->redirect(Url::to('/regirect/user_register'), 301);
+        $res = \Yii::$app->db->createCommand()->insert('yfc_merchant',$post)->execute();
+        if($res)
+        {
+        	return $this->redirect(Url::to('/login/mer_login'), 301);
+        }
+        else
+        {
+        	return $this->redirect(Url::to('/regirect/user_register'), 301);
         }
     }
 
