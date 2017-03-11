@@ -99,22 +99,18 @@ class Orders extends ActiveRecord
         return $id;
     }
 
-
     /**
      * 修改支付状态
      * @author
      * @param $id
      * @return bool
      */
-
     public function savePay($order)
-
     {
         $res = $this->updateAll(array('order_paytime'=>time(),'pay_status'=>'1'),'order_id in ('.$order.')');
         if(!$res)return false;
         return true;
     }
-
 
     /**
      * 支付状态
@@ -129,6 +125,7 @@ class Orders extends ActiveRecord
         if($res)return false;
         return true;
     }
+
 
 
     public function getUsers(){
