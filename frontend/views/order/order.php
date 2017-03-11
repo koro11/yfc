@@ -152,9 +152,9 @@
             </p>
         </div>
         <div class="Sum_infor">
-            <p class="p1">配送费用：￥<span id="ships">0</span>.00+商品费用：￥<?php echo $sumPrice ?>-优惠券：￥<span
+            <p class="p1">配送费用：￥<span id="ships">0</span>.00+商品费用：￥<span id="prices"><?php echo $sumPrice ?></span>-优惠券：￥<span
                     id="discount">0</span>.00</p>
-            <p class="p2">合计：￥<span><?php echo $sumPrice ?>.00</span></p>
+            <p class="p2">合计：￥<span id="pricess"><?php echo $sumPrice ?>.00</span></p>
             <input type="submit" value="提交订单" class="p3button">
         </div>
     </div>
@@ -264,6 +264,7 @@
             obj.text(sum);
             arr[lower] = price;
         }
+        aa();
     })
 
     $('select[name="tickets"]').change(function () {
@@ -290,7 +291,15 @@
             obj.text(sum);
             arr[lower] = price;
         }
+        aa();
     })
+    function aa()
+    {
+        var price = $("#prices").text();
+        var discount = $("#discount").text();
+
+        $("#pricess").text(price-discount);
+    }
 
 </script>
 <section class="Psection MT20 Textcenter" style="display:none;" id="Aflow">
