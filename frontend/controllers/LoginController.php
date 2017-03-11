@@ -33,7 +33,7 @@ class LoginController extends Controller
     public function actionLogin_do()
     {
 //      $session = Yii::$app->session;
-//        $session->remove('user_id');die;
+//      $session->remove('user_id');die;
     	$arr = Yii::$app->request->post();
     	$pwd = md5($arr['user_password']);
     	$query = new Query;
@@ -55,15 +55,14 @@ class LoginController extends Controller
                     $res[$i]['food']['food_market'] = $food['is_discount'] ? $food['discount_price'] : $food['food_price'];
                     $res[$i]['food']['food_id'] = $cartMsg[$i]['food']['food_id'];
                 }
-
+                //var_dump($res);die;
                 $sql = $class->adds('yfc_carts',$res);
 
                 $addCart = \Yii::$app->db->createCommand($sql)->execute();
                 //清除cookie购物信息
-                if(!$addCart)exit('购物信息入库失败,请重试');
-                setcookie('cart','');
+                if(!$addCart)exit('购物信息入库失败,请重试'); 
+                setcookie('cart',''); 
             }
-
     		$session = Yii::$app->session;
     		$session->set('user_id',$data['user_id']);
     		$time = $query->select('*')->from('yfc_users')->where(['user_id'=>$data['user_id']])->one();

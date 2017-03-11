@@ -189,6 +189,9 @@ use \yii\db\Query;
                 </hgroup>
                 <p>菜系：<?=$v['cat_name'];?></p>
                 <p>地址：<?=$v['mer_address'];?></p>
+                <?php if (isset($v['info_catipa'])) {?>
+                <p>人均：<?=$v['info_catipa']?>元</p>
+                <?php }?>
                <?php if (isset($v['juli'])) {?>
                 <p>距离：<?=$v['juli'];?>米</p>
                <?php }?>

@@ -135,7 +135,7 @@ class IndexController extends Controller
     {
     	// 哪个商家
         $mer_id = \Yii::$app->request->get('mer');
-        
+        // $mer_id = 1;
         //商家信息
         $merchant_info = new Merchant_info;
         $merchant = $merchant_info->find()
@@ -145,7 +145,8 @@ class IndexController extends Controller
                         ->asArray()
                         ->one();
         //存入cookie,浏览历史
-        $shop_desc = [
+        if ($merchant) {
+           $shop_desc = [
                      'info_mer'=>$merchant['info_mer'],
                      'info_mername'=>$merchant['merchant']['mer_name'],
                      'info_image'=>$merchant['info_image'],
@@ -153,7 +154,8 @@ class IndexController extends Controller
                      ] ;
         // var_dump($shop_desc);die();
         $this->index_history($shop_desc);
-
+        }
+        
         $cookies = Yii::$app->request->cookies;                      //注意此处是request
         $get_history = $cookies->get('shop_history', 'defaultName');//设置默认值
         $shop_history = unserialize($get_history);
