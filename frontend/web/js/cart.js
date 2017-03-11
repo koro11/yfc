@@ -2,15 +2,15 @@ $(document).ready(function () {
 	// 全选        
 	$(".allselect").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
-			if ($(this).attr("checked")) {
-				$(this).attr("checked", false);
-				$("input[name='store']").attr('checked',false);
-				$("#invert").attr('checked',false);
-			} else {
+			//if ($(this).attr("checked")) {
+			//	$(this).attr("checked", false);
+			//	$("input[name='store']").attr('checked',false);
+			//	$("#invert").attr('checked',false);
+			//} else {
 				$(this).attr("checked", true);
 				$("input[name='store']").attr('checked',true);
 				$("#invert").attr('checked',false);
-			}
+			//}
 		});
 		if($(this).attr("checked")){
 			$(".allselect").attr('checked',true);
@@ -50,7 +50,6 @@ $(document).ready(function () {
 	$("#cancel").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
 			$(this).attr("checked", false);
-
 		});
 		GetCount();
 	});

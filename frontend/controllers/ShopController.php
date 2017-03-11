@@ -14,7 +14,7 @@ use frontend\models\Tickets;
 use yii\web\UploadedFile;
 use yii\data\Pagination;
 use frontend\custom_classes\Page;
-use yii\web\Session;
+use yii\helpers\Url;
 
 /**
  * Yii2.0 ShopController

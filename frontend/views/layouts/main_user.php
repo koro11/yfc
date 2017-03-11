@@ -135,7 +135,7 @@ use \yii\helpers\Url;
             <li><i></i><a href="<?=Url::to('user/user_coupon')?>">我的优惠券</a></li>
             <li><i></i><a href="<?=Url::to('user/user_collect')?>">我的收藏</a></li>
             <li><i></i><a href="<?=Url::to('user/user_account')?>">账户管理</a></li>
-            <li><i></i><a href="<?=Url::to('login/login_out')?>">安全退出</a></li>
+            <li><i></i><a href="<?=Url::to('login/out')?>">安全退出</a></li>
         </ul>
     </nav>
 <?= $content ?>
