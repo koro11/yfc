@@ -31,7 +31,7 @@ class RegisterController extends Controller
         $arr1                 = Yii::$app->request->post();
         $arr['user_password'] = md5($arr1['user_password']);
         $arr['register_time'] = time();
-        $res                  =   \Yii::$app->db->createCommand()->insert('yfc_users', $arr)->execute();
+        $res                  = \Yii::$app->db->createCommand()->insert('yfc_users', $arr)->execute();
         if ($res) {
             $query             = new Query;
             $data              = $query->select('*')->from('yfc_users')->where(['user_phone' => $arr1['user_phone']])->one();
@@ -44,57 +44,6 @@ class RegisterController extends Controller
         }
     }
 
-    /**
-     * 商家驻入
-     */
-    public function actionMerchant_register()
-    {
-        $cate     = \Yii::$app->db->createCommand("select * from yfc_mer_category")->queryAll();
-        $district = \Yii::$app->db->createCommand("select * from yfc_district")->queryAll();
-        return $this->render('merchant_register', ['cate' => $cate, 'district' => $district]);
-    }
-
-    /**
-     * 商家处理
-     */
-    public function actionMerchant_register_do()
-    {
-        $post   = Yii::$app->request->post();
-        $upload = new UploadedFile;                      //实例化上传类
-        $file   = $upload->getInstanceByName('mer_logo');  //获取文件原名称
-        $name   = $file->name;
-    }
-
-    /**
-     * 用户注册
-     */
-    public function actionUser_register()
-    {
-        return $this->render('user_register');
-    }
-
-    /**
-     * 用户注册处理
-     */
-    public function actionUser_register_do()
-    {
-        $arr                  = Yii::$app->request->post();
-        $arr['user_password'] = md5($arr['user_password']);
-        $arr['register_time'] = time();
-        $res                  = \Yii::$app->db->createCommand()->insert('yfc_users', $arr)->execute();
-        if ($res) {
-            $query             = new Query;
-            $data              = $query->select('*')->from('yfc_users')->where(['user_phone' => $arr['user_phone']])->one();
-            $arr2['user_id']   = $data['user_id'];
-            $arr2['user_name'] = 'yfc_' . rand(000000, 999999);
-            \Yii::$app->db->createCommand()->insert('yfc_user_info', $arr2)->execute();
-            return $this->redirect(Url::to('/login/login'), 301);
-        } else {
-            return $this->redirect(Url::to('/regirect/user_register'), 301);
-        }
-
-
-    }
 
     /**
      * 商家驻入
@@ -124,14 +73,11 @@ class RegisterController extends Controller
         $post['mer_logo']          = $img_path;
         $post['mer_pass']          = md5($post['mer_pass']);
         $post['mer_register_time'] = time();
-        $res = \Yii::$app->db->createCommand()->insert('yfc_merchant',$post)->execute();
-        if($res)
-        {
-        	return $this->redirect(Url::to('/login/mer_login'), 301);
-        }
-        else
-        {
-        	return $this->redirect(Url::to('/regirect/user_register'), 301);
+        $res                       = \Yii::$app->db->createCommand()->insert('yfc_merchant', $post)->execute();
+        if ($res) {
+            return $this->redirect(Url::to('/login/mer_login'), 301);
+        } else {
+            return $this->redirect(Url::to('/regirect/user_register'), 301);
         }
     }
 

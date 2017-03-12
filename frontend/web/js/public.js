@@ -8,12 +8,10 @@ function selectsearch(theA,word){
  theA.className='choose';
   if(word=='restaurant_name'){
 	  $("input[name='search_type']").val('shop');
-	  getHotWords(0);
-   //document.getElementById('main_a_serach').action="search_s.html";
+	  $("#hot_shop").show().next().hide();
   }else if(word=='food_name'){
 	  $("input[name='search_type']").val('food');
-	  getHotWords(1);
-   //document.getElementById('main_a_serach').action="search_p.html";
+	  $("#hot_shop").hide().next().show();
   }
 }
 //INDEX TAB LIST
@@ -76,17 +74,17 @@ function getHotWords(type) {
 		dataType:'json',
 		success: function(msg){
 			var str='';
-			$.each(msg,function (k,v) {
-				str+='<a href="#" class="hotSearch" title="'+v.hot_word+'">'+v.hot_word+'</a>';
-			})
-			$(".hotkeywords").html(str);
+			$.each(msg.shop,function (k,v) {
+				str+='<a href="#" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+			});
+			$("#hot_shop").html(str);
+			str='';
+			$.each(msg.food,function (k,v) {
+				str+='<a href="#" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+			});
+			$("#hot_food").html(str);
 		}
 	});
 }
 
 getHotWords(0);
-
-$(document).on('click',".hotSearch",function(){
-	$("#fkeyword").val($(this).html());
-	$(".searchbutton").click();
-})

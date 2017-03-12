@@ -85,8 +85,13 @@ class IndexController extends Controller
 	//热搜
     public function actionHot_word()
     {
-        $request = \Yii::$app->request;
-        $hotWords = Hot_word::find()->where(['show_status'=>0,'word_type'=>$request->post('type')])->orderBy('hot_length DESC')->limit(5)->asArray()->all();
+        $cache = Yii::$app->cache;
+        $hotWords = $cache->get('hotworks');
+        if ($hotWords === false) {
+            $hotWords['shop'] = Hot_word::find()->where(['show_status'=>0,'word_type'=>0])->orderBy('hot_length DESC')->limit(5)->asArray()->all();
+            $hotWords['food'] = Hot_word::find()->where(['show_status'=>0,'word_type'=>1])->orderBy('hot_length DESC')->limit(5)->asArray()->all();
+            $cache->set('hotworks', $hotWords,3600);
+        }
         echo json_encode($hotWords);
     }
 

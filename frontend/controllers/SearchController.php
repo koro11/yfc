@@ -108,10 +108,8 @@ class SearchController extends Controller
             $num           = $shop[0]["count(*)"];
             $data['pages'] = new Pagination(['totalCount' => $num, 'pageSize' => '2']);
             $shop          = Yii::$app->db->createCommand("select   * from(select info_mer_cate,mer_id,mer_name,mer_address,mer_lng,mer_lat,ROUND(6378.138 * 2 * ASIN(SQRT(POW(SIN((" . $arr['user_lat'] . " * PI() / 180 - mer_lat * PI() / 180) / 2),2)+ COS(" . $arr['user_lat'] . " * PI() / 180) * COS(mer_lat * PI() / 180) * POW(SIN((" . $arr['user_lng'] . " * PI() / 180-   mer_lng * PI() / 180) / 2),2)))* 1000) as juli from yfc_merchant)yfc_merchant   ORDER BY juli " . $ha . " limit " . $data['pages']->offset . ',' . $data['pages']->limit)->queryAll();
-
         } else {
-
-            $shop          = Merchant::find()
+            $shop = Merchant::find()
                 ->select(['info_mer_cate', 'info_catipa', 'mer_id', 'mer_name', 'mer_address'])
                 ->where(['mer_status' => '0'])
                 ->andFilterWhere(['like', 'mer_name', $keyword])
@@ -121,7 +119,6 @@ class SearchController extends Controller
             $data['pages'] = new Pagination(['totalCount' => $shop->count(), 'pageSize' => '2']);
             $shop          = $shop->offset($data['pages']->offset)->limit($data['pages']->limit)->orderBy($order)->asArray()->all();
         }
-
 
         foreach ($shop as $k => $v) {
             $mer_info = $this->getMerInfo($v['mer_id']);
