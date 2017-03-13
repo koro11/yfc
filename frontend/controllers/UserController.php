@@ -298,4 +298,43 @@ class UserController extends CommonController
     }
 
 
+    // public function actionShi()
+    // {
+    //     // $arr=Yii::$app->db->createCommand("select info_mer_cate,mer_id,mer_name,mer_address,mer_lng,mer_lat,ROUND(6378.138 * 2 * ASIN(SQRT(POW(SIN((40.045718 * PI() / 180 - mer_lat * PI() / 180) / 2),2)+ COS(40.045718 * PI() / 180) * COS(mer_lat * PI() / 180) * POW(SIN((116.305514 * PI() / 180-   mer_lng * PI() / 180) / 2),2)))* 1000) as juli from yfc_merchant")->queryAll();
+    //     $arr=$this->actionSquare('116.305514','40.045718','2');
+    //     $res=Yii::$app->db->createCommand("select * from yfc_merchant where ".$arr['left-top']['lat'].">mer_lat>".$arr['left-bottom']['lat']." and ")->queryAll();
+    //     return $this->render('shi');
+    // }
+
+
+    //  public function actionSquare($lng, $lat, $distance, $radius = 6371)
+    //  {
+    //      $dlng = 2 * asin(sin($distance / (2 * $radius)) / cos(deg2rad($lat)));
+    //      $dlng = rad2deg($dlng);
+    //        $dlat = $distance / $radius;
+    //        $dlat = rad2deg($dlat);
+         
+    //      return array(
+    //          'left-top' => array(
+    //              'lat' => $lat + $dlat,
+    //              'lng' => $lng - $dlng
+    //          ),
+    //        'right-top' => array(
+    //              'lat' => $lat + $dlat,
+    //              'lng' => $lng + $dlng
+    //          ),
+    //          'left-bottom' => array(
+    //              'lat' => $lat - $dlat,
+    //              'lng' => $lng - $dlng
+    //          ),
+    //          'right-bottom' => array(
+    //              'lat' => $lat - $dlat,
+    //              'lng' => $lng + $dlng
+    //          )
+    //      );
+    //  }
+
+
+
+
 }
