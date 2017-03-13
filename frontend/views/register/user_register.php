@@ -68,6 +68,18 @@ use yii\captcha\Captcha;
 	    {
 	    	$('#phone').text('');
 	    }
+	    $.ajax({
+		   type: "POST",
+		   url: "<?=Url::to('/register/check_useronly')?>",
+		   data: {user_phone:phone},
+		   success: function(msg){
+		     if(msg=="have")
+		     {
+		     	$('#phone').text('此手机号已存在请换一个吧~');
+		     	return false;
+		     }
+		   }
+		});
   	});
   	$('.rpassword').blur(function(){
 	  	var password = $('.password').val();

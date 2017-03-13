@@ -252,6 +252,7 @@ class OrderController extends CommonController
             $data['consignee'] = $consignee['cons_name'];
             //获取此商家消费价钱
             $fooddetails = $this->actinGetsumprice($v);
+
             //餐饮ID
             $data['food_id'] = $fooddetails['id'];
             //餐饮总计
@@ -282,6 +283,7 @@ class OrderController extends CommonController
             'total_order_address' =>$address,
 
         );
+        // var_dump($data);die;
         if(!$total->setOrder($data)){
             $return['msg'] = '中途出现了点差错,请联系管理员';
             exit(json_encode($return));
@@ -414,7 +416,10 @@ class OrderController extends CommonController
             }
             $id .= empty($id) ? $v['food']['food_id'] : ','.$v['food']['food_id'];
         }
-        
+        $res['sum'] = $sumPrice;
+        $res['id'] = $id;
+        return $res;
+
 
     }
 
@@ -439,15 +444,15 @@ class OrderController extends CommonController
 
 
     //添加收货人地址
-    public function actionAdd_address(){
+    public function actionAdd_address()
+    {
         $session = \Yii::$app->session;
         $uid = $session->get('user_id');
         $address = \Yii::$app->request->post();
         $address['user_id'] = $uid;
-
-        $res                = \Yii::$app->db->createCommand()->insert('yfc_consignee', $address)->execute();
+        $res = \Yii::$app->db->createCommand()->insert('yfc_consignee', $address)->execute();
         if ($res) {
-            return $this->redirect('?r=order/order', 301);
+            echo "ok";
         } else {
 
             echo "no";

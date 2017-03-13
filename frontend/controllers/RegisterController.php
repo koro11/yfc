@@ -44,7 +44,10 @@ class RegisterController extends Controller
         }
     }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 06502679bf0fe893310ad4e3784177a50ed5fc0c
     /**
      * 商家驻入
      */
@@ -54,7 +57,10 @@ class RegisterController extends Controller
         $district = \Yii::$app->db->createCommand("select * from yfc_district")->queryAll();
         return $this->render('merchant_register', ['cate' => $cate, 'district' => $district]);
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 06502679bf0fe893310ad4e3784177a50ed5fc0c
     /**
      * 商家处理
      */
@@ -80,7 +86,41 @@ class RegisterController extends Controller
             return $this->redirect(Url::to('/regirect/user_register'), 301);
         }
     }
-
+    /**
+     * 验证唯一
+     */
+    public function actionCheck_useronly()
+    {
+        $post   = Yii::$app->request->post();
+        $query  = new Query;
+        $phone   = $query->select('*')->from('yfc_users')->where(['user_phone' => $post['user_phone']])->one();
+        if($phone)
+        {
+            echo "have";
+        }
+        else
+        {
+            echo "no";
+        }
+    }
+    /**
+     * 验证商家唯一
+     */
+    public function actionCheck_meronly()
+    {
+        $post   = Yii::$app->request->post();
+        $query  = new Query;
+        $phone   = $query->select('*')->from('yfc_merchant')->where(['mer_phone' => $post['mer_phone']])->one();
+        if($phone)
+        {
+            echo "have";
+        }
+        else
+        {
+            echo "no";
+        } 
+    }
+ 
     /**
      * 选择身份
      */
