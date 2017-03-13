@@ -106,12 +106,11 @@ use \yii\helpers\Url;
                 <div class="Search_area">
                     <input type="search" id="fkeyword" name="keyword" <?php if(isset($_GET['keyword']) && !empty($_GET['keyword'])){echo 'value="'.$_GET['keyword'].'"';}?> placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox"/>
                     <input type="submit" class="searchbutton" value="搜 索"/>
-                    <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
                 </div>
             </form>
-            <p class="hotkeywords">
-<!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
-            </p>
+            <p class="hotkeywords" id="hot_shop" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'style="display: none;"';} ?>></p>
+            <p class="hotkeywords" id="hot_food" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'style="display: none;"';} ?>></p>
+            <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
         </div>
     </div>
     <nav class="menu_bg">

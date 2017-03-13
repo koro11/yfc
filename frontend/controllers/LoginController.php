@@ -28,6 +28,16 @@ class LoginController extends Controller
         return $this->render('login');
     }
     /**
+     * qq登录
+     */
+    public function actionQqlogin()
+    {
+        require($_SERVER['HTTP_HOST'].'/../qq/API/qqConnectAPI.php');
+
+        $a = new \QC();
+        var_dump($a);die;
+    }
+    /**
      * 处理登录
      */
     public function actionLogin_do()

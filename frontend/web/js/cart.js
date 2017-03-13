@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
 	// 全选        
 	$(".allselect").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
@@ -134,6 +135,16 @@ function GetCount() {
 				t.val(num).attr('status',1);
 			}
 
+			setTotal($(this),num,price);GetCount();
+		})
+		$("input[name=text_box1]").keyup(function(){
+			var num = $(this).val();
+			if(num<1){
+				num = 1;
+				$(this).val(1);
+
+			}
+			var price = $(this).parent().siblings('.tb1_td6').find('.tot').text();
 			setTotal($(this),num,price);GetCount();
 		})
 		function setTotal(thiss,num,price) {

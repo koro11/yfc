@@ -85,7 +85,8 @@ class MenuController extends Controller
                 exit(json_encode($return));
             }
             $db = new \Memcache();
-            $db->connect('192.168.1.23','11211');
+
+            $db->connect('127.0.0.1','11211');
             $res = $db->get($now.$food_id);
             if($res){
                 $content = $res;

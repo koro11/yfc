@@ -51,7 +51,7 @@
 								<span>其它登录方式</span>
 							</div>
 							<div class="right other_right">
-								 <a href="#" onclick='toLogin()'><img src="images/QQ.png" alt=""></a>
+								 <a href="<?=Url::to('login/qqlogin')?>" ><img src="images/QQ.png" alt=""></a>
 							</div>
 						</div>
 					</div>

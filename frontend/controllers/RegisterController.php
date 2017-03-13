@@ -31,7 +31,7 @@ class RegisterController extends Controller
         $arr1                 = Yii::$app->request->post();
         $arr['user_password'] = md5($arr1['user_password']);
         $arr['register_time'] = time();
-        $res                  =   \Yii::$app->db->createCommand()->insert('yfc_users', $arr)->execute();
+        $res                  = \Yii::$app->db->createCommand()->insert('yfc_users', $arr)->execute();
         if ($res) {
             $query             = new Query;
             $data              = $query->select('*')->from('yfc_users')->where(['user_phone' => $arr1['user_phone']])->one();
@@ -44,6 +44,10 @@ class RegisterController extends Controller
         }
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 06502679bf0fe893310ad4e3784177a50ed5fc0c
     /**
      * 商家驻入
      */
@@ -53,6 +57,10 @@ class RegisterController extends Controller
         $district = \Yii::$app->db->createCommand("select * from yfc_district")->queryAll();
         return $this->render('merchant_register', ['cate' => $cate, 'district' => $district]);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 06502679bf0fe893310ad4e3784177a50ed5fc0c
     /**
      * 商家处理
      */
@@ -71,14 +79,11 @@ class RegisterController extends Controller
         $post['mer_logo']          = $img_path;
         $post['mer_pass']          = md5($post['mer_pass']);
         $post['mer_register_time'] = time();
-        $res = \Yii::$app->db->createCommand()->insert('yfc_merchant',$post)->execute();
-        if($res)
-        {
-        	return $this->redirect(Url::to('/login/mer_login'), 301);
-        }
-        else
-        {
-        	return $this->redirect(Url::to('/regirect/user_register'), 301);
+        $res                       = \Yii::$app->db->createCommand()->insert('yfc_merchant', $post)->execute();
+        if ($res) {
+            return $this->redirect(Url::to('/login/mer_login'), 301);
+        } else {
+            return $this->redirect(Url::to('/regirect/user_register'), 301);
         }
     }
     /**
