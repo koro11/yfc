@@ -110,6 +110,18 @@
 	    {
 	    	$('#phone').text('');
 	    }
+	     $.ajax({
+		   type: "POST",
+		   url: "<?=Url::to('/register/check_meronly')?>",
+		   data: {mer_phone:phone},
+		   success: function(msg){
+		     if(msg=="have")
+		     {
+		     	$('#phone').text('此手机号已存在请换一个吧~');
+		     	return false;
+		     }
+		   }
+		});
   	});
   	$("form").submit(function(){
   		var name = $('.name').val();
