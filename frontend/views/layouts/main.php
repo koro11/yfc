@@ -108,8 +108,8 @@ use \yii\helpers\Url;
                     <input type="submit" class="searchbutton" value="搜 索"/>
                 </div>
             </form>
-            <p class="hotkeywords" id="hot_shop"></p>
-            <p class="hotkeywords" id="hot_food" style="display: none;"></p>
+            <p class="hotkeywords" id="hot_shop" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'style="display: none;"';} ?>></p>
+            <p class="hotkeywords" id="hot_food" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'style="display: none;"';} ?>></p>
             <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
         </div>
     </div>

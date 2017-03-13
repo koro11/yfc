@@ -75,12 +75,12 @@ function getHotWords(type) {
 		success: function(msg){
 			var str='';
 			$.each(msg.shop,function (k,v) {
-				str+='<a href="#" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+				str+='<a href="/search/search?search_type=shop&keyword='+v.hot_word+'" title="'+v.hot_word+'">'+v.hot_word+'</a>';
 			});
 			$("#hot_shop").html(str);
 			str='';
 			$.each(msg.food,function (k,v) {
-				str+='<a href="#" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+				str+='<a href="/search/search?search_type=food&keyword='+v.hot_word+'" title="'+v.hot_word+'">'+v.hot_word+'</a>';
 			});
 			$("#hot_food").html(str);
 		}
