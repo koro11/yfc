@@ -72,7 +72,7 @@ use \yii\helpers\Url;
  </section>
     <div class="Logo_search">
         <div class="Logo">
-            <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+            <a href="<?=Url::to('index/index')?>"><img src="images/logo1.jpg" title="DeathGhost" alt="模板"></a>
             <i></i>
 
             <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
@@ -81,7 +81,7 @@ use \yii\helpers\Url;
             <?php 
                 $coor=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
             if(empty($coor)){?>
-                <span id="adress">北京市 请输入:[<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" />]</span>
+                <span id="adress">北京市 请输入:<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" /></span>
              <div id="l-map" style="display:none"></div>
                      <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
              <?php }else{?>  
