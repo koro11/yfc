@@ -17,7 +17,11 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<!--    <link rel="stylesheet" href="css/example.css">-->
 
+    <!-- This is what you need -->
+    <script src="js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
 <style>
@@ -50,7 +54,7 @@ use \yii\helpers\Url;
         }
         else
         {
-            echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
+            echo '<a href="'.Url::to('register/user_register').'">注册</a>/<a href="'.Url::to('login/login').'">登录</a>';
         }
     ?>
     <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
@@ -69,7 +73,7 @@ use \yii\helpers\Url;
  </section>
     <div class="Logo_search">
         <div class="Logo">
-            <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+            <a href="<?=Url::to('index/index')?>"><img src="images/logo1.jpg" title="DeathGhost" alt="模板"></a>
             <i></i>
 
             <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
@@ -78,7 +82,7 @@ use \yii\helpers\Url;
             <?php 
                 $coor=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
             if(empty($coor)){?>
-                <span id="adress">北京市 请输入:[<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" />]</span>
+                <span id="adress">北京市 请输入:<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" /></span>
              <div id="l-map" style="display:none"></div>
                      <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
              <?php }else{?>  

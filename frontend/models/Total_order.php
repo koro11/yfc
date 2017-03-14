@@ -26,6 +26,9 @@ class Total_order extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [

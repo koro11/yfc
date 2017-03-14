@@ -43,7 +43,7 @@ use \yii\helpers\Url;
       <td><a href="<?=Url::to(['user/user_order','order_id'=>$value['order_id']])?>">查看订单</a> |
         <a href="<?=Url::to(['user/order_speak','order_id'=>$value['order_id']])?>">评价订单</a></td>
       <?php }elseif($value['pay_status']==0){?>
-      <td> <a href="<?=Url::to(['order/order','order_id'=>$value['order_id']])?>">付款</a>
+      <td> <a href="javascript:void(0)" id="pay" order="<?= $value['order_sn']?>" money="<?= $value['order_amount']?>">付款</a>
         |<a href="<?=Url::to(['user/user_order','order_id'=>$value['order_id']])?>">修改地址</a></td>
       <?php }else{?>
       <td><a href="<?=Url::to(['user/del_order','order_id'=>$value['order_id']])?>">取消订单</a>
@@ -65,3 +65,18 @@ use \yii\helpers\Url;
 </section>
 
 <!--End content-->
+<script type="text/javascript">
+  $(document).delegate("#pay","click",function(){
+    var order_sn=$(this).attr("order");
+    var money=$(this).attr('money');
+    $.ajax({
+      type:'get',
+      url:'<?=Url::to('order/create_pay_url')?>',
+      data:'order_sn='+order_sn+'&money='+money,
+      success:function(msg)
+      {
+        location.href=msg;
+      }
+    })
+  })
+</script>

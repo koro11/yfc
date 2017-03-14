@@ -152,7 +152,7 @@
        var cons_name = $('.cons_name').val();
        if(cons_name == "")
        {
-        alert('姓名不能为空');
+        swal("OMG!",'姓名不能为空','error');
         return false;
        } 
     });
@@ -160,7 +160,7 @@
        var cons_address = $('.cons_address').val();
        if(cons_address == "")
        {
-        alert('地址不能为空');
+        swal("OMG!",'地址不能为空','error');
         return false;
        } 
     });
@@ -169,12 +169,12 @@
        var zip=/^\d{6}$/;
        if(cons_zipcode == "")
        {
-        alert('邮编不能为空');
+        swal("OMG!",'邮编不能为空','error');
         return false;
        }
        if(!zip.test(cons_zipcode))
        {
-          alert('请输入正确的邮编');
+          swal('请输入正确的邮编');
        } 
     });
     $('.cons_phone').blur(function(){
@@ -183,12 +183,12 @@
         
        if(cons_phone == "")
        {
-            alert('电话不能为空');
+            swal("OMG!",'电话不能为空','error');
             return false;
        }
        if(!tel.test(cons_phone))
        {
-          alert('请输入正确的手机号码');
+          swal("OMG!",'请输入正确的手机号码','error');
        } 
     });
     $('#submit').click(function(){
@@ -217,7 +217,7 @@
         }
         else
         {
-            alert('请填写完整');
+            swal("OMG!",'请填写完整','error');
         }
         
         
@@ -230,19 +230,19 @@
     $(document).on('click','.p3button',function () {
 
         var address = $("input[name=rdColor]:checked").val();
-        // alert(address);return false;
+        // swal(address);return false;
         if (!address) {
-            alert('请选择收货地址');
+            swal("OMG!",'请选择收货地址','error');
             return false;
         }
         var payment = $("input[name=pay]:checked").val();
         if (!payment) {
-            alert('请选择支付方式');
+            swal("OMG!",'请选择支付方式','error');
             return false;
         }
         var ships = $("input[name=ships]:checked").val();
         if (!ships) {
-            alert('请选择配货方式');
+            swal("OMG!",'请选择配货方式','error');
             return false;
         }
 
@@ -286,7 +286,7 @@
             dataType: 'json',
             success: function (data) {
                 if (data.status == 0) {
-                    alert(data.msg);
+                    swal("OMG!",data.msg,'error');
                     return false;
                 } else {
                     $("#payss").attr('href', data.url);
