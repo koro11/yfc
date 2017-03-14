@@ -256,7 +256,7 @@ use \yii\helpers\Url;
                 var user_lat=address.lat;
                 $.ajax({
                     type:"get",
-                    url:'?r=index/add_coor',
+                    url:'<?=url::to('index/add_coor')?>',
                     data:'user_id='+user_id+'&coor_address='+coor_address+'&user_lng='+user_lng+'&user_lat='+user_lat,
                     success:function(msg)
                     {

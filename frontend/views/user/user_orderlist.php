@@ -23,7 +23,7 @@ use \yii\helpers\Url;
      <th class="Font14 FontW">操作</th>
      <?php foreach ($models as $key => $value) {?>
      <tr>
-      <td class="FontW"><a href="user_order.html"><?= $value['order_sn']?></a></td>
+      <td class="FontW"><a href="<?=Url::to(['user/user_order','order_id'=>$value['order_id']])?>"><?= $value['order_sn']?></a></td>
       <td><?= date('Y-m-d,H:i',$value['order_addtime'])?></td>
       <td><?= $name?></td>
       <td>￥<?= $value['order_amount']?></td>
