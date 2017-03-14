@@ -631,12 +631,17 @@ code::selection {background:#dddddd;}
 /*TURN PAGE CSS*/
 .TurnPage{height:35px;line-height:35px;text-align:center;width:100%; float:left;}
 .TurnPage .Prev{padding:5px 15px;border:1px #dddddd solid;}
+.TurnPage .Prev-s a,.TurnPage .Prev-s span{padding:5px 15px;border:1px #dddddd solid;}
 .TurnPage .Prev i{border-top:5px solid #FFFFFF;border-right:5px solid #d8d8d8;border-bottom:5px solid #FFFFFF;display:inline-block;margin-right:5px;}
 .TurnPage .Next{padding:5px 15px;border:1px #dddddd solid;}
+.TurnPage .Next-s a,.TurnPage .Next-s span{padding:5px 15px;border:1px #dddddd solid;}
 .TurnPage .Next i{border-top:5px solid #FFFFFF;border-left:5px solid #d8d8d8;border-bottom:5px solid #FFFFFF;display:inline-block;margin-left:5px;}
-.TurnPage .PNumber{padding:5px 15px;background:#FFF;border:1px #dddddd solid;}
+.TurnPage .PNumber{display: inline-block;background:#FFF;border:1px #dddddd solid;width: 35px;line-height: 28px;}
+.TurnPage .PNumber-s a{display: inline-block;background:#FFF;border:1px #dddddd solid;width: 35px;line-height: 28px;}
+/*.TurnPage .PNumber a{display: inline-block;background:#FFF; width: 40px;height: 28px;}*/
 .TurnPage .pick{padding:5px 15px;background:#FFF;border:1px red solid;}
-.TurnPage .active{background-color: yellow;}
+.TurnPage .active a{background-color: yellow;}
+/*.TurnPage a{background-color: yellow;display: inline-block;}*/
 /*footer*/
 footer{height:auto;width:100%;background:#f1f1f1;margin-top:10px;border-top:1px #bababa solid;}
 footer .Otherlink{width:1200px;margin:0 auto;}
