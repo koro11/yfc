@@ -162,6 +162,7 @@ $(function(){
 	var status = '1';
 	$('#jz2').click(function(){
 		var box = $('input[name=newslist]:checked');
+		// alert(box);
 		if(box.size()==0){
 			swal('请选择商品');
 			return false;
@@ -196,6 +197,7 @@ $(function(){
 			swal('网络状态异常,请重试');
 			return false;
 		}
+		
 		$.get(urls+'cart/settlement',{order:cart,store:store},function(data){
 			if(data.status == '0'){
 				swal(data.msg);
