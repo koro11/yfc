@@ -53,7 +53,7 @@ use \yii\helpers\Url;
         }
         else
         {
-            echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
+            echo '<a href="'.Url::to('register/user_register').'">注册</a>/<a href="'.Url::to('login/login').'">登录</a>';
         }
     ?>
     <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>

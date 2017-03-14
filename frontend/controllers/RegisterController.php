@@ -44,10 +44,6 @@ class RegisterController extends Controller
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 06502679bf0fe893310ad4e3784177a50ed5fc0c
     /**
      * 商家驻入
      */
@@ -57,10 +53,6 @@ class RegisterController extends Controller
         $district = \Yii::$app->db->createCommand("select * from yfc_district")->queryAll();
         return $this->render('merchant_register', ['cate' => $cate, 'district' => $district]);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 06502679bf0fe893310ad4e3784177a50ed5fc0c
     /**
      * 商家处理
      */
