@@ -99,11 +99,11 @@
 				'prevPageLabel'=>'上一页',
 				'nextPageLabel'=>'下一页',
 				'lastPageLabel'=>'最后一页',
-				'pageCssClass'=>'PNumber',//数字
-				'firstPageCssClass'=>'Prev',//首页
-				'lastPageCssClass'=>'Next',//尾页
-				'prevPageCssClass'=>'Prev',//上一页
-				'nextPageCssClass'=>'Next',//下一页
+				'pageCssClass'=>'PNumber-s',//数字
+				'firstPageCssClass'=>'Prev-s',//首页
+				'lastPageCssClass'=>'Next-s',//尾页
+				'prevPageCssClass'=>'Prev-s',//上一页
+				'nextPageCssClass'=>'Next-s',//下一页
 				'label'=>'span',
 			])
 			?>
