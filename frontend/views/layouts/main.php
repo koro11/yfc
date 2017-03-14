@@ -17,7 +17,11 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<!--    <link rel="stylesheet" href="css/example.css">-->
 
+    <!-- This is what you need -->
+    <script src="js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
 <style>
@@ -50,7 +54,7 @@ use \yii\helpers\Url;
         }
         else
         {
-            echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
+            echo '<a href="'.Url::to('register/user_register').'">注册</a>/<a href="'.Url::to('login/login').'">登录</a>';
         }
     ?>
     <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>

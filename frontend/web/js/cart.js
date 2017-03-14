@@ -102,12 +102,12 @@ function GetCount() {
 		$(".tb1_td7").click(function(){
 			var _this = $(this);
 			var cartId = _this.find('a').attr('foodid');
-			//alert(cartId);return false;
+			//swal(cartId);return false;
 			$.get(urls+'cart/delcart',{cartId:cartId},function(data){
 				if(data.status==1){
 					_this.parent().parent().remove();
 				}else{
-					alert(data.msg);
+					swal(data.msg);
 				}
 			},'json')
 		});
@@ -163,7 +163,7 @@ $(function(){
 	$('#jz2').click(function(){
 		var box = $('input[name=newslist]:checked');
 		if(box.size()==0){
-			alert('请选择商品');
+			swal('请选择商品');
 			return false;
 		}
 		var cart = [];
@@ -193,12 +193,12 @@ $(function(){
 			store[i] = sellerId;
 		}
 		if(status!=1){
-			alert('网络状态异常,请重试');
+			swal('网络状态异常,请重试');
 			return false;
 		}
 		$.get(urls+'cart/settlement',{order:cart,store:store},function(data){
 			if(data.status == '0'){
-				alert(data.msg);
+				swal(data.msg);
 				return false;
 			}else{
 				document.location = data.content;
@@ -218,7 +218,7 @@ $(function(){
 			dataType: 'json',
 			success: function(data){
 				if(data.status==0){
-					alert(data.msg);
+					swal(data.msg);
 					status=0;
 				}
 			}
@@ -252,7 +252,7 @@ $(function(){
 	$(function () {
 		$(".quanxun").click(function () {
 			setTotal();
-			//alert($(lens[0]).text());
+			//swal($(lens[0]).text());
 		});
 		function setTotal() {
 			var len = $(".tot");
@@ -261,7 +261,7 @@ $(function(){
 				num = parseInt(num) + parseInt($(len[i]).text());
 
 			}
-			//alert(len.length);
+			//swal(len.length);
 			$("#zong1").text(parseInt(num).toFixed(2));
 			$("#shuliang").text(len.length);
 		}

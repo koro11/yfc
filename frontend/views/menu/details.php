@@ -194,23 +194,83 @@ $(function(){
             },'json')
         }
         //加入购物车
-        $('.BuyB').click(function(){
+        $(document).delegate('.BuyB','click',function(){
+
             var id = $('input[name="food"]').val();
             var num = $('input[name="Number"]').val();
-            $.get('<?=Url::to('menu/addcart')?>',{id:id,num:num},function(data){
-//                alert(data);return false;
-                if(data.status == 1){
-                    if(window.confirm('成功加入购物车,是否进行结算')){
-                        document.location = '<?=Url::to('cart/cart')?>';
+            var _this = $(this);
+            $.ajax({
+                type: "get",
+                url: '<?=Url::to('menu/addcart')?>',
+                data: {num:num,id:id},
+                asynv:false,
+                dataType: 'json',
+                beforeSend:function(){
+                    _this.removeClass('BuyB').addClass('noBuy');
+                },
+                success: function(data){
+                    if(data.status == 1){
+                        swal({
+                            title: "商品成功加入购物车,是否进入购物车？",
+                            text: "商品成功加入购物车,是否进入购物车？",
+                            type: "warning",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            confirmButtonText: "是的，进入购物车",
+                            confirmButtonColor: "#ec6c62"
+                        }, function () {
+                            document.location = '<?=Url::to('cart/cart')?>';
+                        });
+                    }else if(data.status == '-1'){
+                        swal({
+                            title: "商品已存在购物车,是否进入购物车结算",
+                            text: "商品已存在购物车,是否进入购物车结算",
+                            type: "warning",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            confirmButtonText: "是的，我要结算",
+                            confirmButtonColor: "#ec6c62"
+                        }, function () {
+                            document.location = '<?=Url::to('cart/cart')?>';
+                        });
+                    }else{
+                        swal("OMG!",data.msg,"error");
                     }
-                }else if(data.status == '-1'){
-                    if(window.confirm('此商品已经存在购物车中,是否进入购物车')){
-                        document.location = '<?=Url::to('cart/cart')?>';
-                    }
-                }else{
-                    alert(data.msg);
-                }
-            },'json')
+                    _this.removeClass('noBuy').addClass('BuyB');
+                },
+
+            });
         })
     })
+    $(function() {
+        $(".demo_1 button").click(function () {
+            swal("这是一个信息提示框!");
+        });
+        $(".demo_2 button").click(function () {
+            swal("Good!", "弹出了一个操作成功的提示框", "success");
+        });
+        $(".demo_3 button").click(function () {
+            swal("OMG!", "弹出了一个错误提示框", "error");
+        });
+        $(".demo_4 button").click(function () {
+            swal({
+                title: "您确定要删除吗？",
+                text: "您确定要删除这条数据？",
+                type: "warning",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                confirmButtonText: "是的，我要删除",
+                confirmButtonColor: "#ec6c62"
+            }, function () {
+                $.ajax({
+                    url: "do.php",
+                    type: "DELETE"
+                }).done(function (data) {
+                    swal("操作成功!", "已成功删除数据！", "success");
+                }).error(function (data) {
+                    swal("OMG", "删除操作失败了!", "error");
+                });
+            });
+        });
+    });
 </script>
