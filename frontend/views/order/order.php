@@ -368,8 +368,8 @@
     <p class="Font14 Lineheight35 FontW">恭喜你！订单提交成功！</p>
     <p class="Font14 Lineheight35 FontW">您的订单编号为：<span class="CorRed"></span></p>
     <p class="Font14 Lineheight35 FontW">共计金额：<span class="money"></span></p>
-    <p><span style="background-color: #b3b4a8;height: 50px;" class="Lineheight35"><a id="payss" onclick="#">支付宝立即支付</a></span>
-        <button type="button" class="Lineheight35"><a href="user_center.html">进入用户中心</button>
+    <p><span style="background-color: #b3b4a8;height: 50px;" class="Lineheight35"><a id="payss" onclick="#"><button type="button" class="Lineheight35">支付宝立即支付</button></a></span>
+        <a href="<?=Url::to('user/user_index')?>"><button type="button" class="Lineheight35">进入用户中心</button></a>
     </p>
 </section>
 <!--End content-->

@@ -18,7 +18,7 @@ class CommonController extends Controller
         if (!$session->has('user_id') && !$session->has('mer_id')) 
         {
 
-            return $this->redirect(Url::to('/login/choice'), 301);
+            return $this->redirect(Url::to('/login/login'), 301);
         }
     }
 }
