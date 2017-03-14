@@ -20,9 +20,6 @@ use \yii\helpers\Url;
 
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
-
-</head>
-
 <style>
     .p3button{
         cursor: pointer;
@@ -88,12 +85,10 @@ use \yii\helpers\Url;
               <span id="adress"> <input type="text" id="suggestId" size="20" placeholder="<?php echo $coor['coor_address']?>"  style="width:150px;"  />&nbsp;&nbsp;&nbsp;&nbsp;<a herf="#" id="up">修改</a></span>
              <div id="l-map" style="display:none"></div>
             <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
-             <?php }?>      
-            <?php }?>         
-
+            <?php }?>
+            <?php }?>
         </div>
-       
-            
+
         <div class="Search">
             <form method="get" action="<?=Url::to('search/search')?>">
 <!--                <input type="hidden" name="r" value="search/search">-->
@@ -115,11 +110,11 @@ use \yii\helpers\Url;
     </div>
     <nav class="menu_bg">
         <ul class="menu">
-            <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
-            <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
-            <li><a href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
-            <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
-            <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
+            <li><a <?php if($_SERVER['REQUEST_URI']=='/index/index'){echo 'style="color:#fd5411;"';}?> href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
+            <li><a <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food' && !isset($_GET['score'])){echo 'style="color:#fd5411;"';}?> href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
+            <li><a <?php if(!isset($_GET['search_type']) && $_SERVER['REDIRECT_URL']=='/search/search'){echo 'style="color:#fd5411;"';}?> href="<?=Url::to('search/search')?>">餐馆</a></li>
+            <li><a <?php if(isset($_GET['score'])){echo 'style="color:#fd5411;"';}?> href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
+            <li><a <?php if($_SERVER['REQUEST_URI']=='/index/about_us'){echo 'style="color:#fd5411;"';}?> href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>
     </nav>
     <script type="text/javascript" src="js/public.js"></script>
