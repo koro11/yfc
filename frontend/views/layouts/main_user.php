@@ -17,11 +17,4 @@ $this->beginContent('@app/views/layouts/main.php');
     </nav>
 <?= $content ?>
 
-<div class="F-link">
-    <!--<span>友情链接：</span>
-    <a href="http://www.deathghost.cn" target="_blank" title="DeathGhost">DeathGhost</a>
-    <a href="http://www.sucaihuo.com/pins/15966.html" target="_blank" title="免费后台管理模板">绿色清爽版通用型后台管理模板免费下载</a>
-    <a href="http://www.sucaihuo.com/pins/17567.html" target="_blank" title="果蔬菜类模板源码">HTML5果蔬菜类模板源码</a>
-    <a href="http://www.sucaihuo.com/pins/14931.html" target="_blank" title="黑色的cms商城网站后台管理模板">黑色的cms商城网站后台管理模板</a>-->
-</div>
 <?php $this->endContent();?>

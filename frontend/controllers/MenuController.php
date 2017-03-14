@@ -84,7 +84,7 @@ class MenuController extends Controller
                 $retrun['msg'] = '缺少参数';
                 exit(json_encode($return));
             }
-            $db = new Memcache();
+            $db = new \Memcache();
 
             $db->connect('127.0.0.1','11211');
             $res = $db->get($now.$food_id);

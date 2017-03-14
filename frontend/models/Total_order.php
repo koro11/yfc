@@ -56,6 +56,7 @@ class Total_order extends \yii\db\ActiveRecord
         ];
     }
 
+
     /**
      * 添加主订单
      * @param $param
