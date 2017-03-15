@@ -5,8 +5,8 @@
     <div class="gwc" style=" margin:auto;">
         <table cellpadding="0" cellspacing="0" class="gwc_tb1">
             <tr>
-                <td class="tb1_td1"><input id="Checkbox1" type="checkbox" class="allselect"/></td>
-                <td class="tb1_td1">全选</td>
+                <td class="tb1_td1"></td>
+                <td class="tb1_td1"><input id="checkAll" class="allselect" type="button" value="全选" /></td>
                 <td class="tb1_td3">商品</td>
                 <td class="tb1_td4">原价</td>
                 <td class="tb1_td5">数量</td>
@@ -58,12 +58,11 @@
         <?php endif;?>
         <table cellpadding="0" cellspacing="0" class="gwc_tb3">
             <tr>
-                <td class="tb1_td1"><input id="checkAll" class="allselect" type="checkbox"/></td>
-                <td class="tb1_td1">全选</td>
-                <td class="tb3_td1"><input id="invert" type="checkbox"/>
-                    反选
-                    <input id="cancel" type="checkbox"/>
-                    取消
+                <td class="tb1_td1"></td>
+                <td class="tb1_td1"><input id="checkAll" class="allselect" type="button" value="全选" /></td>
+                <td class="tb3_td1">
+                    <input id="invert" type="button" value="反选"/>
+                    <input id="cancel" type="button" value="取消"/>
                 </td>
                 <td class="tb3_td2 GoBack_Buy Font14"><a href="<?=Url::to('index/index')?>" target="_blank">继续购物</a></td>
                 <td class="tb3_td2">已选商品

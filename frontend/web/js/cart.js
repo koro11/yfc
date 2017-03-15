@@ -1,16 +1,17 @@
 $(document).ready(function () {
+
 	// 全选        
 	$(".allselect").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
-			if ($(this).attr("checked")) {
-				$(this).attr("checked", false);
-				$("input[name='store']").attr('checked',false);
-				$("#invert").attr('checked',false);
-			} else {
+			//if ($(this).attr("checked")) {
+			//	$(this).attr("checked", false);
+			//	$("input[name='store']").attr('checked',false);
+			//	$("#invert").attr('checked',false);
+			//} else {
 				$(this).attr("checked", true);
 				$("input[name='store']").attr('checked',true);
 				$("#invert").attr('checked',false);
-			}
+			//}
 		});
 		if($(this).attr("checked")){
 			$(".allselect").attr('checked',true);
@@ -50,7 +51,6 @@ $(document).ready(function () {
 	$("#cancel").click(function () {
 		$(".gwc_tb2 input[name=newslist]").each(function () {
 			$(this).attr("checked", false);
-
 		});
 		GetCount();
 	});
@@ -102,12 +102,12 @@ function GetCount() {
 		$(".tb1_td7").click(function(){
 			var _this = $(this);
 			var cartId = _this.find('a').attr('foodid');
-			//alert(cartId);return false;
+			//swal(cartId);return false;
 			$.get(urls+'cart/delcart',{cartId:cartId},function(data){
 				if(data.status==1){
 					_this.parent().parent().remove();
 				}else{
-					alert(data.msg);
+					swal(data.msg);
 				}
 			},'json')
 		});
@@ -137,6 +137,16 @@ function GetCount() {
 
 			setTotal($(this),num,price);GetCount();
 		})
+		$("input[name=text_box1]").keyup(function(){
+			var num = $(this).val();
+			if(num<1){
+				num = 1;
+				$(this).val(1);
+
+			}
+			var price = $(this).parent().siblings('.tb1_td6').find('.tot').text();
+			setTotal($(this),num,price);GetCount();
+		})
 		function setTotal(thiss,num,price) {
 
 			//$("#total1").html((parseInt(t.val()) * price).toFixed(2));
@@ -152,8 +162,9 @@ $(function(){
 	var status = '1';
 	$('#jz2').click(function(){
 		var box = $('input[name=newslist]:checked');
+		// alert(box);
 		if(box.size()==0){
-			alert('请选择商品');
+			swal('请选择商品');
 			return false;
 		}
 		var cart = [];
@@ -183,12 +194,13 @@ $(function(){
 			store[i] = sellerId;
 		}
 		if(status!=1){
-			alert('网络状态异常,请重试');
+			swal('网络状态异常,请重试');
 			return false;
 		}
+		
 		$.get(urls+'cart/settlement',{order:cart,store:store},function(data){
 			if(data.status == '0'){
-				alert(data.msg);
+				swal(data.msg);
 				return false;
 			}else{
 				document.location = data.content;
@@ -208,7 +220,7 @@ $(function(){
 			dataType: 'json',
 			success: function(data){
 				if(data.status==0){
-					alert(data.msg);
+					swal(data.msg);
 					status=0;
 				}
 			}
@@ -242,7 +254,7 @@ $(function(){
 	$(function () {
 		$(".quanxun").click(function () {
 			setTotal();
-			//alert($(lens[0]).text());
+			//swal($(lens[0]).text());
 		});
 		function setTotal() {
 			var len = $(".tot");
@@ -251,7 +263,7 @@ $(function(){
 				num = parseInt(num) + parseInt($(len[i]).text());
 
 			}
-			//alert(len.length);
+			//swal(len.length);
 			$("#zong1").text(parseInt(num).toFixed(2));
 			$("#shuliang").text(len.length);
 		}

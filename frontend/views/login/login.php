@@ -39,18 +39,20 @@
 								</div>
 							</div>
 							<div class="form_btn">
-								<button type="submit">登录</button>
+								<button type="button" class="submit">登录</button>
 							</div>
 							<div class="form_reg_btn">
 								<span>还没有帐号？</span><a href="<?=Url::to('register/choice')?>">马上注册</a>
+								<a href="<?=Url::to('register/merchant_login')?>" style="font-size:23px;">商家登录</a>
 							</div>
 						</form>
 						<div class="other_login">
+						<a href="<?=Url::to('index/index')?>">返回首页</a>
 							<div class="left other_left">
 								<span>其它登录方式</span>
 							</div>
 							<div class="right other_right">
-								 <a href="#" onclick='toLogin()'><img src="images/QQ.png" alt=""></a>
+								 <a href="<?=Url::to('login/qqlogin')?>" ><img src="images/QQ.png" alt=""></a>
 							</div>
 						</div>
 					</div>
@@ -65,7 +67,7 @@
 	</body>
 </html>
 <script>
-	$("form").submit(function(){
+	$(".submit").click(function(){
 	    var phone = $('.phone').val();
 	  	var password = $('.password').val();
 	  	if(phone=="")
@@ -76,15 +78,32 @@
 	  	{
 	  		return false;
 	  	}
+	  	$.ajax({
+		   type: "POST",
+		   url: "<?=Url::to('login/login_do')?>",
+		   data: {user_phone:phone,user_password:password},
+		   success: function(msg){
+		     if(msg=="no")
+		     {
+		     	alert('用户名或密码有误!');
+		     	return false;
+		     }
+		     else
+		     {
+		     	location.href="<?=Url::to('/index/index')?>";
+		     }
+		   }
+		});
+	  	
 	});
 </script>
 <script>
- function toLogin()
+/* function toLogin()
  {
    //以下为按钮点击事件的逻辑。注意这里要重新打开窗口
    //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
    var A=window.open("oauth/index.php","TencentLogin", 
    "width=450,height=320,menubar=0,scrollbars=1,
    resizable=1,status=1,titlebar=0,toolbar=0,location=1");
- } 
+ } */
 </script>

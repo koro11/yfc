@@ -14,7 +14,7 @@ use frontend\models\Tickets;
 use yii\web\UploadedFile;
 use yii\data\Pagination;
 use frontend\custom_classes\Page;
-use yii\web\Session;
+use yii\helpers\Url;
 
 /**
  * Yii2.0 ShopController
@@ -23,7 +23,7 @@ use yii\web\Session;
  * @email  351518543@qq.com
  * @Time   2017-2-23
  */
-class ShopController extends CommonController
+class ShopController extends Controller
 {
 
     public $layout = '@app/views/layouts/center_nav.php';
@@ -45,7 +45,7 @@ class ShopController extends CommonController
     {
         // 哪个商家
         $mer_id = Yii::$app->session->get('mer_id');
-
+        $mer_id = 1;
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
         
         if ($arr) {
@@ -57,9 +57,8 @@ class ShopController extends CommonController
         $arr['shiped'] = count($shiped);
         // var_dump($arr);die;
         return $this->render('shop_center',['merchant'=>$arr]);
-
-        }
     }
+}
 
     /**
      * @Shop_orders

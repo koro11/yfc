@@ -31,12 +31,13 @@ class UserController extends CommonController
         $user_id = $session->get('user_id');
         //实例化模型层并且查询用户信息（积分在用户信息表中）  
         $info = new User_info;
+        $tickets=new User_ticket;
         $user = $info->find()->joinWith('users')->where(['yfc_user_info.user_id' => $user_id])->asArray()->one();
         if ($user) {
-            /*var_dump($user);die;*/
+            $time=time();
             //查询优惠券信息
-            $user['ticket'] = count(Yii::$app->db->createCommand('select * from yfc_user_ticket where user_id=' . $user_id . '')->queryAll());
-
+            $user['ticket'] = count($tickets->find()->joinWith('tickets')->where(['yfc_user_ticket.user_id' => $user_id])->andWhere(['>','tic_end',$time])->asArray()->All());
+            $user['tickets'] = count($tickets->find()->joinWith('tickets')->where(['yfc_user_ticket.user_id' => $user_id])->andWhere(['<','tic_end',$time])->asArray()->All());
             //分类查询待付款，待收货，待发货，待评价
 
             $pay      = 'select * from yfc_orders where user_id=' . $user_id . ' and order_status=0  and pay_status=0';
@@ -272,7 +273,7 @@ class UserController extends CommonController
                 ->limit($pages->limit)
                 ->all();
         }
-//        var_dump($models);die;
+
         return $this->render('user_orderlist', [
             'models' => $models,
             'pages'  => $pages,

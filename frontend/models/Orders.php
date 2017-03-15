@@ -99,6 +99,9 @@ class Orders extends ActiveRecord
         return $id;
     }
 
+
+
+
     /**
      * 修改支付状态
      * @author
@@ -106,11 +109,15 @@ class Orders extends ActiveRecord
      * @return bool
      */
     public function savePay($order)
+
+
+
     {
         $res = $this->updateAll(array('order_paytime'=>time(),'pay_status'=>'1'),'order_id in ('.$order.')');
         if(!$res)return false;
         return true;
     }
+
 
     /**
      * 支付状态
@@ -132,6 +139,7 @@ class Orders extends ActiveRecord
     public function getFood(){
         return $this->hasMany(Food::className(),['food_id'=>'food_id']);
     }
+
 
 }
  ?>

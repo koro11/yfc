@@ -26,11 +26,15 @@ class Total_order extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    /**
+     * @inheritdoc
+     */
     public function rules()
     {
         return [
-            [['total_order_user', 'total_order_sn', 'total_creat_time', 'total_order_details'], 'required'],
-            [['total_order_user', 'total_creat_time'], 'integer'],
+            [['total_order_user', 'total_order_sn', 'total_creat_time', 'total_order_details', 'total_order_price', 'total_order_address'], 'required'],
+            [['total_order_user', 'total_creat_time', 'total_order_address', 'total_order_pay'], 'integer'],
+            [['total_order_price'], 'number'],
             [['total_order_sn', 'total_order_details'], 'string', 'max' => 20],
         ];
     }
@@ -46,8 +50,12 @@ class Total_order extends \yii\db\ActiveRecord
             'total_order_sn' => 'Total Order Sn',
             'total_creat_time' => 'Total Creat Time',
             'total_order_details' => 'Total Order Details',
+            'total_order_price' => 'Total Order Price',
+            'total_order_address' => 'Total Order Address',
+            'total_order_pay' => 'Total Order Pay',
         ];
     }
+
 
     /**
      * 添加主订单

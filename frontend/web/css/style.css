@@ -459,7 +459,9 @@ code::selection {background:#dddddd;}
 .slp .food-hd .foodtext .BuyNo input{border:1px #dddddd solid;padding:5px;width:60px;margin:0 15px;}
 .slp .food-hd .foodtext .BuyNo .Buybutton{margin:10px 0;}
 .slp .food-hd .foodtext .BuyNo .Buybutton .BuyB{height:45px;width:175px;line-height:20px;text-align:center;margin-right:10px;font-size:15px;border:1px #eb4e00 solid;border-radius:5px;display:inline-block;color:#fff;font-weight:bold;box-shadow:0 5px 5px #cccccc;background-image: -moz-linear-gradient(top, #fe8617, #f55300); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fe8617), color-stop(1, #f55300)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
+.slp .food-hd .foodtext .BuyNo .Buybutton .noBuy{height:45px;width:175px;line-height:20px;text-align:center;margin-right:10px;font-size:15px;border:1px #eb4e00 solid;border-radius:5px;display:inline-block;color:#fff;font-weight:bold;box-shadow:0 5px 5px #cccccc;background-image: -moz-linear-gradient(top, #fe8617, #f55300); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fe8617), color-stop(1, #f55300)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
 .slp .food-hd .foodtext .BuyNo .Buybutton .BuyB:hover{background-image: -moz-linear-gradient(top, #f55300, #fe8617); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f55300), color-stop(1, #fe8617)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
+.slp .food-hd .foodtext .BuyNo .Buybutton .noBuy:hover{background-image: -moz-linear-gradient(top, #f55300, #fe8617); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f55300), color-stop(1, #fe8617)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
 .slp .food-hd .foodtext .BuyNo .Buybutton .Backhome{height:43px;width:175px;line-height:43px;text-align:center;font-size:15px;border:1px #f2bc18 solid;border-radius:5px;display:inline-block;color:#f26500;font-weight:bold;box-shadow:0 5px 5px #cccccc;background-image: -moz-linear-gradient(top, #fff8b4, #ffe983); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff8b4), color-stop(1, #ffe983)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
 .slp .food-hd .foodtext .BuyNo .Buybutton .Backhome:hover{background-image: -moz-linear-gradient(top, #ffe983, #fff8b4); /* Firefox */background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffe983), color-stop(1, #fff8b4)); /* Saf4+, Chrome */filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c6ff00', endColorstr='#538300', GradientType='0'); /* IE*/}
 .slp .food-hd .viewhistory{width:184px;height:auto;float:left;border-left:1px #dddddd dotted;}
@@ -629,12 +631,17 @@ code::selection {background:#dddddd;}
 /*TURN PAGE CSS*/
 .TurnPage{height:35px;line-height:35px;text-align:center;width:100%; float:left;}
 .TurnPage .Prev{padding:5px 15px;border:1px #dddddd solid;}
+.TurnPage .Prev-s a,.TurnPage .Prev-s span{padding:5px 15px;border:1px #dddddd solid;}
 .TurnPage .Prev i{border-top:5px solid #FFFFFF;border-right:5px solid #d8d8d8;border-bottom:5px solid #FFFFFF;display:inline-block;margin-right:5px;}
 .TurnPage .Next{padding:5px 15px;border:1px #dddddd solid;}
+.TurnPage .Next-s a,.TurnPage .Next-s span{padding:5px 15px;border:1px #dddddd solid;}
 .TurnPage .Next i{border-top:5px solid #FFFFFF;border-left:5px solid #d8d8d8;border-bottom:5px solid #FFFFFF;display:inline-block;margin-left:5px;}
-.TurnPage .PNumber{padding:5px 15px;background:#FFF;border:1px #dddddd solid;}
+.TurnPage .PNumber{display: inline-block;background:#FFF;border:1px #dddddd solid;width: 35px;line-height: 28px;}
+.TurnPage .PNumber-s a{display: inline-block;background:#FFF;border:1px #dddddd solid;width: 35px;line-height: 28px;}
+/*.TurnPage .PNumber a{display: inline-block;background:#FFF; width: 40px;height: 28px;}*/
 .TurnPage .pick{padding:5px 15px;background:#FFF;border:1px red solid;}
-.TurnPage .active{background-color: yellow;}
+.TurnPage .active a{background-color: yellow;}
+/*.TurnPage a{background-color: yellow;display: inline-block;}*/
 /*footer*/
 footer{height:auto;width:100%;background:#f1f1f1;margin-top:10px;border-top:1px #bababa solid;}
 footer .Otherlink{width:1200px;margin:0 auto;}

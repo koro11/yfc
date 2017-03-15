@@ -28,6 +28,16 @@ class LoginController extends Controller
         return $this->render('login');
     }
     /**
+     * qq登录
+     */
+    public function actionQqlogin()
+    {
+        require($_SERVER['HTTP_HOST'].'/../qq/API/qqConnectAPI.php');
+
+        $a = new \QC();
+        var_dump($a);die;
+    }
+    /**
      * 处理登录
      */
     public function actionLogin_do()
@@ -61,7 +71,7 @@ class LoginController extends Controller
                 $addCart = \Yii::$app->db->createCommand($sql)->execute();
                 //清除cookie购物信息
                 if(!$addCart)exit('购物信息入库失败,请重试'); 
-                setcookie('cart',''); 
+                unset($_COOKIE['cart']);
             }
     		$session = Yii::$app->session;
     		$session->set('user_id',$data['user_id']);
@@ -76,11 +86,11 @@ class LoginController extends Controller
     		}
     		$arr1['now_logintime'] = time();
     		$db=\Yii::$app->db ->createCommand()->update('yfc_users',$arr1,'user_id = '.$data['user_id']) ->execute();
-    		return $this->redirect(Url::to('/index/index'), 301);
+    		return 'ok';
     	}
     	else
     	{
-    		return $this->redirect(Url::to('/login/login'), 301);
+    		return 'no';
     	}
     }
     /**
@@ -114,12 +124,12 @@ class LoginController extends Controller
             }
             $arr1['mer_now_login'] = time();
             $db=\Yii::$app->db ->createCommand()->update('yfc_merchant',$arr1,'mer_id = '.$data['mer_id'])->execute();
-            return $this->redirect(Url::to('/index/index'), 301);
+            return 'ok';
 
         }
         else
         {
-            return $this->redirect(Url::to('/login/mer_login'), 301);
+            return 'no';
         }
     }
     /**
