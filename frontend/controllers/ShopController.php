@@ -23,7 +23,7 @@ use yii\helpers\Url;
  * @email  351518543@qq.com
  * @Time   2017-2-23
  */
-class ShopController extends Controller
+class ShopController extends CommonController
 {
 
     public $layout = '@app/views/layouts/center_nav.php';
@@ -45,7 +45,7 @@ class ShopController extends Controller
     {
         // 哪个商家
         $mer_id = Yii::$app->session->get('mer_id');
-        $mer_id = 1;
+        // $mer_id = 1;
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
         
         if ($arr) {
