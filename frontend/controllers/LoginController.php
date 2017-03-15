@@ -140,7 +140,7 @@ class LoginController extends Controller
         $session = Yii::$app->session;
         unset($session['user_id']);
         unset($session['mer_id']);
-        return $this->redirect(Url::to('/login/choice'), 301);
+        return $this->redirect(Url::to('/login/login'), 301);
     }
     
     public function actionRegister()
