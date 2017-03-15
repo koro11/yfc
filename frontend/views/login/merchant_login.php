@@ -51,9 +51,7 @@
 								<span>其它登录方式</span>
 							</div>
 							<div class="right other_right">
-								<a href="#">QQ登录</a>
-								<a href="#">微信登录</a>
-								<a href="#">微博登录</a>
+								<a href="<?=Url::to('login/login')?>">用户登录</a>
 							</div>
 						</div>
 					</div>
