@@ -57,7 +57,7 @@ use \yii\helpers\Url;
             echo '<a href="'.Url::to('register/user_register').'">注册</a>/<a href="'.Url::to('login/login').'">登录</a>';
         }
     ?>
-    <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
+    <a href="<?=Url::to('login/out')?>">退出</a>
    </div>
    <div class="RightNav">
    <?php if($user_id!=""){?>
@@ -67,7 +67,7 @@ use \yii\helpers\Url;
    <?php }else{?>
    <a href="#"></a>
    <?php }?>
-     <a href="<?=Url::to('user/user_orderlist')?>" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+     <a href="<?=Url::to('user/user_orderlist')?>" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> 
    </div>
   </div>
  </section>
