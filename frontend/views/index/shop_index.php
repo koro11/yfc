@@ -220,7 +220,7 @@ window.onload = function () {
       <div class="item">
        <div>
         <p><?=$value['food_name']?></p>
-        <p class="AButton">拖至购物车:￥<?=$value['food_price']?></p>
+        <p class="AButton">￥<?=$value['food_price']?></p>
        </div>
        </div>
       </li>
@@ -342,19 +342,7 @@ window.onload = function () {
     </div>
 </div>
 <aside>
-  <div class="cart" id="Topcart">
-  <span class="Ctitle Block FontW Font14"><a href="cart.html" target="_blank">我的购物车</a></span>
-  <table id="cartcontent" fitColumns="true">
-  <thead>
-  <tr>
-  <th width="33%" align="center" field="name">商品</th>
-  <th width="33%" align="center" field="quantity">数量</th>
-  <th width="33%" align="center" field="price">价格</th>
-  </tr>
-  </thead>
-  </table>
-  <p class="Ptc"><span class="Cbutton"><a href="cart.html" target="进入购物车">进入购物车</a></span><span class="total">共计金额: ￥0</span></p>
-  </div>
+  
   
   <div class="Nearshop">
    <span class="Nstitle">附近其他店铺</span>
@@ -451,7 +439,7 @@ window.onload = function () {
             + '<a href="#" class="item">'
             + '<div>'
             + '<p>'+v.food_name+'</p>'
-            + '<p class="AButton">拖至购物车:￥'+v.food_price+'</p></div>'
+            + '<p class="AButton">￥'+v.food_price+'</p></div>'
             + '</a></li><div class="TurnPage"></div>'   
         })
          $('.products').html(str);
@@ -465,7 +453,7 @@ window.onload = function () {
             + '<a href="#" class="item">'
             + '<div>'
             + '<p>'+v.food_name+'</p>'
-            + '<p class="AButton">拖至购物车:￥'+v.food_price+'</p></div>'
+            + '<p class="AButton">￥'+v.food_price+'</p></div>'
             + '</a></li><div class="TurnPage"></div>'   
         })
         // alert(data.page);return false;

@@ -17,7 +17,7 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
-
+    <script type="text/javascript" src="js/WdatePicker.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
 

@@ -52,7 +52,7 @@ class Message extends ActiveRecord
          unset($new_message[$key]['user']);
         
          $new_message[$key]['m_addtime'] = date('Y-m-d H:i:s',$value['m_addtime']);
-         $new_message[$key]['m_message'] = htmlspecialchars_decode($value['m_message']);
+         // $new_message[$key]['m_message'] = htmlspecialchars_decode($value['m_message']);
          
          //对应的商家回复
          $back = Message::find()                           
@@ -65,7 +65,7 @@ class Message extends ActiveRecord
              $back['mer_name'] = $back['mer']['mer_name'];
              unset($back['mer']);
              $back['m_addtime'] = date('Y-m-d H:i:s',$back['m_addtime']);
-             $back['m_message'] = htmlspecialchars_decode($back['m_message']);
+             // $back['m_message'] = htmlspecialchars_decode($back['m_message']);
              $new_message[$key]['back'] = $back;
           }
           else
