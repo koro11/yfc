@@ -17,7 +17,11 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<!--    <link rel="stylesheet" href="css/example.css">-->
 
+    <!-- This is what you need -->
+    <script src="js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
 <style>
@@ -252,7 +256,7 @@ use \yii\helpers\Url;
                 var user_lat=address.lat;
                 $.ajax({
                     type:"get",
-                    url:'?r=index/add_coor',
+                    url:'<?=url::to('index/add_coor')?>',
                     data:'user_id='+user_id+'&coor_address='+coor_address+'&user_lng='+user_lng+'&user_lat='+user_lat,
                     success:function(msg)
                     {

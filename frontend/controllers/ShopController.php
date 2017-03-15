@@ -45,10 +45,9 @@ class ShopController extends CommonController
     {
         // 哪个商家
         $mer_id = Yii::$app->session->get('mer_id');
-        // var_dump($mer_id);die();
         // $mer_id = 1;
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
-       
+        
         if ($arr) {
         $arr['mer_last_login'] = date('Y-m-d H:i:s',$arr['mer_last_login']);
         //查询订单表里待未配送的，已配送的
@@ -58,9 +57,8 @@ class ShopController extends CommonController
         $arr['shiped'] = count($shiped);
         // var_dump($arr);die;
         return $this->render('shop_center',['merchant'=>$arr]);
-        }
     }
-
+}
 
     /**
      * @Shop_orders
@@ -180,6 +178,20 @@ class ShopController extends CommonController
             return $this->redirect(Url::to('/shop/shop_food_list'), 301);
         }
     }
+
+    /**
+     * @shop_delete_shop
+     * 餐饮管理--是否做
+     * @access public
+     */
+     public function actionShop_delete_food()
+     {
+         $fid      = Yii::$app->request->get('fid');
+         $f_status = Yii::$app->request->get('fst');
+         $result   = Food::updateAll(['is_delete'=>$f_status],['food_id'=>$fid]);
+         // var_dump($result);
+         echo $result ? 1 : 0 ;// 1表示修改成功
+     }
 
     /**
      * @Shop_foods
@@ -325,7 +337,7 @@ class ShopController extends CommonController
     {
         // 哪个商家
         $mer_id = Yii::$app->session->get('mer_id');
-        //改商家发行多少优惠券
+        //该商家发行多少优惠券
         $tickets = Tickets::find()
             ->where(['tic_merchant' => $mer_id])
             ->asArray()
@@ -334,4 +346,70 @@ class ShopController extends CommonController
         return $this->render('shop_tickets', ['tickets' => $tickets]);
     }
 
+    /**
+     * @shop_extend_time
+     * 延长优惠券使用期限
+     * @access public
+     */
+     public function actionShop_extend_time()
+     {
+         $tid      = Yii::$app->request->get('tid');
+         $ext_time = Yii::$app->request->get('ext_time');
+         // echo $ext_time;
+         $ext_time = strtotime($ext_time);
+         $tickets_one = Tickets::find()
+                                 ->where(['tic_id' => $tid])
+                                 ->asArray()
+                                 ->one();
+        // var_dump($tickets_one);
+        if ($ext_time>time() && $ext_time>$tickets_one['tic_start']) {
+          if ($ext_time == 0) {
+              //还没过期
+             $result   = Tickets::updateAll(['tic_end'=>$ext_time],['tic_id'=>$tid]);
+          }else{
+             //已过期，重新启用
+             $result   = Tickets::updateAll(['tic_end'=>$ext_time,'tic_status'=>0],['tic_id'=>$tid]);
+          }
+
+        }else{
+           echo -1; //时间还没有以前的大，不合理
+        }
+     }
+
+    /**
+     * @shop_ticket_sta
+     * 优惠券管理--是否启用
+     * @access public
+     */
+     public function actionShop_ticket_sta()
+     {
+         $tid      = Yii::$app->request->get('tid');
+         $t_status = Yii::$app->request->get('tst');
+         $result   = Tickets::updateAll(['tic_status'=>$t_status],['tic_id'=>$tid]);
+         // var_dump($result);
+         echo $result ? 1 : 0 ;// 1表示修改成功
+     }
+
+    /**
+     * @shop_change_cost
+     * 优惠券管理--修改优惠金额
+     * @access public
+     */
+     public function actionShop_change_cost()
+     {
+         $tid      = Yii::$app->request->get('tid');
+         $input_new = Yii::$app->request->get('input_new');
+         $tickets_one = Tickets::find()
+                                 ->select('tic_status')
+                                 ->where(['tic_id' => $tid])
+                                 ->asArray()
+                                 ->one();
+         if ($tickets_one['tic_status'] == 0) {
+            $result   = Tickets::updateAll(['tic_cost'=>$input_new],['tic_id'=>$tid]);
+            echo $result ? 1 : 0 ;// 1表示修改成功
+         }else{
+            echo -1;
+         }
+         
+     }
 }

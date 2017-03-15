@@ -133,8 +133,6 @@ class Orders extends ActiveRecord
         return true;
     }
 
-
-
     public function getUsers(){
         return $this->hasOne(Users::className(),['user_id'=>'user_id']);
     }

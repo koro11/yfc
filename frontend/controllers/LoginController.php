@@ -71,7 +71,7 @@ class LoginController extends Controller
                 $addCart = \Yii::$app->db->createCommand($sql)->execute();
                 //清除cookie购物信息
                 if(!$addCart)exit('购物信息入库失败,请重试'); 
-                setcookie('cart',''); 
+                unset($_COOKIE['cart']);
             }
     		$session = Yii::$app->session;
     		$session->set('user_id',$data['user_id']);

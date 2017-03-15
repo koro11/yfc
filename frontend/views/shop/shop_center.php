@@ -4,7 +4,7 @@
   <section class="usercenter">
    <span class="Weltitle Block Font16 CorRed FontW Lineheight35">Welcome欢迎光临！</span>
    <div class="U-header MT20 Overflow">
-    <img src="upload/testuser.jpg">
+    <img src="<?=$merchant['mer_logo']?>">
     <p class="Font14 FontW"><?=$merchant['mer_name']?> 欢迎来到 商家中心！</p>
     <p class="Font12">您的上一次登录时间:<time> <?=$merchant['mer_last_login']?></time></p>
     <!-- <p class="Font12 CorRed FontW">我的优惠券( 0 ) | 我的积分( 0 )</p> -->

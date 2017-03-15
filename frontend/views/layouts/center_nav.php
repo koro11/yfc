@@ -2,6 +2,32 @@
 use \yii\helpers\Url;
 $this->beginContent('@app/views/layouts/main.php');
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <base href="/">
+    <meta charset="utf-8"/>
+    <title>DeathGhost</title>
+    <meta name="keywords" content="有饭吃"/>
+    <meta name="description" content="DeathGhost.cn::H5 WEB前端设计开发!"/>
+    <meta name="author" content="DeathGhost"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+    <script type="text/javascript" src="js/jqpublic.js"></script>
+    <script type="text/javascript" src="js/cart.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/WdatePicker.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
+</head>
+
+<style>
+    .p3button{
+        cursor: pointer;
+    }
+</style>
+<body>
+
+
 <section class="Psection MT20">
 <nav class="U-nav Font14 FontW">
   <ul>
