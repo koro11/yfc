@@ -296,7 +296,7 @@ window.onload = function () {
  </article>
  <div id="bg_bg"></div>
 <div class="box_mask" style="display:none">
-    <h2><a href="#" class="close">关闭</a></h2>
+    <h2><a href="javascript:void(0)" class="close">关闭</a></h2>
     <div class="list">
             <div class="login_box"> 
           
@@ -312,13 +312,13 @@ window.onload = function () {
               <div class="form_text_ipt">
                 <input name="password" type="password" placeholder="密码"><br>
               </div>
-              <div class="ececk_warning"><span>数据不能为空</span></div>
+             
               <div class="form_check_ipt">
                 <div class="left check_left">
                   <label><input name="" type="checkbox"> 下次自动登录</label>
                 </div>
                 <div class="right check_right">
-                  <a href="#">忘记密码</a>
+                  <a href="javascript:void(0)"><font color="blue">忘记密码</font></a>
                 </div>
               </div>
               <div class="form_btn">
@@ -543,8 +543,8 @@ $(function(){
     
     obj['userpass']  = $('.userpass').val();
 
-     var ok1 = false;
-     var ok2 = false;
+      ok1 = false;
+      ok2 = false;
      //验证手机号
       $(".username").focus(function(){
            // alert(obj)
