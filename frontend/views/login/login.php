@@ -42,8 +42,8 @@
 								<button type="button" class="submit">登录</button>
 							</div>
 							<div class="form_reg_btn">
-								<span>还没有帐号？</span><a href="<?=Url::to('register/choice')?>">马上注册</a>
-								<a href="<?=Url::to('register/merchant_login')?>" style="font-size:23px;">商家登录</a>
+								<span>还没有帐号？</span><a href="<?=Url::to('register/user_register')?>">马上注册</a>
+								<a href="<?=Url::to('login/mer_login')?>" style="font-size:23px;">商家登录</a>
 							</div>
 						</form>
 						<div class="other_login">
