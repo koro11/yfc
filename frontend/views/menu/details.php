@@ -1,5 +1,5 @@
 <script>
-$(function(){		
+$(function(){
 	$('.title-list li').click(function(){
 		var liindex = $('.title-list li').index(this);
 		$(this).addClass('on').siblings().removeClass('on');
@@ -7,7 +7,7 @@ $(function(){
 		var liWidth = $('.title-list li').width();
 		$('.shopcontent .title-list p').stop(false,true).animate({'left' : liindex * liWidth + 'px'},300);
 	});
-	
+
 	$('.menutab-wrap .menutab li').hover(function(){
 		$(this).css("border-color","#ff6600");
 		$(this).find('p > a').css('color','#ff6600');
@@ -17,24 +17,29 @@ $(function(){
 	});
 	});
 </script>
-
+<?php use yii\helpers\Url;?>
 <!--Start content-->
 <section class="slp">
  <section class="food-hd">
   <div class="foodpic">
-   <img src="upload/02.jpg" id="showimg">
+   <img src="<?php echo $details['food_image']?>" id="showimg">
     <ul class="smallpic">
      <li><img src="upload/02.jpg" onmouseover="show(this)" onmouseout="hide()"></li>
+     <li><img src="<?php echo $details['food_image']?>" onmouseover="show(this)" onmouseout="hide()"></li>
     </ul>
   </div>
-  <div class="foodtext">
+  <div class="foodtext" style="width: 555px;">
    <div class="foodname_a">
-    <h1>酸辣土豆丝</h1>
-    <p>西安市丈八路220号</p>
+    <h1><?php echo $details['food_name']?></h1>
+    <p><?php echo $details['mer_address']?></p>
    </div>
    <div class="price_a">
-    <p class="price01">促销：￥<span>59.00</span></p>
-    <p class="price02">价格：￥<s>69.00</s></p>
+    <?php if($details['is_discount']):?>
+        <p class="price01">促销：￥<span><?php echo $details['discount_price']?></span></p>
+        <p class="price02">价格：￥<s><?php echo $details['food_price']?></s></p>
+    <?php else:?>
+        <p class="price01">价格：￥<span><?php echo $details['food_price']?></span></p>
+    <?php endif;?>
    </div>
    <div class="Freight">
     <span>配送费用：</span>
@@ -43,41 +48,45 @@ $(function(){
    </div>
    <ul class="Tran_infor">
      <li>
-      <p class="Numerical">3</p>
+      <p class="Numerical"><?php echo $details['food_saled']?></p>
       <p>月销量</p>
      </li>
      <li class="line">
-      <p class="Numerical">58</p>
+      <p class="Numerical"><?php echo $num?></p>
       <p>累计评价</p>
      </li>
      <li>
-      <p class="Numerical">59</p>
+     <?php if($details['is_score']):?>
+      <p class="Numerical"><?php echo $details['food_score']?></p>
       <p>送幸福积分</p>
+     <?php else:?>
+       <p style="margin-top: 10px;"><font color="red">此商品积分已送完</font></p>
+     <?php endif;?>
      </li>
    </ul>
-   <form action="cart.html">
    <div class="BuyNo">
     <span>我要买：<input type="number" name="Number" required autofocus min="1" value="1"/>份</span>
-    <span>库存：3258</span>
+    <span>商家状态：<?php echo $details['mer_status']?'停止营业':'正在营业' ?></span>
     <div class="Buybutton">
-     <input name="" type="submit" value="加入购物车" class="BuyB">
-     <a href="shop.html"><span class="Backhome">进入店铺首页</span></a>
+     <input type="hidden" name="food" value="<?php echo $details['food_id']?>">
+     <button class="BuyB">加入购物车</button>
+     <a href="<?=Url::to(['index/shop_index','mer'=>$details['food_mer']])?>"><span class="Backhome">进入店铺首页</span></a>
     </div>
+
    </div>
   </div>
   <div class="viewhistory">
-   <span class="VHtitle">看了又看</span>
+   <span class="VHtitle">浏览历史</span>
    <ul class="Fsulist">
+    <?php if($list):?>
+    <?php foreach($list as $k=>$v):?>
     <li>
-     <a href="detailsp.html" target="_blank" title="酱爆茄子"><img src="upload/03.jpg"></a>
-     <p>酱爆茄子</p>
-     <p>￥12.80</p>
+     <a href="detailsp.html" target="_blank" title="<?php echo $v['food_name']?>"><img src="<?php echo $v['food_image']?>"></a>
+     <p><?php echo $v['food_name']?></p>
+     <p>￥<?php echo $v['food_price']?></p>
     </li>
-    <li>
-     <a href="detailsp.html" target="_blank" title="酱爆茄子"><img src="upload/02.jpg"></a>
-     <p>酱爆茄子</p>
-     <p>￥12.80</p>
-    </li>
+    <?php endforeach;?>
+    <?php endif;?>
    </ul>
   </div>
  </section>
@@ -88,8 +97,7 @@ $(function(){
   <div class="title2 cf">
     <ul class="title-list fr cf ">
       <li class="on">详细说明</li>
-      <li>评价详情（5）</li>
-      <li>成交记录（5）</li>
+      <li>评价详情（<?php echo $num?>）</li>
       <p><b></b></p>
     </ul>
   </div>
@@ -97,70 +105,44 @@ $(function(){
     <!--case1-->
     <div class="menutab show">
       <div class="cont_padding">
-       <img src="upload/tds.jpg">
-       <p>测试信息，可删除！</p>
-       <p>1. 将土豆洗净刮皮。</p>
-       <p>2. 先将土豆切成整齐的大薄片这样是切出均匀的丝的要点。</p>
-       <p>3. 将土豆片切成细丝。</p>
-       <p>4. 用清水将切好的土豆丝泡去淀粉，（这样炒出的土豆丝清爽不粘）</p>
-       <p>5. 将葱切末、辣椒剪成小段、蒜切末、红椒切丝、姜切末。</p>
+       <img src="<?php echo $details['food_image']?>">
+       <p><?php echo $details['food_desc']?></p>
       </div>
     </div>
     <!--case2-->
+
     <div class="menutab">
      <div class="cont_padding">
       <table class="Dcomment">
        <th width="80%">评价内容</th>
        <th width="20%" style="text-align:right">评价人</th>
-       <tr>
-       <td>
-        还不错，速度倒是挺速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快速度倒是挺快快...
-        <time>2016-05-31 22:30:39</time>
-       </td>
-       <td align="right">DEATHGHOST</td>
-       </tr>
+        <?php if(!empty($content)):?>
+       <tbody id="td">
+       <?php foreach($content as $k=>$v):?>
+           <tr>
+               <td>
+                   <?php echo $v['speak_body']?>
+                   <time><?php echo $v['create_time']?></time>
+               </td>
+               <td align="right"><?php echo $v['user_name']?></td>
+           </tr>
+       <?php endforeach;?>
+       </tbody>
+       <?php else:?>
+            <tr>
+               <td colspan="2"><center><font color="red">暂无评论</font></center></td>
+            </tr>
+       <?php endif;?>
       </table>
       <div class="TurnPage">
-         <a href="#">
-          <span class="Prev"><i></i>首页</span>
-         </a>
-         <a href="#"><span class="PNumber">1</span></a>
-         <a href="#"><span class="PNumber">2</span></a>
-         <a href="#">
-         <span class="Next">最后一页<i></i></span>
-        </a>
+
+         <?php echo $page?>
+
        </div>
      </div>
     </div>
     <!--case4-->
-    <div class="menutab">
-     <div class="cont_padding">
-     
-      <table width="888">
-       <th width="35%">买家</th>
-       <th width="20%">价格</th>
-       <th width="15%">数量</th>
-       <th width="30%">成交时间</th>
-       <tr height="40">
-        <td>d***t</td>
-        <td>￥59</td>
-        <td>1</td>
-        <td>2014-9-18 11:13:07</td>
-       </tr>
-      </table>
-     
-     </div>
-       <div class="TurnPage">
-         <a href="#">
-          <span class="Prev"><i></i>首页</span>
-         </a>
-         <a href="#"><span class="PNumber">1</span></a>
-         <a href="#"><span class="PNumber">2</span></a>
-         <a href="#">
-         <span class="Next">最后一页<i></i></span>
-        </a>
-       </div>
-   </div>
+
   </article>
   <!--ad&other infor-->
   <aside>
@@ -170,3 +152,125 @@ $(function(){
  </section>
 </section>
 <!--End content-->
+<script>
+    $(function(){
+        var food = $("input[name='food']").val();
+
+        //页码点击
+        $(document).delegate(".PNumber",'click',function(){
+            var now = $(this).text();
+            if(now == '')return false;
+
+            page(now);
+        })
+        //首页点击
+        $(document).delegate(".Prev",'click',function(){
+            var now = $(this).attr('page');
+            if(now == '')return false;
+            page(now);
+
+        })
+        //尾页点击
+        $(document).delegate(".Next",'click',function(){
+            var now =  $(this).attr('page');
+            if(now == '')return false;
+            page(now);
+
+        })
+
+        function page(page){
+            if(page == '')return false;
+            if(food == '')return false;
+
+            $.get('<?=Url::to('menu/details')?>',{now:page,id:food,status:1},function(data){
+                if(data.status==1){
+                    var str = '';
+                    $.each(data.content.comment,function(k,v){
+                        str += '<tr><td>'+v['speak_body']+'<time>'+v['create_time']+'</time></td> <td align="right">'+v['user_name']+'</td></tr>';
+                    })
+                    $(".TurnPage").html(data.content.page);
+                    $("#td").html(str);
+                }
+            },'json')
+        }
+        //加入购物车
+        $(document).delegate('.BuyB','click',function(){
+
+            var id = $('input[name="food"]').val();
+            var num = $('input[name="Number"]').val();
+            var _this = $(this);
+            $.ajax({
+                type: "get",
+                url: '<?=Url::to('menu/addcart')?>',
+                data: {num:num,id:id},
+                asynv:false,
+                dataType: 'json',
+                beforeSend:function(){
+                    _this.removeClass('BuyB').addClass('noBuy');
+                },
+                success: function(data){
+                    if(data.status == 1){
+                        swal({
+                            title: "商品成功加入购物车,是否进入购物车？",
+                            text: "商品成功加入购物车,是否进入购物车？",
+                            type: "warning",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            confirmButtonText: "是的，进入购物车",
+                            confirmButtonColor: "#ec6c62"
+                        }, function () {
+                            document.location = '<?=Url::to('cart/cart')?>';
+                        });
+                    }else if(data.status == '-1'){
+                        swal({
+                            title: "商品已存在购物车,是否进入购物车结算",
+                            text: "商品已存在购物车,是否进入购物车结算",
+                            type: "warning",
+                            showCancelButton: true,
+                            closeOnConfirm: false,
+                            confirmButtonText: "是的，我要结算",
+                            confirmButtonColor: "#ec6c62"
+                        }, function () {
+                            document.location = '<?=Url::to('cart/cart')?>';
+                        });
+                    }else{
+                        swal("OMG!",data.msg,"error");
+                    }
+                    _this.removeClass('noBuy').addClass('BuyB');
+                },
+
+            });
+        })
+    })
+    $(function() {
+        $(".demo_1 button").click(function () {
+            swal("这是一个信息提示框!");
+        });
+        $(".demo_2 button").click(function () {
+            swal("Good!", "弹出了一个操作成功的提示框", "success");
+        });
+        $(".demo_3 button").click(function () {
+            swal("OMG!", "弹出了一个错误提示框", "error");
+        });
+        $(".demo_4 button").click(function () {
+            swal({
+                title: "您确定要删除吗？",
+                text: "您确定要删除这条数据？",
+                type: "warning",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                confirmButtonText: "是的，我要删除",
+                confirmButtonColor: "#ec6c62"
+            }, function () {
+                $.ajax({
+                    url: "do.php",
+                    type: "DELETE"
+                }).done(function (data) {
+                    swal("操作成功!", "已成功删除数据！", "success");
+                }).error(function (data) {
+                    swal("OMG", "删除操作失败了!", "error");
+                });
+            });
+        });
+    });
+</script>

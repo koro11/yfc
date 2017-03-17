@@ -7,9 +7,11 @@ function selectsearch(theA,word){
  }
  theA.className='choose';
   if(word=='restaurant_name'){
-   document.getElementById('main_a_serach').action="search_s.html";//Test url
+	  $("input[name='search_type']").val('shop');
+	  $("#hot_shop").show().next().hide();
   }else if(word=='food_name'){
-   document.getElementById('main_a_serach').action="search_p.html";//Test url
+	  $("input[name='search_type']").val('food');
+	  $("#hot_shop").hide().next().show();
   }
 }
 //INDEX TAB LIST
@@ -43,3 +45,46 @@ document.getElementById("style"+arg).style.fontWeight = "bold";
 document.getElementById("style"+arg).style.boxShadow = "3px 2px 10px #dedede";
 document.getElementById("style"+arg).style.border = "1px #ffe580 solid";
 }
+
+function getUrl(){
+	var href = top.location.href;
+	var _index = href.indexOf('?');
+	var str = '';
+	var arr = new Object();
+	if(_index != -1){
+		str = href.substr(_index+1);
+		str = str.split('&');
+		for(var i=0;i<str.length;i++){
+			var a = str[i];
+			a = a.split('=');
+			var b = a[0];
+			arr[b] = a[1] ? a[1] : '';
+		}
+		return arr;
+	}
+	return arr;
+}
+
+var hoturl = $("#hoturl").val(); 	//index/get_hotword
+function getHotWords(type) {
+	$.ajax({
+		type: "POST",
+		url: hoturl,
+		data: {type:type},
+		dataType:'json',
+		success: function(msg){
+			var str='';
+			$.each(msg.shop,function (k,v) {
+				str+='<a href="/search/search?keyword='+v.hot_word+'" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+			});
+			$("#hot_shop").html(str);
+			str='';
+			$.each(msg.food,function (k,v) {
+				str+='<a href="/search/search?search_type=food&keyword='+v.hot_word+'" title="'+v.hot_word+'">'+v.hot_word+'</a>';
+			});
+			$("#hot_food").html(str);
+		}
+	});
+}
+
+getHotWords(0);

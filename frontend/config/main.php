@@ -1,4 +1,5 @@
 <?php
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -7,11 +8,30 @@ $params = array_merge(
 );
 
 return [
+
+    'aliases' => [
+        '@libs' => '@app/libs'
+    ],
+
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
+
+        'assetManager'=>[
+            'bundles'=>[
+                'yii\web\JqueryAsset'=>[
+                    'jsOptions'=>[
+                        'position'=>\yii\web\View::POS_HEAD,
+                    ]
+                ]
+            ]
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],
@@ -36,14 +56,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+        'class'=>[
+            'class'=>'/frontend/functions/Function.php',
+            'class'=>'/frontend/functions/Page.php',
+         ]
     ],
     'params' => $params,
 ];
