@@ -35,24 +35,23 @@
 									<label><input name="" type="checkbox"> 下次自动登录</label>
 								</div>
 								<div class="right check_right">
-									<a href="#">忘记密码</a>
+									<a href="javascript:;">忘记密码</a>
 								</div>
 							</div>
 							<div class="form_btn">
-								<button type="submit">登录</button>
+								<button type="button" class="submit">登录</button>
 							</div>
 							<div class="form_reg_btn">
 								<span>还没有帐号？</span><a href="<?=Url::to('register/user_register')?>">马上注册</a>
 							</div>
 						</form>
 						<div class="other_login">
+						<a href="<?=Url::to('index/index')?>">返回首页</a>
 							<div class="left other_left">
 								<span>其它登录方式</span>
 							</div>
 							<div class="right other_right">
-								<a href="#">QQ登录</a>
-								<a href="#">微信登录</a>
-								<a href="#">微博登录</a>
+								<a href="<?=Url::to('login/login')?>">用户登录</a>
 							</div>
 						</div>
 					</div>
@@ -64,7 +63,7 @@
 	</body>
 </html>
 <script>
-	$("form").submit(function(){
+	$(".submit").click(function(){
 	    var phone = $('.phone').val();
 	  	var password = $('.password').val();
 	  	if(phone=="")
@@ -75,5 +74,22 @@
 	  	{
 	  		return false;
 	  	}
+	  	$.ajax({
+		   type: "POST",
+		   url: "<?=Url::to('login/mer_login_do')?>",
+		   data: {mer_phone:phone,mer_pass:password},
+		   success: function(msg){
+		     if(msg=="no")
+		     {
+		     	alert('手机号或密码有误!');
+		     	return false;
+		     }
+		     else
+		     {
+		     	location.href="<?=Url::to('/index/index')?>";
+		     }
+		   }
+		});
+	  	
 	});
 </script>

@@ -19,19 +19,21 @@ class Page {
         //页码结束数
         $end = $start + 6;
         $end = $end > $total ? $total : $end;
+        $str = '';
+        if(!$this->pageCount<1){
 
-        //生成页码数
-        $str = '<a href="javascript:;"><span class="Prev" page="1"><i></i>首页</span></a>';//页码
-        for($i = $start; $i <= $end;$i++){
-            if($this->pageNow == $i){
-                $str .= '<a href="javascript:;"><span class=" pick">'.$i.'</span></a>';
-            }else{
-                $str .= '<a href="javascript:;"><span class="PNumber">'.$i.'</span></a>';
+            //生成页码数
+            $str = '<a href="javascript:;"><span class="Prev" page="1"><i></i>首页</span></a>';//页码
+            for($i = $start; $i <= $end;$i++){
+                if($this->pageNow == $i){
+                    $str .= '<a href="javascript:;"><span class=" pick">'.$i.'</span></a>';
+                }else{
+                    $str .= '<a href="javascript:;"><span class="PNumber">'.$i.'</span></a>';
+                }
+
             }
-
+            $str .= '<a href="javascript:;"><span class="Next" page='.$count.'>最后一页<i></i></span></a>';
         }
-        $str .= '<a href="javascript:;"><span class="Next" page='.$count.'>最后一页<i></i></span>
-</a>';
 
         return $str;
     }

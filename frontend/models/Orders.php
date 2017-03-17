@@ -64,9 +64,11 @@ class Orders extends ActiveRecord
         ];
     }
 
+
 	public function getDate(){
         return $this->hasOne(Date::className(),['deta_id'=>'order_date']);
 	}
+
 
     /**
      * 查看订单号是否重复
@@ -77,7 +79,7 @@ class Orders extends ActiveRecord
     public function getOrderNumber($number)
     {
         if(empty($number))return false;
-        $res = $this->find()->where(['order_sn'=>$number])->asArray()->one();
+        $res = $this->find()->where(['order_sn'=>$number])->asArray()->exists();
         if($res)return false;
         return true;
     }
@@ -96,6 +98,41 @@ class Orders extends ActiveRecord
         $id = \Yii::$app->db->getLastInsertId();
         return $id;
     }
+
+
+
+
+    /**
+     * 修改支付状态
+     * @author
+     * @param $id
+     * @return bool
+     */
+    public function savePay($order)
+
+
+
+    {
+        $res = $this->updateAll(array('order_paytime'=>time(),'pay_status'=>'1'),'order_id in ('.$order.')');
+        if(!$res)return false;
+        return true;
+    }
+
+
+    /**
+     * 支付状态
+     * @author Dx
+     * @param  string
+     * @return
+     */
+    public function getPay($order)
+    {
+        if(empty($order))return false;
+        $res = $this->find()->where(['order_sn'=>$order,'pay_status'=>'1'])->exists();
+        if($res)return false;
+        return true;
+    }
+
     public function getUsers(){
         return $this->hasOne(Users::className(),['user_id'=>'user_id']);
     }

@@ -6,7 +6,7 @@
     <?php if (!empty($arr)) {?>
     <ul>
     <?php foreach ($arr as $key => $val) {?>
-    <a href="<?=Url::to(['shop/shop','mer'=>$val['merchant']['mer_id']])?>" target="_blank">
+    <a href="<?=Url::to(['index/shop_index','mer'=>$val['merchant']['mer_id']])?>" target="_blank">
     <li>
      <img src="<?=$val['merchant']['mer_logo']?>">
      <p><?=$val['merchant']['mer_name']?> <a href="javascript:void(0)" id="del" collectid="<?=$val['collect_id']?>">( 删除 )</a></p>

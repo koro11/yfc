@@ -8,28 +8,31 @@ use frontend\models\Merchant_info;
 use frontend\models\Food_category;
 use frontend\models\Orders;
 use frontend\models\Food;
+use frontend\models\Message;
 use frontend\controllers\CommonController;
 use frontend\models\Tickets;
 use yii\web\UploadedFile;
 use yii\data\Pagination;
-use yii\web\Session;
+use frontend\custom_classes\Page;
+use yii\helpers\Url;
+
 /**
- * Yii2.0 ShopController  
- * 商家管理控制器          
- * @author Danny    
+ * Yii2.0 ShopController
+ * 商家管理控制器
+ * @author Danny
  * @email  351518543@qq.com
- * @Time   2017-2-23 
+ * @Time   2017-2-23
  */
-class ShopController extends Controller
+class ShopController extends CommonController
 {
-    
+
     public $layout = '@app/views/layouts/center_nav.php';
     public $enableCsrfValidation = false;
-    public static $merchant = 1;
-    
+
     public function actionShop_intro()
     {
-        
+        // $mer_id['id'] = Yii::$app->session->get('mer_id');
+        // echo $mer_id;die();
         return $this->render('shop_intro');
     }
 
@@ -38,24 +41,25 @@ class ShopController extends Controller
      * 商家中心首页
      * @access public
      */
-     public function actionShop_center()
+    public function actionShop_center()
     {
         // 哪个商家
-        $mer_id = self::$merchant;
-        // echo $mer_id;die(); 
-
+        $mer_id = Yii::$app->session->get('mer_id');
+        // $mer_id = 1;
         $arr = Merchant::find()->where(['mer_id'=>$mer_id])->asArray()->one();
-        // var_dump($arr);die();
+        
+        if ($arr) {
         $arr['mer_last_login'] = date('Y-m-d H:i:s',$arr['mer_last_login']);
         //查询订单表里待未配送的，已配送的
         $unship = Orders::find()->where(['merchant_id'=>$mer_id,'order_status'=>0,'shipping_status'=>0])->asArray()->all();
         $shiped = Orders::find()->where(['merchant_id'=>$mer_id,'order_status'=>0,'shipping_status'=>2])->asArray()->all();
         $arr['unship'] = count($unship);
         $arr['shiped'] = count($shiped);
-
+        // var_dump($arr);die;
         return $this->render('shop_center',['merchant'=>$arr]);
     }
-   
+}
+
     /**
      * @Shop_orders
      * 商家订单详情页
@@ -63,21 +67,24 @@ class ShopController extends Controller
      */
     public function actionShop_orders()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
+
         //查询商家订单
         $orders = Orders::find()
-                        ->where(['merchant_id'=>self::$merchant,'order_status'=>0])
-                        ->orderBy('shipping_status'); 
+            ->where(['merchant_id' => $mer_id, 'order_status' => 0])
+            ->orderBy('shipping_status');
         // var_dump($orders);die();
-        $pages = new Pagination([
-        //'totalCount' => $countQuery->count(),
-        'totalCount' => $orders->count(),
-        'pageSize'   => 7   //每页显示条数
-         ]);
+        $pages      = new Pagination([
+            //'totalCount' => $countQuery->count(),
+            'totalCount' => $orders->count(),
+            'pageSize'   => 7   //每页显示条数
+        ]);
         $order_data = $orders->offset($pages->offset)
-                             ->limit($pages->limit)
-                             ->all();
+            ->limit($pages->limit)
+            ->all();
         // var_dump($order_data);die();
-        return $this->render('shop_orders',['orders'=>$order_data,'pages'=>$pages]);
+        return $this->render('shop_orders', ['orders' => $order_data, 'pages' => $pages]);
     }
 
     /**
@@ -86,10 +93,12 @@ class ShopController extends Controller
      * @access public
      */
     public function actionShop_complete_info()
-    { 
-        return $this->render('shop_complete_info',['info_mer'=>self::$merchant]);
+    {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
+        return $this->render('shop_complete_info', ['info_mer' => $mer_id]);
     }
-    
+
     /**
      * @Shop_complete_act
      * 商家完善详情处理页
@@ -98,23 +107,23 @@ class ShopController extends Controller
     public function actionShop_complete_act()
     {
         $data = Yii::$app->request->post();
-        
-        $upload=new UploadedFile();                      //实例化上传类       
-        $file=$upload->getInstanceByName('info_image');  //获取文件原名称
-        $name = $file->name;
-        $suffix = substr($name, strrpos($name, '.'));      
-        $img = $_FILES['info_image'];                    //获取上传文件参数
-        $upload->tempName=$img['tmp_name'];              //设置上传的文件的临时名称
-        $img_path='upload/merchants/'.'merchant'.$data['info_mer'].'-'.time().$suffix; //设置上传文件的路径名称(这里的数据进行入库)        
-        $arr=$upload->saveAs($img_path);                 //保存文件
 
-        $data['info_image'] = $img_path;
-        $cate = Merchant::find()->select('info_mer_cate')->where(['mer_id'=>$data['info_mer']])->asArray()->one();
+        $upload           = new UploadedFile();                      //实例化上传类
+        $file             = $upload->getInstanceByName('info_image');  //获取文件原名称
+        $name             = $file->name;
+        $suffix           = substr($name, strrpos($name, '.'));
+        $img              = $_FILES['info_image'];                    //获取上传文件参数
+        $upload->tempName = $img['tmp_name'];              //设置上传的文件的临时名称
+        $img_path         = 'upload/merchants/' . 'merchant' . $data['info_mer'] . '-' . time() . $suffix; //设置上传文件的路径名称(这里的数据进行入库)
+        $arr              = $upload->saveAs($img_path);                 //保存文件
+
+        $data['info_image']    = $img_path;
+        $cate                  = Merchant::find()->select('info_mer_cate')->where(['mer_id' => $data['info_mer']])->asArray()->one();
         $data['info_mer_cate'] = $cate['info_mer_cate'];
-        $result = Merchant_info::updateAll($data,['info_mer'=>$data['info_mer']]);
-        return $this->redirect('?r=shop/shop_center',301);
+        $result                = Merchant_info::updateAll($data, ['info_mer' => $data['info_mer']]);
+        return $this->redirect(Url::to('/shop/shop_center'), 301);
     }
-    
+
     //关于商家的信息
     public function actionShop_info()
     {
@@ -128,13 +137,15 @@ class ShopController extends Controller
      */
     public function actionShop_addfood()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
         //菜系分类
         $food_category = Food_category::find()->asArray()->all();
 
         //哪家商家在操作
-        $merchant_info = Merchant::find()->where(['mer_id'=>self::$merchant])->asArray()->one();
-       
-        return $this->render('shop_addfood',['food_category'=>$food_category,'merchant'=>['mer_id'=>self::$merchant,'mer_name'=>$merchant_info['mer_name']]]);
+        $merchant_info = Merchant::find()->where(['mer_id' => $mer_id])->asArray()->one();
+
+        return $this->render('shop_addfood', ['food_category' => $food_category, 'merchant' => ['mer_id' => $mer_id, 'mer_name' => $merchant_info['mer_name']]]);
     }
 
     /**
@@ -145,45 +156,69 @@ class ShopController extends Controller
     public function actionShop_addfood_act()
     {
         $data = Yii::$app->request->post();
-        
-        $upload=new UploadedFile();                     //实例化上传类
-        $file=$upload->getInstanceByName('food_image'); //获取文件原名称
-        $name = $file->name;
-        $suffix = substr($name, strrpos($name, '.'));
-        $img = $_FILES['food_image'];                   //获取上传文件参数
-        $upload->tempName=$img['tmp_name'];             //设置上传的文件的临时名称
-        $img_path='upload/foods/'.'food'.$data['food_mer'].'-'.time().$suffix; //设置上传文件的路径名称(这里的数据进行入库)        
-        $arr=$upload->saveAs($img_path);                //保存文件
-        
+
+        $upload           = new UploadedFile();                     //实例化上传类
+        $file             = $upload->getInstanceByName('food_image'); //获取文件原名称
+        $name             = $file->name;
+        $suffix           = substr($name, strrpos($name, '.'));
+        $img              = $_FILES['food_image'];                   //获取上传文件参数
+        $upload->tempName = $img['tmp_name'];             //设置上传的文件的临时名称
+        $img_path         = 'upload/foods/' . 'food' . $data['food_mer'] . '-' . time() . $suffix; //设置上传文件的路径名称(这里的数据进行入库)
+        $arr              = $upload->saveAs($img_path);                //保存文件
+
         $data['food_image'] = $img_path;
         // var_dump($data);die();
-       
-        $db = \Yii::$app->db->createCommand();
-        $result = $db->insert('yfc_food' , $data )->execute();
-       
+
+        $db     = \Yii::$app->db->createCommand();
+        $result = $db->insert('yfc_food', $data)->execute();
+
         if ($result) {
-            return $this->redirect('?r=shop/shop_food_list',301);
-        }
-        else
-        {
-            return $this->redirect('?r=shop/shop_food_list',301);
+            return $this->redirect(Url::to('/shop/shop_food_list'), 301);
+        } else {
+            return $this->redirect(Url::to('/shop/shop_food_list'), 301);
         }
     }
 
-     /**
+    /**
+     * @shop_delete_shop
+     * 餐饮管理--是否做
+     * @access public
+     */
+     public function actionShop_delete_food()
+     {
+         $fid      = Yii::$app->request->get('fid');
+         $f_status = Yii::$app->request->get('fst');
+         $result   = Food::updateAll(['is_delete'=>$f_status],['food_id'=>$fid]);
+         // var_dump($result);
+         echo $result ? 1 : 0 ;// 1表示修改成功
+     }
+
+    /**
      * @Shop_foods
      * 商家详情页
      * @access public
      */
     public function actionShop_foods()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
+        // $mer_id = 1;
         //哪家商家在操作
         $foods = Food::find()
-                       ->joinWith('food_category')
-                       ->where(['food_mer'=>self::$merchant])
-                       ->asArray()
-                       ->all();
-        return $this->render('shop_foods');
+            ->joinWith('food_category')
+            ->where(['food_mer' => $mer_id]);
+        // var_dump($foods);die();
+
+        $pages      = new Pagination([
+            //'totalCount' => $countQuery->count(),
+            'totalCount' => $foods->count(),
+            'pageSize'   => 1   //每页显示条数
+        ]);
+        $foods_data = $foods->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+        // var_dump($foods_data);die();
+        return $this->render('shop_foods', ['foods' => $foods_data, 'pages' => $pages]);
     }
 
     /**
@@ -192,8 +227,65 @@ class ShopController extends Controller
      * @access public
      */
     public function actionShop_messages()
-    {      
-        return $this->render('Shop_messages');
+    {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
+        // $mer_id = 1;
+        $page         = 1;
+        $limit        = ($page - 1) * 3;
+        $message_data = Message::get_new_message($mer_id, $limit);
+        // 留言分页
+        $query         = new \yii\db\Query;
+        $page          = new Page;
+        $message_count = $query->from('yfc_message')->where(['m_mer' => $mer_id, 'm_type' => 0])->count();
+        // echo $message_count;die();
+        $page->pageCount = $message_count;
+        $page->pageSize  = 3;
+        $pages           = $page->getPage();
+
+        return $this->render('Shop_messages', ['shop_message' => $message_data, 'pages' => $pages]);
+    }
+
+    /**
+     * @shop_message_back
+     * 商家回复处理
+     * @access public
+     * @param  mixed integer boolean
+     * @return mixed void
+     */
+    public function actionShop_message_back()
+    {
+        $data = Yii::$app->request->post();
+        // var_dump($data);
+        $data['m_message'] = htmlspecialchars($data['m_message']);
+        $data['m_addtime'] = time();
+        $data['m_type']    = 1;
+        $db                = \Yii::$app->db->createCommand();
+        $result            = $db->insert('yfc_message', $data)->execute();
+        echo $result ? 1 : 0;
+    }
+
+    public function actionShop_page_back()
+    {
+        $p     = Yii::$app->request->get('p');
+        $limit = ($p - 1) * 3;
+        // $mer_id = Yii::$app->session->get('mer_id');
+        $mer_id        = 1;
+        $message_data  = Message::get_new_message($mer_id, $limit);
+        $page          = new Page;
+        $query         = new \yii\db\Query;
+        $message_count = $query->from('yfc_message')->where(['m_mer' => $mer_id, 'm_type' => 0])->count();
+        //获取数据总条数
+        $page->pageCount = $message_count;
+        $page->pageNow   = $p;
+        $page->pageSize  = 3;
+
+        // var_dump($foods);
+        //获取数据集合
+        $data['msg']  = $message_data;
+        $data['page'] = $page->getPage();
+
+        echo json_encode($data);
     }
 
     /**
@@ -203,10 +295,12 @@ class ShopController extends Controller
      */
     public function actionShop_issue_tickets()
     {
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
         //哪家商家在操作
-        $merchant_info = Merchant::find()->where(['mer_id'=>self::$merchant])->asArray()->one();
+        $merchant_info = Merchant::find()->where(['mer_id' => $mer_id])->asArray()->one();
 
-        return $this->render('shop_issue_tickets',['merchant'=>['mer_id'=>$merchant_info['mer_id'],'mer_name'=>$merchant_info['mer_name']]]);
+        return $this->render('shop_issue_tickets', ['merchant' => ['mer_id' => $merchant_info['mer_id'], 'mer_name' => $merchant_info['mer_name']]]);
     }
 
     /**
@@ -219,20 +313,18 @@ class ShopController extends Controller
         $data = Yii::$app->request->post();
 
         $data['tic_start'] = strtotime($data['tic_start']);
-        $data['tic_end'] = strtotime($data['tic_end']);
+        $data['tic_end']   = strtotime($data['tic_end']);
 
         if ($data['tic_end'] > $data['tic_start'] && $data['tic_end'] > time()) {
- 
-        $db = \Yii::$app->db->createCommand();
-        $result = $db->insert('yfc_tickets' , $data )->execute();
+
+            $db     = \Yii::$app->db->createCommand();
+            $result = $db->insert('yfc_tickets', $data)->execute();
 
         }
         if ($result) {
-            return $this->redirect('?r=shop/shop_tickets',301);
-        }
-        else
-        {
-            return $this->redirect('?r=shop/shop_issue_tickets',301);
+            return $this->redirect(Url::to('/shop/shop_tickets'), 301);
+        } else {
+            return $this->redirect(Url::to('/shop/shop_issue_tickets'), 301);
         }
     }
 
@@ -243,13 +335,81 @@ class ShopController extends Controller
      */
     public function actionShop_tickets()
     {
-       //改商家发行多少优惠券
+        // 哪个商家
+        $mer_id = Yii::$app->session->get('mer_id');
+        //该商家发行多少优惠券
         $tickets = Tickets::find()
-                       ->where(['tic_merchant'=>self::$merchant])
-                       ->asArray()
-                       ->all();
+            ->where(['tic_merchant' => $mer_id])
+            ->asArray()
+            ->all();
         // var_dump($tickets);die();
-        return $this->render('shop_tickets',['tickets'=>$tickets]);
+        return $this->render('shop_tickets', ['tickets' => $tickets]);
     }
 
+    /**
+     * @shop_extend_time
+     * 延长优惠券使用期限
+     * @access public
+     */
+     public function actionShop_extend_time()
+     {
+         $tid      = Yii::$app->request->get('tid');
+         $ext_time = Yii::$app->request->get('ext_time');
+         // echo $ext_time;
+         $ext_time = strtotime($ext_time);
+         $tickets_one = Tickets::find()
+                                 ->where(['tic_id' => $tid])
+                                 ->asArray()
+                                 ->one();
+        // var_dump($tickets_one);
+        if ($ext_time>time() && $ext_time>$tickets_one['tic_start']) {
+          if ($ext_time == 0) {
+              //还没过期
+             $result   = Tickets::updateAll(['tic_end'=>$ext_time],['tic_id'=>$tid]);
+          }else{
+             //已过期，重新启用
+             $result   = Tickets::updateAll(['tic_end'=>$ext_time,'tic_status'=>0],['tic_id'=>$tid]);
+          }
+
+        }else{
+           echo -1; //时间还没有以前的大，不合理
+        }
+     }
+
+    /**
+     * @shop_ticket_sta
+     * 优惠券管理--是否启用
+     * @access public
+     */
+     public function actionShop_ticket_sta()
+     {
+         $tid      = Yii::$app->request->get('tid');
+         $t_status = Yii::$app->request->get('tst');
+         $result   = Tickets::updateAll(['tic_status'=>$t_status],['tic_id'=>$tid]);
+         // var_dump($result);
+         echo $result ? 1 : 0 ;// 1表示修改成功
+     }
+
+    /**
+     * @shop_change_cost
+     * 优惠券管理--修改优惠金额
+     * @access public
+     */
+     public function actionShop_change_cost()
+     {
+         $tid      = Yii::$app->request->get('tid');
+         $input_new = Yii::$app->request->get('input_new');
+         $tickets_one = Tickets::find()
+                                 ->select('tic_status')
+                                 ->where(['tic_id' => $tid])
+                                 ->asArray()
+                                 ->one();
+         if ($tickets_one['tic_status'] == 0) {
+            $result   = Tickets::updateAll(['tic_cost'=>$input_new],['tic_id'=>$tid]);
+            echo $result ? 1 : 0 ;// 1表示修改成功
+         }else{
+            echo -1;
+         }
+         
+     }
 }

@@ -11,7 +11,7 @@
     <?php }?>
     <p class="Font14 FontW"><?= $user['user_name']?>&nbsp;&nbsp;&nbsp;&nbsp;欢迎您回到 用户中心！</p>
     <p class="Font12">您的上一次登录时间:<time><?= date('Y-m-d,H:i:s',$user['users']['last_logintime'])?> </time></p>
-    <p class="Font12 CorRed FontW">我的优惠券( <?= $user['ticket']?> ) | 我的积分( <?= $user['user_score']?>)</p>
+    <p class="Font12 CorRed FontW">可用优惠券( <?= $user['ticket']?> ),已过期(<?= $user['tickets']?>) | 我的积分( <?= $user['user_score']?>)</p>
    </div>
     <ul class="s-States Overflow FontW" id="Lbn">
      <li class="Font14 FontW">幸福业务在线提醒：</li>

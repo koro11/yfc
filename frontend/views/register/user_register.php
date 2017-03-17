@@ -42,9 +42,12 @@ use yii\captcha\Captcha;
 							<div class="form_btn">
 								<button type="submit" style="margin-top:20px;">注册</button>
 							</div>
+							
 						</form>
 						<div class="other_login">
 						<a href="<?=Url::to('login/login')?>">已有账号？请登录</a>
+						<a href="<?=Url::to('index/index')?>">返回首页</a></hr>
+						<a href="<?=Url::to('register/merchant_register')?>" style="font-size:23px;">商家入驻</a>
 						</div>
 					</div>
 
@@ -67,6 +70,18 @@ use yii\captcha\Captcha;
 	    {
 	    	$('#phone').text('');
 	    }
+	    $.ajax({
+		   type: "POST",
+		   url: "<?=Url::to('/register/check_useronly')?>",
+		   data: {user_phone:phone},
+		   success: function(msg){
+		     if(msg=="have")
+		     {
+		     	$('#phone').text('此手机号已存在请换一个吧~');
+		     	return false;
+		     }
+		   }
+		});
   	});
   	$('.rpassword').blur(function(){
 	  	var password = $('.password').val();

@@ -15,9 +15,10 @@ class CommonController extends Controller
         $user_id = $session->get('user_id');
         $mer_id  = $session->get('mer_id');
         //判断是否有登录session
-        if (!isset($user_id) && !isset($mer_id)) {
+        if (!$session->has('user_id') && !$session->has('mer_id')) 
+        {
 
-            return $this->redirect(Url::to('/login/choice'), 301);
+            return $this->redirect(Url::to('/login/login'), 301);
         }
     }
 }

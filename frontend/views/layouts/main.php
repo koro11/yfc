@@ -17,7 +17,12 @@ use \yii\helpers\Url;
     <script type="text/javascript" src="js/jqpublic.js"></script>
     <script type="text/javascript" src="js/cart.js"></script>
     <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<!--    <link rel="stylesheet" href="css/example.css">-->
 
+    <!-- This is what you need -->
+    <script src="js/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="css/sweetalert.css">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ixk1wsRY3ffwS12GLtYmvjyHYkUfu0Uu"></script>
 </head>
 <style>
     .p3button{
@@ -39,7 +44,7 @@ use \yii\helpers\Url;
         {
             $query = new Query;
             $username = $query->select('user_name')->from('yfc_user_info')->where(['user_id'=>$user_id])->one();
-            echo '欢迎用户    '.$username['user_name'].'   登录';
+            echo '欢迎用户    <span id="user_id" user_id="'.$user_id.'">'.$username['user_name'].'</span>   登录';
         } 
         else if($mer_id!="")
         {
@@ -49,27 +54,45 @@ use \yii\helpers\Url;
         }
         else
         {
-            echo '<a href="'.Url::to('register/choice').'">注册</a>/<a href="'.Url::to('login/choice').'">登录</a>';
+            echo '<a href="'.Url::to('register/user_register').'">注册</a>/<a href="'.Url::to('login/login').'">登录</a>';
         }
     ?>
-    <a href="#">QQ客服</a><a href="#">微信客服</a><a href="#">手机客户端</a><a href="<?=Url::to('login/out')?>">退出</a>
+    <a href="<?=Url::to('login/out')?>">退出</a>
    </div>
    <div class="RightNav">
    <?php if($user_id!=""){?>
     <a href="<?=Url::to('user/user_index')?>">用户中心</a>
-   <?php }else{?>
+   <?php }elseif($mer_id!=""){?>
     <a href="<?=Url::to('shop/shop_center')?>">商户中心</a>
+   <?php }else{?>
+   <a href="#"></a>
    <?php }?>
-     <a href="user_orderlist.html" target="_blank" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> <a href="user_favorites.html" target="_blank" title="我的收藏">我的收藏</a> <a href="#">商家入驻</a>
+     <a href="<?=Url::to('user/user_orderlist')?>" title="我的订单">我的订单</a> <a href="<?=Url::to('cart/cart')?>">购物车（0）</a> 
    </div>
   </div>
  </section>
     <div class="Logo_search">
         <div class="Logo">
-            <img src="images/logo.jpg" title="DeathGhost" alt="模板">
+            <a href="<?=Url::to('index/index')?>"><img src="images/logo1.jpg" title="DeathGhost" alt="模板"></a>
             <i></i>
-            <span>北京市 [ <a href="#">海淀区</a> ]</span>
+
+            <?php $session = Yii::$app->session; $user_id = $session->get('user_id'); if (empty($user_id)) {?>
+                <span id="adress">北京市</span>
+            <?php }else{?>
+            <?php 
+                $coor=Yii::$app->db->createCommand("select * from yfc_user_coor where user_id=".$user_id."")->queryOne();
+            if(empty($coor)){?>
+                <span id="adress">北京市 请输入:<input type="text" placeholder="请手动输入详细地址" id="suggestId" size="20"  style="width:150px;" /></span>
+             <div id="l-map" style="display:none"></div>
+                     <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+             <?php }else{?>  
+              <span id="adress"> <input type="text" id="suggestId" size="20" placeholder="<?php echo $coor['coor_address']?>"  style="width:150px;"  />&nbsp;&nbsp;&nbsp;&nbsp;<a herf="#" id="up">修改</a></span>
+             <div id="l-map" style="display:none"></div>
+            <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
+            <?php }?>
+            <?php }?>
         </div>
+
         <div class="Search">
             <form method="get" action="<?=Url::to('search/search')?>">
 <!--                <input type="hidden" name="r" value="search/search">-->
@@ -82,21 +105,20 @@ use \yii\helpers\Url;
                 <div class="Search_area">
                     <input type="search" id="fkeyword" name="keyword" <?php if(isset($_GET['keyword']) && !empty($_GET['keyword'])){echo 'value="'.$_GET['keyword'].'"';}?> placeholder="请输入您所需查找的餐厅名称或食物名称..." class="searchbox"/>
                     <input type="submit" class="searchbutton" value="搜 索"/>
-                    <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
                 </div>
             </form>
-            <p class="hotkeywords">
-<!--                <a href="#" title="酸辣土豆丝">酸辣土豆丝</a><a href="#" title="这里是产品名称">螃蟹炒年糕</a><a href="#" title="这里是产品名称">牛奶炖蛋</a><a href="#" title="这里是产品名称">芝麻酱凉面</a><a href="#" title="这里是产品名称">滑蛋虾仁</a><a href="#" title="这里是产品名称">蒜汁茄子</a>-->
-            </p>
+            <p class="hotkeywords" id="hot_shop" <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food'){echo 'style="display: none;"';} ?>></p>
+            <p class="hotkeywords" id="hot_food" <?php if(!isset($_GET['search_type']) || $_GET['search_type']!='food'){echo 'style="display: none;"';} ?>></p>
+            <input type="hidden" id="hoturl" value="<?=Url::to(['index/hot_word']);?>">
         </div>
     </div>
     <nav class="menu_bg">
         <ul class="menu">
-            <li><a href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
-            <li><a href="<?=Url::to('search/search')?>">订餐</a></li>
-            <li><a href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
-            <li><a href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
-            <li><a href="<?=Url::to('index/about_us')?>">关于我们</a></li>
+            <li><a <?php if($_SERVER['REQUEST_URI']=='/index/index'){echo 'style="color:#fd5411;"';}?> href="<?=\yii\helpers\Url::toRoute('index/index')?>">首页</a></li>
+            <li><a <?php if(isset($_GET['search_type']) && $_GET['search_type']=='food' && !isset($_GET['score'])){echo 'style="color:#fd5411;"';}?> href="<?=Url::to(['search/search','search_type'=>'food'])?>">美食</a></li>
+            <li><a <?php if(!isset($_GET['search_type']) && $_SERVER['REDIRECT_URL']=='/search/search'){echo 'style="color:#fd5411;"';}?> href="<?=Url::to('search/search')?>">餐馆</a></li>
+            <li><a <?php if(isset($_GET['score'])){echo 'style="color:#fd5411;"';}?> href="<?=Url::to(['search/search','search_type'=>'food','score'=>'score'])?>">积分商城</a></li>
+            <li><a <?php if($_SERVER['REQUEST_URI']=='/index/about_us'){echo 'style="color:#fd5411;"';}?> href="<?=Url::to('index/about_us')?>">关于我们</a></li>
         </ul>
     </nav>
     <script type="text/javascript" src="js/public.js"></script>
@@ -166,3 +188,91 @@ use \yii\helpers\Url;
 </footer>
 </body>
 </html>
+<script type="text/javascript">
+    // 百度地图API功能
+    function G(id) {
+        return document.getElementById(id);
+    }
+
+    var map = new BMap.Map("l-map");
+    map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+
+    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+        {"input" : "suggestId"
+        ,"location" : map
+    });
+
+    ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+    var str = "";
+        var _value = e.fromitem.value;
+        var value = "";
+        if (e.fromitem.index > -1) {
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }    
+        str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+        
+        value = "";
+        if (e.toitem.index > -1) {
+            _value = e.toitem.value;
+            value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        }    
+        str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+        G("searchResultPanel").innerHTML = str;
+    });
+
+    var myValue;
+    ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+    var _value = e.item.value;
+        myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+        G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+        
+        setPlace();
+    });
+
+    function setPlace(){
+        map.clearOverlays();    //清除地图上所有覆盖物
+        function myFun(){
+            var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+            map.centerAndZoom(pp, 18);
+            map.addOverlay(new BMap.Marker(pp));    //添加标注
+        }
+        $(document).delegate("#suggestId","blur",function(){
+        var name=$(this).val();
+        $("#adress").html(name);
+        var adds = new Array();
+        adds[0]=name;
+        geocodeSearch(adds);
+    })      
+        
+    }
+    function geocodeSearch(add){
+        var myGeo = new BMap.Geocoder();
+        myGeo.getPoint(add, function(point){
+            if (point) {
+                var address = new BMap.Point(point.lng, point.lat);
+                var user_id=$("#user_id").attr("user_id");
+                var coor_address=add[0];
+                var user_lng=address.lng;
+                var user_lat=address.lat;
+                $.ajax({
+                    type:"get",
+                    url:'<?=url::to('index/add_coor')?>',
+                    data:'user_id='+user_id+'&coor_address='+coor_address+'&user_lng='+user_lng+'&user_lat='+user_lat,
+                    success:function(msg)
+                    {
+                        if (msg!=1) 
+                        {
+                            alert('地址设置失败');
+                        }
+                    }
+                });
+            }
+        }, "北京市");
+    }
+    
+</script>
+<script type="text/javascript">
+    $(document).delegate("#up","click",function(){
+        $("#suggestId").attr({placeholder:"请输入"});
+    })
+</script>

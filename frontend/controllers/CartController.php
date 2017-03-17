@@ -42,7 +42,7 @@ class CartController extends Controller
                     $v['food']['price'] = $v['food']['food_price'];
                 }
 
-                $res[$v['food']['food_mername'].','.$v['food_mer']][$k] = $v;
+                $res[$v['food']['food_mername'].','.$v['food']['food_mer']][$k] = $v;
             }
         }
 
@@ -156,8 +156,9 @@ class CartController extends Controller
         $cartId = urlencode($cartId);
         $store = urlencode($store);
 
-        $url = APP_URL.'?r=order/order';
-        $return['content'] = $url.'&buycart='.substr($cartId,0,4).'&id='.substr($cartId,4,4).'&param='.substr($cartId,8).'&mer='.$store;
+        $url = APP_URL.'order/order';
+
+        $return['content'] = $url.'?buycart='.substr($cartId,0,4).'&id='.substr($cartId,4,4).'&param='.substr($cartId,8).'&mer='.$store;
         $return['msg'] ='可以进行下单';
         $return['status'] = 1;
         exit(json_encode($return));

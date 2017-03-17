@@ -96,8 +96,7 @@
     color:green;
 }
 </style>
-<script src="http://api.map.baidu.com/api?v=2.0&ak=rLwK3QfoqXKyQvHGtkcM6A77GYSm4ys4"></script>
-<script>
+<script type="text/javascript">
 $(function(){   
   $('.title-list li').click(function(){
     var liindex = $('.title-list li').index(this);
@@ -144,7 +143,7 @@ window.onload = function () {
  <article>
   <div class="shopinfor">
    <div class="title">
-    <img src="upload/wpjnewlogo.jpg" class="shop-ico">
+    <img src="<?=$shop_info['merchant']['mer_logo']?>" class="shop-ico">
     <span><?=$shop_info['merchant']['mer_name']?></span>
     <span>
      <img src="images/star-on.png">
@@ -186,15 +185,13 @@ window.onload = function () {
      <p><span>人均消费：</span><?=$shop_info['merchant']['info_catipa']?>元</p>
      <div class="Button">
 
-     <?php if ($shop_info['merchant']['mer_status'] == 0): ?>      
-      <a href="#ydwm"><span class="DCbutton">查看菜谱点菜</span></a>
-        <?php else: ?>
-          <font color="red">该商家目前暂不提供服务，请耐心等候...</font>
+     <?php if ($shop_info['merchant']['mer_status'] == 1): ?>      
+        <font color="red">该商家目前暂不提供服务，请耐心等候...</font>
         <?php endif ?>
 
      </div>
      <div class="otherinfor">
-     <a href="<?=$shop_info['info_mer']?>" class="icoa"><img src="images/collect.png">收藏店铺（<?=$shop_collect_num?>）</a>
+     <a href="javascript:void(0)" class="icoa" mid="<?=$shop_info['info_mer']?>"><img src="images/collect.png">收藏店铺（<?=$shop_collect_num?>）</a>
      <div class="bshare-custom"><a title="分享" class="bshare-more bshare-more-icon more-style-addthis">分享</a></div>
    <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=1&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
      </div>
@@ -211,31 +208,30 @@ window.onload = function () {
     </ul>
   </div>
   <div class="menutab-wrap">
-   <a name="ydwm">
+   <div name="ydwm">
     <!--case1-->
     <div class="menutab show">
      <ul class="products">
-
-    <?php foreach ($shop_foods as $key => $value): ?>    
-    <li>
-     <a href="<?php echo $shop_info['merchant']['mer_status'] == 1 ? Url::to(['index/#']): Url::to(['menu/details','id'=>$value['food_id']]);?>" target="_blank" title="<?=$value['food_name']?>">
-         <img src="<?=$value['food_image']?>" class="foodsimgsize">
-         </a>
-          <a href="#" class="item">
-     <div>
-      <p><?=$value['food_name']?></p>
-      <p class="AButton">拖至购物车:￥<?=$value['food_price']?></p>
-     </div>
-     </a>
-    </li>
+      <?php foreach ($shop_foods as $key => $value): ?>    
+      <li>
+       <a href="<?php echo $shop_info['merchant']['mer_status'] == 1 ? Url::to(['index/shop_index','mer'=>$shop_info['info_mer']]): Url::to(['menu/details','id'=>$value['food_id']]);?>" target="_blank" title="<?=$value['food_name']?>">
+           <img src="<?=$value['food_image']?>" class="foodsimgsize">
+       </a>
+      <div class="item">
+       <div>
+        <p><?=$value['food_name']?></p>
+        <p class="AButton">￥<?=$value['food_price']?></p>
+       </div>
+       </div>
+      </li>
     <?php endforeach ?>
     <div class="TurnPage">
     <?=$shop_foods_pages?>
     </div> 
    </ul>
-   
-    </a>
     </div>
+    <!--case1-->
+
     <!--case2-->
     <div class="menutab">
      <?php foreach ($shop_comment as $ck => $cv): ?>
@@ -253,8 +249,9 @@ window.onload = function () {
       </div>
      </div>
      <?php endforeach ?>
-
     </div>
+    <!--case2-->
+
     <!--case4-->
     <div class="menutab">
      <div class="shopdetails">
@@ -270,19 +267,19 @@ window.onload = function () {
      </div>
     </div>
     </div>
+    <!--case4-->
+  
     <!--case5-->
     <div class="menutab">
      <div class="message_list">
-      <?php foreach ($shop_message as $k => $v): ?>
-        
-     <span class="Ask"><i><?=$v['user_name']?></i>:<?=$v['m_message']?>-<i>于<?=$v['m_addtime']?></i></span>
-      <?php if ($v['back']!=''): ?>
-        
-     <span class="Answer"><i><?=$v['back']['mer_name']?>回复</i>：<?=$v['back']['m_message']?>-<i><?=$v['back']['m_addtime']?></i></span>
-      <?php endif ?>
-      <?php endforeach ?>
+      <?php foreach ($shop_message as $k => $v): ?>     
+         <span class="Ask"><i><?=$v['user_name']?></i>:<?=$v['m_message']?>-<i>于<?=$v['m_addtime']?></i></span>
+          <?php if ($v['back']!=''): ?>
+            
+         <span class="Answer"><i><?=$v['back']['mer_name']?>回复</i>：<?=$v['back']['m_message']?>-<i><?=$v['back']['m_addtime']?></i></span>
+          <?php endif ?>
+          <?php endforeach ?>
      </div>
-
     <div>
       <input type="hidden" class="user_id">
       <input type="hidden" class="mer_status" value="<?=$shop_info['merchant']['mer_status']?>">
@@ -291,14 +288,15 @@ window.onload = function () {
       <textarea class="user_message" id="" cols="50" rows="3"></textarea>
       <button class="show_btn" >留言</button>
     </div>
-
     </div>
+    <!--case5 -->
+
   </div>
 </div>
  </article>
  <div id="bg_bg"></div>
 <div class="box_mask" style="display:none">
-    <h2><a href="#" class="close">关闭</a></h2>
+    <h2><a href="javascript:void(0)" class="close">关闭</a></h2>
     <div class="list">
             <div class="login_box"> 
           
@@ -314,13 +312,13 @@ window.onload = function () {
               <div class="form_text_ipt">
                 <input name="password" type="password" placeholder="密码"><br>
               </div>
-              <div class="ececk_warning"><span>数据不能为空</span></div>
+             
               <div class="form_check_ipt">
                 <div class="left check_left">
                   <label><input name="" type="checkbox"> 下次自动登录</label>
                 </div>
                 <div class="right check_right">
-                  <a href="#">忘记密码</a>
+                  <a href="javascript:void(0)"><font color="blue">忘记密码</font></a>
                 </div>
               </div>
               <div class="form_btn">
@@ -344,19 +342,7 @@ window.onload = function () {
     </div>
 </div>
 <aside>
-  <div class="cart" id="Topcart">
-  <span class="Ctitle Block FontW Font14"><a href="cart.html" target="_blank">我的购物车</a></span>
-  <table id="cartcontent" fitColumns="true">
-  <thead>
-  <tr>
-  <th width="33%" align="center" field="name">商品</th>
-  <th width="33%" align="center" field="quantity">数量</th>
-  <th width="33%" align="center" field="price">价格</th>
-  </tr>
-  </thead>
-  </table>
-  <p class="Ptc"><span class="Cbutton"><a href="cart.html" target="进入购物车">进入购物车</a></span><span class="total">共计金额: ￥0</span></p>
-  </div>
+  
   
   <div class="Nearshop">
    <span class="Nstitle">附近其他店铺</span>
@@ -398,6 +384,8 @@ window.onload = function () {
 <input type="hidden" class="clear_url" value="<?=Url::to(['index/clear_history']);?>">
 </section>
 <!--End content-->
+<script src="http://api.map.baidu.com/api?v=2.0&ak=rLwK3QfoqXKyQvHGtkcM6A77GYSm4ys4"></script>
+
 <script type="text/javascript">
   // 百度地图API功能
   var map = new BMap.Map("allmap");
@@ -416,6 +404,8 @@ window.onload = function () {
     }
   }, "北京市");
 
+</script>
+<script type="text/javascript">
    //分页
   function page(p){
     
@@ -449,7 +439,7 @@ window.onload = function () {
             + '<a href="#" class="item">'
             + '<div>'
             + '<p>'+v.food_name+'</p>'
-            + '<p class="AButton">拖至购物车:￥'+v.food_price+'</p></div>'
+            + '<p class="AButton">￥'+v.food_price+'</p></div>'
             + '</a></li><div class="TurnPage"></div>'   
         })
          $('.products').html(str);
@@ -463,7 +453,7 @@ window.onload = function () {
             + '<a href="#" class="item">'
             + '<div>'
             + '<p>'+v.food_name+'</p>'
-            + '<p class="AButton">拖至购物车:￥'+v.food_price+'</p></div>'
+            + '<p class="AButton">￥'+v.food_price+'</p></div>'
             + '</a></li><div class="TurnPage"></div>'   
         })
         // alert(data.page);return false;
@@ -553,8 +543,8 @@ $(function(){
     
     obj['userpass']  = $('.userpass').val();
 
-     var ok1 = false;
-     var ok2 = false;
+      ok1 = false;
+      ok2 = false;
      //验证手机号
       $(".username").focus(function(){
            // alert(obj)

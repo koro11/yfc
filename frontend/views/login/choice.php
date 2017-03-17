@@ -25,6 +25,7 @@
 						</div>
 					</div>
 					<a href="<?=Url::to(['register/choice']);?>">还没账号？请先注册</a>
+					<a href="<?=Url::to('index/index')?>">返回首页</a>
 				</div>
 			</div>
 		</div>
